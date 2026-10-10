@@ -1,0 +1,12 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.toml text eol=lf
+*.lock text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+aurago-revision text eol=lf
+# Preserve the exporter's byte-exact generated Markdown, including its final blank line.
+training/tools_catalog.md whitespace=-blank-at-eof

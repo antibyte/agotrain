@@ -1,0 +1,11 @@
+/reports/
+/.source/
+/.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.log
+*.key
+*.pem
+.DS_Store

@@ -1,0 +1,95 @@
+name: Training Dataset Gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      AURAGO_SOURCE: ${{ github.workspace }}/.source/AuraGo
+      AURAGO_TRAINING_DIR: ${{ github.workspace }}/training
+    steps:
+      - name: Checkout training repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Read pinned AuraGo revision
+        id: source
+        shell: bash
+        run: |
+          revision=$(cat aurago-revision)
+          [[ "$revision" =~ ^[0-9a-f]{40}$ ]]
+          echo "revision=$revision" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout canonical exporter and runtime
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: antibyte/AuraGo
+          ref: ${{ steps.source.outputs.revision }}
+          path: .source/AuraGo
+          persist-credentials: false
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: .source/AuraGo/go.mod
+          cache-dependency-path: .source/AuraGo/go.sum
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.13"
+
+      - name: Install CPU validation dependencies
+        run: python -m pip install jsonschema==4.26.0 uv==0.11.15
+
+      - name: Verify both locked environments
+        run: |
+          uv lock --check --project training
+          uv lock --check --project training/needle3
+
+      - name: Test canonical exporter, trace importer and Layerling contracts
+        working-directory: .source/AuraGo
+        run: go test ./disposable/export_tools ./disposable/import_training_traces ./internal/layerling
+
+      - name: Reject dataset and manual catalog drift
+        working-directory: .source/AuraGo
+        run: |
+          go run ./disposable/export_tools --out "$AURAGO_TRAINING_DIR" --check
+          go run ./disposable/export_tools --source "$AURAGO_TRAINING_DIR" --manual-router-out "$AURAGO_TRAINING_DIR/needle3/catalog.json" --check
+
+      - name: Validate data, privacy, splits and hashes
+        run: python training/validate_dataset.py --all
+
+      - name: Test offline pipelines and spend guards
+        run: >-
+          python -m unittest training.test_training_pipeline
+          training.needle3.test_pipeline training.needle3.test_diagnostic
+          training.needle3.test_local_pilot training.needle3.test_category
+
+      - name: Exercise live catalog search across repositories
+        working-directory: .source/AuraGo
+        run: go build -o "$AURAGO_TRAINING_DIR/needle3/.cache/catalog-search" ./disposable/export_tools
+
+      - name: Check live search catalog identity
+        run: |
+          python - <<'PY'
+          from training.needle3.common import catalog
+          from training.needle3.retrieval import CatalogSearch
+          search = CatalogSearch("training/needle3/.cache/catalog-search", catalog()["catalog_sha256"])
+          try:
+              assert search.search("email", ["email"]) == ["email"]
+              assert search.search("email", []) == []
+          finally:
+              search.close()
+          PY
+
+      - name: Check Python syntax without CUDA
+        run: python -m compileall -q training -x '/(\.venv|models|generated|\.cache)/'
