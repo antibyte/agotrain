@@ -779,7 +779,7 @@
   },
   {
     "name": "context_memory",
-    "description": "Run a context-aware memory query across recent activity, journal, notes, planner, core memory, knowledge graph, and long-term memory. Prefer this when you need a time-scoped overview, connected context, or a multi-source picture of the last days.",
+    "description": "Run a context-aware memory query across recent activity, journal, notes, planner, core memory, user profile, knowledge graph, and long-term memory. Prefer this when you need a time-scoped overview, connected context, or a multi-source picture of the last days.",
     "required": [
       "_todo",
       "context_depth",
@@ -789,6 +789,33 @@
       "time_range"
     ],
     "tier": "extended"
+  },
+  {
+    "name": "correct_memory",
+    "description": "Correct or archive precisely identified current facts across core, long-term memory, graph and user profile. Preview requires real current-run evidence. Apply only the saved ID, then check status. On clear evidence perform preview and apply without another confirmation. Personal facts require user statements. Similarity alone is never authorization; report unresolved candidates and partial progress. Never rewrite historical conversations or source documents.",
+    "required": [
+      "_todo",
+      "changes",
+      "evidence",
+      "id",
+      "operation",
+      "reason"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "apply"
+      },
+      {
+        "selector": "operation",
+        "value": "preview"
+      },
+      {
+        "selector": "operation",
+        "value": "status"
+      }
+    ]
   },
   {
     "name": "create_skill_from_template",
@@ -4044,7 +4071,7 @@
   },
   {
     "name": "manage_memory",
-    "description": "Manage permanently stored core memory facts. Use this only for durable identity, preferences, hard constraints, and explicitly permanent facts, not task lists, cleanup scratchpads, session status, deploy/build results, health checks, mission runs, or discovered IPs/ports. Use 'add' to store a new fact, 'update' to correct an existing fact by ID, 'delete' to remove a fact by ID, 'remove' to remove a fact by exact text match, 'list' to read all stored facts. For cleanup, delete at most one clearly identified numeric ID per call and stop after any warning or error.",
+    "description": "Manage permanently stored core memory facts. Use this only for durable identity, preferences, hard constraints, and explicitly permanent facts, not task lists, cleanup scratchpads, session status, deploy/build results, health checks, mission runs, or discovered IPs/ports. For evidenced corrections or retractions use correct_memory to retain history and reconcile copies. Use 'add' to store a new fact, 'update' for legacy editing by ID, 'delete' to remove a fact by ID, 'remove' to remove a fact by exact text match, 'list' to read all stored facts. For cleanup, delete at most one clearly identified numeric ID per call and stop after any warning or error.",
     "required": [
       "_todo",
       "fact",
@@ -5578,7 +5605,7 @@
   },
   {
     "name": "query_memory",
-    "description": "Search across ALL memory sources at once: recent activity timeline, vector DB (long-term facts), knowledge graph (entities/relationships), journal (events/milestones), notes (tasks/todos), planner (structured tasks/appointments), core memory (permanent facts), and error patterns (learned failures). By default searches everything — use 'sources' only to narrow results.",
+    "description": "Search across ALL memory sources at once: recent activity timeline, vector DB (long-term facts), knowledge graph (entities/relationships), journal (events/milestones), notes (tasks/todos), planner (structured tasks/appointments), core memory (permanent facts), user profile (structured preferences), and error patterns (learned failures). By default searches everything — use 'sources' only to narrow results.",
     "required": [
       "_todo",
       "limit",
@@ -5919,6 +5946,30 @@
       "tool_call_id"
     ],
     "tier": "rare"
+  },
+  {
+    "name": "retro_games",
+    "description": "Browser-playable retro games from archive.org on the virtual desktop: search the local index (DOS, arcade, consoles, C64, Amiga, Apple II, ZX, Windows 3.x) or open a game in the Retro Games app.",
+    "required": [
+      "_todo",
+      "decade",
+      "identifier",
+      "limit",
+      "operation",
+      "platform",
+      "query"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "play"
+      },
+      {
+        "selector": "operation",
+        "value": "search"
+      }
+    ]
   },
   {
     "name": "rtl_sdr",

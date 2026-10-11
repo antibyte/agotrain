@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
   "source": "aurago internal/agent.BuildNativeToolSchemaSnapshot.StrictSchemas (all feature flags enabled)",
-  "tool_count": 218,
-  "operation_count": 1215,
+  "tool_count": 220,
+  "operation_count": 1220,
   "call_format": "OpenAI-compatible native function calling with assistant tool_calls and role=tool results linked by tool_call_id.",
   "tools": [
     {
@@ -5264,7 +5264,7 @@
     },
     {
       "name": "context_memory",
-      "description": "Run a context-aware memory query across recent activity, journal, notes, planner, core memory, knowledge graph, and long-term memory. Prefer this when you need a time-scoped overview, connected context, or a multi-source picture of the last days.",
+      "description": "Run a context-aware memory query across recent activity, journal, notes, planner, core memory, user profile, knowledge graph, and long-term memory. Prefer this when you need a time-scoped overview, connected context, or a multi-source picture of the last days.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -5300,7 +5300,7 @@
             "type": "string"
           },
           "sources": {
-            "description": "Sources to include. Default: conversation, activity, journal, notes, planner, core, kg, ltm",
+            "description": "Sources to include. Default: conversation, activity, journal, notes, planner, core, profile, kg, ltm",
             "items": {
               "enum": [
                 "conversation",
@@ -5309,6 +5309,7 @@
                 "notes",
                 "planner",
                 "core",
+                "profile",
                 "kg",
                 "ltm"
               ],
@@ -5369,7 +5370,7 @@
             "type": "string"
           },
           "sources": {
-            "description": "Sources to include. Default: conversation, activity, journal, notes, planner, core, kg, ltm",
+            "description": "Sources to include. Default: conversation, activity, journal, notes, planner, core, profile, kg, ltm",
             "items": {
               "enum": [
                 "conversation",
@@ -5378,6 +5379,7 @@
                 "notes",
                 "planner",
                 "core",
+                "profile",
                 "kg",
                 "ltm"
               ],
@@ -5442,7 +5444,7 @@
           "type": "string"
         },
         "sources": {
-          "description": "Sources to include. Default: conversation, activity, journal, notes, planner, core, kg, ltm",
+          "description": "Sources to include. Default: conversation, activity, journal, notes, planner, core, profile, kg, ltm",
           "items": {
             "enum": [
               "conversation",
@@ -5451,6 +5453,7 @@
               "notes",
               "planner",
               "core",
+              "profile",
               "kg",
               "ltm"
             ],
@@ -5478,7 +5481,486 @@
       },
       "tier": "extended",
       "manual_path": "prompts/tools_manuals/context_memory.md",
-      "manual_snippet": "## Tool: Context Memory (`context_memory`)\n\nContext-aware memory search across all storage layers. Combines Long-Term Memory (VectorDB), Knowledge Graph, Journal, Notes, and the Planner into a single intelligent query.\n\nUse this when `query_memory` is not enough — specifically when you need **relationships, connections, or time-scoped** results rather than isolated facts.\n\n### When to use vs. `query_memory`\n\n| Use `query_memory` when... | Use `context_memory` when... |\n|---|---|\n| You need a quick fact lookup | You need connected context, not just a fact |\n| You want results from all sources at once | You want to restrict to specific layers or time ranges |\n| Default go-to for most recall tasks | `query_memory` returned too few or irrelevant results |\n| You need error patterns | You need…"
+      "manual_snippet": "## Tool: Context Memory (`context_memory`)\n\nContext-aware memory search across all storage layers. Combines Long-Term Memory (VectorDB), Knowledge Graph, core facts, user profile, Journal, Notes, and the Planner into a single intelligent query.\n\nUse this when `query_memory` is not enough — specifically when you need **relationships, connections, or time-scoped** results rather than isolated facts.\n\n### When to use vs. `query_memory`\n\n| Use `query_memory` when... | Use `context_memory` when... |\n|---|---|\n| You need a quick fact lookup | You need connected context, not just a fact |\n| You want results from all sources at once | You want to restrict to specific layers or time ranges |\n| Default go-to for most recall tasks | `query_memory` returned too few or irrelevant results |\n| You need…"
+    },
+    {
+      "name": "correct_memory",
+      "description": "Correct or archive precisely identified current facts across core, long-term memory, graph and user profile. Preview requires real current-run evidence. Apply only the saved ID, then check status. On clear evidence perform preview and apply without another confirmation. Personal facts require user statements. Similarity alone is never authorization; report unresolved candidates and partial progress. Never rewrite historical conversations or source documents.",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "changes": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "operation": {
+                  "description": "Change",
+                  "enum": [
+                    "replace",
+                    "archive"
+                  ],
+                  "type": "string"
+                },
+                "reference": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "category": {
+                      "description": "Profile category; required for profile.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "field": {
+                      "description": "Exact graph property, or label; required for kg_node.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "id": {
+                      "description": "Core numeric ID, LTM document ID, node ID or edge source ID from query_memory.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "key": {
+                      "description": "Profile key; required for profile.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "relation": {
+                      "description": "Exact existing predicate; required for kg_edge.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "store": {
+                      "description": "Memory store",
+                      "enum": [
+                        "core",
+                        "ltm",
+                        "profile",
+                        "kg_node",
+                        "kg_edge"
+                      ],
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Existing edge target; required for kg_edge.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "field",
+                    "id",
+                    "key",
+                    "relation",
+                    "store",
+                    "target"
+                  ],
+                  "type": "object"
+                },
+                "value": {
+                  "description": "Replacement text; for an edge the new existing target ID. Omit for archive.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "operation",
+                "reference",
+                "value"
+              ],
+              "type": "object"
+            },
+            "maxItems": 32,
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "evidence": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "quote": {
+                  "description": "Exact supporting quote from that message/result; invented evidence and confirmation flags are rejected.",
+                  "type": "string"
+                },
+                "reference": {
+                  "description": "user:current for the actual current user message, or a runtime-issued tool: reference from a successful system_metrics or remote sysinfo result.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "quote",
+                "reference"
+              ],
+              "type": "object"
+            },
+            "maxItems": 8,
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "Saved correction ID; apply/status accept only operation and id.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "operation": {
+            "description": "preview, apply or status",
+            "enum": [
+              "preview",
+              "apply",
+              "status"
+            ],
+            "type": "string"
+          },
+          "reason": {
+            "description": "Why the current fact is wrong or outdated; preview only.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "_todo",
+          "changes",
+          "evidence",
+          "id",
+          "operation",
+          "reason"
+        ],
+        "type": "object"
+      },
+      "argument_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": "string"
+          },
+          "changes": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "operation": {
+                  "description": "Change",
+                  "enum": [
+                    "replace",
+                    "archive"
+                  ],
+                  "type": "string"
+                },
+                "reference": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "category": {
+                      "description": "Profile category; required for profile.",
+                      "type": "string"
+                    },
+                    "field": {
+                      "description": "Exact graph property, or label; required for kg_node.",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Core numeric ID, LTM document ID, node ID or edge source ID from query_memory.",
+                      "type": "string"
+                    },
+                    "key": {
+                      "description": "Profile key; required for profile.",
+                      "type": "string"
+                    },
+                    "relation": {
+                      "description": "Exact existing predicate; required for kg_edge.",
+                      "type": "string"
+                    },
+                    "store": {
+                      "description": "Memory store",
+                      "enum": [
+                        "core",
+                        "ltm",
+                        "profile",
+                        "kg_node",
+                        "kg_edge"
+                      ],
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Existing edge target; required for kg_edge.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "store"
+                  ],
+                  "type": "object"
+                },
+                "value": {
+                  "description": "Replacement text; for an edge the new existing target ID. Omit for archive.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "reference",
+                "operation"
+              ],
+              "type": "object"
+            },
+            "maxItems": 32,
+            "type": "array"
+          },
+          "evidence": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "quote": {
+                  "description": "Exact supporting quote from that message/result; invented evidence and confirmation flags are rejected.",
+                  "type": "string"
+                },
+                "reference": {
+                  "description": "user:current for the actual current user message, or a runtime-issued tool: reference from a successful system_metrics or remote sysinfo result.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "reference",
+                "quote"
+              ],
+              "type": "object"
+            },
+            "maxItems": 8,
+            "type": "array"
+          },
+          "id": {
+            "description": "Saved correction ID; apply/status accept only operation and id.",
+            "type": "string"
+          },
+          "operation": {
+            "description": "preview, apply or status",
+            "enum": [
+              "preview",
+              "apply",
+              "status"
+            ],
+            "type": "string"
+          },
+          "reason": {
+            "description": "Why the current fact is wrong or outdated; preview only.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "operation"
+        ],
+        "type": "object"
+      },
+      "required": [
+        "_todo",
+        "changes",
+        "evidence",
+        "id",
+        "operation",
+        "reason"
+      ],
+      "properties": {
+        "_todo": {
+          "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "changes": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "operation": {
+                "description": "Change",
+                "enum": [
+                  "replace",
+                  "archive"
+                ],
+                "type": "string"
+              },
+              "reference": {
+                "additionalProperties": false,
+                "properties": {
+                  "category": {
+                    "description": "Profile category; required for profile.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "field": {
+                    "description": "Exact graph property, or label; required for kg_node.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "id": {
+                    "description": "Core numeric ID, LTM document ID, node ID or edge source ID from query_memory.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "key": {
+                    "description": "Profile key; required for profile.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "relation": {
+                    "description": "Exact existing predicate; required for kg_edge.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "store": {
+                    "description": "Memory store",
+                    "enum": [
+                      "core",
+                      "ltm",
+                      "profile",
+                      "kg_node",
+                      "kg_edge"
+                    ],
+                    "type": "string"
+                  },
+                  "target": {
+                    "description": "Existing edge target; required for kg_edge.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "category",
+                  "field",
+                  "id",
+                  "key",
+                  "relation",
+                  "store",
+                  "target"
+                ],
+                "type": "object"
+              },
+              "value": {
+                "description": "Replacement text; for an edge the new existing target ID. Omit for archive.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "operation",
+              "reference",
+              "value"
+            ],
+            "type": "object"
+          },
+          "maxItems": 32,
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "evidence": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "quote": {
+                "description": "Exact supporting quote from that message/result; invented evidence and confirmation flags are rejected.",
+                "type": "string"
+              },
+              "reference": {
+                "description": "user:current for the actual current user message, or a runtime-issued tool: reference from a successful system_metrics or remote sysinfo result.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "quote",
+              "reference"
+            ],
+            "type": "object"
+          },
+          "maxItems": 8,
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "id": {
+          "description": "Saved correction ID; apply/status accept only operation and id.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "operation": {
+          "description": "preview, apply or status",
+          "enum": [
+            "preview",
+            "apply",
+            "status"
+          ],
+          "type": "string"
+        },
+        "reason": {
+          "description": "Why the current fact is wrong or outdated; preview only.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "tier": "extended",
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "apply"
+        },
+        {
+          "selector": "operation",
+          "value": "preview"
+        },
+        {
+          "selector": "operation",
+          "value": "status"
+        }
+      ],
+      "manual_path": "prompts/tools_manuals/correct_memory.md",
+      "manual_snippet": "# Correct current memory (`correct_memory`)\n\nUse this for a clearly wrong or outdated current fact. Search with `query_memory`\nfirst and copy its typed `references`. Existing result fields remain available.\nDo not rewrite conversations, journals, notes or source documents. A statement\nthat was true in its historical context is not an erroneous current fact.\n\n## Evidence and authority\n\n`preview` takes `changes`, `reason`, and `evidence`. Each evidence item names\n`reference` and an exact supporting `quote`. `user:current` denotes the actual\nhuman message in this main-agent turn. Successful `system_metrics` and remote\n`sysinfo` results can issue a runtime `tool:` reference. Other tool output,\ninvented references, remembered text, similarity scores, and `confirmed=true`\ncannot authorize a corr…"
     },
     {
       "name": "create_skill_from_template",
@@ -25021,7 +25503,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/github.md",
-      "manual_snippet": "# GitHub Tool (`github`)\n\nManage GitHub repositories, issues, pull requests, branches, files, commits, and workflow runs.\n\n## Operations\n\n| Operation | Description | Key Parameters |\n|-----------|-------------|----------------|\n| `list_repos` | List repositories allowed by policy | `limit` |\n| `get_repo` | Get repository details | `name` |\n| `create_repo` | Create a new repository and auto-track it as agent-created | `name`, `description` |\n| `delete_repo` | Delete a repository; requires `github.allow_delete` | `name` |\n| `search_repos` | Search repositories | `query`, `limit` |\n| `list_issues` | List issues | `name`, `value` (state filter) |\n| `create_issue` | Create an issue | `name`, `title`, `description`, `label` |\n| `close_issue` | Close an issue | `name`, `id` |\n| `list_pull_request…"
+      "manual_snippet": "# GitHub Tool (`github`)\n\nManage GitHub repositories, issues, pull requests, branches, files, commits, and workflow runs.\n\n## Operations\n\n| Operation | Description | Key Parameters |\n|-----------|-------------|----------------|\n| `list_repos` | List repositories allowed by policy. An omitted `limit` returns 100 after filtering. The config UI and dashboard collect up to 10 pages. | `limit` |\n| `get_repo` | Get repository details | `name` |\n| `create_repo` | Create a repository under the authenticated user when `github.owner` is that user or empty, otherwise under `/orgs/{owner}/repos`, then auto-track it as agent-created | `name`, `description` |\n| `delete_repo` | Delete a repository; requires `github.allow_delete`. A refusal restores a pre-existing trust grant. A request that never receive…"
     },
     {
       "name": "go2rtc",
@@ -34915,7 +35397,7 @@
     },
     {
       "name": "manage_memory",
-      "description": "Manage permanently stored core memory facts. Use this only for durable identity, preferences, hard constraints, and explicitly permanent facts, not task lists, cleanup scratchpads, session status, deploy/build results, health checks, mission runs, or discovered IPs/ports. Use 'add' to store a new fact, 'update' to correct an existing fact by ID, 'delete' to remove a fact by ID, 'remove' to remove a fact by exact text match, 'list' to read all stored facts. For cleanup, delete at most one clearly identified numeric ID per call and stop after any warning or error.",
+      "description": "Manage permanently stored core memory facts. Use this only for durable identity, preferences, hard constraints, and explicitly permanent facts, not task lists, cleanup scratchpads, session status, deploy/build results, health checks, mission runs, or discovered IPs/ports. For evidenced corrections or retractions use correct_memory to retain history and reconcile copies. Use 'add' to store a new fact, 'update' for legacy editing by ID, 'delete' to remove a fact by ID, 'remove' to remove a fact by exact text match, 'list' to read all stored facts. For cleanup, delete at most one clearly identified numeric ID per call and stop after any warning or error.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -44696,7 +45178,7 @@
     },
     {
       "name": "query_memory",
-      "description": "Search across ALL memory sources at once: recent activity timeline, vector DB (long-term facts), knowledge graph (entities/relationships), journal (events/milestones), notes (tasks/todos), planner (structured tasks/appointments), core memory (permanent facts), and error patterns (learned failures). By default searches everything — use 'sources' only to narrow results.",
+      "description": "Search across ALL memory sources at once: recent activity timeline, vector DB (long-term facts), knowledge graph (entities/relationships), journal (events/milestones), notes (tasks/todos), planner (structured tasks/appointments), core memory (permanent facts), user profile (structured preferences), and error patterns (learned failures). By default searches everything — use 'sources' only to narrow results.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -44719,7 +45201,7 @@
             "type": "string"
           },
           "sources": {
-            "description": "Memory sources to search. Default: all available. Options: conversation, activity, vector_db, knowledge_graph, journal, notes, planner, core_memory, error_patterns",
+            "description": "Memory sources to search. Default: all available. Options: conversation, activity, vector_db, knowledge_graph, journal, notes, planner, core_memory, user_profile, error_patterns",
             "items": {
               "enum": [
                 "conversation",
@@ -44730,6 +45212,7 @@
                 "notes",
                 "planner",
                 "core_memory",
+                "user_profile",
                 "error_patterns"
               ],
               "type": "string"
@@ -44764,7 +45247,7 @@
             "type": "string"
           },
           "sources": {
-            "description": "Memory sources to search. Default: all available. Options: conversation, activity, vector_db, knowledge_graph, journal, notes, planner, core_memory, error_patterns",
+            "description": "Memory sources to search. Default: all available. Options: conversation, activity, vector_db, knowledge_graph, journal, notes, planner, core_memory, user_profile, error_patterns",
             "items": {
               "enum": [
                 "conversation",
@@ -44775,6 +45258,7 @@
                 "notes",
                 "planner",
                 "core_memory",
+                "user_profile",
                 "error_patterns"
               ],
               "type": "string"
@@ -44813,7 +45297,7 @@
           "type": "string"
         },
         "sources": {
-          "description": "Memory sources to search. Default: all available. Options: conversation, activity, vector_db, knowledge_graph, journal, notes, planner, core_memory, error_patterns",
+          "description": "Memory sources to search. Default: all available. Options: conversation, activity, vector_db, knowledge_graph, journal, notes, planner, core_memory, user_profile, error_patterns",
           "items": {
             "enum": [
               "conversation",
@@ -44824,6 +45308,7 @@
               "notes",
               "planner",
               "core_memory",
+              "user_profile",
               "error_patterns"
             ],
             "type": "string"
@@ -44836,7 +45321,7 @@
       },
       "tier": "core",
       "manual_path": "prompts/tools_manuals/query_memory.md",
-      "manual_snippet": "## Tool: Unified Memory Query (`query_memory`)\n\nSearch **ALL** memory subsystems at once with a single natural-language query. This is your primary tool for recalling anything — facts, events, preferences, errors, relationships.\n\n### What it searches (by default: everything)\n\n| Source | What's in it | When useful |\n|---|---|---|\n| `vector_db` | Long-term semantic facts extracted from past conversations | Recall design decisions, config details, past discussions |\n| `activity` | Recent turn-by-turn activity timeline and daily rollups | \"What did we do yesterday?\", \"What did the user want this week?\" |\n| `knowledge_graph` | Entities (people, devices, services) and relationships | \"Who owns the NAS?\", \"What services run on prod?\" |\n| `journal` | Events, milestones, learnings (manual + auto-…"
+      "manual_snippet": "## Tool: Unified Memory Query (`query_memory`)\n\nCurrent core, LTM and graph results include additive typed `references` for\n`correct_memory`. The `user_profile` source is included by default and can also\nbe selected explicitly. It returns category/key references. Search hits identify\ntargets; they do not provide evidence or authorize changing them.\n\nSearch **ALL** memory subsystems at once with a single natural-language query. This is your primary tool for recalling anything — facts, events, preferences, errors, relationships.\n\n### What it searches (by default: everything)\n\n| Source | What's in it | When useful |\n|---|---|---|\n| `vector_db` | Long-term semantic facts extracted from past conversations | Recall design decisions, config details, past discussions |\n| `activity` | Recent turn…"
     },
     {
       "name": "question_user",
@@ -46488,7 +46973,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/remote_control_devices.md",
-      "manual_snippet": "# remote_control_devices\n\nList, inspect, and revoke connected remote-control devices.\n\nUse `device_id` when available; `device_name` is accepted as a lookup alias.\n"
+      "manual_snippet": "# remote_control_devices\n\nDevice status includes effective rights, capabilities and configuration state.\n`pending` means saved but not yet acknowledged; `confirmed` is a classic-client\nACK; `error` requires reconnect/diagnosis; `server_enforced` describes AgoDesk\nserver policy without claiming a client ACK. Revocation closes all sessions and\ncancels work. A revoked device needs a fresh one-time token to enroll again.\nMissing telemetry is unknown (`null`), not a zero measurement.\n\nList, inspect, and revoke connected remote-control devices.\n\nUse `device_id` when available; `device_name` is accepted as a lookup alias.\n"
     },
     {
       "name": "remote_control_files",
@@ -47149,7 +47634,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/remote_control_files.md",
-      "manual_snippet": "# remote_control_files\n\nRead, write, edit, and search files on connected remote-control devices.\n\nUse `root_id` for AgoDesk file-access roots when paths are relative to an approved root.\n\nPrefer `file_patch` for precise AgoDesk edits. First read the file and keep its `sha256`, then call `file_patch` with `expected_sha256`, `patches`, and the default `dry_run:true`. Apply only with explicit `dry_run:false` after the dry-run result is acceptable.\n\nEach patch is `{old_text,new_text,expected_occurrences}` and must be exact. If the result preserves `FILE_PATCH_MISMATCH` or `FILE_HASH_MISMATCH`, read the file again and base the next patch on the fresh content instead of guessing or using fuzzy replacement.\n"
+      "manual_snippet": "# remote_control_files\n\nRead, write, edit, and search files on connected remote-control devices.\n\nClassic clients enforce configured file-size limits on reads, inputs and final\nedits through rooted handles. Edits publish atomically and preserve the original\non cancellation or write failure. Empty device paths inherit global paths;\nboth empty deny file access. AgoDesk roots remain locally managed. Respect\n`UNSUPPORTED_CAPABILITY`, `CONFIG_PENDING`, `CLIENT_BUSY`, and `RESULT_EVICTED`;\ndo not blindly replay a mutation with a new command ID after a timeout.\n\nUse `root_id` for AgoDesk file-access roots when paths are relative to an approved root.\n\nPrefer `file_patch` for precise AgoDesk edits. First read the file and keep its `sha256`, then call `file_patch` with `expected_sha256`, `patches`, …"
     },
     {
       "name": "remote_control_shell",
@@ -47461,7 +47946,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/remote_control_shell.md",
-      "manual_snippet": "# remote_control_shell\n\nExecute shell commands on connected remote-control devices.\n\nUse only for device-specific shell work. Prefer focused file or desktop tools when not executing commands.\n\nUse `execute_command` for one-shot commands that should finish quickly. Use `shell_session_start` only for interactive or long-running commands, then poll with `shell_session_read`; `initial_wait_ms` is just the first read wait, not a session lifetime.\n\nSession operations: `shell_session_start` forwards `command`, optional `cwd_id`, and optional `initial_wait_ms`; `shell_session_read` forwards `session_id`, optional `offset`, `limit`, and `wait_ms`; `shell_session_input` forwards `session_id` and `input`; `shell_session_stop` stops a session; `shell_session_list` discovers client-owned sessions after…"
+      "manual_snippet": "# remote_control_shell\n\nExecute shell commands on connected remote-control devices.\n\nUse only for device-specific shell work. Prefer focused file or desktop tools when not executing commands.\n\nUse `execute_command` for one-shot commands that should finish quickly. Use `shell_session_start` only for interactive or long-running commands, then poll with `shell_session_read`; `initial_wait_ms` is just the first read wait, not a session lifetime.\n\nCheck the device's advertised capabilities first. Classic clients support only\none-shot commands; persistent `shell_session_*` operations require a capable\nAgoDesk client. An unsupported operation returns `UNSUPPORTED_CAPABILITY` and\nmust not be retried unchanged. Classic commands are cancelled on disconnect or\npermission changes, and text output is v…"
     },
     {
       "name": "remote_execution",
@@ -47728,6 +48213,190 @@
         }
       },
       "tier": "rare"
+    },
+    {
+      "name": "retro_games",
+      "description": "Browser-playable retro games from archive.org on the virtual desktop: search the local index (DOS, arcade, consoles, C64, Amiga, Apple II, ZX, Windows 3.x) or open a game in the Retro Games app.",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "decade": {
+            "description": "search: 1970, 1980, 1990 or 2000",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "identifier": {
+            "description": "play: identifier from search",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "limit": {
+            "description": "search: 1-20, default 10",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "operation": {
+            "description": "search lists games (no query: Hall of Fame), play opens one",
+            "enum": [
+              "search",
+              "play"
+            ],
+            "type": "string"
+          },
+          "platform": {
+            "description": "search: msdos, arcade, console, c64, amiga, apple2, zx or win3",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "query": {
+            "description": "search: title, maker or keywords",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "_todo",
+          "decade",
+          "identifier",
+          "limit",
+          "operation",
+          "platform",
+          "query"
+        ],
+        "type": "object"
+      },
+      "argument_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": "string"
+          },
+          "decade": {
+            "description": "search: 1970, 1980, 1990 or 2000",
+            "type": "integer"
+          },
+          "identifier": {
+            "description": "play: identifier from search",
+            "type": "string"
+          },
+          "limit": {
+            "description": "search: 1-20, default 10",
+            "type": "integer"
+          },
+          "operation": {
+            "description": "search lists games (no query: Hall of Fame), play opens one",
+            "enum": [
+              "search",
+              "play"
+            ],
+            "type": "string"
+          },
+          "platform": {
+            "description": "search: msdos, arcade, console, c64, amiga, apple2, zx or win3",
+            "type": "string"
+          },
+          "query": {
+            "description": "search: title, maker or keywords",
+            "type": "string"
+          }
+        },
+        "required": [
+          "operation"
+        ],
+        "type": "object"
+      },
+      "required": [
+        "_todo",
+        "decade",
+        "identifier",
+        "limit",
+        "operation",
+        "platform",
+        "query"
+      ],
+      "properties": {
+        "_todo": {
+          "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decade": {
+          "description": "search: 1970, 1980, 1990 or 2000",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "identifier": {
+          "description": "play: identifier from search",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limit": {
+          "description": "search: 1-20, default 10",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "operation": {
+          "description": "search lists games (no query: Hall of Fame), play opens one",
+          "enum": [
+            "search",
+            "play"
+          ],
+          "type": "string"
+        },
+        "platform": {
+          "description": "search: msdos, arcade, console, c64, amiga, apple2, zx or win3",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "query": {
+          "description": "search: title, maker or keywords",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "tier": "extended",
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "play"
+        },
+        {
+          "selector": "operation",
+          "value": "search"
+        }
+      ],
+      "manual_path": "prompts/tools_manuals/retro_games.md",
+      "manual_snippet": "# Retro Games (archive.org)\n\nUse `retro_games` to find browser-playable classic games on archive.org and to open one in the user's Retro Games desktop app. Games run in archive.org's own emulator inside the desktop window; you never download, host or run game files yourself.\n\n## Operations\n\n- `search` with optional `query` (title, maker or keywords, at most 200 characters), `platform` (`msdos`, `arcade`, `console`, `c64`, `amiga`, `apple2`, `zx`, `win3`), `decade` (1970, 1980, 1990, 2000) and `limit` (1-20, default 10). Without `query` it lists curated Hall of Fame classics. Results are lines `n. identifier | title | system | year | maker`. `truncated: true` means the list was cut to stay short; narrow the search instead of raising `limit`.\n- `play` with `identifier` copied from a search r…"
     },
     {
       "name": "rtl_sdr",
@@ -54727,7 +55396,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/video_download.md",
-      "manual_snippet": "# Video Download (`video_download`)\n\nSearch, inspect, download, and transcribe videos using yt-dlp.\n\nSearch and metadata lookup are read-only. Download and transcription are separate opt-in permissions.\n\n## Backend\n\n- Default: Docker mode runs `ghcr.io/jauderho/yt-dlp:latest` in an ephemeral container.\n- Native mode is optional and requires `yt-dlp` to be installed on the host or configured via `tools.video_download.yt_dlp_path`.\n- `tools.video_download.enabled: true` exposes `search` and `info`.\n- `download` requires `tools.video_download.allow_download: true`.\n- `transcribe` requires `tools.video_download.allow_transcribe: true`.\n- `tools.video_download.readonly: true` blocks `download` and `transcribe` even when their opt-in flags are enabled.\n\n## Parameters\n\n| Parameter | Type | Requir…"
+      "manual_snippet": "# Video Download (`video_download`)\n\nSearch, inspect, download, and transcribe videos using yt-dlp.\n\nSearch and metadata lookup are read-only. Download and transcription are separate opt-in permissions.\n\n## Backend\n\n- Default: Docker mode runs the digest-pinned image `ghcr.io/jauderho/yt-dlp@sha256:90cd9016efc4451153c8bc35cc7a0d9a8cba0e796818e52f3b4d28b9736ac91c` in an ephemeral container. With `tools.video_download.auto_pull: true` (default), AuraGo pulls that digest before each run.\n- Native mode is optional and requires `yt-dlp` to be installed on the host or configured via `tools.video_download.yt_dlp_path`.\n- `tools.video_download.enabled: true` exposes `search` and `info`.\n- `download` requires `tools.video_download.allow_download: true`.\n- `transcribe` requires `tools.video_download…"
     },
     {
       "name": "virtual_browser",

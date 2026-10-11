@@ -2,8 +2,8 @@
 
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
-- Tools: **218**
-- Enumerated operations: **1215**
+- Tools: **220**
+- Enumerated operations: **1220**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
 
@@ -444,7 +444,7 @@ Manage the current conversation context window. Operations: 'status' (check toke
 
 ## `context_memory`
 
-Run a context-aware memory query across recent activity, journal, notes, planner, core memory, knowledge graph, and long-term memory. Prefer this when you need a time-scoped overview, connected context, or a multi-source picture of the last days.
+Run a context-aware memory query across recent activity, journal, notes, planner, core memory, user profile, knowledge graph, and long-term memory. Prefer this when you need a time-scoped overview, connected context, or a multi-source picture of the last days.
 
 - Tier: `extended`
 - Required: `_todo`, `context_depth`, `include_related`, `query`, `sources`, `time_range`
@@ -456,8 +456,26 @@ Run a context-aware memory query across recent activity, journal, notes, planner
 | `context_depth` | `string` | How broad the contextual expansion should be |
 | `include_related` | `boolean` | Whether related entities/contexts should be expanded where possible |
 | `query` | `string` | Natural language search query |
-| `sources` | `array` | Sources to include. Default: conversation, activity, journal, notes, planner, core, kg, ltm |
+| `sources` | `array` | Sources to include. Default: conversation, activity, journal, notes, planner, core, profile, kg, ltm |
 | `time_range` | `string` | Optional temporal window |
+
+## `correct_memory`
+
+Correct or archive precisely identified current facts across core, long-term memory, graph and user profile. Preview requires real current-run evidence. Apply only the saved ID, then check status. On clear evidence perform preview and apply without another confirmation. Personal facts require user statements. Similarity alone is never authorization; report unresolved candidates and partial progress. Never rewrite historical conversations or source documents.
+
+- Tier: `extended`
+- Required: `_todo`, `changes`, `evidence`, `id`, `operation`, `reason`
+- Operations: 3
+- Manual: `prompts/tools_manuals/correct_memory.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `changes` | `array` |  |
+| `evidence` | `array` |  |
+| `id` | `string` | Saved correction ID; apply/status accept only operation and id. |
+| `operation` | `string` | preview, apply or status |
+| `reason` | `string` | Why the current fact is wrong or outdated; preview only. |
 
 ## `create_skill_from_template`
 
@@ -1991,7 +2009,7 @@ Add, list, search, or delete journal entries. The system already auto-creates en
 
 ## `manage_memory`
 
-Manage permanently stored core memory facts. Use this only for durable identity, preferences, hard constraints, and explicitly permanent facts, not task lists, cleanup scratchpads, session status, deploy/build results, health checks, mission runs, or discovered IPs/ports. Use 'add' to store a new fact, 'update' to correct an existing fact by ID, 'delete' to remove a fact by ID, 'remove' to remove a fact by exact text match, 'list' to read all stored facts. For cleanup, delete at most one clearly identified numeric ID per call and stop after any warning or error.
+Manage permanently stored core memory facts. Use this only for durable identity, preferences, hard constraints, and explicitly permanent facts, not task lists, cleanup scratchpads, session status, deploy/build results, health checks, mission runs, or discovered IPs/ports. For evidenced corrections or retractions use correct_memory to retain history and reconcile copies. Use 'add' to store a new fact, 'update' for legacy editing by ID, 'delete' to remove a fact by ID, 'remove' to remove a fact by exact text match, 'list' to read all stored facts. For cleanup, delete at most one clearly identified numeric ID per call and stop after any warning or error.
 
 - Tier: `core`
 - Required: `_todo`, `fact`, `id`, `operation`
@@ -2736,7 +2754,7 @@ Search registered servers, virtual machines, and network devices by tag or hostn
 
 ## `query_memory`
 
-Search across ALL memory sources at once: recent activity timeline, vector DB (long-term facts), knowledge graph (entities/relationships), journal (events/milestones), notes (tasks/todos), planner (structured tasks/appointments), core memory (permanent facts), and error patterns (learned failures). By default searches everything — use 'sources' only to narrow results.
+Search across ALL memory sources at once: recent activity timeline, vector DB (long-term facts), knowledge graph (entities/relationships), journal (events/milestones), notes (tasks/todos), planner (structured tasks/appointments), core memory (permanent facts), user profile (structured preferences), and error patterns (learned failures). By default searches everything — use 'sources' only to narrow results.
 
 - Tier: `core`
 - Required: `_todo`, `limit`, `query`, `sources`
@@ -2747,7 +2765,7 @@ Search across ALL memory sources at once: recent activity timeline, vector DB (l
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
 | `limit` | `integer` | Max results per source (default 5) |
 | `query` | `string` | Natural language search query. Use '*' only for a diagnostic inventory/counts overview, not for semantic recall. |
-| `sources` | `array` | Memory sources to search. Default: all available. Options: conversation, activity, vector_db, knowledge_graph, journal, notes, planner, core_memory, error_patterns |
+| `sources` | `array` | Memory sources to search. Default: all available. Options: conversation, activity, vector_db, knowledge_graph, journal, notes, planner, core_memory, user_profile, error_patterns |
 
 ## `question_user`
 
@@ -2991,6 +3009,25 @@ Return archived original output for a compressed native tool result when details
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
 | `reason` | `string` | Why you need the original output (helps improve compression filters) |
 | `tool_call_id` | `string` | The tool_call_id of the compressed tool result you want to expand |
+
+## `retro_games`
+
+Browser-playable retro games from archive.org on the virtual desktop: search the local index (DOS, arcade, consoles, C64, Amiga, Apple II, ZX, Windows 3.x) or open a game in the Retro Games app.
+
+- Tier: `extended`
+- Required: `_todo`, `decade`, `identifier`, `limit`, `operation`, `platform`, `query`
+- Operations: 2
+- Manual: `prompts/tools_manuals/retro_games.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `decade` | `integer` | search: 1970, 1980, 1990 or 2000 |
+| `identifier` | `string` | play: identifier from search |
+| `limit` | `integer` | search: 1-20, default 10 |
+| `operation` | `string` | search lists games (no query: Hall of Fame), play opens one |
+| `platform` | `string` | search: msdos, arcade, console, c64, amiga, apple2, zx or win3 |
+| `query` | `string` | search: title, maker or keywords |
 
 ## `rtl_sdr`
 

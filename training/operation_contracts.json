@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "808344514e3dea1ecc13bd87ddfff9ecd74312854eba420796089d3348b35d02",
+  "schema_sha256": "7e92e44de03f6faf8f3224075107fd6cc74ef73a2bb40d083a2e7a075ca67e6b",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -16704,6 +16704,141 @@
             "editor_id"
           ],
           "excluded_fields": []
+        }
+      ]
+    },
+    "correct_memory": {
+      "default_arguments": {
+        "operation": "preview",
+        "reason": "The user corrected their preference",
+        "changes": [
+          {
+            "reference": {
+              "store": "core",
+              "id": "42"
+            },
+            "operation": "replace",
+            "value": "User prefers green tea"
+          }
+        ],
+        "evidence": [
+          {
+            "reference": "user:current",
+            "quote": "I prefer green tea"
+          }
+        ]
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "apply",
+          "arguments": {
+            "operation": "apply",
+            "id": "mc_saved_preview_example"
+          },
+          "required_fields": [
+            "operation",
+            "id"
+          ],
+          "excluded_fields": [
+            "changes",
+            "evidence",
+            "reason"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "preview",
+          "arguments": {
+            "operation": "preview",
+            "reason": "The user corrected their preference",
+            "changes": [
+              {
+                "reference": {
+                  "store": "core",
+                  "id": "42"
+                },
+                "operation": "replace",
+                "value": "User prefers green tea"
+              }
+            ],
+            "evidence": [
+              {
+                "reference": "user:current",
+                "quote": "I prefer green tea"
+              }
+            ]
+          },
+          "required_fields": [
+            "operation",
+            "reason",
+            "changes",
+            "evidence"
+          ],
+          "excluded_fields": [
+            "id"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "status",
+          "arguments": {
+            "operation": "status",
+            "id": "mc_saved_preview_example"
+          },
+          "required_fields": [
+            "operation",
+            "id"
+          ],
+          "excluded_fields": [
+            "changes",
+            "evidence",
+            "reason"
+          ]
+        }
+      ]
+    },
+    "retro_games": {
+      "default_arguments": {
+        "operation": "search",
+        "query": "puzzle",
+        "platform": "msdos",
+        "limit": 5
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "play",
+          "arguments": {
+            "operation": "play",
+            "identifier": "example-game"
+          },
+          "required_fields": [
+            "operation",
+            "identifier"
+          ],
+          "excluded_fields": [
+            "query",
+            "platform",
+            "decade",
+            "limit"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "search",
+          "arguments": {
+            "operation": "search",
+            "query": "puzzle",
+            "platform": "msdos",
+            "limit": 5
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": [
+            "identifier"
+          ]
         }
       ]
     }
