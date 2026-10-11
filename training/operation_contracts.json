@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "6c2536a9925837f53a2816273e5527e1b7a8464cf6cbe80e4f9fc4c2d262245d",
+  "schema_sha256": "a8637bdc02895e861e4924dbf81127ca391c67938ec3ac4372f95d100300bc2c",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -18822,6 +18822,68 @@
             "parent",
             "show_completed"
           ]
+        }
+      ]
+    },
+    "ruview": {
+      "default_arguments": {
+        "operation": "status"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "model_info",
+          "arguments": {
+            "operation": "model_info"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "nodes",
+          "arguments": {
+            "operation": "nodes"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "recordings",
+          "arguments": {
+            "operation": "recordings"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "sensing",
+          "arguments": {
+            "operation": "sensing"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "status",
+          "arguments": {
+            "operation": "status"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
         }
       ]
     }

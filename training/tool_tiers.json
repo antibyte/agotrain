@@ -146,6 +146,7 @@
     "retro_games",
     "rtl_sdr",
     "run_agent_skill_script",
+    "ruview",
     "s3_storage",
     "secrets_vault",
     "send_agodesk_chat",

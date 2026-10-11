@@ -2,8 +2,8 @@
 
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
-- Tools: **229**
-- Enumerated operations: **1288**
+- Tools: **230**
+- Enumerated operations: **1293**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
 
@@ -2565,7 +2565,7 @@ Generate a reflection on memory activity: analyze patterns, detect contradiction
 
 ## `meshcentral`
 
-Manage and inspect devices and groups managed by a MeshCentral server. Supports server info, device and event listing, wake-on-lan, power actions, and running commands.
+Manage and inspect devices managed by a MeshCentral server. Supports server info, device and event listing, wake-on-lan, power actions, and running commands. Wake and power require meshcentral.allow_power_actions. run_command runs as the MeshAgent service account and requires agent.allow_remote_shell.
 
 - Tier: `extended`
 - Required: `_todo`, `command`, `limit`, `mesh_id`, `node_id`, `operation`, `power_action`, `user_id`
@@ -3322,6 +3322,20 @@ Run only a saved custom Python tool from the agent tools directory. Requires age
 | `name` | `string` | Custom tool filename or registered manifest name to run |
 | `params` | `string` | Optional structured parameters; forwarded to the tool as one JSON argument. Provide as a JSON string. |
 | `vault_keys` | `array` | List of vault secret key names to inject as AURAGO_SECRET_<KEY> environment variables. Only values the agent itself created through secrets_vault are accessible; UI, modal, system and legacy values remain hidden. |
+
+## `ruview`
+
+Read RuView status, nodes, current sensing, model information and recording metadata. Source and time distinguish real and simulated measurements.
+
+- Tier: `extended`
+- Required: `_todo`, `operation`
+- Operations: 5
+- Manual: `prompts/tools_manuals/ruview.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `operation` | `string` |  |
 
 ## `s3_storage`
 

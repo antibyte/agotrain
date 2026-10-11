@@ -5159,7 +5159,7 @@
   },
   {
     "name": "meshcentral",
-    "description": "Manage and inspect devices and groups managed by a MeshCentral server. Supports server info, device and event listing, wake-on-lan, power actions, and running commands.",
+    "description": "Manage and inspect devices managed by a MeshCentral server. Supports server info, device and event listing, wake-on-lan, power actions, and running commands. Wake and power require meshcentral.allow_power_actions. run_command runs as the MeshAgent service account and requires agent.allow_remote_shell.",
     "required": [
       "_todo",
       "command",
@@ -6541,6 +6541,37 @@
       "vault_keys"
     ],
     "tier": "core"
+  },
+  {
+    "name": "ruview",
+    "description": "Read RuView status, nodes, current sensing, model information and recording metadata. Source and time distinguish real and simulated measurements.",
+    "required": [
+      "_todo",
+      "operation"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "model_info"
+      },
+      {
+        "selector": "operation",
+        "value": "nodes"
+      },
+      {
+        "selector": "operation",
+        "value": "recordings"
+      },
+      {
+        "selector": "operation",
+        "value": "sensing"
+      },
+      {
+        "selector": "operation",
+        "value": "status"
+      }
+    ]
   },
   {
     "name": "s3_storage",

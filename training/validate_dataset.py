@@ -20,7 +20,7 @@ except ImportError as exc:  # pragma: no cover - exercised by CLI environments
 
 
 SCHEMA_VERSION = "2.0"
-EXPECTED_TOOLS = 229
+EXPECTED_TOOLS = 230
 EXPECTED_SCENARIOS = 5000
 EXPECTED_CHALLENGE = EXPECTED_TOOLS * 2
 MAX_TOOLS = 20

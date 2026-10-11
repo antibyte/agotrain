@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
   "source": "aurago internal/agent.BuildNativeToolSchemaSnapshot.StrictSchemas (all feature flags enabled)",
-  "tool_count": 229,
-  "operation_count": 1288,
+  "tool_count": 230,
+  "operation_count": 1293,
   "call_format": "OpenAI-compatible native function calling with assistant tool_calls and role=tool results linked by tool_call_id.",
   "tools": [
     {
@@ -43307,7 +43307,7 @@
     },
     {
       "name": "meshcentral",
-      "description": "Manage and inspect devices and groups managed by a MeshCentral server. Supports server info, device and event listing, wake-on-lan, power actions, and running commands.",
+      "description": "Manage and inspect devices managed by a MeshCentral server. Supports server info, device and event listing, wake-on-lan, power actions, and running commands. Wake and power require meshcentral.allow_power_actions. run_command runs as the MeshAgent service account and requires agent.allow_remote_shell.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -43549,7 +43549,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/meshcentral.md",
-      "manual_snippet": "# MeshCentral\n\nThe `meshcentral` tool interacts with devices managed by a MeshCentral server through the MeshCentral control WebSocket. It can inspect server state, list groups and devices, read device details and events, wake devices, run MeshAgent commands, and send supported power actions.\n\n**Warning:** `wake`, `power_action`, and `run_command` are privileged operations. Verify the target `node_id` or `mesh_id` before changing remote device state.\n\n`run_command` additionally requires `agent.allow_remote_shell=true`. Integration permissions and the global remote-shell gate must both allow execution.\n\n## Parameters\n\n- **`operation`**: Required. One of:\n  - `\"server_info\"`: Returns MeshCentral server metadata.\n  - `\"list_groups\"`: Lists all device groups (meshes) accessible by the configur…"
+      "manual_snippet": "# MeshCentral\n\nThe `meshcentral` tool interacts with devices managed by a MeshCentral server through the MeshCentral control WebSocket. It can inspect server state, list groups and devices, read device details and events, wake devices, run MeshAgent commands, and send supported power actions.\n\n**Warning:** `wake`, `power_action`, and `run_command` are privileged operations. Verify the target `node_id` or `mesh_id` before changing remote device state.\n\n`wake` and `power_action` require `meshcentral.allow_power_actions=true`. `meshcentral.readonly=true` blocks them even when that switch is on.\n\n`run_command` additionally requires `agent.allow_remote_shell=true`. Integration permissions and the global remote-shell gate must both allow execution. The command runs as the MeshAgent service accou…"
     },
     {
       "name": "meshcore",
@@ -52593,6 +52593,108 @@
       "tier": "core",
       "manual_path": "prompts/tools_manuals/run_tool.md",
       "manual_snippet": "# run_tool\n\nRun a saved custom Python tool from `agent_workspace/tools`.\n\n## When to use\n\n- Use for user-created Python tools that are registered in the custom tool manifest.\n- In native function-calling sessions, use `discover_tools` first if you do not know the exact tool name or call method. In text-JSON sessions, `list_tools` lists custom Python tools only.\n- Do not use this for built-in AuraGo tools or registered skills. Use the direct tool call, `invoke_tool`, or `execute_skill` as indicated by `discover_tools`.\n\n## Parameters\n\n- `name` (string, required): Custom tool filename or manifest name.\n- `args` (array of strings, optional): Positional command-line arguments.\n- `params` (object, optional): Structured parameters. AuraGo forwards this as one JSON argument.\n- `background` (boole…"
+    },
+    {
+      "name": "ruview",
+      "description": "Read RuView status, nodes, current sensing, model information and recording metadata. Source and time distinguish real and simulated measurements.",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "operation": {
+            "enum": [
+              "status",
+              "nodes",
+              "sensing",
+              "model_info",
+              "recordings"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "_todo",
+          "operation"
+        ],
+        "type": "object"
+      },
+      "argument_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": "string"
+          },
+          "operation": {
+            "enum": [
+              "status",
+              "nodes",
+              "sensing",
+              "model_info",
+              "recordings"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "operation"
+        ],
+        "type": "object"
+      },
+      "required": [
+        "_todo",
+        "operation"
+      ],
+      "properties": {
+        "_todo": {
+          "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "operation": {
+          "enum": [
+            "status",
+            "nodes",
+            "sensing",
+            "model_info",
+            "recordings"
+          ],
+          "type": "string"
+        }
+      },
+      "tier": "extended",
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "model_info"
+        },
+        {
+          "selector": "operation",
+          "value": "nodes"
+        },
+        {
+          "selector": "operation",
+          "value": "recordings"
+        },
+        {
+          "selector": "operation",
+          "value": "sensing"
+        },
+        {
+          "selector": "operation",
+          "value": "status"
+        }
+      ],
+      "manual_path": "prompts/tools_manuals/ruview.md",
+      "manual_snippet": "# RuView (read only)\n\nRead the administrator-configured RuView sensing service. Available only when\nboth the integration and agent access are enabled.\n\n`operation` is one of `status`, `nodes`, `sensing`, `model_info`, `recordings`.\nNo URLs, credentials, device paths or arbitrary API routes are accepted.\nThe tool cannot install, flash, configure, calibrate, record, train, delete or\nswitch models. Use the administrator's RuView app for those operations.\n\nReport the source and observation time. `ready` describes the service only.\nPhysical data additionally needs fresh frames; `synthetic`/`simulated` is a\ndeliberate demonstration, `stale` is old data, and `disconnected` means no frames.\nRSSI and CSI have different capabilities. Pose and vital-sign estimates remain\nexperimental; never interpret…"
     },
     {
       "name": "s3_storage",
