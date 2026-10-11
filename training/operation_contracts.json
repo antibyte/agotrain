@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "7e92e44de03f6faf8f3224075107fd6cc74ef73a2bb40d083a2e7a075ca67e6b",
+  "schema_sha256": "6c2536a9925837f53a2816273e5527e1b7a8464cf6cbe80e4f9fc4c2d262245d",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -16838,6 +16838,1989 @@
           ],
           "excluded_fields": [
             "identifier"
+          ]
+        }
+      ]
+    },
+    "gog_accounts": {
+      "default_arguments": {},
+      "operations": []
+    },
+    "gog_gmail": {
+      "default_arguments": {
+        "account_id": "workspace-test",
+        "operation": "search",
+        "query": "fixture"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "archive",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "archive",
+            "message_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "message_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "draft_id",
+            "format",
+            "label_id_or_name",
+            "max",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "attachment",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "attachment",
+            "message_id": "fixture",
+            "attachment_id": "fixture",
+            "output_path": "exports/fixture.pdf"
+          },
+          "required_fields": [
+            "account_id",
+            "attachment_id",
+            "message_id",
+            "operation",
+            "output_path"
+          ],
+          "excluded_fields": [
+            "add",
+            "bcc",
+            "body",
+            "cc",
+            "draft_id",
+            "format",
+            "label_id_or_name",
+            "max",
+            "name",
+            "new_name",
+            "page",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "create_draft",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "create_draft",
+            "subject": "Fixture draft",
+            "body": "Synthetic draft text"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "subject",
+            "body"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "draft_id",
+            "format",
+            "label_id_or_name",
+            "max",
+            "message_id",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "create_label",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "create_label",
+            "name": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "name",
+            "operation"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "draft_id",
+            "format",
+            "label_id_or_name",
+            "max",
+            "message_id",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "delete_draft",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "delete_draft",
+            "draft_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "draft_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "format",
+            "label_id_or_name",
+            "max",
+            "message_id",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "delete_label",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "delete_label",
+            "label_id_or_name": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "label_id_or_name",
+            "operation"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "draft_id",
+            "format",
+            "max",
+            "message_id",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "draft",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "draft",
+            "draft_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "draft_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "format",
+            "label_id_or_name",
+            "max",
+            "message_id",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "drafts",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "drafts"
+          },
+          "required_fields": [
+            "account_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "draft_id",
+            "format",
+            "label_id_or_name",
+            "message_id",
+            "name",
+            "new_name",
+            "output_path",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "label",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "label",
+            "message_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "message_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "draft_id",
+            "format",
+            "label_id_or_name",
+            "max",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "labels",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "labels"
+          },
+          "required_fields": [
+            "account_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "draft_id",
+            "format",
+            "label_id_or_name",
+            "max",
+            "message_id",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "read",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "read",
+            "message_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "message_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "draft_id",
+            "label_id_or_name",
+            "max",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "rename_label",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "rename_label",
+            "label_id_or_name": "fixture",
+            "new_name": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "label_id_or_name",
+            "new_name",
+            "operation"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "draft_id",
+            "format",
+            "max",
+            "message_id",
+            "name",
+            "output_path",
+            "page",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "search",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "search",
+            "query": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "query"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "draft_id",
+            "format",
+            "label_id_or_name",
+            "message_id",
+            "name",
+            "new_name",
+            "output_path",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "send",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "send",
+            "to": "example@example.invalid",
+            "subject": "Fixture",
+            "body": "A synthetic test message."
+          },
+          "required_fields": [
+            "account_id",
+            "body",
+            "operation",
+            "subject",
+            "to"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "draft_id",
+            "format",
+            "label_id_or_name",
+            "max",
+            "message_id",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "send_draft",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "send_draft",
+            "draft_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "draft_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "format",
+            "label_id_or_name",
+            "max",
+            "message_id",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "trash",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "trash",
+            "message_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "message_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "bcc",
+            "body",
+            "cc",
+            "draft_id",
+            "format",
+            "label_id_or_name",
+            "max",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove",
+            "subject",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "update_draft",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "update_draft",
+            "draft_id": "fixture",
+            "subject": "Updated fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "draft_id",
+            "operation",
+            "subject"
+          ],
+          "excluded_fields": [
+            "add",
+            "attachment_id",
+            "format",
+            "label_id_or_name",
+            "max",
+            "message_id",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "remove"
+          ]
+        }
+      ]
+    },
+    "gog_calendar": {
+      "default_arguments": {
+        "account_id": "workspace-test",
+        "operation": "calendars"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "calendars",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "calendars"
+          },
+          "required_fields": [
+            "account_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "all_day",
+            "calendar_id",
+            "calendar_ids",
+            "description",
+            "end_timezone",
+            "event_id",
+            "from",
+            "location",
+            "original_start",
+            "rrule",
+            "scope",
+            "start_timezone",
+            "summary",
+            "timezone",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "create",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "create",
+            "calendar_id": "primary",
+            "summary": "fixture",
+            "from": "2026-10-11T10:00:00+02:00",
+            "to": "2026-10-11T11:00:00+02:00"
+          },
+          "required_fields": [
+            "account_id",
+            "calendar_id",
+            "from",
+            "operation",
+            "summary",
+            "to"
+          ],
+          "excluded_fields": [
+            "calendar_ids",
+            "event_id",
+            "max",
+            "original_start",
+            "page",
+            "scope",
+            "timezone"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "delete",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "delete",
+            "calendar_id": "primary",
+            "event_id": "fixture",
+            "scope": "all"
+          },
+          "required_fields": [
+            "account_id",
+            "calendar_id",
+            "event_id",
+            "operation",
+            "scope"
+          ],
+          "excluded_fields": [
+            "all_day",
+            "calendar_ids",
+            "description",
+            "end_timezone",
+            "from",
+            "location",
+            "max",
+            "page",
+            "rrule",
+            "start_timezone",
+            "summary",
+            "timezone",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "events",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "events",
+            "calendar_id": "primary"
+          },
+          "required_fields": [
+            "account_id",
+            "calendar_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "all_day",
+            "calendar_ids",
+            "description",
+            "end_timezone",
+            "event_id",
+            "location",
+            "original_start",
+            "rrule",
+            "scope",
+            "start_timezone",
+            "summary"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "freebusy",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "freebusy",
+            "calendar_ids": "primary",
+            "from": "2026-10-11T10:00:00+02:00",
+            "to": "2026-10-11T11:00:00+02:00"
+          },
+          "required_fields": [
+            "account_id",
+            "calendar_ids",
+            "from",
+            "operation",
+            "to"
+          ],
+          "excluded_fields": [
+            "all_day",
+            "calendar_id",
+            "description",
+            "end_timezone",
+            "event_id",
+            "location",
+            "max",
+            "original_start",
+            "page",
+            "rrule",
+            "scope",
+            "start_timezone",
+            "summary",
+            "timezone"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "get",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "get",
+            "calendar_id": "primary",
+            "event_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "calendar_id",
+            "event_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "all_day",
+            "calendar_ids",
+            "description",
+            "end_timezone",
+            "from",
+            "location",
+            "max",
+            "original_start",
+            "page",
+            "rrule",
+            "scope",
+            "start_timezone",
+            "summary",
+            "to"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "update",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "update",
+            "calendar_id": "primary",
+            "event_id": "fixture",
+            "scope": "all",
+            "summary": "Updated fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "calendar_id",
+            "event_id",
+            "operation",
+            "scope",
+            "summary"
+          ],
+          "excluded_fields": [
+            "calendar_ids",
+            "max",
+            "page",
+            "timezone"
+          ]
+        }
+      ]
+    },
+    "gog_drive": {
+      "default_arguments": {
+        "account_id": "workspace-test",
+        "operation": "list"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "copy",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "copy",
+            "file_id": "fixture",
+            "name": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "file_id",
+            "name",
+            "operation"
+          ],
+          "excluded_fields": [
+            "convert_to",
+            "format",
+            "if_version",
+            "input_path",
+            "max",
+            "mime_type",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "replace"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "download",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "download",
+            "file_id": "fixture",
+            "output_path": "exports/fixture.pdf"
+          },
+          "required_fields": [
+            "account_id",
+            "file_id",
+            "operation",
+            "output_path"
+          ],
+          "excluded_fields": [
+            "convert_to",
+            "if_version",
+            "input_path",
+            "max",
+            "mime_type",
+            "name",
+            "new_name",
+            "page",
+            "parent",
+            "query",
+            "replace"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "get",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "get",
+            "file_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "file_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "convert_to",
+            "format",
+            "if_version",
+            "input_path",
+            "max",
+            "mime_type",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "parent",
+            "query",
+            "replace"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "import_office",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "import_office",
+            "convert_to": "doc",
+            "input_path": "workspace/fixture.docx"
+          },
+          "required_fields": [
+            "account_id",
+            "convert_to",
+            "input_path",
+            "operation"
+          ],
+          "excluded_fields": [
+            "file_id",
+            "format",
+            "if_version",
+            "max",
+            "mime_type",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "replace"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "list",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "list"
+          },
+          "required_fields": [
+            "account_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "convert_to",
+            "file_id",
+            "format",
+            "if_version",
+            "input_path",
+            "mime_type",
+            "name",
+            "new_name",
+            "output_path",
+            "query",
+            "replace"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "mkdir",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "mkdir",
+            "name": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "name",
+            "operation"
+          ],
+          "excluded_fields": [
+            "convert_to",
+            "file_id",
+            "format",
+            "if_version",
+            "input_path",
+            "max",
+            "mime_type",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "replace"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "move",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "move",
+            "file_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "file_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "convert_to",
+            "format",
+            "if_version",
+            "input_path",
+            "max",
+            "mime_type",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "replace"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "rename",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "rename",
+            "file_id": "fixture",
+            "new_name": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "file_id",
+            "new_name",
+            "operation"
+          ],
+          "excluded_fields": [
+            "convert_to",
+            "format",
+            "if_version",
+            "input_path",
+            "max",
+            "mime_type",
+            "name",
+            "output_path",
+            "page",
+            "parent",
+            "query",
+            "replace"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "replace",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "replace",
+            "replace": "fixture",
+            "if_version": 1,
+            "input_path": "workspace/fixture.docx"
+          },
+          "required_fields": [
+            "account_id",
+            "if_version",
+            "input_path",
+            "operation",
+            "replace"
+          ],
+          "excluded_fields": [
+            "convert_to",
+            "file_id",
+            "format",
+            "max",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "parent",
+            "query"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "search",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "search",
+            "query": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "query"
+          ],
+          "excluded_fields": [
+            "convert_to",
+            "file_id",
+            "format",
+            "if_version",
+            "input_path",
+            "mime_type",
+            "name",
+            "new_name",
+            "output_path",
+            "parent",
+            "replace"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "trash",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "trash",
+            "file_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "file_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "convert_to",
+            "format",
+            "if_version",
+            "input_path",
+            "max",
+            "mime_type",
+            "name",
+            "new_name",
+            "output_path",
+            "page",
+            "parent",
+            "query",
+            "replace"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "upload",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "upload",
+            "input_path": "workspace/fixture.docx"
+          },
+          "required_fields": [
+            "account_id",
+            "input_path",
+            "operation"
+          ],
+          "excluded_fields": [
+            "convert_to",
+            "file_id",
+            "format",
+            "if_version",
+            "max",
+            "new_name",
+            "output_path",
+            "page",
+            "query",
+            "replace"
+          ]
+        }
+      ]
+    },
+    "gog_docs": {
+      "default_arguments": {
+        "account_id": "workspace-test",
+        "operation": "read",
+        "doc_id": "fixture"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "create",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "create",
+            "title": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "title"
+          ],
+          "excluded_fields": [
+            "doc_id",
+            "find",
+            "first",
+            "format",
+            "match_case",
+            "output_path",
+            "replace",
+            "tab"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "export",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "export",
+            "doc_id": "fixture",
+            "output_path": "exports/fixture.pdf"
+          },
+          "required_fields": [
+            "account_id",
+            "doc_id",
+            "operation",
+            "output_path"
+          ],
+          "excluded_fields": [
+            "find",
+            "first",
+            "match_case",
+            "parent",
+            "replace",
+            "tab",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "info",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "info",
+            "doc_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "doc_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "find",
+            "first",
+            "format",
+            "match_case",
+            "output_path",
+            "parent",
+            "replace",
+            "tab",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "read",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "read",
+            "doc_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "doc_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "find",
+            "first",
+            "format",
+            "match_case",
+            "output_path",
+            "parent",
+            "replace",
+            "tab",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "replace_text",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "replace_text",
+            "doc_id": "fixture",
+            "find": "fixture",
+            "replace": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "doc_id",
+            "find",
+            "operation",
+            "replace"
+          ],
+          "excluded_fields": [
+            "format",
+            "output_path",
+            "parent",
+            "title"
+          ]
+        }
+      ]
+    },
+    "gog_sheets": {
+      "default_arguments": {
+        "account_id": "workspace-test",
+        "operation": "read",
+        "spreadsheet_id": "fixture",
+        "range": "fixture"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "append",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "append",
+            "spreadsheet_id": "fixture",
+            "range": "fixture",
+            "values_json": "[[\"Fixture\"]]"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "range",
+            "spreadsheet_id",
+            "values_json"
+          ],
+          "excluded_fields": [
+            "dimension",
+            "format",
+            "output_path",
+            "parent",
+            "render",
+            "sheets",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "create",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "create",
+            "title": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "title"
+          ],
+          "excluded_fields": [
+            "dimension",
+            "format",
+            "input",
+            "insert",
+            "output_path",
+            "range",
+            "render",
+            "spreadsheet_id",
+            "values_json"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "export",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "export",
+            "spreadsheet_id": "fixture",
+            "output_path": "exports/fixture.pdf"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "output_path",
+            "spreadsheet_id"
+          ],
+          "excluded_fields": [
+            "dimension",
+            "input",
+            "insert",
+            "parent",
+            "range",
+            "render",
+            "sheets",
+            "title",
+            "values_json"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "info",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "info",
+            "spreadsheet_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "spreadsheet_id"
+          ],
+          "excluded_fields": [
+            "dimension",
+            "format",
+            "input",
+            "insert",
+            "output_path",
+            "parent",
+            "range",
+            "render",
+            "sheets",
+            "title",
+            "values_json"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "read",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "read",
+            "spreadsheet_id": "fixture",
+            "range": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "range",
+            "spreadsheet_id"
+          ],
+          "excluded_fields": [
+            "format",
+            "input",
+            "insert",
+            "output_path",
+            "parent",
+            "sheets",
+            "title",
+            "values_json"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "update",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "update",
+            "spreadsheet_id": "fixture",
+            "range": "fixture",
+            "values_json": "[[\"Fixture\"]]"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "range",
+            "spreadsheet_id",
+            "values_json"
+          ],
+          "excluded_fields": [
+            "dimension",
+            "format",
+            "insert",
+            "output_path",
+            "parent",
+            "render",
+            "sheets",
+            "title"
+          ]
+        }
+      ]
+    },
+    "gog_slides": {
+      "default_arguments": {
+        "account_id": "workspace-test",
+        "operation": "read",
+        "presentation_id": "fixture"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "create",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "create",
+            "title": "fixture",
+            "content": "# Fixture\nA synthetic presentation."
+          },
+          "required_fields": [
+            "account_id",
+            "content",
+            "operation",
+            "title"
+          ],
+          "excluded_fields": [
+            "find",
+            "format",
+            "match_case",
+            "object",
+            "output_path",
+            "presentation_id",
+            "replacement",
+            "slide_id"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "export",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "export",
+            "presentation_id": "fixture",
+            "output_path": "exports/fixture.pdf"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "output_path",
+            "presentation_id"
+          ],
+          "excluded_fields": [
+            "content",
+            "find",
+            "match_case",
+            "object",
+            "parent",
+            "replacement",
+            "slide_id",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "list",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "list",
+            "presentation_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "presentation_id"
+          ],
+          "excluded_fields": [
+            "content",
+            "find",
+            "format",
+            "match_case",
+            "object",
+            "output_path",
+            "parent",
+            "replacement",
+            "slide_id",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "read",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "read",
+            "presentation_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "presentation_id"
+          ],
+          "excluded_fields": [
+            "content",
+            "find",
+            "format",
+            "match_case",
+            "object",
+            "output_path",
+            "parent",
+            "replacement",
+            "slide_id",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "read_slide",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "read_slide",
+            "presentation_id": "fixture",
+            "slide_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "presentation_id",
+            "slide_id"
+          ],
+          "excluded_fields": [
+            "content",
+            "find",
+            "format",
+            "match_case",
+            "object",
+            "output_path",
+            "parent",
+            "replacement",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "replace_text",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "replace_text",
+            "presentation_id": "fixture",
+            "find": "fixture",
+            "replacement": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "find",
+            "operation",
+            "presentation_id",
+            "replacement"
+          ],
+          "excluded_fields": [
+            "content",
+            "format",
+            "output_path",
+            "parent",
+            "slide_id",
+            "title"
+          ]
+        }
+      ]
+    },
+    "gog_contacts": {
+      "default_arguments": {
+        "account_id": "workspace-test",
+        "operation": "list"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "create",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "create",
+            "given": "Example"
+          },
+          "required_fields": [
+            "account_id",
+            "given",
+            "operation"
+          ],
+          "excluded_fields": [
+            "birthday",
+            "max",
+            "notes",
+            "page",
+            "query",
+            "resource_name"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "delete",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "delete",
+            "resource_name": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "resource_name"
+          ],
+          "excluded_fields": [
+            "birthday",
+            "email",
+            "family",
+            "given",
+            "max",
+            "note",
+            "notes",
+            "org",
+            "page",
+            "phone",
+            "query",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "get",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "get",
+            "resource_name": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "resource_name"
+          ],
+          "excluded_fields": [
+            "birthday",
+            "email",
+            "family",
+            "given",
+            "max",
+            "note",
+            "notes",
+            "org",
+            "page",
+            "phone",
+            "query",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "list",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "list"
+          },
+          "required_fields": [
+            "account_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "birthday",
+            "email",
+            "family",
+            "given",
+            "note",
+            "notes",
+            "org",
+            "phone",
+            "query",
+            "resource_name",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "search",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "search",
+            "query": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "query"
+          ],
+          "excluded_fields": [
+            "birthday",
+            "email",
+            "family",
+            "given",
+            "note",
+            "notes",
+            "org",
+            "page",
+            "phone",
+            "resource_name",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "update",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "update",
+            "resource_name": "fixture",
+            "given": "Updated"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "resource_name",
+            "given"
+          ],
+          "excluded_fields": [
+            "max",
+            "note",
+            "page",
+            "query"
+          ]
+        }
+      ]
+    },
+    "gog_tasks": {
+      "default_arguments": {
+        "account_id": "workspace-test",
+        "operation": "lists"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "complete",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "complete",
+            "tasklist_id": "fixture",
+            "task_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "task_id",
+            "tasklist_id"
+          ],
+          "excluded_fields": [
+            "due",
+            "max",
+            "notes",
+            "page",
+            "parent",
+            "show_completed",
+            "status",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "create",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "create",
+            "tasklist_id": "fixture",
+            "title": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "tasklist_id",
+            "title"
+          ],
+          "excluded_fields": [
+            "max",
+            "page",
+            "show_completed",
+            "status",
+            "task_id"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "create_list",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "create_list",
+            "title": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "title"
+          ],
+          "excluded_fields": [
+            "due",
+            "max",
+            "notes",
+            "page",
+            "parent",
+            "show_completed",
+            "status",
+            "task_id",
+            "tasklist_id"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "delete",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "delete",
+            "tasklist_id": "fixture",
+            "task_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "task_id",
+            "tasklist_id"
+          ],
+          "excluded_fields": [
+            "due",
+            "max",
+            "notes",
+            "page",
+            "parent",
+            "show_completed",
+            "status",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "get",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "get",
+            "tasklist_id": "fixture",
+            "task_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "task_id",
+            "tasklist_id"
+          ],
+          "excluded_fields": [
+            "due",
+            "max",
+            "notes",
+            "page",
+            "parent",
+            "show_completed",
+            "status",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "list",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "list",
+            "tasklist_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "tasklist_id"
+          ],
+          "excluded_fields": [
+            "due",
+            "notes",
+            "parent",
+            "status",
+            "task_id",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "lists",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "lists"
+          },
+          "required_fields": [
+            "account_id",
+            "operation"
+          ],
+          "excluded_fields": [
+            "due",
+            "notes",
+            "parent",
+            "show_completed",
+            "status",
+            "task_id",
+            "tasklist_id",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "reopen",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "reopen",
+            "tasklist_id": "fixture",
+            "task_id": "fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "task_id",
+            "tasklist_id"
+          ],
+          "excluded_fields": [
+            "due",
+            "max",
+            "notes",
+            "page",
+            "parent",
+            "show_completed",
+            "status",
+            "title"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "update",
+          "arguments": {
+            "account_id": "workspace-test",
+            "operation": "update",
+            "tasklist_id": "fixture",
+            "task_id": "fixture",
+            "title": "Updated fixture"
+          },
+          "required_fields": [
+            "account_id",
+            "operation",
+            "task_id",
+            "tasklist_id",
+            "title"
+          ],
+          "excluded_fields": [
+            "max",
+            "page",
+            "parent",
+            "show_completed"
           ]
         }
       ]

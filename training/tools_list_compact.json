@@ -2260,6 +2260,487 @@
     ]
   },
   {
+    "name": "gog_accounts",
+    "description": "List enabled gog accounts and their explicit permissions. Local status only; no Google request. Native Google Workspace is a separate connection.",
+    "required": [
+      "_todo"
+    ],
+    "tier": "extended"
+  },
+  {
+    "name": "gog_calendar",
+    "description": "Use Google calendar through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.",
+    "required": [
+      "_todo",
+      "account_id",
+      "all_day",
+      "calendar_id",
+      "calendar_ids",
+      "description",
+      "end_timezone",
+      "event_id",
+      "from",
+      "location",
+      "max",
+      "operation",
+      "original_start",
+      "page",
+      "rrule",
+      "scope",
+      "start_timezone",
+      "summary",
+      "timezone",
+      "to"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "calendars"
+      },
+      {
+        "selector": "operation",
+        "value": "create"
+      },
+      {
+        "selector": "operation",
+        "value": "delete"
+      },
+      {
+        "selector": "operation",
+        "value": "events"
+      },
+      {
+        "selector": "operation",
+        "value": "freebusy"
+      },
+      {
+        "selector": "operation",
+        "value": "get"
+      },
+      {
+        "selector": "operation",
+        "value": "update"
+      }
+    ]
+  },
+  {
+    "name": "gog_contacts",
+    "description": "Use Google contacts through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.",
+    "required": [
+      "_todo",
+      "account_id",
+      "birthday",
+      "email",
+      "family",
+      "given",
+      "max",
+      "note",
+      "notes",
+      "operation",
+      "org",
+      "page",
+      "phone",
+      "query",
+      "resource_name",
+      "title"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "create"
+      },
+      {
+        "selector": "operation",
+        "value": "delete"
+      },
+      {
+        "selector": "operation",
+        "value": "get"
+      },
+      {
+        "selector": "operation",
+        "value": "list"
+      },
+      {
+        "selector": "operation",
+        "value": "search"
+      },
+      {
+        "selector": "operation",
+        "value": "update"
+      }
+    ]
+  },
+  {
+    "name": "gog_docs",
+    "description": "Use Google docs through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.",
+    "required": [
+      "_todo",
+      "account_id",
+      "doc_id",
+      "find",
+      "first",
+      "format",
+      "match_case",
+      "operation",
+      "output_path",
+      "parent",
+      "replace",
+      "tab",
+      "title"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "create"
+      },
+      {
+        "selector": "operation",
+        "value": "export"
+      },
+      {
+        "selector": "operation",
+        "value": "info"
+      },
+      {
+        "selector": "operation",
+        "value": "read"
+      },
+      {
+        "selector": "operation",
+        "value": "replace_text"
+      }
+    ]
+  },
+  {
+    "name": "gog_drive",
+    "description": "Use Google drive through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.",
+    "required": [
+      "_todo",
+      "account_id",
+      "convert_to",
+      "file_id",
+      "format",
+      "if_version",
+      "input_path",
+      "max",
+      "mime_type",
+      "name",
+      "new_name",
+      "operation",
+      "output_path",
+      "page",
+      "parent",
+      "query",
+      "replace"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "copy"
+      },
+      {
+        "selector": "operation",
+        "value": "download"
+      },
+      {
+        "selector": "operation",
+        "value": "get"
+      },
+      {
+        "selector": "operation",
+        "value": "import_office"
+      },
+      {
+        "selector": "operation",
+        "value": "list"
+      },
+      {
+        "selector": "operation",
+        "value": "mkdir"
+      },
+      {
+        "selector": "operation",
+        "value": "move"
+      },
+      {
+        "selector": "operation",
+        "value": "rename"
+      },
+      {
+        "selector": "operation",
+        "value": "replace"
+      },
+      {
+        "selector": "operation",
+        "value": "search"
+      },
+      {
+        "selector": "operation",
+        "value": "trash"
+      },
+      {
+        "selector": "operation",
+        "value": "upload"
+      }
+    ]
+  },
+  {
+    "name": "gog_gmail",
+    "description": "Use Google gmail through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.",
+    "required": [
+      "_todo",
+      "account_id",
+      "add",
+      "attachment_id",
+      "bcc",
+      "body",
+      "cc",
+      "draft_id",
+      "format",
+      "label_id_or_name",
+      "max",
+      "message_id",
+      "name",
+      "new_name",
+      "operation",
+      "output_path",
+      "page",
+      "query",
+      "remove",
+      "subject",
+      "to"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "archive"
+      },
+      {
+        "selector": "operation",
+        "value": "attachment"
+      },
+      {
+        "selector": "operation",
+        "value": "create_draft"
+      },
+      {
+        "selector": "operation",
+        "value": "create_label"
+      },
+      {
+        "selector": "operation",
+        "value": "delete_draft"
+      },
+      {
+        "selector": "operation",
+        "value": "delete_label"
+      },
+      {
+        "selector": "operation",
+        "value": "draft"
+      },
+      {
+        "selector": "operation",
+        "value": "drafts"
+      },
+      {
+        "selector": "operation",
+        "value": "label"
+      },
+      {
+        "selector": "operation",
+        "value": "labels"
+      },
+      {
+        "selector": "operation",
+        "value": "read"
+      },
+      {
+        "selector": "operation",
+        "value": "rename_label"
+      },
+      {
+        "selector": "operation",
+        "value": "search"
+      },
+      {
+        "selector": "operation",
+        "value": "send"
+      },
+      {
+        "selector": "operation",
+        "value": "send_draft"
+      },
+      {
+        "selector": "operation",
+        "value": "trash"
+      },
+      {
+        "selector": "operation",
+        "value": "update_draft"
+      }
+    ]
+  },
+  {
+    "name": "gog_sheets",
+    "description": "Use Google sheets through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.",
+    "required": [
+      "_todo",
+      "account_id",
+      "dimension",
+      "format",
+      "input",
+      "insert",
+      "operation",
+      "output_path",
+      "parent",
+      "range",
+      "render",
+      "sheets",
+      "spreadsheet_id",
+      "title",
+      "values_json"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "append"
+      },
+      {
+        "selector": "operation",
+        "value": "create"
+      },
+      {
+        "selector": "operation",
+        "value": "export"
+      },
+      {
+        "selector": "operation",
+        "value": "info"
+      },
+      {
+        "selector": "operation",
+        "value": "read"
+      },
+      {
+        "selector": "operation",
+        "value": "update"
+      }
+    ]
+  },
+  {
+    "name": "gog_slides",
+    "description": "Use Google slides through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.",
+    "required": [
+      "_todo",
+      "account_id",
+      "content",
+      "find",
+      "format",
+      "match_case",
+      "object",
+      "operation",
+      "output_path",
+      "parent",
+      "presentation_id",
+      "replacement",
+      "slide_id",
+      "title"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "create"
+      },
+      {
+        "selector": "operation",
+        "value": "export"
+      },
+      {
+        "selector": "operation",
+        "value": "list"
+      },
+      {
+        "selector": "operation",
+        "value": "read"
+      },
+      {
+        "selector": "operation",
+        "value": "read_slide"
+      },
+      {
+        "selector": "operation",
+        "value": "replace_text"
+      }
+    ]
+  },
+  {
+    "name": "gog_tasks",
+    "description": "Use Google tasks through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.",
+    "required": [
+      "_todo",
+      "account_id",
+      "due",
+      "max",
+      "notes",
+      "operation",
+      "page",
+      "parent",
+      "show_completed",
+      "status",
+      "task_id",
+      "tasklist_id",
+      "title"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "complete"
+      },
+      {
+        "selector": "operation",
+        "value": "create"
+      },
+      {
+        "selector": "operation",
+        "value": "create_list"
+      },
+      {
+        "selector": "operation",
+        "value": "delete"
+      },
+      {
+        "selector": "operation",
+        "value": "get"
+      },
+      {
+        "selector": "operation",
+        "value": "list"
+      },
+      {
+        "selector": "operation",
+        "value": "lists"
+      },
+      {
+        "selector": "operation",
+        "value": "reopen"
+      },
+      {
+        "selector": "operation",
+        "value": "update"
+      }
+    ]
+  },
+  {
     "name": "golangci_lint",
     "description": "Run golangci-lint static analysis on Go source code. Returns a structured list of lint issues. golangci-lint is auto-installed if not present.",
     "required": [

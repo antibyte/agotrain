@@ -2,8 +2,8 @@
 
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
-- Tools: **220**
-- Enumerated operations: **1220**
+- Tools: **229**
+- Enumerated operations: **1288**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
 
@@ -1288,6 +1288,243 @@ Observe configured go2rtc camera streams, create or analyze safe snapshots, and 
 | `rotate` | `integer` | Optional clockwise rotation: 0, 90, 180, or 270. |
 | `stream_id` | `string` | Configured stable stream ID. Required for stream-specific operations. |
 | `width` | `integer` | Optional snapshot width in pixels, up to 7680. |
+
+## `gog_accounts`
+
+List enabled gog accounts and their explicit permissions. Local status only; no Google request. Native Google Workspace is a separate connection.
+
+- Tier: `extended`
+- Required: `_todo`
+- Manual: `prompts/tools_manuals/gog_accounts.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+
+## `gog_calendar`
+
+Use Google calendar through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.
+
+- Tier: `extended`
+- Required: `_todo`, `account_id`, `all_day`, `calendar_id`, `calendar_ids`, `description`, `end_timezone`, `event_id`, `from`, `location`, `max`, `operation`, `original_start`, `page`, `rrule`, `scope`, `start_timezone`, `summary`, `timezone`, `to`
+- Operations: 7
+- Manual: `prompts/tools_manuals/gog_calendar.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `account_id` | `string` | Explicit stable account ID from gog_accounts. |
+| `all_day` | `boolean` | All-day event (use date-only in --from/--to) |
+| `calendar_id` | `string` | Calendar ID (default: primary); optional leading list/ls selector is accepted for compatibility |
+| `calendar_ids` | `string` | Comma-separated calendar IDs, names, or indices from 'calendar calendars' |
+| `description` | `string` | Description |
+| `end_timezone` | `string` | IANA timezone metadata for --to (e.g., America/New_York) |
+| `event_id` | `string` | Event ID |
+| `from` | `string` | Start time (RFC3339 with timezone, date, or relative: now, today, tomorrow, monday) |
+| `location` | `string` | Location |
+| `max` | `integer` | Max results |
+| `operation` | `string` |  |
+| `original_start` | `string` | Original start time of instance (required for scope=single,future) |
+| `page` | `string` | Page token |
+| `rrule` | `array` | Recurrence rules (e.g., 'RRULE:FREQ=MONTHLY;BYMONTHDAY=11'). Can be repeated. |
+| `scope` | `string` | For recurring events: single, future, all |
+| `start_timezone` | `string` | IANA timezone metadata for --from (e.g., Europe/Rome) |
+| `summary` | `string` | Event summary/title |
+| `timezone` | `string` | Display timezone for event times (IANA name, e.g. America/New_York, or 'local' for the system timezone). Default: each event's timezone, then its calendar's timezone |
+| `to` | `string` | End time (RFC3339 with timezone, date, or relative: now, today, tomorrow, monday) |
+
+## `gog_contacts`
+
+Use Google contacts through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.
+
+- Tier: `extended`
+- Required: `_todo`, `account_id`, `birthday`, `email`, `family`, `given`, `max`, `note`, `notes`, `operation`, `org`, `page`, `phone`, `query`, `resource_name`, `title`
+- Operations: 6
+- Manual: `prompts/tools_manuals/gog_contacts.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `account_id` | `string` | Explicit stable account ID from gog_accounts. |
+| `birthday` | `string` | Birthday in YYYY-MM-DD (empty clears) |
+| `email` | `string` | Email address |
+| `family` | `string` | Family name |
+| `given` | `string` | Given name (required) |
+| `max` | `integer` | Max results |
+| `note` | `string` | Note/biography |
+| `notes` | `string` | Notes (stored as People API biography; empty clears) |
+| `operation` | `string` |  |
+| `org` | `string` | Organization/company name |
+| `page` | `string` | Page token |
+| `phone` | `string` | Phone number |
+| `query` | `string` | Search query |
+| `resource_name` | `string` | Resource name (people/...) or email |
+| `title` | `string` | Job title |
+
+## `gog_docs`
+
+Use Google docs through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.
+
+- Tier: `extended`
+- Required: `_todo`, `account_id`, `doc_id`, `find`, `first`, `format`, `match_case`, `operation`, `output_path`, `parent`, `replace`, `tab`, `title`
+- Operations: 5
+- Manual: `prompts/tools_manuals/gog_docs.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `account_id` | `string` | Explicit stable account ID from gog_accounts. |
+| `doc_id` | `string` | Doc ID |
+| `find` | `string` | Text to find |
+| `first` | `boolean` | Replace only the first occurrence instead of all. |
+| `format` | `string` | Export format: pdf|docx|txt|md|html |
+| `match_case` | `boolean` | Case-sensitive matching |
+| `operation` | `string` |  |
+| `output_path` | `string` | New local workspace file for download/export. Existing files are never replaced. |
+| `parent` | `string` | Destination folder ID |
+| `replace` | `string` | Replacement text (omit when using --content-file) |
+| `tab` | `string` | Target a specific tab by title or ID (see docs list-tabs) |
+| `title` | `string` | Doc title |
+
+## `gog_drive`
+
+Use Google drive through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.
+
+- Tier: `extended`
+- Required: `_todo`, `account_id`, `convert_to`, `file_id`, `format`, `if_version`, `input_path`, `max`, `mime_type`, `name`, `new_name`, `operation`, `output_path`, `page`, `parent`, `query`, `replace`
+- Operations: 12
+- Manual: `prompts/tools_manuals/gog_drive.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `account_id` | `string` | Explicit stable account ID from gog_accounts. |
+| `convert_to` | `string` | Convert to a specific Google format: doc|sheet|slides (create only) |
+| `file_id` | `string` | File ID |
+| `format` | `string` | Export format for Google Docs files: pdf|csv|xlsx|pptx|txt|png|docx|md (default: inferred) |
+| `if_version` | `integer` | Replace only if the current Drive version matches; uses an atomic precondition and reports a conflict if the file changes (requires --replace; re-read and reapply on conflict) |
+| `input_path` | `string` | Authorized local file to upload; never a URL. |
+| `max` | `integer` | Max results |
+| `mime_type` | `string` | Override MIME type inference |
+| `name` | `string` | Override filename (create) or rename target (replace) |
+| `new_name` | `string` | New name |
+| `operation` | `string` |  |
+| `output_path` | `string` | New local workspace file for download/export. Existing files are never replaced. |
+| `page` | `string` | Page token |
+| `parent` | `string` | Folder ID to list (default: root) |
+| `query` | `string` | Search query |
+| `replace` | `string` | Replace the content of an existing Drive file ID (preserves shared link/permissions; unconditional unless --if-version is set) |
+
+## `gog_gmail`
+
+Use Google gmail through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.
+
+- Tier: `extended`
+- Required: `_todo`, `account_id`, `add`, `attachment_id`, `bcc`, `body`, `cc`, `draft_id`, `format`, `label_id_or_name`, `max`, `message_id`, `name`, `new_name`, `operation`, `output_path`, `page`, `query`, `remove`, `subject`, `to`
+- Operations: 17
+- Manual: `prompts/tools_manuals/gog_gmail.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `account_id` | `string` | Explicit stable account ID from gog_accounts. |
+| `add` | `array` | Labels to add (comma-separated or repeated; name or ID) |
+| `attachment_id` | `string` | Attachment ID, or a 0-based index with --use-indexed-attachment-ids |
+| `bcc` | `string` | BCC recipients (comma-separated) |
+| `body` | `string` | Body (plain text; required unless --body-html is set) |
+| `cc` | `string` | CC recipients (comma-separated) |
+| `draft_id` | `string` | Draft ID |
+| `format` | `string` | Message format: full|metadata|raw |
+| `label_id_or_name` | `string` | Current label ID or name |
+| `max` | `integer` | Max results |
+| `message_id` | `string` | Message ID |
+| `name` | `string` | Label name |
+| `new_name` | `string` | New label name |
+| `operation` | `string` |  |
+| `output_path` | `string` | New local workspace file for download/export. Existing files are never replaced. |
+| `page` | `string` | Page token |
+| `query` | `string` | Search query |
+| `remove` | `array` | Labels to remove (comma-separated or repeated; name or ID) |
+| `subject` | `string` | Subject (required) |
+| `to` | `string` | Recipients (comma-separated) |
+
+## `gog_sheets`
+
+Use Google sheets through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.
+
+- Tier: `extended`
+- Required: `_todo`, `account_id`, `dimension`, `format`, `input`, `insert`, `operation`, `output_path`, `parent`, `range`, `render`, `sheets`, `spreadsheet_id`, `title`, `values_json`
+- Operations: 6
+- Manual: `prompts/tools_manuals/gog_sheets.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `account_id` | `string` | Explicit stable account ID from gog_accounts. |
+| `dimension` | `string` | Major dimension: ROWS or COLUMNS |
+| `format` | `string` | Export format: pdf|xlsx|csv |
+| `input` | `string` | Value input option: RAW or USER_ENTERED |
+| `insert` | `string` | Insert data option: OVERWRITE or INSERT_ROWS |
+| `operation` | `string` |  |
+| `output_path` | `string` | New local workspace file for download/export. Existing files are never replaced. |
+| `parent` | `string` | Destination folder ID |
+| `range` | `string` | Range (A1 notation or named range name; e.g. Sheet1!A1:B10 or MyNamedRange) |
+| `render` | `string` | Value render option: FORMATTED_VALUE, UNFORMATTED_VALUE, or FORMULA |
+| `sheets` | `string` | Comma-separated sheet names to create |
+| `spreadsheet_id` | `string` | Spreadsheet ID |
+| `title` | `string` | Spreadsheet title |
+| `values_json` | `string` | Values as a JSON 2D array, @file, or @- for stdin |
+
+## `gog_slides`
+
+Use Google slides through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.
+
+- Tier: `extended`
+- Required: `_todo`, `account_id`, `content`, `find`, `format`, `match_case`, `object`, `operation`, `output_path`, `parent`, `presentation_id`, `replacement`, `slide_id`, `title`
+- Operations: 6
+- Manual: `prompts/tools_manuals/gog_slides.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `account_id` | `string` | Explicit stable account ID from gog_accounts. |
+| `content` | `string` | Markdown content (inline) |
+| `find` | `string` | Substring to find |
+| `format` | `string` | Export format: pdf|pptx |
+| `match_case` | `boolean` | Case-sensitive match (default: false) |
+| `object` | `string` | Restrict replacement to a single shape text object ID |
+| `operation` | `string` |  |
+| `output_path` | `string` | New local workspace file for download/export. Existing files are never replaced. |
+| `parent` | `string` | Destination folder ID |
+| `presentation_id` | `string` | Presentation ID |
+| `replacement` | `string` | Replacement text |
+| `slide_id` | `string` | Slide object ID (use 'slides list-slides' to find IDs) |
+| `title` | `string` | Presentation title |
+
+## `gog_tasks`
+
+Use Google tasks through the selected gog account. Use get_tool_info for per-operation arguments. Follow read/create/update/delete/send grants. Never repeat an external_status_unknown write; inspect the account first.
+
+- Tier: `extended`
+- Required: `_todo`, `account_id`, `due`, `max`, `notes`, `operation`, `page`, `parent`, `show_completed`, `status`, `task_id`, `tasklist_id`, `title`
+- Operations: 9
+- Manual: `prompts/tools_manuals/gog_tasks.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `account_id` | `string` | Explicit stable account ID from gog_accounts. |
+| `due` | `string` | Due date (RFC3339 or YYYY-MM-DD; time may be ignored by Google Tasks) |
+| `max` | `integer` | Max results (max allowed: 1000) |
+| `notes` | `string` | Task notes/description |
+| `operation` | `string` |  |
+| `page` | `string` | Page token |
+| `parent` | `string` | Parent task ID (create as subtask) |
+| `show_completed` | `boolean` | Include completed tasks (requires --show-hidden for some clients) |
+| `status` | `string` | New status: needsAction|completed (set empty to clear) |
+| `task_id` | `string` | Task ID |
+| `tasklist_id` | `string` | Task list ID |
+| `title` | `string` | Task list title |
 
 ## `golangci_lint`
 
