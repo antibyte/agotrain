@@ -2,7 +2,7 @@
   "schema_version": "2.0",
   "source": "aurago internal/agent.BuildNativeToolSchemaSnapshot.StrictSchemas (all feature flags enabled)",
   "tool_count": 230,
-  "operation_count": 1293,
+  "operation_count": 1298,
   "call_format": "OpenAI-compatible native function calling with assistant tool_calls and role=tool results linked by tool_call_id.",
   "tools": [
     {
@@ -11650,7 +11650,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/frigate.md",
-      "manual_snippet": "# Frigate NVR Tool (`frigate`)\n\nQuery Frigate NVR cameras, object detection events, review summaries, snapshots, clips, recordings, and configuration.\n\n| Operation | Description | Key parameters |\n|---|---|---|\n| `status` / `health` | Frigate stats and health check via `/api/stats` | none |\n| `cameras` | Configured cameras and capabilities | none |\n| `events` | Search detection events | `camera`, `label`, `zone`, `after`, `before`, `min_score`, `has_clip`, `has_snapshot`, `limit`, `offset` |\n| `event` | Get one event | `event_id` |\n| `event_snapshot` | Fetch and, when `frigate.store_media` is enabled, store an event snapshot | `event_id` |\n| `event_clip` | Fetch and, when `frigate.store_media` is enabled, store an event clip | `event_id` |\n| `reviews` | List review items | `camera`, `camer…"
+      "manual_snippet": "# Frigate NVR Tool (`frigate`)\n\nQuery Frigate NVR cameras, object detection events, review summaries, snapshots, clips, recordings, and configuration.\n\n| Operation | Description | Key parameters |\n|---|---|---|\n| `status` / `health` | Frigate stats and health check via `/api/stats` | none |\n| `cameras` | Redacted cameras object from the processed config | none |\n| `events` | Search detection events | `camera`, `label`, `zone`, `after`, `before`, `min_score`, `has_clip`, `has_snapshot`, `limit`, `offset` |\n| `event` | Get one event | `event_id` |\n| `event_snapshot` | Fetch and, when `frigate.store_media` is enabled, store an event snapshot | `event_id` |\n| `event_clip` | Fetch and, when `frigate.store_media` is enabled, store an event clip | `event_id` |\n| `reviews` | List review items | `c…"
     },
     {
       "name": "fritzbox_network",
@@ -25507,7 +25507,7 @@
     },
     {
       "name": "go2rtc",
-      "description": "Observe configured go2rtc camera streams, create or analyze safe snapshots, and show a same-origin live viewer. This tool never accepts source URLs and cannot change service or stream configuration.",
+      "description": "Observe configured go2rtc camera streams, create or analyze safe snapshots, show a same-origin live viewer, and use person detection: detector and arm status, arming, detection events and their pictures. This tool never accepts source URLs and cannot change service or stream configuration.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -25525,6 +25525,13 @@
               "null"
             ]
           },
+          "event_id": {
+            "description": "Detection event ID from list_detection_events; required for analyze_detection_event and show_detection_event.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "height": {
             "description": "Optional snapshot height in pixels, up to 4320.",
             "type": [
@@ -25532,20 +25539,39 @@
               "null"
             ]
           },
+          "limit": {
+            "description": "list_detection_events: 1-50, default 10.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "mode": {
+            "description": "set_arm_mode: off, on or schedule.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "operation": {
-            "description": "Read-only operation to perform",
+            "description": "Operation to perform. Only set_arm_mode changes state (person detection alerts off, on or by schedule).",
             "enum": [
               "status",
               "list_streams",
               "stream_status",
               "snapshot",
               "analyze_snapshot",
-              "show_live_stream"
+              "show_live_stream",
+              "detection_status",
+              "set_arm_mode",
+              "list_detection_events",
+              "analyze_detection_event",
+              "show_detection_event"
             ],
             "type": "string"
           },
           "prompt": {
-            "description": "Optional vision prompt for analyze_snapshot.",
+            "description": "Optional vision prompt for analyze_snapshot and analyze_detection_event.",
             "type": [
               "string",
               "null"
@@ -25558,8 +25584,22 @@
               "null"
             ]
           },
+          "since": {
+            "description": "list_detection_events: start, RFC 3339 time or YYYY-MM-DD (server local day).",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "stream_id": {
-            "description": "Configured stable stream ID. Required for stream-specific operations.",
+            "description": "Configured stable stream ID. Required for stream-specific operations; optional camera filter for list_detection_events.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "until": {
+            "description": "list_detection_events: end, RFC 3339 time or YYYY-MM-DD (the whole day).",
             "type": [
               "string",
               "null"
@@ -25576,11 +25616,16 @@
         "required": [
           "_todo",
           "cache_seconds",
+          "event_id",
           "height",
+          "limit",
+          "mode",
           "operation",
           "prompt",
           "rotate",
+          "since",
           "stream_id",
+          "until",
           "width"
         ],
         "type": "object"
@@ -25596,32 +25641,57 @@
             "description": "Optional snapshot cache duration from 0 to 3600 seconds.",
             "type": "integer"
           },
+          "event_id": {
+            "description": "Detection event ID from list_detection_events; required for analyze_detection_event and show_detection_event.",
+            "type": "integer"
+          },
           "height": {
             "description": "Optional snapshot height in pixels, up to 4320.",
             "type": "integer"
           },
+          "limit": {
+            "description": "list_detection_events: 1-50, default 10.",
+            "type": "integer"
+          },
+          "mode": {
+            "description": "set_arm_mode: off, on or schedule.",
+            "type": "string"
+          },
           "operation": {
-            "description": "Read-only operation to perform",
+            "description": "Operation to perform. Only set_arm_mode changes state (person detection alerts off, on or by schedule).",
             "enum": [
               "status",
               "list_streams",
               "stream_status",
               "snapshot",
               "analyze_snapshot",
-              "show_live_stream"
+              "show_live_stream",
+              "detection_status",
+              "set_arm_mode",
+              "list_detection_events",
+              "analyze_detection_event",
+              "show_detection_event"
             ],
             "type": "string"
           },
           "prompt": {
-            "description": "Optional vision prompt for analyze_snapshot.",
+            "description": "Optional vision prompt for analyze_snapshot and analyze_detection_event.",
             "type": "string"
           },
           "rotate": {
             "description": "Optional clockwise rotation: 0, 90, 180, or 270.",
             "type": "integer"
           },
+          "since": {
+            "description": "list_detection_events: start, RFC 3339 time or YYYY-MM-DD (server local day).",
+            "type": "string"
+          },
           "stream_id": {
-            "description": "Configured stable stream ID. Required for stream-specific operations.",
+            "description": "Configured stable stream ID. Required for stream-specific operations; optional camera filter for list_detection_events.",
+            "type": "string"
+          },
+          "until": {
+            "description": "list_detection_events: end, RFC 3339 time or YYYY-MM-DD (the whole day).",
             "type": "string"
           },
           "width": {
@@ -25637,11 +25707,16 @@
       "required": [
         "_todo",
         "cache_seconds",
+        "event_id",
         "height",
+        "limit",
+        "mode",
         "operation",
         "prompt",
         "rotate",
+        "since",
         "stream_id",
+        "until",
         "width"
       ],
       "properties": {
@@ -25659,6 +25734,13 @@
             "null"
           ]
         },
+        "event_id": {
+          "description": "Detection event ID from list_detection_events; required for analyze_detection_event and show_detection_event.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
         "height": {
           "description": "Optional snapshot height in pixels, up to 4320.",
           "type": [
@@ -25666,20 +25748,39 @@
             "null"
           ]
         },
+        "limit": {
+          "description": "list_detection_events: 1-50, default 10.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "mode": {
+          "description": "set_arm_mode: off, on or schedule.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "operation": {
-          "description": "Read-only operation to perform",
+          "description": "Operation to perform. Only set_arm_mode changes state (person detection alerts off, on or by schedule).",
           "enum": [
             "status",
             "list_streams",
             "stream_status",
             "snapshot",
             "analyze_snapshot",
-            "show_live_stream"
+            "show_live_stream",
+            "detection_status",
+            "set_arm_mode",
+            "list_detection_events",
+            "analyze_detection_event",
+            "show_detection_event"
           ],
           "type": "string"
         },
         "prompt": {
-          "description": "Optional vision prompt for analyze_snapshot.",
+          "description": "Optional vision prompt for analyze_snapshot and analyze_detection_event.",
           "type": [
             "string",
             "null"
@@ -25692,8 +25793,22 @@
             "null"
           ]
         },
+        "since": {
+          "description": "list_detection_events: start, RFC 3339 time or YYYY-MM-DD (server local day).",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "stream_id": {
-          "description": "Configured stable stream ID. Required for stream-specific operations.",
+          "description": "Configured stable stream ID. Required for stream-specific operations; optional camera filter for list_detection_events.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "until": {
+          "description": "list_detection_events: end, RFC 3339 time or YYYY-MM-DD (the whole day).",
           "type": [
             "string",
             "null"
@@ -25711,11 +25826,31 @@
       "operations": [
         {
           "selector": "operation",
+          "value": "analyze_detection_event"
+        },
+        {
+          "selector": "operation",
           "value": "analyze_snapshot"
         },
         {
           "selector": "operation",
+          "value": "detection_status"
+        },
+        {
+          "selector": "operation",
+          "value": "list_detection_events"
+        },
+        {
+          "selector": "operation",
           "value": "list_streams"
+        },
+        {
+          "selector": "operation",
+          "value": "set_arm_mode"
+        },
+        {
+          "selector": "operation",
+          "value": "show_detection_event"
         },
         {
           "selector": "operation",
@@ -25735,7 +25870,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/go2rtc.md",
-      "manual_snippet": "# go2rtc\n\nUse the `go2rtc` tool to observe configured camera streams through AuraGo's managed go2rtc sidecar.\n\nThe tool is read-only and accepts only stable `stream_id` values returned by `list_streams`. Never invent or request camera source URLs, credentials, go2rtc API credentials, or arbitrary `src` values.\n\nOperations:\n\n- `status`: Check the managed container and authenticated API state.\n- `list_streams`: List enabled configured streams with sanitized reachability, codec, producer, and consumer data.\n- `stream_status`: Inspect one configured stream.\n- `snapshot`: Create a verified JPEG snapshot and show it in chat; persistent registration follows `store_media`. The result also includes machine-readable artifact provenance and recommends `go2rtc/analyze_snapshot` for a later camera-anal…"
+      "manual_snippet": "# go2rtc\n\nUse the `go2rtc` tool to observe configured camera streams through AuraGo's managed go2rtc sidecar and to work with AuraGo's person detection.\n\nThe tool accepts only stable `stream_id` values returned by `list_streams` and detection `event_id` values returned by `list_detection_events`. Never invent or request camera source URLs, credentials, go2rtc API credentials, or arbitrary `src` values. The only operation that changes anything is `set_arm_mode`; the tool cannot start or stop the service and cannot add, edit, disable, or remove streams or detection settings.\n\nOperations:\n\n- `status`: Check the managed container and authenticated API state.\n- `list_streams`: List enabled configured streams with sanitized reachability, codec, producer, and consumer data.\n- `stream_status`: Ins…"
     },
     {
       "name": "gog_accounts",
@@ -46347,7 +46482,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/ollama.md",
-      "manual_snippet": "# Ollama Tool (`ollama`)\n\nManage local Ollama LLM instance: models, GPU memory, and inference.\n\n## Operations\n\n### Model Management\n\n| Operation | Description | Parameters |\n|-----------|-------------|------------|\n| `list`, `list_models` | List all installed models | — |\n| `running`, `ps` | List models currently loaded in GPU | — |\n| `show`, `info` | Show detailed model info (size, capabilities) | `model` |\n| `pull`, `download` | Download/pull a model from Ollama library | `model` |\n| `delete`, `remove` | Delete a locally stored model | `model` |\n| `copy` | Copy/rename a model | `source`, `destination` |\n| `load` | Load model into GPU memory for fast inference | `model` |\n| `unload` | Unload model from GPU memory | `model` |\n\n### Container Operations\n\n| Operation | Description | Param…"
+      "manual_snippet": "# Ollama Tool (`ollama`)\n\nManage local Ollama LLM instance: models, GPU memory, and inference.\n\n## Operations\n\n### Model Management\n\n| Operation | Description | Parameters |\n|-----------|-------------|------------|\n| `list`, `list_models` | List all installed models | — |\n| `running`, `ps` | List models currently loaded in GPU | — |\n| `show`, `info` | Show detailed model info (size, capabilities) | `model` |\n| `pull`, `download` | Download/pull a model from Ollama library | `model` |\n| `delete`, `remove` | Delete a locally stored model | `model` |\n| `copy` | Copy/rename a model | `source`, `destination` |\n| `load` | Load model into GPU memory for fast inference | `model` |\n| `unload` | Unload model from GPU memory | `model` |\n\n## Parameters\n\n| Parameter | Type | Required | Description …"
     },
     {
       "name": "onedrive",
@@ -48823,7 +48958,7 @@
     },
     {
       "name": "read_tool_output",
-      "description": "Read archived output by output_ref with summary, head, tail, range, grep, jsonpath, or full views.",
+      "description": "Read more of a tool result that was archived because it was too large: pass its output_ref as ref. The default full view pages through it; continue with offset=next_offset. Narrow with grep, jsonpath, range, head or tail.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -48842,7 +48977,7 @@
             ]
           },
           "max_chars": {
-            "description": "Maximum characters to return",
+            "description": "Maximum bytes of content per page; every page fits the inline output budget",
             "type": [
               "integer",
               "null"
@@ -48850,6 +48985,13 @@
           },
           "max_lines": {
             "description": "Maximum lines for head or tail views",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "offset": {
+            "description": "Byte offset to start from: next_offset of the previous page",
             "type": [
               "integer",
               "null"
@@ -48870,7 +49012,7 @@
             ]
           },
           "ref": {
-            "description": "output_ref returned by a compact tool result",
+            "description": "The output_ref value of the archived result (toolout_...)",
             "type": "string"
           },
           "start_line": {
@@ -48881,7 +49023,7 @@
             ]
           },
           "view": {
-            "description": "Output view to return",
+            "description": "Output view to return (default full)",
             "enum": [
               "summary",
               "head",
@@ -48903,6 +49045,7 @@
           "end_line",
           "max_chars",
           "max_lines",
+          "offset",
           "query",
           "reason",
           "ref",
@@ -48923,11 +49066,15 @@
             "type": "integer"
           },
           "max_chars": {
-            "description": "Maximum characters to return",
+            "description": "Maximum bytes of content per page; every page fits the inline output budget",
             "type": "integer"
           },
           "max_lines": {
             "description": "Maximum lines for head or tail views",
+            "type": "integer"
+          },
+          "offset": {
+            "description": "Byte offset to start from: next_offset of the previous page",
             "type": "integer"
           },
           "query": {
@@ -48939,7 +49086,7 @@
             "type": "string"
           },
           "ref": {
-            "description": "output_ref returned by a compact tool result",
+            "description": "The output_ref value of the archived result (toolout_...)",
             "type": "string"
           },
           "start_line": {
@@ -48947,7 +49094,7 @@
             "type": "integer"
           },
           "view": {
-            "description": "Output view to return",
+            "description": "Output view to return (default full)",
             "enum": [
               "summary",
               "head",
@@ -48970,6 +49117,7 @@
         "end_line",
         "max_chars",
         "max_lines",
+        "offset",
         "query",
         "reason",
         "ref",
@@ -48992,7 +49140,7 @@
           ]
         },
         "max_chars": {
-          "description": "Maximum characters to return",
+          "description": "Maximum bytes of content per page; every page fits the inline output budget",
           "type": [
             "integer",
             "null"
@@ -49000,6 +49148,13 @@
         },
         "max_lines": {
           "description": "Maximum lines for head or tail views",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "offset": {
+          "description": "Byte offset to start from: next_offset of the previous page",
           "type": [
             "integer",
             "null"
@@ -49020,7 +49175,7 @@
           ]
         },
         "ref": {
-          "description": "output_ref returned by a compact tool result",
+          "description": "The output_ref value of the archived result (toolout_...)",
           "type": "string"
         },
         "start_line": {
@@ -49031,7 +49186,7 @@
           ]
         },
         "view": {
-          "description": "Output view to return",
+          "description": "Output view to return (default full)",
           "enum": [
             "summary",
             "head",
@@ -49050,7 +49205,7 @@
       },
       "tier": "extended",
       "manual_path": "prompts/tools_manuals/read_tool_output.md",
-      "manual_snippet": "# read_tool_output\n\nUse `read_tool_output` when a compact tool result includes an `output_ref` and you need more detail without adding the entire raw output to context.\n\n## Parameters\n\n- `ref` (required): The `output_ref` from the compact result.\n- `view`: `summary`, `head`, `tail`, `range`, `grep`, `jsonpath`, or `full`.\n- `query`: Search text for `grep` or a JSONPath expression for `jsonpath`.\n- `start_line`, `end_line`: 1-based line numbers for `range`.\n- `max_lines`: Line limit for `head` or `tail`.\n- `max_chars`: Character cap for any view. If omitted, output is capped to a compact default; very large requested caps are limited.\n- `reason`: Optional note explaining why more output is needed.\n\nPrefer focused views (`grep`, `range`, `jsonpath`, `head`, `tail`) before `full`.\n"
+      "manual_snippet": "# read_tool_output\n\nUse `read_tool_output` when a tool result was archived because it was too large (\"Full output archived\", with an `output_ref` and a view of the output) and the part you need is not in that view. The archive message names the exact call for the rest: copy its `ref` and its `offset` or `start_line`/`end_line`.\n\n## Parameters\n\n- `ref` (required): the `output_ref` value of the archived result, for example `toolout_3f2a…`. The name `output_ref` is accepted too.\n- `view`: `full` (default), `grep`, `jsonpath`, `range`, `head`, `tail`, or `summary`.\n- `offset`: byte position to continue from. Every page that stops before the end returns `next_offset`; pass it as `offset` for the next page.\n- `query`: the search text for `grep`, or a JSONPath expression such as `$.items[0].nam…"
     },
     {
       "name": "recall_memory",
@@ -62797,6 +62952,7 @@
               "auto",
               "text",
               "html",
+              "list",
               "rows",
               "table",
               null
@@ -62881,6 +63037,7 @@
               "auto",
               "text",
               "html",
+              "list",
               "rows",
               "table"
             ],
@@ -62969,6 +63126,7 @@
             "auto",
             "text",
             "html",
+            "list",
             "rows",
             "table",
             null

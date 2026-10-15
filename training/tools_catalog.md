@@ -3,7 +3,7 @@
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
 - Tools: **230**
-- Enumerated operations: **1293**
+- Enumerated operations: **1298**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
 
@@ -1271,22 +1271,27 @@ Manage GitHub repositories, issues, pull requests, branches, files, commits, and
 
 ## `go2rtc`
 
-Observe configured go2rtc camera streams, create or analyze safe snapshots, and show a same-origin live viewer. This tool never accepts source URLs and cannot change service or stream configuration.
+Observe configured go2rtc camera streams, create or analyze safe snapshots, show a same-origin live viewer, and use person detection: detector and arm status, arming, detection events and their pictures. This tool never accepts source URLs and cannot change service or stream configuration.
 
 - Tier: `extended`
-- Required: `_todo`, `cache_seconds`, `height`, `operation`, `prompt`, `rotate`, `stream_id`, `width`
-- Operations: 6
+- Required: `_todo`, `cache_seconds`, `event_id`, `height`, `limit`, `mode`, `operation`, `prompt`, `rotate`, `since`, `stream_id`, `until`, `width`
+- Operations: 11
 - Manual: `prompts/tools_manuals/go2rtc.md`
 
 | Parameter | Type | Description |
 |---|---|---|
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
 | `cache_seconds` | `integer` | Optional snapshot cache duration from 0 to 3600 seconds. |
+| `event_id` | `integer` | Detection event ID from list_detection_events; required for analyze_detection_event and show_detection_event. |
 | `height` | `integer` | Optional snapshot height in pixels, up to 4320. |
-| `operation` | `string` | Read-only operation to perform |
-| `prompt` | `string` | Optional vision prompt for analyze_snapshot. |
+| `limit` | `integer` | list_detection_events: 1-50, default 10. |
+| `mode` | `string` | set_arm_mode: off, on or schedule. |
+| `operation` | `string` | Operation to perform. Only set_arm_mode changes state (person detection alerts off, on or by schedule). |
+| `prompt` | `string` | Optional vision prompt for analyze_snapshot and analyze_detection_event. |
 | `rotate` | `integer` | Optional clockwise rotation: 0, 90, 180, or 270. |
-| `stream_id` | `string` | Configured stable stream ID. Required for stream-specific operations. |
+| `since` | `string` | list_detection_events: start, RFC 3339 time or YYYY-MM-DD (server local day). |
+| `stream_id` | `string` | Configured stable stream ID. Required for stream-specific operations; optional camera filter for list_detection_events. |
+| `until` | `string` | list_detection_events: end, RFC 3339 time or YYYY-MM-DD (the whole day). |
 | `width` | `integer` | Optional snapshot width in pixels, up to 7680. |
 
 ## `gog_accounts`
@@ -3022,23 +3027,24 @@ Ask the user a question with predefined answer options. The agent blocks until t
 
 ## `read_tool_output`
 
-Read archived output by output_ref with summary, head, tail, range, grep, jsonpath, or full views.
+Read more of a tool result that was archived because it was too large: pass its output_ref as ref. The default full view pages through it; continue with offset=next_offset. Narrow with grep, jsonpath, range, head or tail.
 
 - Tier: `extended`
-- Required: `_todo`, `end_line`, `max_chars`, `max_lines`, `query`, `reason`, `ref`, `start_line`, `view`
+- Required: `_todo`, `end_line`, `max_chars`, `max_lines`, `offset`, `query`, `reason`, `ref`, `start_line`, `view`
 - Manual: `prompts/tools_manuals/read_tool_output.md`
 
 | Parameter | Type | Description |
 |---|---|---|
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
 | `end_line` | `integer` | Last 1-based line for range view |
-| `max_chars` | `integer` | Maximum characters to return |
+| `max_chars` | `integer` | Maximum bytes of content per page; every page fits the inline output budget |
 | `max_lines` | `integer` | Maximum lines for head or tail views |
+| `offset` | `integer` | Byte offset to start from: next_offset of the previous page |
 | `query` | `string` | Search string for grep or JSONPath expression for jsonpath |
 | `reason` | `string` | Why this output view is needed |
-| `ref` | `string` | output_ref returned by a compact tool result |
+| `ref` | `string` | The output_ref value of the archived result (toolout_...) |
 | `start_line` | `integer` | First 1-based line for range view |
-| `view` | `string` | Output view to return |
+| `view` | `string` | Output view to return (default full) |
 
 ## `recall_memory`
 

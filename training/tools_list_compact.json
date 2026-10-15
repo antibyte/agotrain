@@ -2220,26 +2220,51 @@
   },
   {
     "name": "go2rtc",
-    "description": "Observe configured go2rtc camera streams, create or analyze safe snapshots, and show a same-origin live viewer. This tool never accepts source URLs and cannot change service or stream configuration.",
+    "description": "Observe configured go2rtc camera streams, create or analyze safe snapshots, show a same-origin live viewer, and use person detection: detector and arm status, arming, detection events and their pictures. This tool never accepts source URLs and cannot change service or stream configuration.",
     "required": [
       "_todo",
       "cache_seconds",
+      "event_id",
       "height",
+      "limit",
+      "mode",
       "operation",
       "prompt",
       "rotate",
+      "since",
       "stream_id",
+      "until",
       "width"
     ],
     "tier": "extended",
     "operations": [
       {
         "selector": "operation",
+        "value": "analyze_detection_event"
+      },
+      {
+        "selector": "operation",
         "value": "analyze_snapshot"
       },
       {
         "selector": "operation",
+        "value": "detection_status"
+      },
+      {
+        "selector": "operation",
+        "value": "list_detection_events"
+      },
+      {
+        "selector": "operation",
         "value": "list_streams"
+      },
+      {
+        "selector": "operation",
+        "value": "set_arm_mode"
+      },
+      {
+        "selector": "operation",
+        "value": "show_detection_event"
       },
       {
         "selector": "operation",
@@ -6109,12 +6134,13 @@
   },
   {
     "name": "read_tool_output",
-    "description": "Read archived output by output_ref with summary, head, tail, range, grep, jsonpath, or full views.",
+    "description": "Read more of a tool result that was archived because it was too large: pass its output_ref as ref. The default full view pages through it; continue with offset=next_offset. Narrow with grep, jsonpath, range, head or tail.",
     "required": [
       "_todo",
       "end_line",
       "max_chars",
       "max_lines",
+      "offset",
       "query",
       "reason",
       "ref",

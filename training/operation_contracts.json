@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "a8637bdc02895e861e4924dbf81127ca391c67938ec3ac4372f95d100300bc2c",
+  "schema_sha256": "b0ae2f2c319acd7f6fbc16744df8af49e44ae75d0a2d0317f13e6675a69e7045",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -4234,9 +4234,47 @@
       "operations": [
         {
           "selector": "operation",
+          "value": "analyze_detection_event",
+          "arguments": {
+            "operation": "analyze_detection_event",
+            "event_id": 42
+          },
+          "required_fields": [
+            "event_id",
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
           "value": "analyze_snapshot",
           "arguments": {
-            "operation": "analyze_snapshot"
+            "operation": "analyze_snapshot",
+            "stream_id": "example-id"
+          },
+          "required_fields": [
+            "operation",
+            "stream_id"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "detection_status",
+          "arguments": {
+            "operation": "detection_status"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_detection_events",
+          "arguments": {
+            "operation": "list_detection_events",
+            "limit": 10
           },
           "required_fields": [
             "operation"
@@ -4250,6 +4288,32 @@
             "operation": "list_streams"
           },
           "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "set_arm_mode",
+          "arguments": {
+            "operation": "set_arm_mode",
+            "mode": "on"
+          },
+          "required_fields": [
+            "mode",
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "show_detection_event",
+          "arguments": {
+            "operation": "show_detection_event",
+            "event_id": 42
+          },
+          "required_fields": [
+            "event_id",
             "operation"
           ],
           "excluded_fields": []
@@ -4271,10 +4335,12 @@
           "selector": "operation",
           "value": "snapshot",
           "arguments": {
-            "operation": "snapshot"
+            "operation": "snapshot",
+            "stream_id": "example-id"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "stream_id"
           ],
           "excluded_fields": []
         },
@@ -10709,7 +10775,9 @@
     },
     "read_tool_output": {
       "default_arguments": {
-        "ref": "example"
+        "ref": "example",
+        "view": "full",
+        "offset": 1024
       }
     },
     "recall_memory": {
@@ -14273,7 +14341,10 @@
     },
     "web_scraper": {
       "default_arguments": {
-        "url": "https://example.com/resource"
+        "url": "https://example.com/resource",
+        "output_format": "list",
+        "selector": "a",
+        "attribute": "href"
       }
     },
     "webdav": {
