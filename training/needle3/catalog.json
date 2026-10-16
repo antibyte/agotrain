@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "catalog_sha256": "dae9d9becd0c950595b77c5a16e40de423474b0fb9518c6b6ebd3446b6ba8f8d",
+  "catalog_sha256": "e6ed0bf70c4703b512c65833d9646719d03a84e598a5c7d24f04f8bfe43db65f",
   "sources": {
     "prompts/tools_manuals/activate_agent_skill.md": "1cd868f578936cbaaa313ffad3aeb33bcb40e6fa39d5410f578d2246e1da4620",
     "prompts/tools_manuals/address_book.md": "e293e5e4593960f04000ded38ac04eb625b194a6672372d085d8ec294aacc509",
@@ -20,11 +20,12 @@
     "prompts/tools_manuals/chromecast.md": "9000599e20c5718ec686ec2768b2a61b8ee799af0a89771e796681d4dafd376d",
     "prompts/tools_manuals/cloudflare_tunnel.md": "bcb11358e80fffe2fa5bab21c0122be32474f647515f2686603a144d8849be5e",
     "prompts/tools_manuals/co_agent.md": "c84c2919ab02fe212c0bdc61cc3afe72e7ffd13bdbbfe23ad61433c8d8c6f771",
+    "prompts/tools_manuals/code_graph.md": "ed563345d07be72bb17fda114653fd05e5f32f6fd3b58672f9e90a00fabe2d7e",
     "prompts/tools_manuals/composio_call.md": "142f74dc55c0a381e4a4074a1e87250d09826f910f7dca9c512059312d4d2f7f",
     "prompts/tools_manuals/context_manager.md": "f0ff64daa5e8380a6182e95a1b32e4d29826f2878e11d8ffb6031e931788d67f",
     "prompts/tools_manuals/context_memory.md": "f663267b8e3d4ab931fa9f4e939eb3f3a606c0831cb94831b5e3a6598584942b",
     "prompts/tools_manuals/core_memory.md": "68367bf5d66e670aa75df59c5fd4a5c90124aa57b6456c83557d137315369827",
-    "prompts/tools_manuals/correct_memory.md": "2f8ec8a6d093b3e2a1522865df9718a3f206225d88ffc2ab51c9179a543df635",
+    "prompts/tools_manuals/correct_memory.md": "686dc3d48b53ad33a7191d3ae64243d771b6b5a6a6d0d29e0b77242dd553bd49",
     "prompts/tools_manuals/cron_scheduler.md": "e310e196824f0a8d9293a0f9feabf16c3cd9f73e3a68491c24bdf99614e4d0a9",
     "prompts/tools_manuals/cyd_display.md": "0d78fabf958c04b353afd41351d7bd7cc92ac4f5606a940ca92878cd1fb6f90e",
     "prompts/tools_manuals/ddg_search.md": "f2b1e00510e247fcc91de4202619e4d389fdbe39a47d226cd1477fa0f697ed95",
@@ -35,7 +36,7 @@
     "prompts/tools_manuals/dns_lookup.md": "7aa5949bc6747dfc720c9471afd7bd420dce70871d1a1599fa380939f10d0802",
     "prompts/tools_manuals/docker.md": "3356a3c9be136c914c97dc2a15efbe7ed7a19ed6c724ccac3eddee5185534302",
     "prompts/tools_manuals/document_creator.md": "134999edf54fa495f6b742cb472087ec9e721884518f3d5a2e23a630f32ec32b",
-    "prompts/tools_manuals/email.md": "b7cae7148d00525cbf415168bd894d8b3a1a0a5e2cfbf2d93d85f4bd48f9fdc1",
+    "prompts/tools_manuals/email.md": "a285c888a63ec24eee02484750ec651cded02c0fa5d10dc2892c86770cf4bc2e",
     "prompts/tools_manuals/evomap.md": "18ad1d54e412b1c55dcf2b5ed5d3fb1c307be7ceda8eebbef67bf01f1b1dda46",
     "prompts/tools_manuals/execute_python.md": "4e5a23d1cbebddffed34dbf47db04d62201fbb58fcbea0d04a30f4cb07f35464",
     "prompts/tools_manuals/execute_shell.md": "1a1054b6c68b4d5c973e2a72d7941ddf9caa14dc514e294d15fabaf53a59646b",
@@ -131,11 +132,12 @@
     "prompts/tools_manuals/process_analyzer.md": "e64061c3b0f5b41d6c895644cf86536d048107404e8fa4d07bf0b1ffa01c08df",
     "prompts/tools_manuals/process_management.md": "94164ff4a55a790daee3f1c8fd77989af63b4ca55f00d2f522266474a5ed84bd",
     "prompts/tools_manuals/proxmox.md": "7c62ffd5becf383d7d29a93ac6cad5b44eba9385c282a7fb6ced5e9c2b129896",
-    "prompts/tools_manuals/query_memory.md": "e13b0c146c3ad99a4e140460f070e72294e55e648af7bb458402b3ebae01d8f8",
+    "prompts/tools_manuals/query_memory.md": "e4c1184b4ac8e13c1f5d62b2e6c25f4ca9a0166ecc9d0067fc65b8541889e748",
     "prompts/tools_manuals/question_user.md": "9f59a64249ebc46242aa67385cfd7508c7df59e1bbbdc1765d388e2f02e4ea8a",
     "prompts/tools_manuals/read_tool_output.md": "cca99bb1f19d34af019d9f8e8e4e7c74c59037a36c7f7e92ef0ded6eccb23816",
     "prompts/tools_manuals/recall_memory.md": "41e0ece54f662280f3eaaf86bb12b19ab3f2662c230c7ed99eb573f009a0ad6f",
     "prompts/tools_manuals/remember.md": "dd4cf84da9ffa9e0d9a0cc7094552fe3425d1d1b25e29502c35b86406c29319c",
+    "prompts/tools_manuals/remember_learning.md": "fe872d1577e203093ebbfe36936175da05793c5aeb7c7dd2494d9bef7d452890",
     "prompts/tools_manuals/remote_control_desktop.md": "571c7592696b2c6d8e7e8784aa3e39eeee85423f727b107466dc10a0651b2a73",
     "prompts/tools_manuals/remote_control_devices.md": "5fbb7728e3d2357271650a0da6de465ae7e6d0167cad744860d80896274d13f4",
     "prompts/tools_manuals/remote_control_files.md": "1bae21955f00594f259491a326a1f134833d2ebe259f583df90ffd15db4cf4d3",
@@ -199,8 +201,8 @@
     "prompts/tools_manuals/xml_editor.md": "70a334eb6e3cb4c798d71ab00e233e75a14bbd41c50398c7a7be4589c6b3077e",
     "prompts/tools_manuals/yaml_editor.md": "3019e5bcda6867a4a5ff6732e690daa77fabc3ab8b1444ef3c8776fce787779b",
     "prompts/tools_manuals/yepapi.md": "9f6238fcae84221b734805a5a3f4dbc7b18ffdf191d6d8bbe1f2258ddc2b0aa0",
-    "training/operation_contracts.json": "71c8a962de34af95cb0d0b94fd7f61d38ad0ce21ffc0649b094659ad56dc6400",
-    "training/tool_tiers.json": "ca65ae1422bce3064ad867bc2c02060766ed8e04afc1a2056dc4a40827e8d057"
+    "training/operation_contracts.json": "9e6580d7b285237d50362577bf1bc3c8dc259b081f18ea3c8359528cdee0ce39",
+    "training/tool_tiers.json": "e3bde43a727cfe8f6863aff702d1fcbfe6c57e648dcb9da16ee6695a97976eb9"
   },
   "tools": [
     {
@@ -6337,6 +6339,322 @@
       "category": "communication"
     },
     {
+      "name": "code_graph",
+      "description": "Read the native Go/JS/JSX/TS/TSX/Python graph of the server-authorized project. First use indexes it. Every response reports freshness and partial coverage; unresolved/dynamic calls and missing edges never prove an edit safe. No arbitrary roots or mutations.",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "depth": {
+            "description": "Impact depth, 1 to 4 (default 1).",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "file": {
+            "description": "Project-relative file for outline or disambiguation.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "limit": {
+            "description": "Maximum results, 1 to 100 (default 30).",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "operation": {
+            "description": "Graph operation",
+            "enum": [
+              "status",
+              "search",
+              "outline",
+              "callers",
+              "callees",
+              "impact",
+              "rescan"
+            ],
+            "type": "string"
+          },
+          "query": {
+            "description": "Symbol name fragment for search.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "symbol": {
+            "description": "Exact symbol ID returned by search or outline.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "_todo",
+          "depth",
+          "file",
+          "limit",
+          "operation",
+          "query",
+          "symbol"
+        ],
+        "type": "object"
+      },
+      "argument_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": "string"
+          },
+          "depth": {
+            "description": "Impact depth, 1 to 4 (default 1).",
+            "type": "integer"
+          },
+          "file": {
+            "description": "Project-relative file for outline or disambiguation.",
+            "type": "string"
+          },
+          "limit": {
+            "description": "Maximum results, 1 to 100 (default 30).",
+            "type": "integer"
+          },
+          "operation": {
+            "description": "Graph operation",
+            "enum": [
+              "status",
+              "search",
+              "outline",
+              "callers",
+              "callees",
+              "impact",
+              "rescan"
+            ],
+            "type": "string"
+          },
+          "query": {
+            "description": "Symbol name fragment for search.",
+            "type": "string"
+          },
+          "symbol": {
+            "description": "Exact symbol ID returned by search or outline.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "operation"
+        ],
+        "type": "object"
+      },
+      "required": [
+        "_todo",
+        "depth",
+        "file",
+        "limit",
+        "operation",
+        "query",
+        "symbol"
+      ],
+      "properties": {
+        "_todo": {
+          "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "depth": {
+          "description": "Impact depth, 1 to 4 (default 1).",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "file": {
+          "description": "Project-relative file for outline or disambiguation.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limit": {
+          "description": "Maximum results, 1 to 100 (default 30).",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "operation": {
+          "description": "Graph operation",
+          "enum": [
+            "status",
+            "search",
+            "outline",
+            "callers",
+            "callees",
+            "impact",
+            "rescan"
+          ],
+          "type": "string"
+        },
+        "query": {
+          "description": "Symbol name fragment for search.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "symbol": {
+          "description": "Exact symbol ID returned by search or outline.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "tier": "extended",
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "callees"
+        },
+        {
+          "selector": "operation",
+          "value": "callers"
+        },
+        {
+          "selector": "operation",
+          "value": "impact"
+        },
+        {
+          "selector": "operation",
+          "value": "outline"
+        },
+        {
+          "selector": "operation",
+          "value": "rescan"
+        },
+        {
+          "selector": "operation",
+          "value": "search"
+        },
+        {
+          "selector": "operation",
+          "value": "status"
+        }
+      ],
+      "manual_path": "prompts/tools_manuals/code_graph.md",
+      "manual_id": "code_graph",
+      "contract": {
+        "default_arguments": {
+          "operation": "status"
+        },
+        "operations": [
+          {
+            "selector": "operation",
+            "value": "callees",
+            "arguments": {
+              "operation": "callees",
+              "symbol": "main.go:0:Serve"
+            },
+            "required_fields": [
+              "operation",
+              "symbol"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "callers",
+            "arguments": {
+              "operation": "callers",
+              "symbol": "main.go:0:Serve"
+            },
+            "required_fields": [
+              "operation",
+              "symbol"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "impact",
+            "arguments": {
+              "depth": 2,
+              "operation": "impact",
+              "symbol": "main.go:0:Serve"
+            },
+            "required_fields": [
+              "operation",
+              "symbol",
+              "depth"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "outline",
+            "arguments": {
+              "file": "main.go",
+              "operation": "outline"
+            },
+            "required_fields": [
+              "operation",
+              "file"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "rescan",
+            "arguments": {
+              "operation": "rescan"
+            },
+            "required_fields": [
+              "operation"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "search",
+            "arguments": {
+              "operation": "search",
+              "query": "Serve"
+            },
+            "required_fields": [
+              "operation",
+              "query"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "status",
+            "arguments": {
+              "operation": "status"
+            },
+            "required_fields": [
+              "operation"
+            ],
+            "excluded_fields": []
+          }
+        ]
+      },
+      "category": "files"
+    },
+    {
       "name": "composio_call",
       "description": "Search and use user-approved Composio toolkits through AuraGo policy gates, including services such as Gmail, Slack, Notion, GitHub, and Google Calendar when selected. Use capabilities/list_connected_accounts to inspect availability, then search_tools/get_tool before execute_tool. If a narrow search returns no tools, retry broadly through composio_call; do not switch to direct third-party APIs for connected services.",
       "parameters": {
@@ -7139,7 +7457,8 @@
                         "ltm",
                         "profile",
                         "kg_node",
-                        "kg_edge"
+                        "kg_edge",
+                        "learning"
                       ],
                       "type": "string"
                     },
@@ -7291,7 +7610,8 @@
                         "ltm",
                         "profile",
                         "kg_node",
-                        "kg_edge"
+                        "kg_edge",
+                        "learning"
                       ],
                       "type": "string"
                     },
@@ -7437,7 +7757,8 @@
                       "ltm",
                       "profile",
                       "kg_node",
-                      "kg_edge"
+                      "kg_edge",
+                      "learning"
                     ],
                     "type": "string"
                   },
@@ -12400,6 +12721,13 @@
             "description": "Path to the file to edit",
             "type": "string"
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "marker": {
             "description": "Anchor text — the line containing this text is the reference point (for insert_after/insert_before). Must match exactly one line for legacy inserts; for hashline inserts it must appear on the validated anchor line.",
             "type": [
@@ -12453,6 +12781,7 @@
           "content",
           "end_line",
           "file_path",
+          "learning_reason",
           "marker",
           "new",
           "old",
@@ -12486,6 +12815,10 @@
           },
           "file_path": {
             "description": "Path to the file to edit",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "marker": {
@@ -12535,6 +12868,7 @@
         "content",
         "end_line",
         "file_path",
+        "learning_reason",
         "marker",
         "new",
         "old",
@@ -12580,6 +12914,13 @@
         "file_path": {
           "description": "Path to the file to edit",
           "type": "string"
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "marker": {
           "description": "Anchor text — the line containing this text is the reference point (for insert_after/insert_before). Must match exactly one line for legacy inserts; for hashline inserts it must appear on the validated anchor line.",
@@ -13409,6 +13750,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "limit": {
             "description": "Maximum number of entries to return for list_dir (default: 500, max: 1000)",
             "type": [
@@ -13456,6 +13804,7 @@
           "file_path",
           "include_hashes",
           "items",
+          "learning_reason",
           "limit",
           "offset",
           "operation",
@@ -13504,6 +13853,10 @@
             },
             "type": "array"
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": "string"
+          },
           "limit": {
             "description": "Maximum number of entries to return for list_dir (default: 500, max: 1000)",
             "type": "integer"
@@ -13547,6 +13900,7 @@
         "file_path",
         "include_hashes",
         "items",
+        "learning_reason",
         "limit",
         "offset",
         "operation",
@@ -13616,6 +13970,13 @@
           },
           "type": [
             "array",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+          "type": [
+            "string",
             "null"
           ]
         },
@@ -17094,6 +17455,13 @@
             "description": "Active Game Maker job ID",
             "type": "string"
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "new_text": {
             "description": "Replacement text; empty deletes the block",
             "type": [
@@ -17147,6 +17515,7 @@
           "end_line",
           "expected_sha256",
           "job_id",
+          "learning_reason",
           "new_text",
           "old_text",
           "operation",
@@ -17212,6 +17581,10 @@
             "description": "Active Game Maker job ID",
             "type": "string"
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": "string"
+          },
           "new_text": {
             "description": "Replacement text; empty deletes the block",
             "type": "string"
@@ -17256,6 +17629,7 @@
         "end_line",
         "expected_sha256",
         "job_id",
+        "learning_reason",
         "new_text",
         "old_text",
         "operation",
@@ -17331,6 +17705,13 @@
         "job_id": {
           "description": "Active Game Maker job ID",
           "type": "string"
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "new_text": {
           "description": "Replacement text; empty deletes the block",
@@ -38887,6 +39268,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "marker": {
             "description": "Anchor text for insert operations.",
             "type": [
@@ -38971,6 +39359,7 @@
           "end_line",
           "file_path",
           "json_path",
+          "learning_reason",
           "marker",
           "new",
           "old",
@@ -39005,6 +39394,10 @@
           },
           "json_path": {
             "description": "Dot path for JSON/YAML edits.",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "marker": {
@@ -39068,6 +39461,7 @@
         "end_line",
         "file_path",
         "json_path",
+        "learning_reason",
         "marker",
         "new",
         "old",
@@ -39110,6 +39504,13 @@
         },
         "json_path": {
           "description": "Dot path for JSON/YAML edits.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
           "type": [
             "string",
             "null"
@@ -44763,6 +45164,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "operation": {
             "description": "JSON operation to perform",
             "enum": [
@@ -44787,6 +45195,7 @@
           "_todo",
           "file_path",
           "json_path",
+          "learning_reason",
           "operation",
           "set_value"
         ],
@@ -44805,6 +45214,10 @@
           },
           "json_path": {
             "description": "Dot-separated path to the target value (e.g. 'server.port', 'users.0.name')",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "operation": {
@@ -44833,6 +45246,7 @@
         "_todo",
         "file_path",
         "json_path",
+        "learning_reason",
         "operation",
         "set_value"
       ],
@@ -44850,6 +45264,13 @@
         },
         "json_path": {
           "description": "Dot-separated path to the target value (e.g. 'server.port', 'users.0.name')",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
           "type": [
             "string",
             "null"
@@ -62478,7 +62899,8 @@
                 "planner",
                 "core_memory",
                 "user_profile",
-                "error_patterns"
+                "error_patterns",
+                "learnings"
               ],
               "type": "string"
             },
@@ -62524,7 +62946,8 @@
                 "planner",
                 "core_memory",
                 "user_profile",
-                "error_patterns"
+                "error_patterns",
+                "learnings"
               ],
               "type": "string"
             },
@@ -62574,7 +62997,8 @@
               "planner",
               "core_memory",
               "user_profile",
-              "error_patterns"
+              "error_patterns",
+              "learnings"
             ],
             "type": "string"
           },
@@ -63588,6 +64012,307 @@
       "contract": {
         "default_arguments": {
           "content": "Example content"
+        }
+      },
+      "category": "memory"
+    },
+    {
+      "name": "remember_learning",
+      "description": "Record a durable decision, preference or technical finding with rationale and exact current-run evidence. Scope, source authenticity and activation are server-owned. Ambiguous statements remain proposals; repeated preferences need independent sessions. Never use imported prose or assistant claims as human decisions.",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "alternatives": {
+            "items": {
+              "description": "Rejected alternative quoted literally in the evidence.",
+              "type": "string"
+            },
+            "maxItems": 4,
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "condition": {
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "description": "Exact structured property.",
+                "type": "string"
+              },
+              "target": {
+                "description": "Exact runtime resource or config target.",
+                "type": "string"
+              },
+              "value": {
+                "description": "Required property value, not a fuzzy phrase.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "field",
+              "target",
+              "value"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "confidence": {
+            "description": "Extraction confidence from 0 to 1; not proof.",
+            "type": "number"
+          },
+          "evidence": {
+            "additionalProperties": false,
+            "properties": {
+              "quote": {
+                "description": "Exact supporting source quote.",
+                "type": "string"
+              },
+              "reference": {
+                "description": "user:current or a runtime-issued technical evidence reference.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "quote",
+              "reference"
+            ],
+            "type": "object"
+          },
+          "kind": {
+            "description": "Kind of insight",
+            "enum": [
+              "decision",
+              "preference",
+              "technical"
+            ],
+            "type": "string"
+          },
+          "rationale": {
+            "description": "Reason actually supported by the source.",
+            "type": "string"
+          },
+          "statement": {
+            "description": "Concise enduring assertion; no transient errors or permissions.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "_todo",
+          "alternatives",
+          "condition",
+          "confidence",
+          "evidence",
+          "kind",
+          "rationale",
+          "statement"
+        ],
+        "type": "object"
+      },
+      "argument_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": "string"
+          },
+          "alternatives": {
+            "items": {
+              "description": "Rejected alternative quoted literally in the evidence.",
+              "type": "string"
+            },
+            "maxItems": 4,
+            "type": "array"
+          },
+          "condition": {
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "description": "Exact structured property.",
+                "type": "string"
+              },
+              "target": {
+                "description": "Exact runtime resource or config target.",
+                "type": "string"
+              },
+              "value": {
+                "description": "Required property value, not a fuzzy phrase.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "target",
+              "field",
+              "value"
+            ],
+            "type": "object"
+          },
+          "confidence": {
+            "description": "Extraction confidence from 0 to 1; not proof.",
+            "type": "number"
+          },
+          "evidence": {
+            "additionalProperties": false,
+            "properties": {
+              "quote": {
+                "description": "Exact supporting source quote.",
+                "type": "string"
+              },
+              "reference": {
+                "description": "user:current or a runtime-issued technical evidence reference.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "reference",
+              "quote"
+            ],
+            "type": "object"
+          },
+          "kind": {
+            "description": "Kind of insight",
+            "enum": [
+              "decision",
+              "preference",
+              "technical"
+            ],
+            "type": "string"
+          },
+          "rationale": {
+            "description": "Reason actually supported by the source.",
+            "type": "string"
+          },
+          "statement": {
+            "description": "Concise enduring assertion; no transient errors or permissions.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "statement",
+          "rationale",
+          "kind",
+          "confidence",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "required": [
+        "_todo",
+        "alternatives",
+        "condition",
+        "confidence",
+        "evidence",
+        "kind",
+        "rationale",
+        "statement"
+      ],
+      "properties": {
+        "_todo": {
+          "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "alternatives": {
+          "items": {
+            "description": "Rejected alternative quoted literally in the evidence.",
+            "type": "string"
+          },
+          "maxItems": 4,
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "condition": {
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "description": "Exact structured property.",
+              "type": "string"
+            },
+            "target": {
+              "description": "Exact runtime resource or config target.",
+              "type": "string"
+            },
+            "value": {
+              "description": "Required property value, not a fuzzy phrase.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "field",
+            "target",
+            "value"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "confidence": {
+          "description": "Extraction confidence from 0 to 1; not proof.",
+          "type": "number"
+        },
+        "evidence": {
+          "additionalProperties": false,
+          "properties": {
+            "quote": {
+              "description": "Exact supporting source quote.",
+              "type": "string"
+            },
+            "reference": {
+              "description": "user:current or a runtime-issued technical evidence reference.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "quote",
+            "reference"
+          ],
+          "type": "object"
+        },
+        "kind": {
+          "description": "Kind of insight",
+          "enum": [
+            "decision",
+            "preference",
+            "technical"
+          ],
+          "type": "string"
+        },
+        "rationale": {
+          "description": "Reason actually supported by the source.",
+          "type": "string"
+        },
+        "statement": {
+          "description": "Concise enduring assertion; no transient errors or permissions.",
+          "type": "string"
+        }
+      },
+      "tier": "extended",
+      "manual_path": "prompts/tools_manuals/remember_learning.md",
+      "manual_id": "remember_learning",
+      "contract": {
+        "default_arguments": {
+          "confidence": 0.99,
+          "evidence": {
+            "quote": "Keep the Go backend portable. It must run without a Python interpreter.",
+            "reference": "user:current"
+          },
+          "kind": "decision",
+          "rationale": "It must run without a Python interpreter",
+          "statement": "Keep the Go backend portable"
         }
       },
       "category": "memory"
@@ -72608,6 +73333,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "operation": {
             "description": "TOML operation to perform",
             "enum": [
@@ -72638,6 +73370,7 @@
           "_todo",
           "file_path",
           "json_path",
+          "learning_reason",
           "operation",
           "set_value",
           "toml_path"
@@ -72657,6 +73390,10 @@
           },
           "json_path": {
             "description": "Dot-separated path to the target value (alias for toml_path, e.g. 'server.port')",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "operation": {
@@ -72688,6 +73425,7 @@
         "_todo",
         "file_path",
         "json_path",
+        "learning_reason",
         "operation",
         "set_value",
         "toml_path"
@@ -72706,6 +73444,13 @@
         },
         "json_path": {
           "description": "Dot-separated path to the target value (alias for toml_path, e.g. 'server.port')",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
           "type": [
             "string",
             "null"
@@ -77960,6 +78705,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "line_count": {
             "description": "Excerpt line count.",
             "type": [
@@ -78040,6 +78792,7 @@
           "context_lines",
           "file_path",
           "format",
+          "learning_reason",
           "line_count",
           "line_start",
           "max_matches",
@@ -78080,6 +78833,10 @@
           },
           "format": {
             "description": "Export format.",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "line_count": {
@@ -78146,6 +78903,7 @@
         "context_lines",
         "file_path",
         "format",
+        "learning_reason",
         "line_count",
         "line_start",
         "max_matches",
@@ -78200,6 +78958,13 @@
         },
         "format": {
           "description": "Export format.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
           "type": [
             "string",
             "null"
@@ -82121,6 +82886,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "operation": {
             "description": "YAML operation to perform",
             "enum": [
@@ -82144,6 +82916,7 @@
           "_todo",
           "file_path",
           "json_path",
+          "learning_reason",
           "operation",
           "set_value"
         ],
@@ -82162,6 +82935,10 @@
           },
           "json_path": {
             "description": "Dot-separated path to the target value (e.g. 'server.port', 'database.host')",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "operation": {
@@ -82189,6 +82966,7 @@
         "_todo",
         "file_path",
         "json_path",
+        "learning_reason",
         "operation",
         "set_value"
       ],
@@ -82206,6 +82984,13 @@
         },
         "json_path": {
           "description": "Dot-separated path to the target value (e.g. 'server.port', 'database.host')",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
           "type": [
             "string",
             "null"
@@ -86086,6 +86871,16 @@
       "description": "Spawn and monitor parallel co-agents that work on sub-tasks independently. Co-agents run in background goroutines with their own LLM context and return results when done. Use 'spawn_specialist' to dispatch tasks to specialized experts (researcher, coder, designer, security, writer). Use 'list' for quick status. Use 'get_result' to wait briefly for completion and retrieve the result; a running co-agent is not failed just because no partial tokens are visible. Do not use 'stop' or 'stop_all' unless the user explicitly asked to cancel a co-agent."
     },
     {
+      "id": "code_graph",
+      "path": "prompts/tools_manuals/code_graph.md",
+      "sha256": "ed563345d07be72bb17fda114653fd05e5f32f6fd3b58672f9e90a00fabe2d7e",
+      "body": "# code_graph\n\nNative, read-only structural analysis of the current server-authorized project.\nRequires `code_graph.enabled`. First use builds a resident index; active project\nindexes are refreshed from content fingerprints. No root/path argument can grant\naccess to another project, container or host directory.\n\nOperations:\n\n- `status`: freshness, coverage, skipped-file reasons, unresolved-edge count,\n  retained index estimate and last indexing duration.\n- `search`: symbol-name fragment in `query`; returns IDs, locations and snippets.\n- `outline`: definitions in a project-relative `file`.\n- `callers`, `callees`: exact `symbol` ID from search/outline; optionally `file`\n  disambiguates a name. A missing target ID means an unresolved call.\n- `impact`: incoming relationships, bounded by `depth` 1..4 (default 1).\n- `rescan`: refresh now. It changes only the in-memory index.\n\n`limit` is bounded to 100 (default 30). Go, JS/JSX, TS/TSX and Python are supported.\nCalls resolve only through unambiguous lexical/project imports. Dynamic dispatch,\nreflection, external modules and ambiguous names remain unresolved. No rename,\ncode generation, source execution or write operation is provided.\n\nAlways report coverage and freshness with conclusions. Missing edges never prove\nthat a change has no impact. Syntax errors, cancellations and resource limits do\nnot produce a complete index. Generated/dependency directories and linked files\nare excluded. Limits: one parser worker, 1 MiB per file, 64 MiB parser allocation\nbudget, 250 ms parse timeout, 256 MiB estimated retained index, 16 active projects.\nSource and index stay in RAM and are rebuilt on demand after restart.\n\nProject agents use their own job workspace. A Game Maker or CYD job cannot use\nthe graph to cross into another job or the ordinary agent workspace. C/C++ is\noutside the supported language set, including CYD-generated firmware.\n",
+      "tools": [
+        "code_graph"
+      ],
+      "description": "Read the native Go/JS/JSX/TS/TSX/Python graph of the server-authorized project. First use indexes it. Every response reports freshness and partial coverage; unresolved/dynamic calls and missing edges never prove an edit safe. No arbitrary roots or mutations."
+    },
+    {
       "id": "composio_call",
       "path": "prompts/tools_manuals/composio_call.md",
       "sha256": "142f74dc55c0a381e4a4074a1e87250d09826f910f7dca9c512059312d4d2f7f",
@@ -86128,8 +86923,8 @@
     {
       "id": "correct_memory",
       "path": "prompts/tools_manuals/correct_memory.md",
-      "sha256": "2f8ec8a6d093b3e2a1522865df9718a3f206225d88ffc2ab51c9179a543df635",
-      "body": "# Correct current memory (`correct_memory`)\n\nUse this for a clearly wrong or outdated current fact. Search with `query_memory`\nfirst and copy its typed `references`. Existing result fields remain available.\nDo not rewrite conversations, journals, notes or source documents. A statement\nthat was true in its historical context is not an erroneous current fact.\n\n## Evidence and authority\n\n`preview` takes `changes`, `reason`, and `evidence`. Each evidence item names\n`reference` and an exact supporting `quote`. `user:current` denotes the actual\nhuman message in this main-agent turn. Successful `system_metrics` and remote\n`sysinfo` results can issue a runtime `tool:` reference. Other tool output,\ninvented references, remembered text, similarity scores, and `confirmed=true`\ncannot authorize a correction. Personal preferences and identity require user\nstatements; never infer them from a system check or contradictory memories.\nUnknown free-text facts conservatively require user evidence too. Tool-only\ncorrections target existing machine properties or LTM with explicit\n`system_metrics`/`remote_control` provenance.\nAsk the user about an ambiguous fact or the intended replacement.\n\n## Target and operation\n\nEach change has `reference`, `operation` (`replace` or `archive`), and optionally\n`value`. Omit `value` for archive. Reference shapes:\n\n| Store | Fields | Replacement |\n| --- | --- | --- |\n| `core` | `id` (numeric string) | Durable fact |\n| `ltm` | `id` (memory document ID) | Complete replacement fact |\n| `profile` | `category`, `key` | Value under existing profile privacy/size rules |\n| `kg_node` | `id`, `field` | One property or `label` |\n| `kg_edge` | `id` (source), `target`, `relation` | New existing target ID |\n\nNo whole-entity deletion is supported. Protected or externally owned entries\nremain protected. Read-only and disabled stores are checked before applying.\nCo-agents cannot use this tool. The backend freshly reads each target and includes\nits proven core-memory graph copy. Equal text alone does not establish ownership:\nall other matching values and semantic neighbors are `review_required` candidates.\nSupply explicit\nchanges for candidates that evidence clearly identifies as the same fact. Arbitrary\nparaphrases cannot be linked deterministically. `review_limited` means the bounded\ncandidate search could not establish complete coverage.\n\n```json\n{\"operation\":\"preview\",\"reason\":\"The user corrected their drink preference\",\"changes\":[{\"reference\":{\"store\":\"core\",\"id\":\"42\"},\"operation\":\"replace\",\"value\":\"User prefers green tea\"}],\"evidence\":[{\"reference\":\"user:current\",\"quote\":\"I prefer green tea\"}]}\n```\n\nWhen evidence is clear, continue immediately with\n`{\"operation\":\"apply\",\"id\":\"\u003creturned-id\u003e\"}` without another approval round.\nApply and `status` accept only `operation` and the saved ID. Old content stays\nin the protected database history; old LTM vectors remain archived. Pending\nreplacement vectors are invisible to normal memory retrieval.\nAdministrative confirmation cannot publish a staged replacement. Deleting or\nresetting a corrected profile field keeps it withdrawn; use a fresh evidenced\ncorrection to restore it.\n\n## Result and recovery\n\nReport which facts changed and which candidates still need review. `applied`\nmeans all planned changes were reread and verified; `applied_with_review` also\nhas unresolved candidates. Never claim all copies were fixed in that case.\n`incomplete` or `blocked` is not success, even if some items are `done`.\nUse `status` with the ID to inspect durable per-step progress. Retries resume\nthe same ID only while saved target states, permissions and protections still\nmatch. Graph property revisions also reject changes that reverted to the old value.\nChanged facts require a new preview and fresh evidence. A later real\nchange in preference is a new correction, not a replay of an old operation.\n",
+      "sha256": "686dc3d48b53ad33a7191d3ae64243d771b6b5a6a6d0d29e0b77242dd553bd49",
+      "body": "# Correct current memory (`correct_memory`)\n\nUse this for a clearly wrong or outdated current fact. Search with `query_memory`\nfirst and copy its typed `references`. Existing result fields remain available.\nDo not rewrite conversations, journals, notes or source documents. A statement\nthat was true in its historical context is not an erroneous current fact.\n\n## Evidence and authority\n\n`preview` takes `changes`, `reason`, and `evidence`. Each evidence item names\n`reference` and an exact supporting `quote`. `user:current` denotes the actual\nhuman message in this main-agent turn. Successful `system_metrics` and remote\n`sysinfo` results can issue a runtime `tool:` reference. Other tool output,\ninvented references, remembered text, similarity scores, and `confirmed=true`\ncannot authorize a correction. Personal preferences and identity require user\nstatements; never infer them from a system check or contradictory memories.\nUnknown free-text facts conservatively require user evidence too. Tool-only\ncorrections target existing machine properties or LTM with explicit\n`system_metrics`/`remote_control` provenance.\nAsk the user about an ambiguous fact or the intended replacement.\n\n## Target and operation\n\nEach change has `reference`, `operation` (`replace` or `archive`), and optionally\n`value`. Omit `value` for archive. Reference shapes:\n\n| Store | Fields | Replacement |\n| --- | --- | --- |\n| `core` | `id` (numeric string) | Durable fact |\n| `ltm` | `id` (memory document ID) | Complete replacement fact |\n| `profile` | `category`, `key` | Value under existing profile privacy/size rules |\n| `kg_node` | `id`, `field` | One property or `label` |\n| `kg_edge` | `id` (source), `target`, `relation` | New existing target ID |\n\nNo whole-entity deletion is supported. Protected or externally owned entries\nremain protected. Read-only and disabled stores are checked before applying.\nCo-agents cannot use this tool. The backend freshly reads each target and includes\nits proven core-memory graph copy. Equal text alone does not establish ownership:\nall other matching values and semantic neighbors are `review_required` candidates.\nSupply explicit\nchanges for candidates that evidence clearly identifies as the same fact. Arbitrary\nparaphrases cannot be linked deterministically. `review_limited` means the bounded\ncandidate search could not establish complete coverage.\n\n```json\n{\"operation\":\"preview\",\"reason\":\"The user corrected their drink preference\",\"changes\":[{\"reference\":{\"store\":\"core\",\"id\":\"42\"},\"operation\":\"replace\",\"value\":\"User prefers green tea\"}],\"evidence\":[{\"reference\":\"user:current\",\"quote\":\"I prefer green tea\"}]}\n```\n\nWhen evidence is clear, continue immediately with\n`{\"operation\":\"apply\",\"id\":\"\u003creturned-id\u003e\"}` without another approval round.\nApply and `status` accept only `operation` and the saved ID. Old content stays\nin the protected database history; old LTM vectors remain archived. Pending\nreplacement vectors are invisible to normal memory retrieval.\nAdministrative confirmation cannot publish a staged replacement. Deleting or\nresetting a corrected profile field keeps it withdrawn; use a fresh evidenced\ncorrection to restore it.\n\n## Result and recovery\n\nReport which facts changed and which candidates still need review. `applied`\nmeans all planned changes were reread and verified; `applied_with_review` also\nhas unresolved candidates. Never claim all copies were fixed in that case.\n`incomplete` or `blocked` is not success, even if some items are `done`.\nUse `status` with the ID to inspect durable per-step progress. Retries resume\nthe same ID only while saved target states, permissions and protections still\nmatch. Graph property revisions also reject changes that reverted to the old value.\nChanged facts require a new preview and fresh evidence. A later real\nchange in preference is a new correction, not a replay of an old operation.\n# Insights\n\n`store: \"learning\"` also supports the same preview/apply/status sequence. Supply\nthe learning ID from `query_memory`. Scope and feature/write gates are rechecked\non preview, apply and status. Replacements retain a superseded entry and link to\na fresh revision chain. Protected, archived or superseded insights cannot be\nsilently changed or resurrected. A write-action deviation does not count as\nevidence to replace an insight.\n",
       "tools": [
         "correct_memory"
       ],
@@ -86240,8 +87035,8 @@
     {
       "id": "email",
       "path": "prompts/tools_manuals/email.md",
-      "sha256": "b7cae7148d00525cbf415168bd894d8b3a1a0a5e2cfbf2d93d85f4bd48f9fdc1",
-      "body": "# Email Tool Manual\n\nIntegrated IMAP/SMTP email tool with **multi-account support**. Fetch inbox messages, send emails, and list configured accounts.\n\n\u003e [!IMPORTANT]\n\u003e **FOR GMAIL USERS:** Use the `google_workspace` tool instead of this one. It is more secure (OAuth2) and does not require enabling IMAP/SMTP or App Passwords in your Google settings.\n\n\u003e ⚠️ All fetched email content is scanned by the Guardian for prompt injection.\n\u003e High-threat messages are automatically redacted.\n\n---\n\n## Multi-Account Support\n\nMultiple email accounts can be configured. Each account has a unique `id`.\n- Use `\"account\": \"\u003cid\u003e\"` in fetch_email / send_email to target a specific account.\n- Omit `account` to use the **default** (first) account.\n- Use `list_email_accounts` to discover available accounts.\n\n---\n\n## list_email_accounts — List configured accounts\n\n```json\n{\n  \"action\": \"list_email_accounts\"\n}\n```\n\n### Response\n```json\n{\n  \"status\": \"success\",\n  \"count\": 2,\n  \"data\": [\n    { \"id\": \"personal\", \"name\": \"Personal Gmail\", \"email\": \"me@gmail.com\", \"imap\": \"imap.gmail.com:993\", \"smtp\": \"smtp.gmail.com:587\", \"watcher\": true },\n    { \"id\": \"work\", \"name\": \"Work Exchange\", \"email\": \"me@company.com\", \"imap\": \"outlook.office365.com:993\", \"smtp\": \"smtp.office365.com:587\", \"watcher\": false }\n  ]\n}\n```\n\n---\n\n## fetch_email — Retrieve emails via IMAP\n\n```json\n{\n  \"action\": \"fetch_email\",\n  \"account\": \"work\",\n  \"folder\": \"INBOX\",\n  \"limit\": 10\n}\n```\n\n| Parameter | Type   | Required | Default  | Description                              |\n|-----------|--------|----------|----------|------------------------------------------|\n| account   | string | no       | (first)  | Email account ID to use                  |\n| folder    | string | no       | \"INBOX\"  | IMAP folder to fetch from                |\n| limit     | int    | no       | 10       | Number of most recent messages (max 50)  |\n\n### Response\nReturns a JSON array of email objects:\n```json\n{\n  \"status\": \"success\",\n  \"count\": 3,\n  \"message\": \"Account: work\",\n  \"data\": [\n    {\n      \"uid\": 1234,\n      \"from\": \"alice@example.com\",\n      \"to\": \"you@example.com\",\n      \"subject\": \"Meeting tomorrow\",\n      \"date\": \"Mon, 14 Jul 2025 10:30:00 +0200\",\n      \"body\": \"Hi, can we reschedule...\",\n      \"snippet\": \"Hi, can we reschedule...\"\n    }\n  ]\n}\n```\n\n---\n\n## send_email — Send an email via SMTP\n\n```json\n{\n  \"action\": \"send_email\",\n  \"account\": \"personal\",\n  \"to\": \"recipient@example.com\",\n  \"subject\": \"Status Report\",\n  \"body\": \"Here is the weekly update...\"\n}\n```\n\n| Parameter | Type   | Required | Description                                      |\n|-----------|--------|----------|--------------------------------------------------|\n| account   | string | no       | Email account ID to send from (default: first)   |\n| to        | string | **yes**  | Recipient email (comma-separated for multiple)   |\n| subject   | string | no       | Email subject line (defaults to \"(no subject)\")  |\n| body      | string | no       | Plain text email body. `content` also accepted   |\n| attachments | string[] | no     | Files to attach, as a list of paths (max 10 files, 20 MB together) |\n\n`attachments` (list of paths) attaches files (max 10, 20 MB). Only files in the workspace or the documents folder can be attached; a path anywhere else, a missing file, or a list over the limits fails the call and sends nothing. A read-only account refuses the call before any file is opened.\n\n### Response\n```json\n{\n  \"status\": \"success\",\n  \"message\": \"Email sent to recipient@example.com via account personal\"\n}\n```\n\n---\n\n## Configuration (config.yaml)\n\n### New format: Multiple accounts\n```yaml\nemail:\n  enabled: true         # master switch\n\nemail_accounts:\n  - id: personal\n    name: \"Personal Gmail\"\n    imap_host: \"imap.gmail.com\"\n    imap_port: 993\n    smtp_host: \"smtp.gmail.com\"\n    smtp_port: 587\n    username: \"you@gmail.com\"\n    password: \"app-password-here\"\n    from_address: \"you@gmail.com\"\n    watch_enabled: true\n    watch_interval_seconds: 120\n    watch_folder: \"INBOX\"\n  - id: work\n    name: \"Work Exchange\"\n    imap_host: \"outlook.office365.com\"\n    imap_port: 993\n    smtp_host: \"smtp.office365.com\"\n    smtp_port: 587\n    username: \"you@company.com\"\n    password: \"work-password\"\n    from_address: \"you@company.com\"\n    watch_enabled: false\n    watch_folder: \"INBOX\"\n```\n\n### Legacy format (still supported, auto-migrated)\n```yaml\nemail:\n  enabled: true\n  imap_host: \"imap.gmail.com\"\n  imap_port: 993\n  smtp_host: \"smtp.gmail.com\"\n  smtp_port: 587\n  username: \"you@gmail.com\"\n  password: \"your-app-password\"\n  from_address: \"\"\n  watch_enabled: true\n  watch_interval_seconds: 120\n  watch_folder: \"INBOX\"\n```\n\n## Email Watcher\n\nWhen an account has `watch_enabled: true`, the system polls its IMAP folder for new unseen messages. When new mail arrives, the agent is automatically woken with a notification containing the account name, sender, subject, and snippet for each new message.\n\n## Notes\n- Uses IMAPS (TLS on port 993) for IMAP connections\n- Uses STARTTLS (port 587) or implicit TLS (port 465) for SMTP\n- For Gmail: use an App Password, not your regular password\n- Email bodies are truncated to 4KB to preserve LLM context\n- HTML emails are stripped to plain text automatically\n- Legacy single-account config is automatically migrated to `email_accounts` at startup\n",
+      "sha256": "a285c888a63ec24eee02484750ec651cded02c0fa5d10dc2892c86770cf4bc2e",
+      "body": "# Email Tool Manual\n\nIntegrated IMAP/SMTP email tool with **multi-account support**. Fetch inbox messages, send emails, and list configured accounts.\n\n\u003e [!IMPORTANT]\n\u003e **FOR GMAIL USERS:** Use the `google_workspace` tool instead of this one. It is more secure (OAuth2) and does not require enabling IMAP/SMTP or App Passwords in your Google settings.\n\n\u003e ⚠️ All fetched email content is scanned by the Guardian for prompt injection.\n\u003e High-threat messages are automatically redacted.\n\n---\n\n## Multi-Account Support\n\nMultiple email accounts can be configured. Each account has a unique `id`.\n- Use `\"account\": \"\u003cid\u003e\"` in fetch_email / send_email to target a specific account.\n- Omit `account` to use the first enabled account that permits general agent access.\n- Use `list_email_accounts` to discover available accounts.\n\nNew accounts created through Mailer start without general agent access or an\nemail watcher. Connecting an existing account to Mailer preserves its grants.\nThis tool lists only enabled, agent-permitted IMAP password accounts; POP3 and\nprotocol OAuth accounts use the Desktop Mailer. Never bypass a missing grant by\nreading credentials or calling another transport. Separate SMTP credentials are\nresolved from the Vault. Background fetches use `BODY.PEEK` and preserve unread\nstatus; deliberately opening a message in Mailer can mark it read.\n\n---\n\n## list_email_accounts — List configured accounts\n\n```json\n{\n  \"action\": \"list_email_accounts\"\n}\n```\n\n### Response\n```json\n{\n  \"status\": \"success\",\n  \"count\": 2,\n  \"data\": [\n    { \"id\": \"personal\", \"name\": \"Personal Gmail\", \"email\": \"me@gmail.com\", \"imap\": \"imap.gmail.com:993\", \"smtp\": \"smtp.gmail.com:587\", \"watcher\": true },\n    { \"id\": \"work\", \"name\": \"Work Exchange\", \"email\": \"me@company.com\", \"imap\": \"outlook.office365.com:993\", \"smtp\": \"smtp.office365.com:587\", \"watcher\": false }\n  ]\n}\n```\n\n---\n\n## fetch_email — Retrieve emails via IMAP\n\n```json\n{\n  \"action\": \"fetch_email\",\n  \"account\": \"work\",\n  \"folder\": \"INBOX\",\n  \"limit\": 10\n}\n```\n\n| Parameter | Type   | Required | Default  | Description                              |\n|-----------|--------|----------|----------|------------------------------------------|\n| account   | string | no       | (first)  | Email account ID to use                  |\n| folder    | string | no       | \"INBOX\"  | IMAP folder to fetch from                |\n| limit     | int    | no       | 10       | Number of most recent messages (max 50)  |\n\n### Response\nReturns a JSON array of email objects:\n```json\n{\n  \"status\": \"success\",\n  \"count\": 3,\n  \"message\": \"Account: work\",\n  \"data\": [\n    {\n      \"uid\": 1234,\n      \"from\": \"alice@example.com\",\n      \"to\": \"you@example.com\",\n      \"subject\": \"Meeting tomorrow\",\n      \"date\": \"Mon, 14 Jul 2025 10:30:00 +0200\",\n      \"body\": \"Hi, can we reschedule...\",\n      \"snippet\": \"Hi, can we reschedule...\"\n    }\n  ]\n}\n```\n\n---\n\n## send_email — Send an email via SMTP\n\n```json\n{\n  \"action\": \"send_email\",\n  \"account\": \"personal\",\n  \"to\": \"recipient@example.com\",\n  \"subject\": \"Status Report\",\n  \"body\": \"Here is the weekly update...\"\n}\n```\n\n| Parameter | Type   | Required | Description                                      |\n|-----------|--------|----------|--------------------------------------------------|\n| account   | string | no       | Email account ID to send from (default: first)   |\n| to        | string | **yes**  | Recipient email (comma-separated for multiple)   |\n| subject   | string | no       | Email subject line (defaults to \"(no subject)\")  |\n| body      | string | no       | Plain text email body. `content` also accepted   |\n| attachments | string[] | no     | Files to attach, as a list of paths (max 10 files, 20 MB together) |\n\n`attachments` (list of paths) attaches files (max 10, 20 MB). Only files in the workspace or the documents folder can be attached; a path anywhere else, a missing file, or a list over the limits fails the call and sends nothing. A read-only account refuses the call before any file is opened.\n\n### Response\n```json\n{\n  \"status\": \"success\",\n  \"message\": \"Email sent to recipient@example.com via account personal\"\n}\n```\n\n---\n\n## Configuration (config.yaml)\n\n### New format: Multiple accounts\n```yaml\nemail:\n  enabled: true         # master switch\n\nemail_accounts:\n  - id: personal\n    name: \"Personal Gmail\"\n    imap_host: \"imap.gmail.com\"\n    imap_port: 993\n    smtp_host: \"smtp.gmail.com\"\n    smtp_port: 587\n    username: \"you@gmail.com\"\n    # Set the password through Integrations; credentials stay in the Vault.\n    from_address: \"you@gmail.com\"\n    watch_enabled: true\n    watch_interval_seconds: 120\n    watch_folder: \"INBOX\"\n  - id: work\n    name: \"Work Exchange\"\n    imap_host: \"outlook.office365.com\"\n    imap_port: 993\n    smtp_host: \"smtp.office365.com\"\n    smtp_port: 587\n    username: \"you@company.com\"\n    # Set the password through Integrations; credentials stay in the Vault.\n    from_address: \"you@company.com\"\n    watch_enabled: false\n    watch_folder: \"INBOX\"\n```\n\n### Legacy format (still supported, auto-migrated)\n```yaml\nemail:\n  enabled: true\n  imap_host: \"imap.gmail.com\"\n  imap_port: 993\n  smtp_host: \"smtp.gmail.com\"\n  smtp_port: 587\n  username: \"you@gmail.com\"\n  # Set the password through Integrations; credentials stay in the Vault.\n  from_address: \"\"\n  watch_enabled: true\n  watch_interval_seconds: 120\n  watch_folder: \"INBOX\"\n```\n\n## Email Watcher\n\nWhen an account has `watch_enabled: true`, the system polls its IMAP folder for new unseen messages. When new mail arrives, the agent is automatically woken with a notification containing the account name, sender, subject, and snippet for each new message.\n\n## Notes\n- Uses IMAPS (TLS on port 993) for IMAP connections\n- Uses STARTTLS (port 587) or implicit TLS (port 465) for SMTP\n- For Gmail: use an App Password, not your regular password\n- Email bodies are truncated to 4KB to preserve LLM context\n- HTML emails are stripped to plain text automatically\n- Legacy single-account config is automatically migrated to `email_accounts` at startup\n",
       "tools": [
         "fetch_email",
         "list_email_accounts",
@@ -87208,8 +88003,8 @@
     {
       "id": "query_memory",
       "path": "prompts/tools_manuals/query_memory.md",
-      "sha256": "e13b0c146c3ad99a4e140460f070e72294e55e648af7bb458402b3ebae01d8f8",
-      "body": "## Tool: Unified Memory Query (`query_memory`)\n\nCurrent core, LTM and graph results include additive typed `references` for\n`correct_memory`. The `user_profile` source is included by default and can also\nbe selected explicitly. It returns category/key references. Search hits identify\ntargets; they do not provide evidence or authorize changing them.\n\nSearch **ALL** memory subsystems at once with a single natural-language query. This is your primary tool for recalling anything — facts, events, preferences, errors, relationships.\n\n### What it searches (by default: everything)\n\n| Source | What's in it | When useful |\n|---|---|---|\n| `vector_db` | Long-term semantic facts extracted from past conversations | Recall design decisions, config details, past discussions |\n| `activity` | Recent turn-by-turn activity timeline and daily rollups | \"What did we do yesterday?\", \"What did the user want this week?\" |\n| `knowledge_graph` | Entities (people, devices, services) and relationships | \"Who owns the NAS?\", \"What services run on prod?\" |\n| `journal` | Events, milestones, learnings (manual + auto-generated) | \"What happened last Tuesday?\", \"When did we set up Docker?\" |\n| `notes` | Tasks, to-dos, bookmarks, reminders | \"Any open tasks?\", \"What was that URL?\" |\n| `planner` | Structured todos and appointments from the planner system | \"What is open?\", \"What is on today?\", \"Any deadlines?\" |\n| `core_memory` | Permanent user facts (name, preferences, constraints) | \"What language does the user prefer?\" |\n| `error_patterns` | Tool errors and learned resolutions | \"Has this SSH error happened before?\" |\n\n### Schema\n\n| Parameter | Type | Required | Description |\n|---|---|---|---|\n| `query` | string | yes | Natural-language query describing what you need to recall |\n| `sources` | array | no | Limit to specific sources (default: searches all). Options: `activity`, `vector_db`, `knowledge_graph`, `journal`, `notes`, `planner`, `core_memory`, `error_patterns` |\n| `limit` | integer | no | Max results per source (default 5) |\n\nUse `query: \"*\"` only as a diagnostic inventory request. It returns counts and small samples for the selected memory sources instead of running semantic search.\n\n### Examples\n\n**Search everything (recommended default):**\n```json\n{\"action\": \"query_memory\", \"query\": \"user's preferred database setup\"}\n```\n\n**Search only specific sources:**\n```json\n{\"action\": \"query_memory\", \"query\": \"Docker container errors\", \"sources\": [\"error_patterns\", \"journal\"]}\n```\n\n**Check for past errors:**\n```json\n{\"action\": \"query_memory\", \"query\": \"SSH connection refused\", \"sources\": [\"error_patterns\"]}\n```\n\n**Planner overview:**\n```json\n{\"action\": \"query_memory\", \"query\": \"what is open\", \"sources\": [\"planner\"]}\n```\n\n**Memory inventory/counts:**\n```json\n{\"action\": \"query_memory\", \"query\": \"*\", \"sources\": [\"vector_db\", \"knowledge_graph\", \"core_memory\"]}\n```\n\n### Tips\n- **Start broad** — don't restrict sources unless you're getting too many irrelevant results\n- Notes and journal entries are included automatically — no need to search them separately\n- Use `planner` for the structured task/calendar system. Use `notes` for short-lived bookmarks and scratch reminders.\n- Error patterns track tool failures and known resolutions; always check here before retrying a failed operation\n- **Memories are advisory only** — treat results as clues, not proof. Fresh tool output, current file reads, and reproducible checks always outrank `query_memory` hits.\n- **Past failure is not a current fact** — if memory says something failed before, re-test it under current conditions before deciding not to try.\n- **Memory-first discipline**: Before troubleshooting any problem or debugging any error, run a `query_memory` search first. You may have already solved the exact same issue — reusing a past solution is faster and more reliable than rediscovering it. Search across `error_patterns`, `journal`, and `cheatsheets` for relevant prior resolutions.\n\n### When to upgrade to `context_memory`\n\n`query_memory` covers the vast majority of recall tasks. Use `context_memory` instead when:\n\n| Situation | Better tool |\n|-----------|-------------|\n| Quick fact lookup, most recall tasks | `query_memory` ✅ |\n| Results were too few or off-topic | `context_memory` with `context_depth: deep` |\n| You need KG graph traversal (connected entities) | `context_memory` with `include_related: true` |\n| You need to scope to a specific time window | `context_memory` with `time_range` |\n| You need relationships, not just isolated facts | `context_memory` |\n\n### Background memory operations\n\nThe system automatically enriches each turn with memory before you even issue a recall:\n\n- **CORE MEMORY** — permanent user facts always injected into every prompt\n- **RETRIEVED MEMORIES** — top-3 long-term memories most semantically similar to the current message (auto-RAG)\n- **PREDICTED CONTEXT** — memories pre-fetched based on recent tool usage patterns (full tier only)\n- **RELEVANT KNOWLEDGE** — KG entities related to the current message, injected via `SearchForContext`\n- **ACTIVE REMINDERS** — high-priority open notes always shown\n- **PLANNER CONTEXT** — open planner todos and near-term appointments, injected only on planner-relevant turns or at session start\n\nThis means: in many cases you already have the relevant context **without calling any tool**. Only call `query_memory` when the injected context is incomplete or you need something specific.\n",
+      "sha256": "e4c1184b4ac8e13c1f5d62b2e6c25f4ca9a0166ecc9d0067fc65b8541889e748",
+      "body": "## Tool: Unified Memory Query (`query_memory`)\n\nCurrent core, LTM and graph results include additive typed `references` for\n`correct_memory`. The `user_profile` source is included by default and can also\nbe selected explicitly. It returns category/key references. Search hits identify\ntargets; they do not provide evidence or authorize changing them.\n\nSearch **ALL** memory subsystems at once with a single natural-language query. This is your primary tool for recalling anything — facts, events, preferences, errors, relationships.\n\n### What it searches (by default: everything)\n\n| Source | What's in it | When useful |\n|---|---|---|\n| `vector_db` | Long-term semantic facts extracted from past conversations | Recall design decisions, config details, past discussions |\n| `activity` | Recent turn-by-turn activity timeline and daily rollups | \"What did we do yesterday?\", \"What did the user want this week?\" |\n| `knowledge_graph` | Entities (people, devices, services) and relationships | \"Who owns the NAS?\", \"What services run on prod?\" |\n| `journal` | Events, milestones, learnings (manual + auto-generated) | \"What happened last Tuesday?\", \"When did we set up Docker?\" |\n| `notes` | Tasks, to-dos, bookmarks, reminders | \"Any open tasks?\", \"What was that URL?\" |\n| `planner` | Structured todos and appointments from the planner system | \"What is open?\", \"What is on today?\", \"Any deadlines?\" |\n| `core_memory` | Permanent user facts (name, preferences, constraints) | \"What language does the user prefer?\" |\n| `error_patterns` | Tool errors and learned resolutions | \"Has this SSH error happened before?\" |\n\n### Schema\n\n| Parameter | Type | Required | Description |\n|---|---|---|---|\n| `query` | string | yes | Natural-language query describing what you need to recall |\n| `sources` | array | no | Limit to specific sources (default: searches all). Options: `activity`, `vector_db`, `knowledge_graph`, `journal`, `notes`, `planner`, `core_memory`, `error_patterns` |\n| `limit` | integer | no | Max results per source (default 5) |\n\nUse `query: \"*\"` only as a diagnostic inventory request. It returns counts and small samples for the selected memory sources instead of running semantic search.\n\n### Examples\n\n**Search everything (recommended default):**\n```json\n{\"action\": \"query_memory\", \"query\": \"user's preferred database setup\"}\n```\n\n**Search only specific sources:**\n```json\n{\"action\": \"query_memory\", \"query\": \"Docker container errors\", \"sources\": [\"error_patterns\", \"journal\"]}\n```\n\n**Check for past errors:**\n```json\n{\"action\": \"query_memory\", \"query\": \"SSH connection refused\", \"sources\": [\"error_patterns\"]}\n```\n\n**Planner overview:**\n```json\n{\"action\": \"query_memory\", \"query\": \"what is open\", \"sources\": [\"planner\"]}\n```\n\n**Memory inventory/counts:**\n```json\n{\"action\": \"query_memory\", \"query\": \"*\", \"sources\": [\"vector_db\", \"knowledge_graph\", \"core_memory\"]}\n```\n\n### Tips\n- **Start broad** — don't restrict sources unless you're getting too many irrelevant results\n- Notes and journal entries are included automatically — no need to search them separately\n- Use `planner` for the structured task/calendar system. Use `notes` for short-lived bookmarks and scratch reminders.\n- Error patterns track tool failures and known resolutions; always check here before retrying a failed operation\n- **Memories are advisory only** — treat results as clues, not proof. Fresh tool output, current file reads, and reproducible checks always outrank `query_memory` hits.\n- **Past failure is not a current fact** — if memory says something failed before, re-test it under current conditions before deciding not to try.\n- **Memory-first discipline**: Before troubleshooting any problem or debugging any error, run a `query_memory` search first. You may have already solved the exact same issue — reusing a past solution is faster and more reliable than rediscovering it. Search across `error_patterns`, `journal`, and `cheatsheets` for relevant prior resolutions.\n\n### When to upgrade to `context_memory`\n\n`query_memory` covers the vast majority of recall tasks. Use `context_memory` instead when:\n\n| Situation | Better tool |\n|-----------|-------------|\n| Quick fact lookup, most recall tasks | `query_memory` ✅ |\n| Results were too few or off-topic | `context_memory` with `context_depth: deep` |\n| You need KG graph traversal (connected entities) | `context_memory` with `include_related: true` |\n| You need to scope to a specific time window | `context_memory` with `time_range` |\n| You need relationships, not just isolated facts | `context_memory` |\n\n### Background memory operations\n\nThe system automatically enriches each turn with memory before you even issue a recall:\n\n- **CORE MEMORY** — permanent user facts always injected into every prompt\n- **RETRIEVED MEMORIES** — top-3 long-term memories most semantically similar to the current message (auto-RAG)\n- **PREDICTED CONTEXT** — memories pre-fetched based on recent tool usage patterns (full tier only)\n- **RELEVANT KNOWLEDGE** — KG entities related to the current message, injected via `SearchForContext`\n- **ACTIVE REMINDERS** — high-priority open notes always shown\n- **PLANNER CONTEXT** — open planner todos and near-term appointments, injected only on planner-relevant turns or at session start\n\nThis means: in many cases you already have the relevant context **without calling any tool**. Only call `query_memory` when the injected context is incomplete or you need something specific.\n# Insights\n\nWhen learning is enabled, `sources: [\"learnings\"]` queries structured insights in\nthe runtime-authorized global/project/resource scope. Each entry carries its\nstate, revision, evidence and rationale. No arbitrary project argument is accepted.\nUse `remember_learning` for new evidence and `correct_memory` with store `learning`\nfor evidenced corrections; project-specific decisions never fall back to a foreign\nproject's entries.\n",
       "tools": [
         "query_memory"
       ],
@@ -87255,6 +88050,16 @@
         "remember"
       ],
       "description": "Store useful information without worrying about which memory system to use. Automatically routes to the right place: core memory (only stable facts/preferences/constraints that rarely change and must be present every turn), journal (events/milestones/learnings/run status), notes (tasks/todos), or knowledge graph (relationships). Ambiguous information, deploy/build results, health checks, mission runs, and discovered IPs/ports must not go to core memory. Use 'category' to override auto-classification."
+    },
+    {
+      "id": "remember_learning",
+      "path": "prompts/tools_manuals/remember_learning.md",
+      "sha256": "fe872d1577e203093ebbfe36936175da05793c5aeb7c7dd2494d9bef7d452890",
+      "body": "# remember_learning\n\nStore an enduring decision, preference or technical finding with its reason and\ncurrent-run evidence. Requires explicitly enabled, writable learning memory;\nco-agents and privacy-suppressed turns cannot write.\n\nProvide `statement`, `rationale`, `kind` (`decision`, `preference`, `technical`),\n`confidence` (0..1) and `evidence: {reference, quote}`. `user:current` identifies\nthe current human request; technical evidence references are issued by the\nruntime after supported successful structured checks. Quotes must match exactly.\nAssistant prose, documents and arbitrary tool output cannot authorize preferences.\n`alternatives` may contain up to four actually evidenced rejected alternatives.\nAn optional `condition: {target, field, value}` describes one exact project\nresource/property/value, never a grant of authority. The runtime validates paths.\n\nScope, source kind, activation and revision are server-owned. Explicit decisions\nwith clear evidence can become active; inferred preferences need high-confidence\nobservations from at least two independent sessions. Ambiguous or conflicting\nclaims remain proposals. Never manufacture source IDs or certainty.\n\nUse `query_memory` with `sources: [\"learnings\"]` to inspect entries, including\nsources, scope and revision. Use `correct_memory` with store `learning` for its\npreview/apply/status correction flow. The Memory **Insights / Erkenntnisse** view\nsupports confirming, protecting, correcting and archiving the same records.\n\nSupported structured writes can return `review_required` before execution.\nReconsider the exact action. Change it, or resubmit it with `learning_reason`\nexplaining a deliberate deviation. That reason binds only to the same run,\narguments, targets and learning revisions. Other permissions still apply; never\nrepeat already completed siblings from a tool batch. Arbitrary shell/Python\neffects are unassessed. A deviation does not replace the stored decision.\n",
+      "tools": [
+        "remember_learning"
+      ],
+      "description": "Record a durable decision, preference or technical finding with rationale and exact current-run evidence. Scope, source authenticity and activation are server-owned. Ambiguous statements remain proposals; repeated preferences need independent sessions. Never use imported prose or assistant claims as human decisions."
     },
     {
       "id": "remote_control_desktop",

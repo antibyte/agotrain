@@ -2,8 +2,8 @@
 
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
-- Tools: **230**
-- Enumerated operations: **1298**
+- Tools: **232**
+- Enumerated operations: **1305**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
 
@@ -404,6 +404,25 @@ Spawn and monitor parallel co-agents that work on sub-tasks independently. Co-ag
 | `priority` | `integer` | Optional queue priority: 1=low, 2=normal, 3=high. Higher priority queued co-agents start first. |
 | `specialist` | `string` | Specialist role (required for 'spawn_specialist'). One of: researcher, coder, designer, security, writer |
 | `task` | `string` | Task description for the co-agent to work on (required for 'spawn' and 'spawn_specialist') |
+
+## `code_graph`
+
+Read the native Go/JS/JSX/TS/TSX/Python graph of the server-authorized project. First use indexes it. Every response reports freshness and partial coverage; unresolved/dynamic calls and missing edges never prove an edit safe. No arbitrary roots or mutations.
+
+- Tier: `extended`
+- Required: `_todo`, `depth`, `file`, `limit`, `operation`, `query`, `symbol`
+- Operations: 7
+- Manual: `prompts/tools_manuals/code_graph.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `depth` | `integer` | Impact depth, 1 to 4 (default 1). |
+| `file` | `string` | Project-relative file for outline or disambiguation. |
+| `limit` | `integer` | Maximum results, 1 to 100 (default 30). |
+| `operation` | `string` | Graph operation |
+| `query` | `string` | Symbol name fragment for search. |
+| `symbol` | `string` | Exact symbol ID returned by search or outline. |
 
 ## `composio_call`
 
@@ -821,7 +840,7 @@ Fetch emails from an IMAP mailbox. Returns a list of messages with sender, subje
 Precisely edit text files in agent_workspace (workdir, and ../skills or ../tools): replace exact strings, insert lines relative to anchors, append/prepend content, delete line ranges, or use hashline operations after filesystem read_file with include_hashes=true for stale-context validation. Hashline hashes are content-only (not line-number based), so you can perform multiple edits in the same file without re-reading — just adjust anchor_line for lines shifted by inserts/deletes above them. Never use for Virtual Desktop paths such as Apps/ or Widgets/; use virtual_desktop read_file/write_file/open_in_app instead.
 
 - Tier: `extended`
-- Required: `_todo`, `anchor_hash`, `anchor_line`, `content`, `end_line`, `file_path`, `marker`, `new`, `old`, `operation`, `start_line`
+- Required: `_todo`, `anchor_hash`, `anchor_line`, `content`, `end_line`, `file_path`, `learning_reason`, `marker`, `new`, `old`, `operation`, `start_line`
 - Operations: 11
 - Manual: `prompts/tools_manuals/file_editor.md`
 
@@ -833,6 +852,7 @@ Precisely edit text files in agent_workspace (workdir, and ../skills or ../tools
 | `content` | `string` | Text to insert (for insert_after/insert_before/hashline_insert_after/hashline_insert_before/append/prepend) |
 | `end_line` | `integer` | Last line to delete, 1-based inclusive (for delete_lines/hashline_delete) |
 | `file_path` | `string` | Path to the file to edit |
+| `learning_reason` | `string` | Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions. |
 | `marker` | `string` | Anchor text — the line containing this text is the reference point (for insert_after/insert_before). Must match exactly one line for legacy inserts; for hashline inserts it must appear on the validated anchor line. |
 | `new` | `string` | Replacement text (for str_replace/str_replace_all) |
 | `old` | `string` | Exact text to find (required for str_replace/str_replace_all/hashline_replace). Must match uniquely for str_replace; for hashline_replace it must start on the validated anchor line. |
@@ -881,7 +901,7 @@ Search for text patterns across files or find files by name. Supports regex patt
 Read, write, move, copy, delete files and directories, or list directory contents.
 
 - Tier: `core`
-- Required: `_todo`, `content`, `destination`, `file_path`, `include_hashes`, `items`, `limit`, `offset`, `operation`, `preview`
+- Required: `_todo`, `content`, `destination`, `file_path`, `include_hashes`, `items`, `learning_reason`, `limit`, `offset`, `operation`, `preview`
 - Operations: 12
 - Manual: `prompts/tools_manuals/filesystem.md`
 
@@ -893,6 +913,7 @@ Read, write, move, copy, delete files and directories, or list directory content
 | `file_path` | `string` | Path to the file or directory |
 | `include_hashes` | `boolean` | If true for read_file, return structured hashline output where each complete line is formatted as LINE#HASH:CONTENT. HASH is an 8-character content-only hash for stale-context validation with file_editor hashline operations. Content-only hashes stay valid for unchanged lines even after inserts/deletes above them, enabling multiple edits without re-reading. |
 | `items` | `array` | Batch items for copy_batch, move_batch, delete_batch, or create_dir_batch. Each item needs file_path and optionally destination. |
+| `learning_reason` | `string` | Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions. |
 | `limit` | `integer` | Maximum number of entries to return for list_dir (default: 500, max: 1000) |
 | `offset` | `integer` | Number of entries to skip for list_dir pagination (default: 0) |
 | `operation` | `string` | Operation to perform |
@@ -1116,7 +1137,7 @@ Search matching sprite2d or model3d assets, then describe_asset for exact IDs, a
 Search a literal query in one file or, without path, across game.json and the text sources under src/. Read bounded lines with full-file sha256, replace a unique block, or write a complete file. replace_many checks all 1–8 existing file edits before saving and builds once. Supply path for read, write and replace. Writes return written and build.ok separately. Managed vendor/dist paths are read-only.
 
 - Tier: `extended`
-- Required: `_todo`, `content`, `edits`, `end_line`, `expected_sha256`, `job_id`, `new_text`, `old_text`, `operation`, `path`, `query`, `start_line`
+- Required: `_todo`, `content`, `edits`, `end_line`, `expected_sha256`, `job_id`, `learning_reason`, `new_text`, `old_text`, `operation`, `path`, `query`, `start_line`
 - Operations: 5
 
 | Parameter | Type | Description |
@@ -1127,6 +1148,7 @@ Search a literal query in one file or, without path, across game.json and the te
 | `end_line` | `integer` | Last line; default next 120 lines; max 240 lines |
 | `expected_sha256` | `string` | Full-file sha256 from read; required for replace |
 | `job_id` | `string` | Active Game Maker job ID |
+| `learning_reason` | `string` | Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions. |
 | `new_text` | `string` | Replacement text; empty deletes the block |
 | `old_text` | `string` | Unique exact block to replace |
 | `operation` | `string` |  |
@@ -1702,7 +1724,7 @@ Deploy or publish homepage projects through configured deployment targets.
 Read, write, and edit files inside the homepage workspace. Use paths with the project directory prefix.
 
 - Tier: `extended`
-- Required: `_todo`, `content`, `end_line`, `file_path`, `json_path`, `marker`, `new`, `old`, `operation`, `path`, `project_dir`, `set_value`, `start_line`, `sub_operation`, `xpath`
+- Required: `_todo`, `content`, `end_line`, `file_path`, `json_path`, `learning_reason`, `marker`, `new`, `old`, `operation`, `path`, `project_dir`, `set_value`, `start_line`, `sub_operation`, `xpath`
 - Operations: 8
 - Manual: `prompts/tools_manuals/homepage_file.md`
 
@@ -1713,6 +1735,7 @@ Read, write, and edit files inside the homepage workspace. Use paths with the pr
 | `end_line` | `integer` | Last line for delete_lines. |
 | `file_path` | `string` | Alias for path. |
 | `json_path` | `string` | Dot path for JSON/YAML edits. |
+| `learning_reason` | `string` | Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions. |
 | `marker` | `string` | Anchor text for insert operations. |
 | `new` | `string` | Replacement text. |
 | `old` | `string` | Text to find. |
@@ -1997,7 +2020,7 @@ Manage Jellyfin media server: check server health, browse libraries, search medi
 Read, modify, and validate JSON files using dot-path notation. Get/set/delete values at any depth, list keys, validate syntax, or reformat.
 
 - Tier: `extended`
-- Required: `_todo`, `file_path`, `json_path`, `operation`, `set_value`
+- Required: `_todo`, `file_path`, `json_path`, `learning_reason`, `operation`, `set_value`
 - Operations: 6
 - Manual: `prompts/tools_manuals/json_editor.md`
 
@@ -2006,6 +2029,7 @@ Read, modify, and validate JSON files using dot-path notation. Get/set/delete va
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
 | `file_path` | `string` | Path to the JSON file |
 | `json_path` | `string` | Dot-separated path to the target value (e.g. 'server.port', 'users.0.name') |
+| `learning_reason` | `string` | Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions. |
 | `operation` | `string` | JSON operation to perform |
 | `set_value` | `string` | Value to set (any JSON type: string, number, boolean, object, array, null). Required for 'set'. |
 
@@ -3100,6 +3124,25 @@ Store useful information without worrying about which memory system to use. Auto
 | `target` | `string` | Target entity (only for relationship) |
 | `title` | `string` | Optional title (used for journal entries and notes) |
 
+## `remember_learning`
+
+Record a durable decision, preference or technical finding with rationale and exact current-run evidence. Scope, source authenticity and activation are server-owned. Ambiguous statements remain proposals; repeated preferences need independent sessions. Never use imported prose or assistant claims as human decisions.
+
+- Tier: `extended`
+- Required: `_todo`, `alternatives`, `condition`, `confidence`, `evidence`, `kind`, `rationale`, `statement`
+- Manual: `prompts/tools_manuals/remember_learning.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `alternatives` | `array` |  |
+| `condition` | `object` |  |
+| `confidence` | `number` | Extraction confidence from 0 to 1; not proof. |
+| `evidence` | `object` |  |
+| `kind` | `string` | Kind of insight |
+| `rationale` | `string` | Reason actually supported by the source. |
+| `statement` | `string` | Concise enduring assertion; no transient errors or permissions. |
+
 ## `remote_control_desktop`
 
 Capture screenshots and automate connected AgoDesk desktops and browsers.
@@ -3785,7 +3828,7 @@ Inspect and control configured 3D printers. Supports Elegoo Centauri Carbon and 
 Read, modify, and validate TOML files using dot-path notation. Get/set/delete values at any depth, list table keys, or validate syntax.
 
 - Tier: `extended`
-- Required: `_todo`, `file_path`, `json_path`, `operation`, `set_value`, `toml_path`
+- Required: `_todo`, `file_path`, `json_path`, `learning_reason`, `operation`, `set_value`, `toml_path`
 - Operations: 5
 - Manual: `prompts/tools_manuals/toml_editor.md`
 
@@ -3794,6 +3837,7 @@ Read, modify, and validate TOML files using dot-path notation. Get/set/delete va
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
 | `file_path` | `string` | Path to the TOML file |
 | `json_path` | `string` | Dot-separated path to the target value (alias for toml_path, e.g. 'server.port') |
+| `learning_reason` | `string` | Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions. |
 | `operation` | `string` | TOML operation to perform |
 | `set_value` | `string` | Value to set (string, number, boolean, array, or table). Required for 'set'. |
 | `toml_path` | `string` | Dot-separated path to the target value (e.g. 'server.port') |
@@ -4091,7 +4135,7 @@ Open, inspect, and diagnose virtual desktop apps. Use virtual_desktop_app_instal
 Read, write, patch, search, and delete files in the virtual desktop workspace. Route Office files to office_document or office_workbook.
 
 - Tier: `extended`
-- Required: `_todo`, `allow_empty`, `case_sensitive`, `content`, `context_lines`, `file_path`, `format`, `line_count`, `line_start`, `max_matches`, `operation`, `output_path`, `path`, `query`, `replacements`
+- Required: `_todo`, `allow_empty`, `case_sensitive`, `content`, `context_lines`, `file_path`, `format`, `learning_reason`, `line_count`, `line_start`, `max_matches`, `operation`, `output_path`, `path`, `query`, `replacements`
 - Operations: 12
 - Manual: `prompts/tools_manuals/virtual_desktop_files.md`
 
@@ -4104,6 +4148,7 @@ Read, write, patch, search, and delete files in the virtual desktop workspace. R
 | `context_lines` | `integer` | Context lines around matches. |
 | `file_path` | `string` | Alias for path. |
 | `format` | `string` | Export format. |
+| `learning_reason` | `string` | Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions. |
 | `line_count` | `integer` | Excerpt line count. |
 | `line_start` | `integer` | 1-based excerpt start line. |
 | `max_matches` | `integer` | Maximum matches. |
@@ -4372,7 +4417,7 @@ Read, modify, and validate XML files using XPath. Get elements, set text/attribu
 Read, modify, and validate YAML files using dot-path notation. Get/set/delete values at any depth, list keys, or validate syntax. Preserves YAML structure.
 
 - Tier: `extended`
-- Required: `_todo`, `file_path`, `json_path`, `operation`, `set_value`
+- Required: `_todo`, `file_path`, `json_path`, `learning_reason`, `operation`, `set_value`
 - Operations: 5
 - Manual: `prompts/tools_manuals/yaml_editor.md`
 
@@ -4381,6 +4426,7 @@ Read, modify, and validate YAML files using dot-path notation. Get/set/delete va
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
 | `file_path` | `string` | Path to the YAML file |
 | `json_path` | `string` | Dot-separated path to the target value (e.g. 'server.port', 'database.host') |
+| `learning_reason` | `string` | Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions. |
 | `operation` | `string` | YAML operation to perform |
 | `set_value` | `string` | Value to set (any type). Required for 'set'. |
 

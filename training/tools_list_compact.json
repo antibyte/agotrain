@@ -711,6 +711,50 @@
     ]
   },
   {
+    "name": "code_graph",
+    "description": "Read the native Go/JS/JSX/TS/TSX/Python graph of the server-authorized project. First use indexes it. Every response reports freshness and partial coverage; unresolved/dynamic calls and missing edges never prove an edit safe. No arbitrary roots or mutations.",
+    "required": [
+      "_todo",
+      "depth",
+      "file",
+      "limit",
+      "operation",
+      "query",
+      "symbol"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "callees"
+      },
+      {
+        "selector": "operation",
+        "value": "callers"
+      },
+      {
+        "selector": "operation",
+        "value": "impact"
+      },
+      {
+        "selector": "operation",
+        "value": "outline"
+      },
+      {
+        "selector": "operation",
+        "value": "rescan"
+      },
+      {
+        "selector": "operation",
+        "value": "search"
+      },
+      {
+        "selector": "operation",
+        "value": "status"
+      }
+    ]
+  },
+  {
     "name": "composio_call",
     "description": "Search and use user-approved Composio toolkits through AuraGo policy gates, including services such as Gmail, Slack, Notion, GitHub, and Google Calendar when selected. Use capabilities/list_connected_accounts to inspect availability, then search_tools/get_tool before execute_tool. If a narrow search returns no tools, retry broadly through composio_call; do not switch to direct third-party APIs for connected services.",
     "required": [
@@ -1377,6 +1421,7 @@
       "content",
       "end_line",
       "file_path",
+      "learning_reason",
       "marker",
       "new",
       "old",
@@ -1504,6 +1549,7 @@
       "file_path",
       "include_hashes",
       "items",
+      "learning_reason",
       "limit",
       "offset",
       "operation",
@@ -1971,6 +2017,7 @@
       "end_line",
       "expected_sha256",
       "job_id",
+      "learning_reason",
       "new_text",
       "old_text",
       "operation",
@@ -3136,6 +3183,7 @@
       "end_line",
       "file_path",
       "json_path",
+      "learning_reason",
       "marker",
       "new",
       "old",
@@ -3884,6 +3932,7 @@
       "_todo",
       "file_path",
       "json_path",
+      "learning_reason",
       "operation",
       "set_value"
     ],
@@ -6193,6 +6242,21 @@
     "tier": "extended"
   },
   {
+    "name": "remember_learning",
+    "description": "Record a durable decision, preference or technical finding with rationale and exact current-run evidence. Scope, source authenticity and activation are server-owned. Ambiguous statements remain proposals; repeated preferences need independent sessions. Never use imported prose or assistant claims as human decisions.",
+    "required": [
+      "_todo",
+      "alternatives",
+      "condition",
+      "confidence",
+      "evidence",
+      "kind",
+      "rationale",
+      "statement"
+    ],
+    "tier": "extended"
+  },
+  {
     "name": "remote_control_desktop",
     "description": "Capture screenshots and automate connected AgoDesk desktops and browsers.",
     "required": [
@@ -7251,6 +7315,7 @@
       "_todo",
       "file_path",
       "json_path",
+      "learning_reason",
       "operation",
       "set_value",
       "toml_path"
@@ -7936,6 +8001,7 @@
       "context_lines",
       "file_path",
       "format",
+      "learning_reason",
       "line_count",
       "line_start",
       "max_matches",
@@ -8396,6 +8462,7 @@
       "_todo",
       "file_path",
       "json_path",
+      "learning_reason",
       "operation",
       "set_value"
     ],

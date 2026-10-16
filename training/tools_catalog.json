@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
   "source": "aurago internal/agent.BuildNativeToolSchemaSnapshot.StrictSchemas (all feature flags enabled)",
-  "tool_count": 230,
-  "operation_count": 1298,
+  "tool_count": 232,
+  "operation_count": 1305,
   "call_format": "OpenAI-compatible native function calling with assistant tool_calls and role=tool results linked by tool_call_id.",
   "tools": [
     {
@@ -4880,6 +4880,225 @@
       "manual_snippet": "# Co-Agent (`co_agent`)\n\nSpawn and manage parallel co-agents that work on sub-tasks independently. Each co-agent runs in its own goroutine with a separate LLM context and returns results when done.\n\n\u003e **Note**: Assume that co-agents may be less capable than you — double check their work.\n\n## Prerequisites\n\n- `co_agents.enabled: true` in config.yaml\n- Optional: separate LLM model/API key via `co_agents.llm.*`\n\n## Operations\n\n| Operation | Description |\n|-----------|-------------|\n| `spawn` | Start a new generic co-agent with a task |\n| `spawn_specialist` | Start a specialized expert co-agent |\n| `list` | Show all co-agents and their status |\n| `get_result` | Wait briefly for a running co-agent, then retrieve its result or current terminal status |\n| `stop` | Cancel a running co-agent only…"
     },
     {
+      "name": "code_graph",
+      "description": "Read the native Go/JS/JSX/TS/TSX/Python graph of the server-authorized project. First use indexes it. Every response reports freshness and partial coverage; unresolved/dynamic calls and missing edges never prove an edit safe. No arbitrary roots or mutations.",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "depth": {
+            "description": "Impact depth, 1 to 4 (default 1).",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "file": {
+            "description": "Project-relative file for outline or disambiguation.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "limit": {
+            "description": "Maximum results, 1 to 100 (default 30).",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "operation": {
+            "description": "Graph operation",
+            "enum": [
+              "status",
+              "search",
+              "outline",
+              "callers",
+              "callees",
+              "impact",
+              "rescan"
+            ],
+            "type": "string"
+          },
+          "query": {
+            "description": "Symbol name fragment for search.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "symbol": {
+            "description": "Exact symbol ID returned by search or outline.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "_todo",
+          "depth",
+          "file",
+          "limit",
+          "operation",
+          "query",
+          "symbol"
+        ],
+        "type": "object"
+      },
+      "argument_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": "string"
+          },
+          "depth": {
+            "description": "Impact depth, 1 to 4 (default 1).",
+            "type": "integer"
+          },
+          "file": {
+            "description": "Project-relative file for outline or disambiguation.",
+            "type": "string"
+          },
+          "limit": {
+            "description": "Maximum results, 1 to 100 (default 30).",
+            "type": "integer"
+          },
+          "operation": {
+            "description": "Graph operation",
+            "enum": [
+              "status",
+              "search",
+              "outline",
+              "callers",
+              "callees",
+              "impact",
+              "rescan"
+            ],
+            "type": "string"
+          },
+          "query": {
+            "description": "Symbol name fragment for search.",
+            "type": "string"
+          },
+          "symbol": {
+            "description": "Exact symbol ID returned by search or outline.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "operation"
+        ],
+        "type": "object"
+      },
+      "required": [
+        "_todo",
+        "depth",
+        "file",
+        "limit",
+        "operation",
+        "query",
+        "symbol"
+      ],
+      "properties": {
+        "_todo": {
+          "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "depth": {
+          "description": "Impact depth, 1 to 4 (default 1).",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "file": {
+          "description": "Project-relative file for outline or disambiguation.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limit": {
+          "description": "Maximum results, 1 to 100 (default 30).",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "operation": {
+          "description": "Graph operation",
+          "enum": [
+            "status",
+            "search",
+            "outline",
+            "callers",
+            "callees",
+            "impact",
+            "rescan"
+          ],
+          "type": "string"
+        },
+        "query": {
+          "description": "Symbol name fragment for search.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "symbol": {
+          "description": "Exact symbol ID returned by search or outline.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "tier": "extended",
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "callees"
+        },
+        {
+          "selector": "operation",
+          "value": "callers"
+        },
+        {
+          "selector": "operation",
+          "value": "impact"
+        },
+        {
+          "selector": "operation",
+          "value": "outline"
+        },
+        {
+          "selector": "operation",
+          "value": "rescan"
+        },
+        {
+          "selector": "operation",
+          "value": "search"
+        },
+        {
+          "selector": "operation",
+          "value": "status"
+        }
+      ],
+      "manual_path": "prompts/tools_manuals/code_graph.md",
+      "manual_snippet": "# code_graph\n\nNative, read-only structural analysis of the current server-authorized project.\nRequires `code_graph.enabled`. First use builds a resident index; active project\nindexes are refreshed from content fingerprints. No root/path argument can grant\naccess to another project, container or host directory.\n\nOperations:\n\n- `status`: freshness, coverage, skipped-file reasons, unresolved-edge count,\n  retained index estimate and last indexing duration.\n- `search`: symbol-name fragment in `query`; returns IDs, locations and snippets.\n- `outline`: definitions in a project-relative `file`.\n- `callers`, `callees`: exact `symbol` ID from search/outline; optionally `file`\n  disambiguates a name. A missing target ID means an unresolved call.\n- `impact`: incoming relationships, bounded by `depth`…"
+    },
+    {
       "name": "composio_call",
       "description": "Search and use user-approved Composio toolkits through AuraGo policy gates, including services such as Gmail, Slack, Notion, GitHub, and Google Calendar when selected. Use capabilities/list_connected_accounts to inspect availability, then search_tools/get_tool before execute_tool. If a narrow search returns no tools, retry broadly through composio_call; do not switch to direct third-party APIs for connected services.",
       "parameters": {
@@ -5553,7 +5772,8 @@
                         "ltm",
                         "profile",
                         "kg_node",
-                        "kg_edge"
+                        "kg_edge",
+                        "learning"
                       ],
                       "type": "string"
                     },
@@ -5705,7 +5925,8 @@
                         "ltm",
                         "profile",
                         "kg_node",
-                        "kg_edge"
+                        "kg_edge",
+                        "learning"
                       ],
                       "type": "string"
                     },
@@ -5851,7 +6072,8 @@
                       "ltm",
                       "profile",
                       "kg_node",
-                      "kg_edge"
+                      "kg_edge",
+                      "learning"
                     ],
                     "type": "string"
                   },
@@ -9672,6 +9894,13 @@
             "description": "Path to the file to edit",
             "type": "string"
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "marker": {
             "description": "Anchor text — the line containing this text is the reference point (for insert_after/insert_before). Must match exactly one line for legacy inserts; for hashline inserts it must appear on the validated anchor line.",
             "type": [
@@ -9725,6 +9954,7 @@
           "content",
           "end_line",
           "file_path",
+          "learning_reason",
           "marker",
           "new",
           "old",
@@ -9758,6 +9988,10 @@
           },
           "file_path": {
             "description": "Path to the file to edit",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "marker": {
@@ -9807,6 +10041,7 @@
         "content",
         "end_line",
         "file_path",
+        "learning_reason",
         "marker",
         "new",
         "old",
@@ -9852,6 +10087,13 @@
         "file_path": {
           "description": "Path to the file to edit",
           "type": "string"
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "marker": {
           "description": "Anchor text — the line containing this text is the reference point (for insert_after/insert_before). Must match exactly one line for legacy inserts; for hashline inserts it must appear on the validated anchor line.",
@@ -10401,6 +10643,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "limit": {
             "description": "Maximum number of entries to return for list_dir (default: 500, max: 1000)",
             "type": [
@@ -10448,6 +10697,7 @@
           "file_path",
           "include_hashes",
           "items",
+          "learning_reason",
           "limit",
           "offset",
           "operation",
@@ -10496,6 +10746,10 @@
             },
             "type": "array"
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": "string"
+          },
           "limit": {
             "description": "Maximum number of entries to return for list_dir (default: 500, max: 1000)",
             "type": "integer"
@@ -10539,6 +10793,7 @@
         "file_path",
         "include_hashes",
         "items",
+        "learning_reason",
         "limit",
         "offset",
         "operation",
@@ -10608,6 +10863,13 @@
           },
           "type": [
             "array",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+          "type": [
+            "string",
             "null"
           ]
         },
@@ -13204,6 +13466,13 @@
             "description": "Active Game Maker job ID",
             "type": "string"
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "new_text": {
             "description": "Replacement text; empty deletes the block",
             "type": [
@@ -13257,6 +13526,7 @@
           "end_line",
           "expected_sha256",
           "job_id",
+          "learning_reason",
           "new_text",
           "old_text",
           "operation",
@@ -13322,6 +13592,10 @@
             "description": "Active Game Maker job ID",
             "type": "string"
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": "string"
+          },
           "new_text": {
             "description": "Replacement text; empty deletes the block",
             "type": "string"
@@ -13366,6 +13640,7 @@
         "end_line",
         "expected_sha256",
         "job_id",
+        "learning_reason",
         "new_text",
         "old_text",
         "operation",
@@ -13441,6 +13716,13 @@
         "job_id": {
           "description": "Active Game Maker job ID",
           "type": "string"
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "new_text": {
           "description": "Replacement text; empty deletes the block",
@@ -31561,6 +31843,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "marker": {
             "description": "Anchor text for insert operations.",
             "type": [
@@ -31645,6 +31934,7 @@
           "end_line",
           "file_path",
           "json_path",
+          "learning_reason",
           "marker",
           "new",
           "old",
@@ -31679,6 +31969,10 @@
           },
           "json_path": {
             "description": "Dot path for JSON/YAML edits.",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "marker": {
@@ -31742,6 +32036,7 @@
         "end_line",
         "file_path",
         "json_path",
+        "learning_reason",
         "marker",
         "new",
         "old",
@@ -31784,6 +32079,13 @@
         },
         "json_path": {
           "description": "Dot path for JSON/YAML edits.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
           "type": [
             "string",
             "null"
@@ -35848,6 +36150,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "operation": {
             "description": "JSON operation to perform",
             "enum": [
@@ -35872,6 +36181,7 @@
           "_todo",
           "file_path",
           "json_path",
+          "learning_reason",
           "operation",
           "set_value"
         ],
@@ -35890,6 +36200,10 @@
           },
           "json_path": {
             "description": "Dot-separated path to the target value (e.g. 'server.port', 'users.0.name')",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "operation": {
@@ -35918,6 +36232,7 @@
         "_todo",
         "file_path",
         "json_path",
+        "learning_reason",
         "operation",
         "set_value"
       ],
@@ -35935,6 +36250,13 @@
         },
         "json_path": {
           "description": "Dot-separated path to the target value (e.g. 'server.port', 'users.0.name')",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
           "type": [
             "string",
             "null"
@@ -48652,7 +48974,8 @@
                 "planner",
                 "core_memory",
                 "user_profile",
-                "error_patterns"
+                "error_patterns",
+                "learnings"
               ],
               "type": "string"
             },
@@ -48698,7 +49021,8 @@
                 "planner",
                 "core_memory",
                 "user_profile",
-                "error_patterns"
+                "error_patterns",
+                "learnings"
               ],
               "type": "string"
             },
@@ -48748,7 +49072,8 @@
               "planner",
               "core_memory",
               "user_profile",
-              "error_patterns"
+              "error_patterns",
+              "learnings"
             ],
             "type": "string"
           },
@@ -49714,6 +50039,294 @@
       "tier": "extended",
       "manual_path": "prompts/tools_manuals/remember.md",
       "manual_snippet": "# Remember (`remember`)\n\nA simplified single-entry-point for storing useful information. The system auto-routes content to the appropriate storage (core memory, journal, notes, or knowledge graph).\n\nCore Memory is a tiny permanent profile injected into every prompt. It is not the default destination. If content is not clearly a stable user fact, durable preference, hard constraint, or explicitly permanent environment fact, route it to Journal, Notes, Inventory, or Knowledge Graph instead.\n\nCore Memory writes are agent-only. `remember` may route to Core Memory only when the agent deliberately records a durable fact; background systems, dashboard forms, migration jobs, and tool integrations must not create or update Core Memory entries.\n\n## Auto-Classification\n\n| Content pattern | Stored as …"
+    },
+    {
+      "name": "remember_learning",
+      "description": "Record a durable decision, preference or technical finding with rationale and exact current-run evidence. Scope, source authenticity and activation are server-owned. Ambiguous statements remain proposals; repeated preferences need independent sessions. Never use imported prose or assistant claims as human decisions.",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "alternatives": {
+            "items": {
+              "description": "Rejected alternative quoted literally in the evidence.",
+              "type": "string"
+            },
+            "maxItems": 4,
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "condition": {
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "description": "Exact structured property.",
+                "type": "string"
+              },
+              "target": {
+                "description": "Exact runtime resource or config target.",
+                "type": "string"
+              },
+              "value": {
+                "description": "Required property value, not a fuzzy phrase.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "field",
+              "target",
+              "value"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "confidence": {
+            "description": "Extraction confidence from 0 to 1; not proof.",
+            "type": "number"
+          },
+          "evidence": {
+            "additionalProperties": false,
+            "properties": {
+              "quote": {
+                "description": "Exact supporting source quote.",
+                "type": "string"
+              },
+              "reference": {
+                "description": "user:current or a runtime-issued technical evidence reference.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "quote",
+              "reference"
+            ],
+            "type": "object"
+          },
+          "kind": {
+            "description": "Kind of insight",
+            "enum": [
+              "decision",
+              "preference",
+              "technical"
+            ],
+            "type": "string"
+          },
+          "rationale": {
+            "description": "Reason actually supported by the source.",
+            "type": "string"
+          },
+          "statement": {
+            "description": "Concise enduring assertion; no transient errors or permissions.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "_todo",
+          "alternatives",
+          "condition",
+          "confidence",
+          "evidence",
+          "kind",
+          "rationale",
+          "statement"
+        ],
+        "type": "object"
+      },
+      "argument_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": "string"
+          },
+          "alternatives": {
+            "items": {
+              "description": "Rejected alternative quoted literally in the evidence.",
+              "type": "string"
+            },
+            "maxItems": 4,
+            "type": "array"
+          },
+          "condition": {
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "description": "Exact structured property.",
+                "type": "string"
+              },
+              "target": {
+                "description": "Exact runtime resource or config target.",
+                "type": "string"
+              },
+              "value": {
+                "description": "Required property value, not a fuzzy phrase.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "target",
+              "field",
+              "value"
+            ],
+            "type": "object"
+          },
+          "confidence": {
+            "description": "Extraction confidence from 0 to 1; not proof.",
+            "type": "number"
+          },
+          "evidence": {
+            "additionalProperties": false,
+            "properties": {
+              "quote": {
+                "description": "Exact supporting source quote.",
+                "type": "string"
+              },
+              "reference": {
+                "description": "user:current or a runtime-issued technical evidence reference.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "reference",
+              "quote"
+            ],
+            "type": "object"
+          },
+          "kind": {
+            "description": "Kind of insight",
+            "enum": [
+              "decision",
+              "preference",
+              "technical"
+            ],
+            "type": "string"
+          },
+          "rationale": {
+            "description": "Reason actually supported by the source.",
+            "type": "string"
+          },
+          "statement": {
+            "description": "Concise enduring assertion; no transient errors or permissions.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "statement",
+          "rationale",
+          "kind",
+          "confidence",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "required": [
+        "_todo",
+        "alternatives",
+        "condition",
+        "confidence",
+        "evidence",
+        "kind",
+        "rationale",
+        "statement"
+      ],
+      "properties": {
+        "_todo": {
+          "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "alternatives": {
+          "items": {
+            "description": "Rejected alternative quoted literally in the evidence.",
+            "type": "string"
+          },
+          "maxItems": 4,
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "condition": {
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "description": "Exact structured property.",
+              "type": "string"
+            },
+            "target": {
+              "description": "Exact runtime resource or config target.",
+              "type": "string"
+            },
+            "value": {
+              "description": "Required property value, not a fuzzy phrase.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "field",
+            "target",
+            "value"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "confidence": {
+          "description": "Extraction confidence from 0 to 1; not proof.",
+          "type": "number"
+        },
+        "evidence": {
+          "additionalProperties": false,
+          "properties": {
+            "quote": {
+              "description": "Exact supporting source quote.",
+              "type": "string"
+            },
+            "reference": {
+              "description": "user:current or a runtime-issued technical evidence reference.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "quote",
+            "reference"
+          ],
+          "type": "object"
+        },
+        "kind": {
+          "description": "Kind of insight",
+          "enum": [
+            "decision",
+            "preference",
+            "technical"
+          ],
+          "type": "string"
+        },
+        "rationale": {
+          "description": "Reason actually supported by the source.",
+          "type": "string"
+        },
+        "statement": {
+          "description": "Concise enduring assertion; no transient errors or permissions.",
+          "type": "string"
+        }
+      },
+      "tier": "extended",
+      "manual_path": "prompts/tools_manuals/remember_learning.md",
+      "manual_snippet": "# remember_learning\n\nStore an enduring decision, preference or technical finding with its reason and\ncurrent-run evidence. Requires explicitly enabled, writable learning memory;\nco-agents and privacy-suppressed turns cannot write.\n\nProvide `statement`, `rationale`, `kind` (`decision`, `preference`, `technical`),\n`confidence` (0..1) and `evidence: {reference, quote}`. `user:current` identifies\nthe current human request; technical evidence references are issued by the\nruntime after supported successful structured checks. Quotes must match exactly.\nAssistant prose, documents and arbitrary tool output cannot authorize preferences.\n`alternatives` may contain up to four actually evidenced rejected alternatives.\nAn optional `condition: {target, field, value}` describes one exact project\nresource/…"
     },
     {
       "name": "remote_control_desktop",
@@ -56879,6 +57492,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "operation": {
             "description": "TOML operation to perform",
             "enum": [
@@ -56909,6 +57529,7 @@
           "_todo",
           "file_path",
           "json_path",
+          "learning_reason",
           "operation",
           "set_value",
           "toml_path"
@@ -56928,6 +57549,10 @@
           },
           "json_path": {
             "description": "Dot-separated path to the target value (alias for toml_path, e.g. 'server.port')",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "operation": {
@@ -56959,6 +57584,7 @@
         "_todo",
         "file_path",
         "json_path",
+        "learning_reason",
         "operation",
         "set_value",
         "toml_path"
@@ -56977,6 +57603,13 @@
         },
         "json_path": {
           "description": "Dot-separated path to the target value (alias for toml_path, e.g. 'server.port')",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
           "type": [
             "string",
             "null"
@@ -60707,6 +61340,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "line_count": {
             "description": "Excerpt line count.",
             "type": [
@@ -60787,6 +61427,7 @@
           "context_lines",
           "file_path",
           "format",
+          "learning_reason",
           "line_count",
           "line_start",
           "max_matches",
@@ -60827,6 +61468,10 @@
           },
           "format": {
             "description": "Export format.",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "line_count": {
@@ -60893,6 +61538,7 @@
         "context_lines",
         "file_path",
         "format",
+        "learning_reason",
         "line_count",
         "line_start",
         "max_matches",
@@ -60947,6 +61593,13 @@
         },
         "format": {
           "description": "Export format.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
           "type": [
             "string",
             "null"
@@ -64009,6 +64662,13 @@
               "null"
             ]
           },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "operation": {
             "description": "YAML operation to perform",
             "enum": [
@@ -64032,6 +64692,7 @@
           "_todo",
           "file_path",
           "json_path",
+          "learning_reason",
           "operation",
           "set_value"
         ],
@@ -64050,6 +64711,10 @@
           },
           "json_path": {
             "description": "Dot-separated path to the target value (e.g. 'server.port', 'database.host')",
+            "type": "string"
+          },
+          "learning_reason": {
+            "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
           },
           "operation": {
@@ -64077,6 +64742,7 @@
         "_todo",
         "file_path",
         "json_path",
+        "learning_reason",
         "operation",
         "set_value"
       ],
@@ -64094,6 +64760,13 @@
         },
         "json_path": {
           "description": "Dot-separated path to the target value (e.g. 'server.port', 'database.host')",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "learning_reason": {
+          "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
           "type": [
             "string",
             "null"

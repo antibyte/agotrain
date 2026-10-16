@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "b0ae2f2c319acd7f6fbc16744df8af49e44ae75d0a2d0317f13e6675a69e7045",
+  "schema_sha256": "1a1303fe2117ddb8a2b3362328f1f305a8afc1e4ffb3971584c40a4a1abfb7b7",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -18957,6 +18957,114 @@
           "excluded_fields": []
         }
       ]
+    },
+    "code_graph": {
+      "default_arguments": {
+        "operation": "status"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "callees",
+          "arguments": {
+            "operation": "callees",
+            "symbol": "main.go:0:Serve"
+          },
+          "required_fields": [
+            "operation",
+            "symbol"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "callers",
+          "arguments": {
+            "operation": "callers",
+            "symbol": "main.go:0:Serve"
+          },
+          "required_fields": [
+            "operation",
+            "symbol"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "impact",
+          "arguments": {
+            "operation": "impact",
+            "symbol": "main.go:0:Serve",
+            "depth": 2
+          },
+          "required_fields": [
+            "operation",
+            "symbol",
+            "depth"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "outline",
+          "arguments": {
+            "operation": "outline",
+            "file": "main.go"
+          },
+          "required_fields": [
+            "operation",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "rescan",
+          "arguments": {
+            "operation": "rescan"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "search",
+          "arguments": {
+            "operation": "search",
+            "query": "Serve"
+          },
+          "required_fields": [
+            "operation",
+            "query"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "status",
+          "arguments": {
+            "operation": "status"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        }
+      ]
+    },
+    "remember_learning": {
+      "default_arguments": {
+        "statement": "Keep the Go backend portable",
+        "rationale": "It must run without a Python interpreter",
+        "kind": "decision",
+        "confidence": 0.99,
+        "evidence": {
+          "reference": "user:current",
+          "quote": "Keep the Go backend portable. It must run without a Python interpreter."
+        }
+      }
     }
   }
 }
