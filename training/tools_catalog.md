@@ -3,7 +3,7 @@
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
 - Tools: **232**
-- Enumerated operations: **1305**
+- Enumerated operations: **1306**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
 
@@ -3374,11 +3374,11 @@ Run only a saved custom Python tool from the agent tools directory. Requires age
 
 ## `ruview`
 
-Read RuView status, nodes, current sensing, model information and recording metadata. Source and time distinguish real and simulated measurements.
+Read RuView status, nodes, sensing, model information, recordings, and presence. fresh: false does not prove presence. Simulation is not a sensor. Source and time distinguish real and simulated measurements.
 
 - Tier: `extended`
 - Required: `_todo`, `operation`
-- Operations: 5
+- Operations: 6
 - Manual: `prompts/tools_manuals/ruview.md`
 
 | Parameter | Type | Description |

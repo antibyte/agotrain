@@ -2,7 +2,7 @@
   "schema_version": "2.0",
   "source": "aurago internal/agent.BuildNativeToolSchemaSnapshot.StrictSchemas (all feature flags enabled)",
   "tool_count": 232,
-  "operation_count": 1305,
+  "operation_count": 1306,
   "call_format": "OpenAI-compatible native function calling with assistant tool_calls and role=tool results linked by tool_call_id.",
   "tools": [
     {
@@ -53364,7 +53364,7 @@
     },
     {
       "name": "ruview",
-      "description": "Read RuView status, nodes, current sensing, model information and recording metadata. Source and time distinguish real and simulated measurements.",
+      "description": "Read RuView status, nodes, sensing, model information, recordings, and presence. fresh: false does not prove presence. Simulation is not a sensor. Source and time distinguish real and simulated measurements.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -53381,7 +53381,8 @@
               "nodes",
               "sensing",
               "model_info",
-              "recordings"
+              "recordings",
+              "presence"
             ],
             "type": "string"
           }
@@ -53405,7 +53406,8 @@
               "nodes",
               "sensing",
               "model_info",
-              "recordings"
+              "recordings",
+              "presence"
             ],
             "type": "string"
           }
@@ -53433,7 +53435,8 @@
             "nodes",
             "sensing",
             "model_info",
-            "recordings"
+            "recordings",
+            "presence"
           ],
           "type": "string"
         }
@@ -53450,6 +53453,10 @@
         },
         {
           "selector": "operation",
+          "value": "presence"
+        },
+        {
+          "selector": "operation",
           "value": "recordings"
         },
         {
@@ -53462,7 +53469,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/ruview.md",
-      "manual_snippet": "# RuView (read only)\n\nRead the administrator-configured RuView sensing service. Available only when\nboth the integration and agent access are enabled.\n\n`operation` is one of `status`, `nodes`, `sensing`, `model_info`, `recordings`.\nNo URLs, credentials, device paths or arbitrary API routes are accepted.\nThe tool cannot install, flash, configure, calibrate, record, train, delete or\nswitch models. Use the administrator's RuView app for those operations.\n\nReport the source and observation time. `ready` describes the service only.\nPhysical data additionally needs fresh frames; `synthetic`/`simulated` is a\ndeliberate demonstration, `stale` is old data, and `disconnected` means no frames.\nRSSI and CSI have different capabilities. Pose and vital-sign estimates remain\nexperimental; never interpret…"
+      "manual_snippet": "# RuView (read only)\n\nRead the administrator-configured RuView sensing service. Available only when\nboth the integration and agent access are enabled.\n\n`operation` is one of `status`, `nodes`, `sensing`, `model_info`, `recordings`, `presence`.\nNo URLs, credentials, device paths or arbitrary API routes are accepted.\nThe tool cannot install, flash, configure, calibrate, record, train, delete or\nswitch models. Use the administrator's RuView app for those operations.\n\n`nodes` is the live node list. `presence` is the only operation that also\nincludes saved offline IDs for this receiver. A node is fresh only for real\nESP32 CSI that is active, has a sequence, and is at most 10 seconds old.\n`fresh: false` does not prove presence. Simulation is not a sensor.\nRSSI is included only while that node is…"
     },
     {
       "name": "s3_storage",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "1a1303fe2117ddb8a2b3362328f1f305a8afc1e4ffb3971584c40a4a1abfb7b7",
+  "schema_sha256": "c2ac893d2c48d54c735fd45c329c36da922fd53cf36a20af6a68637131330554",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -18917,6 +18917,17 @@
           "value": "nodes",
           "arguments": {
             "operation": "nodes"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "presence",
+          "arguments": {
+            "operation": "presence"
           },
           "required_fields": [
             "operation"

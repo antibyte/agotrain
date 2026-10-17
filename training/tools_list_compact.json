@@ -6634,7 +6634,7 @@
   },
   {
     "name": "ruview",
-    "description": "Read RuView status, nodes, current sensing, model information and recording metadata. Source and time distinguish real and simulated measurements.",
+    "description": "Read RuView status, nodes, sensing, model information, recordings, and presence. fresh: false does not prove presence. Simulation is not a sensor. Source and time distinguish real and simulated measurements.",
     "required": [
       "_todo",
       "operation"
@@ -6648,6 +6648,10 @@
       {
         "selector": "operation",
         "value": "nodes"
+      },
+      {
+        "selector": "operation",
+        "value": "presence"
       },
       {
         "selector": "operation",
