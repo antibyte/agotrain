@@ -5479,7 +5479,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/context_manager.md",
-      "manual_snippet": "# context_manager — Conversation Context Management\n\nAllows managing the agent's short-term context window, pinning important information, and summarizing.\n\n## Operations\n\n| Operation | Description | Required Params |\n|-----------|-------------|-----------------|\n| `pin` | Pin a specific text to context (always included) | `content` (optional: `topic`) |\n| `unpin` | Remove a pinned topic from context | `topic` |\n| `list_pins` | List currently pinned topics | (none) |\n| `summarize` | Summarize the current conversation to save tokens | (none) |\n| `clear_history`| Clear the unpinned conversation history | (none) |\n\n## Key Behaviors\n\n- **pin**: Keeps vital facts (like an API key shape or user preference) in the context window indefinitely.\n- **summarize**: Condenses the previous turns into a…"
+      "manual_snippet": "# context_manager — Conversation Context Management\n\nInspect or compact the current conversation context. Operations require an available history manager and budget tracker. This tool does not pin facts.\n\n## Operations\n\n| Operation | Description | Parameters |\n| --- | --- | --- |\n| `status` | Read the message count, total characters, and budget status | `operation` |\n| `compact` | Safely summarize older messages through coordinated persistent compression | `operation` |\n| `drop` | Remove one message selected by its current zero-based history index | `operation`, `index` |\n\nUse `status` before deciding whether compression is necessary. `compact` requires the memory store and LLM client; short histories or unsafe compression may be rejected. A failed compaction leaves the source history in…"
     },
     {
       "name": "context_memory",
@@ -29541,7 +29541,7 @@
       },
       "tier": "extended",
       "manual_path": "prompts/tools_manuals/golangci_lint.md",
-      "manual_snippet": "## Tool: golangci-lint (`golangci_lint`)\n\nRun static analysis on Go source code using [golangci-lint](https://github.com/golangci/golangci-lint), the industry-standard meta-linter. golangci-lint is automatically installed via `go install` if not already present on the system.\n\n### Parameters\n\n| Parameter | Required | Description |\n|---|---|---|\n| `path` | No | Package path or directory to lint. Defaults to `./...` (entire module). Examples: `./internal/agent`, `./cmd/aurago`, `./...` |\n| `config` | No | Path to a `.golangci.yml` config file, relative to workspace root. Uses golangci-lint auto-detection if omitted. |\n\n### Return Value\n\nJSON object with the following fields:\n\n| Field | Type | Description |\n|---|---|---|\n| `status` | string | `\"ok\"` (no issues), `\"issues\"` (lint findings), `\"…"
+      "manual_snippet": "## Tool: golangci-lint (`golangci_lint`)\n\nRun static analysis on Go source code using [golangci-lint](https://github.com/golangci/golangci-lint). An administrator must provision a pinned version before use.\n\n### Parameters\n\n| Parameter | Required | Description |\n|---|---|---|\n| `path` | No | Package path or directory to lint. Defaults to `./...` (entire module). Examples: `./internal/agent`, `./cmd/aurago`, `./...` |\n| `config` | No | Path to a `.golangci.yml` config file, relative to workspace root. Uses golangci-lint auto-detection if omitted. |\n\n### Return Value\n\nJSON object with the following fields:\n\n| Field | Type | Description |\n|---|---|---|\n| `status` | string | `\"ok\"` (no issues), `\"issues\"` (lint findings), `\"error\"` (tool failure) |\n| `message` | string | Human-readable summary…"
     },
     {
       "name": "google_workspace",
@@ -48496,7 +48496,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/process_management.md",
-      "manual_snippet": "# Process Management (`manage_processes`)\n\nPlatform-independent process listing and resource inspection. Termination is limited to live processes owned by AuraGo's background-process registry.\n\n## Operations\n\n| Operation | Description |\n|-----------|-------------|\n| `list` | Returns the top 50 processes sorted by CPU usage |\n| `kill` | Terminates an AuraGo-owned live background process by PID; requires `allow_shell` |\n| `stats` | Returns detailed memory and CPU info for a specific PID |\n\n## Parameters\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `operation` | string | yes | One of: list, kill, stats |\n| `pid` | integer | for kill/stats | Process ID to target |\n\n## Examples\n\n**List top processes:**\n```json\n{\"action\": \"manage_processes\", \"ope…"
+      "manual_snippet": "# process_management — AuraGo Background Processes\n\nInspect or terminate processes tracked by AuraGo's background-process registry. Completed process status and logs remain available for up to ten minutes. Use `process_analyzer` to inspect arbitrary operating-system processes.\n\n## Operations\n\n| Operation | Description | Selector |\n| --- | --- | --- |\n| `list` | List AuraGo-managed background processes | none |\n| `status` | Read one managed process's state and captured output | `pid` or `label` |\n| `kill` | Stop one live AuraGo-managed process | `pid` or `label` |\n\nUse a selector from a recent list result. Termination requires `allow_shell`; arbitrary system PIDs, stale registrations, and AuraGo itself cannot be terminated. A label must identify exactly one registered process; prefer its …"
     },
     {
       "name": "proxmox",
@@ -57104,7 +57104,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/text_diff.md",
-      "manual_snippet": "# text_diff — Text and File Differences\n\nCompare text files or strings to see exact insertions and deletions in unified diff format.\n\n## Operations\n\n| Operation | Description | Required Params |\n|-----------|-------------|-----------------|\n| `compare_files` | Compare two files on disk | `file_path_a`, `file_path_b` |\n| `compare_text` | Compare two text strings | `text_a`, `text_b` |\n\n## Key Behaviors\n\n- Returns standard unified diff format (like `git diff`).\n- Useful for verifying what changed after a script ran or checking two versions of a config.\n- Automatically handles line endings (CRLF vs LF) to prevent noisy diffs.\n\n## Examples\n\n```\n# Compare two files\ntext_diff(operation=\"compare_files\", file_path_a=\"config.yaml\", file_path_b=\"config.yaml.bak\")\n\n# Compare before/after text\ntext_…"
+      "manual_snippet": "# text_diff — Text and File Differences\n\nCompare two files or text strings and return a unified diff. File paths obey the configured workspace restrictions. This tool reads inputs and does not apply patches.\n\n## Operations\n\n| Operation | Required fields |\n| --- | --- |\n| `diff_files` | `file1`, `file2` |\n| `diff_strings` | `text1`, `text2` |\n\n## Examples\n\n```json\n{\"action\":\"text_diff\",\"operation\":\"diff_files\",\"file1\":\"config.yaml\",\"file2\":\"config.yaml.bak\"}\n```\n\n```json\n{\"action\":\"text_diff\",\"operation\":\"diff_strings\",\"text1\":\"old text content\",\"text2\":\"new text content\"}\n```\n\nKeep inputs focused on the relevant change. Inspect the returned diff before deciding whether another write is needed. Do not use `compare_files`, `compare_text`, `file_path_a`, `file_path_b`, `text_a`, or `text_b`…"
     },
     {
       "name": "three_d_printer",
@@ -62859,7 +62859,7 @@
             ]
           },
           "mode": {
-            "description": "Optional scan mode for local files: auto=hash lookup then upload if unknown, hash=only calculate and look up hashes, upload=force file upload",
+            "description": "Scan mode: auto, hash, or omitted mode only look up existing reports and never submit files or URLs. upload explicitly submits the file or URL for analysis.",
             "enum": [
               "auto",
               "hash",
@@ -62899,7 +62899,7 @@
             "type": "string"
           },
           "mode": {
-            "description": "Optional scan mode for local files: auto=hash lookup then upload if unknown, hash=only calculate and look up hashes, upload=force file upload",
+            "description": "Scan mode: auto, hash, or omitted mode only look up existing reports and never submit files or URLs. upload explicitly submits the file or URL for analysis.",
             "enum": [
               "auto",
               "hash",
@@ -62936,7 +62936,7 @@
           ]
         },
         "mode": {
-          "description": "Optional scan mode for local files: auto=hash lookup then upload if unknown, hash=only calculate and look up hashes, upload=force file upload",
+          "description": "Scan mode: auto, hash, or omitted mode only look up existing reports and never submit files or URLs. upload explicitly submits the file or URL for analysis.",
           "enum": [
             "auto",
             "hash",

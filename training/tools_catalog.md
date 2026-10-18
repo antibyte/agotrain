@@ -4235,7 +4235,7 @@ Scan a URL, domain, IP address, file hash, or local file using VirusTotal threat
 |---|---|---|
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
 | `file_path` | `string` | Optional local file path to hash or upload to VirusTotal |
-| `mode` | `string` | Optional scan mode for local files: auto=hash lookup then upload if unknown, hash=only calculate and look up hashes, upload=force file upload |
+| `mode` | `string` | Scan mode: auto, hash, or omitted mode only look up existing reports and never submit files or URLs. upload explicitly submits the file or URL for analysis. |
 | `resource` | `string` | The URL, domain, IP address, or file hash to scan with VirusTotal |
 
 ## `wait_for_event`
