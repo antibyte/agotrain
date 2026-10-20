@@ -11,8 +11,8 @@ small model on AuraGo's native tools. The current pack is generated from
 
 Current generated inventory:
 
-- 232 tools and 1,305 schema-declared operations
-- 5,030 training scenarios: 3,018 German and 2,012 English
+- 232 tools and 1,313 schema-declared operations
+- 5,050 training scenarios: 3,030 German and 2,020 English
 - deterministic family-level train/validation/test splits
 - Permanently held-out challenge scenarios, exactly two per tool
 - equivalent native OpenAI function calls and textual `<tool_call>` calls

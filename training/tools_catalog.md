@@ -3,7 +3,7 @@
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
 - Tools: **232**
-- Enumerated operations: **1306**
+- Enumerated operations: **1313**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
 
@@ -1629,7 +1629,7 @@ Read Grafana observability data. Supports: health, list_dashboards, get_dashboar
 Publish and administer authenticated permanent here.now Sites. Source paths are restricted to the Homepage workspace. Password values must be entered with request_vault_secret using the exact key returned by set_password.
 
 - Tier: `extended`
-- Required: `_todo`, `account`, `allowed_domains`, `allowed_emails`, `build_dir`, `confirm`, `display_description`, `display_name`, `mode`, `og_image_path`, `operation`, `project_dir`, `slug`, `spa_mode`, `version_id`, `viewer_description`, `viewer_title`, `workspace_label`
+- Required: `_todo`, `account`, `allowed_domains`, `allowed_emails`, `build_dir`, `confirm`, `display_description`, `display_name`, `mode`, `og_image_path`, `operation`, `project_dir`, `reason`, `slug`, `spa_mode`, `version_id`, `viewer_description`, `viewer_title`, `workspace_label`
 - Operations: 10
 
 | Parameter | Type | Description |
@@ -1646,6 +1646,7 @@ Publish and administer authenticated permanent here.now Sites. Source paths are 
 | `og_image_path` | `string` | Site-relative OpenGraph image path. |
 | `operation` | `string` |  |
 | `project_dir` | `string` | Homepage workspace-relative project directory for publish/update. |
+| `reason` | `string` | Required purpose for publishing or updating a managed website. |
 | `slug` | `string` | Exact here.now Site slug; required except for publish. |
 | `spa_mode` | `boolean` | Enable or disable SPA fallback routing. |
 | `version_id` | `string` | Exact version ID for restore_version or delete_version. |
@@ -1695,7 +1696,7 @@ Control Home Assistant smart home devices. Get entity states, call services (tur
 Deploy or publish homepage projects through configured deployment targets.
 
 - Tier: `extended`
-- Required: `_todo`, `account`, `alias`, `auto_fix`, `build_dir`, `domain`, `draft`, `operation`, `port`, `project_dir`, `project_id`, `site_id`, `slug`, `spa_mode`, `target`, `title`, `workspace_label`
+- Required: `_todo`, `account`, `alias`, `auto_fix`, `build_dir`, `domain`, `draft`, `managed_site_id`, `operation`, `port`, `project_dir`, `project_id`, `reason`, `site_id`, `slug`, `spa_mode`, `target`, `title`, `workspace_label`
 - Operations: 12
 - Manual: `prompts/tools_manuals/homepage_deploy.md`
 
@@ -1708,10 +1709,12 @@ Deploy or publish homepage projects through configured deployment targets.
 | `build_dir` | `string` | Build output directory. |
 | `domain` | `string` | Optional custom domain. |
 | `draft` | `boolean` | Create Netlify draft deployment when true. |
+| `managed_site_id` | `integer` | Internal managed website ID; distinct from provider site_id/project_id. |
 | `operation` | `string` | Deployment operation. |
 | `port` | `integer` | Port for dev server, webserver_start, or tunnel. |
 | `project_dir` | `string` | Required workspace-relative project subdirectory for project-scoped build, dev, publish_local, and deploy operations. Always pass the exact project_dir for external deploys. |
 | `project_id` | `string` | Vercel project ID or name. |
+| `reason` | `string` | Required for mutations: short purpose of the change. |
 | `site_id` | `string` | Netlify site ID. |
 | `slug` | `string` | Existing here.now Site slug to update; omit to create a Site. |
 | `spa_mode` | `boolean` | Enable here.now SPA fallback routing. |
@@ -1724,7 +1727,7 @@ Deploy or publish homepage projects through configured deployment targets.
 Read, write, and edit files inside the homepage workspace. Use paths with the project directory prefix.
 
 - Tier: `extended`
-- Required: `_todo`, `content`, `end_line`, `file_path`, `json_path`, `learning_reason`, `marker`, `new`, `old`, `operation`, `path`, `project_dir`, `set_value`, `start_line`, `sub_operation`, `xpath`
+- Required: `_todo`, `content`, `end_line`, `file_path`, `json_path`, `learning_reason`, `managed_site_id`, `marker`, `new`, `old`, `operation`, `path`, `project_dir`, `reason`, `set_value`, `start_line`, `sub_operation`, `xpath`
 - Operations: 8
 - Manual: `prompts/tools_manuals/homepage_file.md`
 
@@ -1736,12 +1739,14 @@ Read, write, and edit files inside the homepage workspace. Use paths with the pr
 | `file_path` | `string` | Alias for path. |
 | `json_path` | `string` | Dot path for JSON/YAML edits. |
 | `learning_reason` | `string` | Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions. |
+| `managed_site_id` | `integer` | Internal managed website ID; distinct from provider site_id/project_id. |
 | `marker` | `string` | Anchor text for insert operations. |
 | `new` | `string` | Replacement text. |
 | `old` | `string` | Text to find. |
 | `operation` | `string` | File operation. |
 | `path` | `string` | Homepage workspace path including project directory. |
 | `project_dir` | `string` | Required workspace-relative project subdirectory for optimize_images. |
+| `reason` | `string` | Required for mutations: short purpose of the change. |
 | `set_value` | `string` | Value to set for structured edits. |
 | `start_line` | `integer` | First line for delete_lines. |
 | `sub_operation` | `string` | Edit sub-operation for edit_file/json_edit/yaml_edit/xml_edit. |
@@ -1752,7 +1757,7 @@ Read, write, and edit files inside the homepage workspace. Use paths with the pr
 Manage homepage project git and revision history.
 
 - Tier: `extended`
-- Required: `_todo`, `count`, `file_path`, `git_message`, `message`, `operation`, `path`, `project_dir`, `reason`, `revision_id`
+- Required: `_todo`, `count`, `file_path`, `git_message`, `managed_site_id`, `message`, `operation`, `path`, `project_dir`, `reason`, `revision_id`
 - Operations: 12
 - Manual: `prompts/tools_manuals/homepage_git.md`
 
@@ -1762,11 +1767,12 @@ Manage homepage project git and revision history.
 | `count` | `integer` | Log count or rollback steps. |
 | `file_path` | `string` | Alias for path. |
 | `git_message` | `string` | Commit message. |
+| `managed_site_id` | `integer` | Internal managed website ID; distinct from provider site_id/project_id. |
 | `message` | `string` | Revision message. |
 | `operation` | `string` | Git/revision operation. |
 | `path` | `string` | Optional file path for revision diff/restore. |
 | `project_dir` | `string` | Required workspace-relative project subdirectory for git and revision mutations. |
-| `reason` | `string` | Revision reason. |
+| `reason` | `string` | Required for mutations: short purpose of the change. |
 | `revision_id` | `integer` | Revision ID. |
 
 ## `homepage_project`
@@ -1774,7 +1780,7 @@ Manage homepage project git and revision history.
 Manage homepage project lifecycle in the homepage workspace.
 
 - Tier: `extended`
-- Required: `_todo`, `auto_fix`, `build_dir`, `command`, `force`, `framework`, `name`, `operation`, `packages`, `port`, `project_dir`, `template`
+- Required: `_todo`, `auto_fix`, `build_dir`, `command`, `force`, `framework`, `managed_site_id`, `name`, `operation`, `packages`, `port`, `project_dir`, `reason`, `template`
 - Operations: 17
 - Manual: `prompts/tools_manuals/homepage_project.md`
 
@@ -1786,11 +1792,13 @@ Manage homepage project lifecycle in the homepage workspace.
 | `command` | `string` | Shell command for exec inside the homepage container. |
 | `force` | `boolean` | Required true only for destructive destroy. |
 | `framework` | `string` | Framework for init_project: next, vite, astro, svelte, vue, html. |
+| `managed_site_id` | `integer` | Internal managed website ID; distinct from provider site_id/project_id. |
 | `name` | `string` | Project name for init_project. |
 | `operation` | `string` | Project operation. |
 | `packages` | `array` | NPM packages for install_deps. |
 | `port` | `integer` | Port for tunnel; defaults to 3000. |
 | `project_dir` | `string` | Required workspace-relative project subdirectory for build, install_deps, dev, publish_local, and other project-scoped mutations. |
+| `reason` | `string` | Required for mutations: short purpose of the change. |
 | `template` | `string` | Optional starter template. |
 
 ## `homepage_quality`
@@ -1798,25 +1806,27 @@ Manage homepage project lifecycle in the homepage workspace.
 Run homepage browser, JS, lint, and performance checks.
 
 - Tier: `extended`
-- Required: `_todo`, `operation`, `project_dir`, `url`, `viewport`
+- Required: `_todo`, `managed_site_id`, `operation`, `project_dir`, `reason`, `url`, `viewport`
 - Operations: 5
 - Manual: `prompts/tools_manuals/homepage_quality.md`
 
 | Parameter | Type | Description |
 |---|---|---|
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `managed_site_id` | `integer` | Internal managed website ID; distinct from provider site_id/project_id. |
 | `operation` | `string` | Quality operation. |
 | `project_dir` | `string` | Required workspace-relative project subdirectory for lint or optimize_images. |
+| `reason` | `string` | Required for mutations: short purpose of the change. |
 | `url` | `string` | URL for browser-based checks. |
 | `viewport` | `string` | Viewport size, e.g. 1280x720. |
 
 ## `homepage_registry`
 
-Track homepage/web projects, deploy history, project history, problems, metadata. register requires project_dir. Read list_history before changes; add_history after.
+Track homepage/web projects, locations, deploy history and project history. Read overview/get_site/list_events; mutations need reason. add_history/list_history add notes.
 
 - Tier: `extended`
-- Required: `_todo`, `content`, `description`, `entry_type`, `framework`, `history_id`, `history_query`, `id`, `limit`, `name`, `notes`, `offset`, `operation`, `problem`, `project_dir`, `query`, `reason`, `source`, `status`, `tags`, `url`
-- Operations: 16
+- Required: `_todo`, `content`, `description`, `entry_type`, `framework`, `history_id`, `history_query`, `id`, `limit`, `managed_site_id`, `name`, `notes`, `offset`, `operation`, `problem`, `project_dir`, `query`, `reason`, `source`, `status`, `tags`, `url`
+- Operations: 23
 - Manual: `prompts/tools_manuals/homepage_registry.md`
 
 | Parameter | Type | Description |
@@ -1830,6 +1840,7 @@ Track homepage/web projects, deploy history, project history, problems, metadata
 | `history_query` | `string` | Search query for search_history (searches content and source) |
 | `id` | `integer` | Project ID (used as project_id for history operations) |
 | `limit` | `integer` | Max results (default: 20) |
+| `managed_site_id` | `integer` | Internal managed website ID; distinct from provider site_id/project_id. |
 | `name` | `string` | Project name (unique identifier) |
 | `notes` | `string` | Additional notes |
 | `offset` | `integer` | Pagination offset |
@@ -1837,7 +1848,7 @@ Track homepage/web projects, deploy history, project history, problems, metadata
 | `problem` | `string` | Problem description (for log_problem/resolve_problem) |
 | `project_dir` | `string` | Required workspace-relative project directory for register and all project mutations |
 | `query` | `string` | Search query (searches name, description, framework, URL, notes, history content) |
-| `reason` | `string` | Edit reason (for log_edit) |
+| `reason` | `string` | Required for mutations: short purpose of the change. |
 | `source` | `string` | Originating tool/operation, e.g. homepage_file, homepage_deploy |
 | `status` | `string` | Project status: active, archived, maintenance |
 | `tags` | `array` | Project tags |

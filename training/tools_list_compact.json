@@ -2977,6 +2977,7 @@
       "og_image_path",
       "operation",
       "project_dir",
+      "reason",
       "slug",
       "spa_mode",
       "version_id",
@@ -3111,10 +3112,12 @@
       "build_dir",
       "domain",
       "draft",
+      "managed_site_id",
       "operation",
       "port",
       "project_dir",
       "project_id",
+      "reason",
       "site_id",
       "slug",
       "spa_mode",
@@ -3184,12 +3187,14 @@
       "file_path",
       "json_path",
       "learning_reason",
+      "managed_site_id",
       "marker",
       "new",
       "old",
       "operation",
       "path",
       "project_dir",
+      "reason",
       "set_value",
       "start_line",
       "sub_operation",
@@ -3239,6 +3244,7 @@
       "count",
       "file_path",
       "git_message",
+      "managed_site_id",
       "message",
       "operation",
       "path",
@@ -3308,11 +3314,13 @@
       "command",
       "force",
       "framework",
+      "managed_site_id",
       "name",
       "operation",
       "packages",
       "port",
       "project_dir",
+      "reason",
       "template"
     ],
     "tier": "extended",
@@ -3392,8 +3400,10 @@
     "description": "Run homepage browser, JS, lint, and performance checks.",
     "required": [
       "_todo",
+      "managed_site_id",
       "operation",
       "project_dir",
+      "reason",
       "url",
       "viewport"
     ],
@@ -3423,7 +3433,7 @@
   },
   {
     "name": "homepage_registry",
-    "description": "Track homepage/web projects, deploy history, project history, problems, metadata. register requires project_dir. Read list_history before changes; add_history after.",
+    "description": "Track homepage/web projects, locations, deploy history and project history. Read overview/get_site/list_events; mutations need reason. add_history/list_history add notes.",
     "required": [
       "_todo",
       "content",
@@ -3434,6 +3444,7 @@
       "history_query",
       "id",
       "limit",
+      "managed_site_id",
       "name",
       "notes",
       "offset",
@@ -3455,11 +3466,23 @@
       },
       {
         "selector": "operation",
+        "value": "adopt"
+      },
+      {
+        "selector": "operation",
+        "value": "audit_revisions"
+      },
+      {
+        "selector": "operation",
         "value": "delete"
       },
       {
         "selector": "operation",
         "value": "delete_history"
+      },
+      {
+        "selector": "operation",
+        "value": "discover_workspace"
       },
       {
         "selector": "operation",
@@ -3471,7 +3494,15 @@
       },
       {
         "selector": "operation",
+        "value": "get_site"
+      },
+      {
+        "selector": "operation",
         "value": "list"
+      },
+      {
+        "selector": "operation",
+        "value": "list_events"
       },
       {
         "selector": "operation",
@@ -3491,7 +3522,15 @@
       },
       {
         "selector": "operation",
+        "value": "overview"
+      },
+      {
+        "selector": "operation",
         "value": "register"
+      },
+      {
+        "selector": "operation",
+        "value": "relocate"
       },
       {
         "selector": "operation",

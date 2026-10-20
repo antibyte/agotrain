@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "6a6f38af49ba8f8453d0e2356bd312eac08f7f874ad72bb6de33d5643d98cfcd",
+  "schema_sha256": "3de978d08583b9a2d08c194bb9cf6cfb1e2b45834f507738a26049ecdc174619",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -4705,11 +4705,13 @@
           "arguments": {
             "confirm": true,
             "operation": "delete_site",
-            "slug": "example-site"
+            "slug": "example-site",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "confirm",
             "operation",
+            "reason",
             "slug"
           ],
           "excluded_fields": []
@@ -4721,11 +4723,13 @@
             "confirm": true,
             "operation": "delete_version",
             "slug": "example-site",
-            "version_id": "example-version"
+            "version_id": "example-version",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "confirm",
             "operation",
+            "reason",
             "slug",
             "version_id"
           ],
@@ -4736,10 +4740,12 @@
           "value": "duplicate",
           "arguments": {
             "operation": "duplicate",
-            "slug": "example-site"
+            "slug": "example-site",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
+            "reason",
             "slug"
           ],
           "excluded_fields": []
@@ -4749,11 +4755,13 @@
           "value": "publish",
           "arguments": {
             "operation": "publish",
-            "project_dir": "example-site"
+            "project_dir": "example-site",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -4762,10 +4770,12 @@
           "value": "remove_password",
           "arguments": {
             "operation": "remove_password",
-            "slug": "example-site"
+            "slug": "example-site",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
+            "reason",
             "slug"
           ],
           "excluded_fields": []
@@ -4776,10 +4786,12 @@
           "arguments": {
             "operation": "restore_version",
             "slug": "example-site",
-            "version_id": "example-version"
+            "version_id": "example-version",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
+            "reason",
             "slug",
             "version_id"
           ],
@@ -4790,10 +4802,12 @@
           "value": "set_password",
           "arguments": {
             "operation": "set_password",
-            "slug": "example-site"
+            "slug": "example-site",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
+            "reason",
             "slug"
           ],
           "excluded_fields": []
@@ -4804,11 +4818,13 @@
           "arguments": {
             "operation": "update",
             "project_dir": "example-site",
-            "slug": "example-site"
+            "slug": "example-site",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
             "project_dir",
+            "reason",
             "slug"
           ],
           "excluded_fields": []
@@ -4819,11 +4835,13 @@
           "arguments": {
             "mode": "account_members",
             "operation": "update_access",
-            "slug": "example-site"
+            "slug": "example-site",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "mode",
             "operation",
+            "reason",
             "slug"
           ],
           "excluded_fields": []
@@ -4834,11 +4852,13 @@
           "arguments": {
             "display_name": "Example site",
             "operation": "update_metadata",
-            "slug": "example-site"
+            "slug": "example-site",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "display_name",
             "operation",
+            "reason",
             "slug"
           ],
           "excluded_fields": []
@@ -4979,7 +4999,8 @@
     },
     "homepage_deploy": {
       "default_arguments": {
-        "operation": "build"
+        "operation": "build",
+        "reason": "Apply the requested website change"
       },
       "operations": [
         {
@@ -4987,11 +5008,13 @@
           "value": "build",
           "arguments": {
             "operation": "build",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5000,11 +5023,13 @@
           "value": "deploy",
           "arguments": {
             "operation": "deploy",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5013,11 +5038,13 @@
           "value": "deploy_here_now",
           "arguments": {
             "operation": "deploy_here_now",
-            "project_dir": "example-site"
+            "project_dir": "example-site",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5026,11 +5053,13 @@
           "value": "deploy_netlify",
           "arguments": {
             "operation": "deploy_netlify",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5038,10 +5067,14 @@
           "selector": "operation",
           "value": "deploy_vercel",
           "arguments": {
-            "operation": "deploy_vercel"
+            "operation": "deploy_vercel",
+            "reason": "Apply the requested website change",
+            "project_dir": "demo-site"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5050,11 +5083,13 @@
           "value": "dev",
           "arguments": {
             "operation": "dev",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5063,11 +5098,13 @@
           "value": "publish_local",
           "arguments": {
             "operation": "publish_local",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5086,10 +5123,12 @@
           "selector": "operation",
           "value": "tunnel",
           "arguments": {
-            "operation": "tunnel"
+            "operation": "tunnel",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5097,10 +5136,12 @@
           "selector": "operation",
           "value": "webserver_start",
           "arguments": {
-            "operation": "webserver_start"
+            "operation": "webserver_start",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5119,10 +5160,12 @@
           "selector": "operation",
           "value": "webserver_stop",
           "arguments": {
-            "operation": "webserver_stop"
+            "operation": "webserver_stop",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": []
         }
@@ -5137,10 +5180,20 @@
           "selector": "operation",
           "value": "edit_file",
           "arguments": {
-            "operation": "edit_file"
+            "operation": "edit_file",
+            "reason": "Apply the requested website change",
+            "path": "demo-site/index.html",
+            "sub_operation": "str_replace",
+            "old": "Demo",
+            "new": "Updated demo"
           },
           "required_fields": [
-            "operation"
+            "new",
+            "old",
+            "operation",
+            "path",
+            "reason",
+            "sub_operation"
           ],
           "excluded_fields": []
         },
@@ -5148,10 +5201,14 @@
           "selector": "operation",
           "value": "json_edit",
           "arguments": {
-            "operation": "json_edit"
+            "operation": "json_edit",
+            "reason": "Apply the requested website change",
+            "path": "demo-site/config.json"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "path",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5171,11 +5228,13 @@
           "value": "optimize_images",
           "arguments": {
             "operation": "optimize_images",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5194,10 +5253,16 @@
           "selector": "operation",
           "value": "write_file",
           "arguments": {
-            "operation": "write_file"
+            "operation": "write_file",
+            "reason": "Apply the requested website change",
+            "path": "demo-site/index.html",
+            "content": "<!doctype html><title>Demo</title>"
           },
           "required_fields": [
-            "operation"
+            "content",
+            "operation",
+            "path",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5205,10 +5270,14 @@
           "selector": "operation",
           "value": "xml_edit",
           "arguments": {
-            "operation": "xml_edit"
+            "operation": "xml_edit",
+            "reason": "Apply the requested website change",
+            "path": "demo-site/config.xml"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "path",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5216,10 +5285,14 @@
           "selector": "operation",
           "value": "yaml_edit",
           "arguments": {
-            "operation": "yaml_edit"
+            "operation": "yaml_edit",
+            "reason": "Apply the requested website change",
+            "path": "demo-site/config.yaml"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "path",
+            "reason"
           ],
           "excluded_fields": []
         }
@@ -5227,7 +5300,8 @@
     },
     "homepage_git": {
       "default_arguments": {
-        "operation": "git_init"
+        "operation": "git_init",
+        "reason": "Apply the requested website change"
       },
       "operations": [
         {
@@ -5260,10 +5334,14 @@
           "selector": "operation",
           "value": "git_commit",
           "arguments": {
-            "operation": "git_commit"
+            "operation": "git_commit",
+            "reason": "Apply the requested website change",
+            "project_dir": "demo-site"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5282,10 +5360,14 @@
           "selector": "operation",
           "value": "git_init",
           "arguments": {
-            "operation": "git_init"
+            "operation": "git_init",
+            "reason": "Apply the requested website change",
+            "project_dir": "demo-site"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5304,10 +5386,14 @@
           "selector": "operation",
           "value": "git_rollback",
           "arguments": {
-            "operation": "git_rollback"
+            "operation": "git_rollback",
+            "reason": "Apply the requested website change",
+            "project_dir": "demo-site"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5338,10 +5424,14 @@
           "value": "restore_revision",
           "arguments": {
             "operation": "restore_revision",
-            "revision_id": 1
+            "revision_id": 1,
+            "reason": "Apply the requested website change",
+            "project_dir": "demo-site"
           },
           "required_fields": [
             "operation",
+            "project_dir",
+            "reason",
             "revision_id"
           ],
           "excluded_fields": []
@@ -5364,10 +5454,14 @@
           "value": "save_revision",
           "arguments": {
             "operation": "save_revision",
-            "revision_id": 1
+            "revision_id": 1,
+            "reason": "Apply the requested website change",
+            "project_dir": "demo-site"
           },
           "required_fields": [
             "operation",
+            "project_dir",
+            "reason",
             "revision_id"
           ],
           "excluded_fields": []
@@ -5376,7 +5470,8 @@
     },
     "homepage_project": {
       "default_arguments": {
-        "operation": "init"
+        "operation": "init",
+        "reason": "Apply the requested website change"
       },
       "operations": [
         {
@@ -5384,11 +5479,13 @@
           "value": "build",
           "arguments": {
             "operation": "build",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5399,11 +5496,13 @@
           "value": "destroy",
           "arguments": {
             "force": false,
-            "operation": "destroy"
+            "operation": "destroy",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "force",
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5412,11 +5511,13 @@
           "value": "dev",
           "arguments": {
             "operation": "dev",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5426,10 +5527,16 @@
           "selector": "operation",
           "value": "exec",
           "arguments": {
-            "operation": "exec"
+            "operation": "exec",
+            "reason": "Apply the requested website change",
+            "project_dir": "demo-site",
+            "command": "pwd"
           },
           "required_fields": [
-            "operation"
+            "command",
+            "operation",
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5439,10 +5546,12 @@
           "selector": "operation",
           "value": "init",
           "arguments": {
-            "operation": "init"
+            "operation": "init",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5452,10 +5561,12 @@
           "selector": "operation",
           "value": "init_project",
           "arguments": {
-            "operation": "init_project"
+            "operation": "init_project",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5466,11 +5577,13 @@
           "value": "install_deps",
           "arguments": {
             "operation": "install_deps",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5481,11 +5594,13 @@
           "value": "publish_local",
           "arguments": {
             "operation": "publish_local",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5495,10 +5610,12 @@
           "selector": "operation",
           "value": "rebuild",
           "arguments": {
-            "operation": "rebuild"
+            "operation": "rebuild",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5508,10 +5625,12 @@
           "selector": "operation",
           "value": "start",
           "arguments": {
-            "operation": "start"
+            "operation": "start",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5534,10 +5653,12 @@
           "selector": "operation",
           "value": "stop",
           "arguments": {
-            "operation": "stop"
+            "operation": "stop",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5560,10 +5681,12 @@
           "selector": "operation",
           "value": "tunnel",
           "arguments": {
-            "operation": "tunnel"
+            "operation": "tunnel",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5573,10 +5696,12 @@
           "selector": "operation",
           "value": "webserver_start",
           "arguments": {
-            "operation": "webserver_start"
+            "operation": "webserver_start",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5599,10 +5724,12 @@
           "selector": "operation",
           "value": "webserver_stop",
           "arguments": {
-            "operation": "webserver_stop"
+            "operation": "webserver_stop",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": [
             "force"
@@ -5655,11 +5782,13 @@
           "value": "optimize_images",
           "arguments": {
             "operation": "optimize_images",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5678,7 +5807,7 @@
     },
     "homepage_registry": {
       "default_arguments": {
-        "operation": "register"
+        "operation": "overview"
       },
       "operations": [
         {
@@ -5694,12 +5823,40 @@
         },
         {
           "selector": "operation",
-          "value": "delete",
+          "value": "adopt",
           "arguments": {
-            "operation": "delete"
+            "operation": "adopt",
+            "project_dir": "demo-site",
+            "reason": "Manage the existing website"
+          },
+          "required_fields": [
+            "operation",
+            "project_dir",
+            "reason"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "audit_revisions",
+          "arguments": {
+            "operation": "audit_revisions"
           },
           "required_fields": [
             "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "delete",
+          "arguments": {
+            "operation": "delete",
+            "reason": "Apply the requested website change"
+          },
+          "required_fields": [
+            "operation",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5712,6 +5869,17 @@
           },
           "required_fields": [
             "history_id",
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "discover_workspace",
+          "arguments": {
+            "operation": "discover_workspace"
+          },
+          "required_fields": [
             "operation"
           ],
           "excluded_fields": []
@@ -5742,11 +5910,39 @@
         },
         {
           "selector": "operation",
+          "value": "get_site",
+          "arguments": {
+            "operation": "get_site",
+            "id": 1
+          },
+          "required_fields": [
+            "id",
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
           "value": "list",
           "arguments": {
             "operation": "list"
           },
           "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_events",
+          "arguments": {
+            "operation": "list_events",
+            "id": 1,
+            "limit": 20
+          },
+          "required_fields": [
+            "id",
+            "limit",
             "operation"
           ],
           "excluded_fields": []
@@ -5766,10 +5962,12 @@
           "selector": "operation",
           "value": "log_deploy",
           "arguments": {
-            "operation": "log_deploy"
+            "operation": "log_deploy",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5777,10 +5975,12 @@
           "selector": "operation",
           "value": "log_edit",
           "arguments": {
-            "operation": "log_edit"
+            "operation": "log_edit",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5788,7 +5988,20 @@
           "selector": "operation",
           "value": "log_problem",
           "arguments": {
-            "operation": "log_problem"
+            "operation": "log_problem",
+            "reason": "Apply the requested website change"
+          },
+          "required_fields": [
+            "operation",
+            "reason"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "overview",
+          "arguments": {
+            "operation": "overview"
           },
           "required_fields": [
             "operation"
@@ -5800,11 +6013,32 @@
           "value": "register",
           "arguments": {
             "operation": "register",
-            "project_dir": "example"
+            "project_dir": "example",
+            "reason": "Apply the requested website change",
+            "name": "Demo"
           },
           "required_fields": [
+            "name",
             "operation",
-            "project_dir"
+            "project_dir",
+            "reason"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "relocate",
+          "arguments": {
+            "operation": "relocate",
+            "id": 1,
+            "project_dir": "moved-site",
+            "reason": "Record the website's new folder"
+          },
+          "required_fields": [
+            "id",
+            "operation",
+            "project_dir",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5812,10 +6046,12 @@
           "selector": "operation",
           "value": "resolve_problem",
           "arguments": {
-            "operation": "resolve_problem"
+            "operation": "resolve_problem",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": []
         },
@@ -5845,10 +6081,12 @@
           "selector": "operation",
           "value": "update",
           "arguments": {
-            "operation": "update"
+            "operation": "update",
+            "reason": "Apply the requested website change"
           },
           "required_fields": [
-            "operation"
+            "operation",
+            "reason"
           ],
           "excluded_fields": []
         },

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "catalog_sha256": "78492ac5815faa997e45f89e7b43217210b92d94889f775963e21ba7cdf92b70",
+  "catalog_sha256": "509a7092577a6812d32f420d9fcc047749f8140ee1a603daee7230c3885668f0",
   "sources": {
     "prompts/tools_manuals/activate_agent_skill.md": "1cd868f578936cbaaa313ffad3aeb33bcb40e6fa39d5410f578d2246e1da4620",
     "prompts/tools_manuals/address_book.md": "00da1c21a0abb796871de0a2ff806e8e707deb9c869e8fdb55c5e6789dfe45c8",
@@ -75,13 +75,13 @@
     "prompts/tools_manuals/google_workspace.md": "6c0a9743c3c04da40a137c4c90135e9af0ac455757875b8f8404a27832efb34f",
     "prompts/tools_manuals/grafana.md": "344c8b9cb75ca0cfe3ba58dfa58d7dfbf2d6fafc5656b86e98c45ee34281e958",
     "prompts/tools_manuals/home_assistant.md": "d78381052abe3a5e8604e41607e45a1abfd2e3b582aa2d61807fd5994df27a37",
-    "prompts/tools_manuals/homepage.md": "6d9dc594036a75f8fa8588c5dad80800624a90514793a1218b2e197182f5537c",
-    "prompts/tools_manuals/homepage_deploy.md": "afdc83eb05b705095ef8f8059e31d4753c5181e9de2d6bcff29b6281207c03da",
-    "prompts/tools_manuals/homepage_file.md": "8325fdddcecd230c911a34c776ec118d451a4e2736ff86a63472240698c8e8bf",
-    "prompts/tools_manuals/homepage_git.md": "be36cf75e9ded347af5f5c581f58f27b4282c76bea1a91ffe32bf9da98ae3d9d",
-    "prompts/tools_manuals/homepage_project.md": "a1c03916752627da241bfd81b605830ae528b4ad172c63205521c72a7dd9d7d6",
-    "prompts/tools_manuals/homepage_quality.md": "1ab81f8fe19ab5222c7365dc9522d184a0d3ed29b0dc48d9788f4418a860516a",
-    "prompts/tools_manuals/homepage_registry.md": "1d0663b81b29fde752a1a95373fc384179f92a1c0c279879d5e296d851f9709d",
+    "prompts/tools_manuals/homepage.md": "6f007b422c32eccb1713d021038c59fafe4e9ff525fbb8e82fa1636ca68abb5c",
+    "prompts/tools_manuals/homepage_deploy.md": "df47051e1b57dedfd9be6bd88d7b018d014628e9ecaf82b8a71ddbff3d6f0638",
+    "prompts/tools_manuals/homepage_file.md": "c74f80d50bed041525ab2912f08a1c2c3cc648f370c90bce3e76f9dda5064049",
+    "prompts/tools_manuals/homepage_git.md": "f0be742db71726aa5105b2fe7871a971b3ee84e03f670dd18e0e25974abbaad8",
+    "prompts/tools_manuals/homepage_project.md": "8993cbc5abfefb603adc1ef4cb879bccb185425c38e668ba6ed31e29d923ec2d",
+    "prompts/tools_manuals/homepage_quality.md": "3f4c7d90d7ed2a55e87c448bc409a84e8aa5c77502513cdd7112ef1a732f8cc5",
+    "prompts/tools_manuals/homepage_registry.md": "c9314e208548ab9cda5dcef42415e3c3df976a0b77ea965881abe2e8ebda41c1",
     "prompts/tools_manuals/huggingface.md": "cd591946de5927da8126a859ee43d65e599101fd1d765bcfb0fdee1e29141373",
     "prompts/tools_manuals/image_processing.md": "1db290c31527ebd5b81d6730b92def68b561379798b0873d5acdf4aab8a9a871",
     "prompts/tools_manuals/invasion_artifacts.md": "0464fa777ad3c22ce5ce15abc8aec72fe837d2d2c8612f8b1d51545e43c299ab",
@@ -116,13 +116,13 @@
     "prompts/tools_manuals/meshcentral.md": "dae8e5e27748796754888dcfead1fe7c1e10b9b86056c721acbead56c0bf5018",
     "prompts/tools_manuals/meshcore.md": "cdcc871d8b8a5bf2e60d5f99d9ad48fbc0001baaf65efd4a452070e4d23d012b",
     "prompts/tools_manuals/mqtt.md": "a04c0e3c4bb78c1d31cb70a6f6d65513ca45b211e0775b3a08d0349981f69da4",
-    "prompts/tools_manuals/netlify.md": "1485410d994e67a8d1c5f0eae3a8d63a500f5ef45d6e13ddcafa091f87df9e74",
+    "prompts/tools_manuals/netlify.md": "db59d5177c65493a6890f89cd2475e27d58b4a2319f14d5c0a39e344feab7a2a",
     "prompts/tools_manuals/network_ping.md": "fe246035a5150c01ef47867754dbdcbd2deda95c8e07f99cf6384fb3e5eb2a19",
     "prompts/tools_manuals/network_shares.md": "570dc515c43043708532bfcac3c7f059c44537eac7b2232fca02f00a548b95ef",
     "prompts/tools_manuals/obsidian.md": "6dd53a632aac64bcdda3a2cdbc822d5ccc2adf6091b4d5a8527e33689b63a343",
     "prompts/tools_manuals/office_document.md": "9843158e3506b02ae6e1ee5fef0917134961b4e32ae5136408f543069743c423",
     "prompts/tools_manuals/office_workbook.md": "c58ab784ebfc5ae6aa0e7d1bf76e0849b0923b36f141246c1640f3cbc77d0a01",
-    "prompts/tools_manuals/ollama.md": "eea5ffbbdc4983c6c483343b1e2ceb93de741dfb837aff041fde03f2833ee1f9",
+    "prompts/tools_manuals/ollama.md": "181598fd737fbd0be8529240e5f1dae785281483f83ae4e40cbfa04c204addf0",
     "prompts/tools_manuals/onedrive.md": "e5e6bb1bcc8888acb4e4884c2b9ad7cfe970432672bf95408cf92a02c31556b3",
     "prompts/tools_manuals/openscad_render.md": "2e192f45cbd24f3a34b27f9b15f219d65a3abc527b5fa8dfa2c002c5808c678b",
     "prompts/tools_manuals/package_manager.md": "1b59042ce468f2ddb8b5cae34d5161bc6b18ec13f7a0c2c335bee14dde9531bc",
@@ -201,7 +201,7 @@
     "prompts/tools_manuals/xml_editor.md": "70a334eb6e3cb4c798d71ab00e233e75a14bbd41c50398c7a7be4589c6b3077e",
     "prompts/tools_manuals/yaml_editor.md": "3019e5bcda6867a4a5ff6732e690daa77fabc3ab8b1444ef3c8776fce787779b",
     "prompts/tools_manuals/yepapi.md": "9f6238fcae84221b734805a5a3f4dbc7b18ffdf191d6d8bbe1f2258ddc2b0aa0",
-    "training/operation_contracts.json": "cc5d09f564f3369d87393f6e4bf5b6c5d88f94076f38c7e619d6ab3927692cee",
+    "training/operation_contracts.json": "2c6d190e9e070a91475e42d443834e2f09e0a7983841cfdd41a3cd096b5f170b",
     "training/tool_tiers.json": "e3bde43a727cfe8f6863aff702d1fcbfe6c57e648dcb9da16ee6695a97976eb9"
   },
   "tools": [
@@ -37539,6 +37539,13 @@
               "null"
             ]
           },
+          "reason": {
+            "description": "Required purpose for publishing or updating a managed website.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "slug": {
             "description": "Exact here.now Site slug; required except for publish.",
             "type": [
@@ -37595,6 +37602,7 @@
           "og_image_path",
           "operation",
           "project_dir",
+          "reason",
           "slug",
           "spa_mode",
           "version_id",
@@ -37677,6 +37685,10 @@
             "description": "Homepage workspace-relative project directory for publish/update.",
             "type": "string"
           },
+          "reason": {
+            "description": "Required purpose for publishing or updating a managed website.",
+            "type": "string"
+          },
           "slug": {
             "description": "Exact here.now Site slug; required except for publish.",
             "type": "string"
@@ -37720,6 +37732,7 @@
         "og_image_path",
         "operation",
         "project_dir",
+        "reason",
         "slug",
         "spa_mode",
         "version_id",
@@ -37832,6 +37845,13 @@
             "null"
           ]
         },
+        "reason": {
+          "description": "Required purpose for publishing or updating a managed website.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "slug": {
           "description": "Exact here.now Site slug; required except for publish.",
           "type": [
@@ -37932,11 +37952,13 @@
             "arguments": {
               "confirm": true,
               "operation": "delete_site",
+              "reason": "Apply the requested website change",
               "slug": "example-site"
             },
             "required_fields": [
               "confirm",
               "operation",
+              "reason",
               "slug"
             ],
             "excluded_fields": []
@@ -37947,12 +37969,14 @@
             "arguments": {
               "confirm": true,
               "operation": "delete_version",
+              "reason": "Apply the requested website change",
               "slug": "example-site",
               "version_id": "example-version"
             },
             "required_fields": [
               "confirm",
               "operation",
+              "reason",
               "slug",
               "version_id"
             ],
@@ -37963,10 +37987,12 @@
             "value": "duplicate",
             "arguments": {
               "operation": "duplicate",
+              "reason": "Apply the requested website change",
               "slug": "example-site"
             },
             "required_fields": [
               "operation",
+              "reason",
               "slug"
             ],
             "excluded_fields": []
@@ -37976,11 +38002,13 @@
             "value": "publish",
             "arguments": {
               "operation": "publish",
-              "project_dir": "example-site"
+              "project_dir": "example-site",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -37989,10 +38017,12 @@
             "value": "remove_password",
             "arguments": {
               "operation": "remove_password",
+              "reason": "Apply the requested website change",
               "slug": "example-site"
             },
             "required_fields": [
               "operation",
+              "reason",
               "slug"
             ],
             "excluded_fields": []
@@ -38002,11 +38032,13 @@
             "value": "restore_version",
             "arguments": {
               "operation": "restore_version",
+              "reason": "Apply the requested website change",
               "slug": "example-site",
               "version_id": "example-version"
             },
             "required_fields": [
               "operation",
+              "reason",
               "slug",
               "version_id"
             ],
@@ -38017,10 +38049,12 @@
             "value": "set_password",
             "arguments": {
               "operation": "set_password",
+              "reason": "Apply the requested website change",
               "slug": "example-site"
             },
             "required_fields": [
               "operation",
+              "reason",
               "slug"
             ],
             "excluded_fields": []
@@ -38031,11 +38065,13 @@
             "arguments": {
               "operation": "update",
               "project_dir": "example-site",
+              "reason": "Apply the requested website change",
               "slug": "example-site"
             },
             "required_fields": [
               "operation",
               "project_dir",
+              "reason",
               "slug"
             ],
             "excluded_fields": []
@@ -38046,11 +38082,13 @@
             "arguments": {
               "mode": "account_members",
               "operation": "update_access",
+              "reason": "Apply the requested website change",
               "slug": "example-site"
             },
             "required_fields": [
               "mode",
               "operation",
+              "reason",
               "slug"
             ],
             "excluded_fields": []
@@ -38061,11 +38099,13 @@
             "arguments": {
               "display_name": "Example site",
               "operation": "update_metadata",
+              "reason": "Apply the requested website change",
               "slug": "example-site"
             },
             "required_fields": [
               "display_name",
               "operation",
+              "reason",
               "slug"
             ],
             "excluded_fields": []
@@ -38676,6 +38716,13 @@
               "null"
             ]
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "operation": {
             "description": "Deployment operation.",
             "enum": [
@@ -38710,6 +38757,13 @@
           },
           "project_id": {
             "description": "Vercel project ID or name.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
             "type": [
               "string",
               "null"
@@ -38766,10 +38820,12 @@
           "build_dir",
           "domain",
           "draft",
+          "managed_site_id",
           "operation",
           "port",
           "project_dir",
           "project_id",
+          "reason",
           "site_id",
           "slug",
           "spa_mode",
@@ -38810,6 +38866,10 @@
             "description": "Create Netlify draft deployment when true.",
             "type": "boolean"
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
+          },
           "operation": {
             "description": "Deployment operation.",
             "enum": [
@@ -38838,6 +38898,10 @@
           },
           "project_id": {
             "description": "Vercel project ID or name.",
+            "type": "string"
+          },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
             "type": "string"
           },
           "site_id": {
@@ -38878,10 +38942,12 @@
         "build_dir",
         "domain",
         "draft",
+        "managed_site_id",
         "operation",
         "port",
         "project_dir",
         "project_id",
+        "reason",
         "site_id",
         "slug",
         "spa_mode",
@@ -38939,6 +39005,13 @@
             "null"
           ]
         },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
         "operation": {
           "description": "Deployment operation.",
           "enum": [
@@ -38973,6 +39046,13 @@
         },
         "project_id": {
           "description": "Vercel project ID or name.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -39076,7 +39156,8 @@
       "manual_id": "homepage_deploy",
       "contract": {
         "default_arguments": {
-          "operation": "build"
+          "operation": "build",
+          "reason": "Apply the requested website change"
         },
         "operations": [
           {
@@ -39084,11 +39165,13 @@
             "value": "build",
             "arguments": {
               "operation": "build",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39097,11 +39180,13 @@
             "value": "deploy",
             "arguments": {
               "operation": "deploy",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39110,11 +39195,13 @@
             "value": "deploy_here_now",
             "arguments": {
               "operation": "deploy_here_now",
-              "project_dir": "example-site"
+              "project_dir": "example-site",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39123,11 +39210,13 @@
             "value": "deploy_netlify",
             "arguments": {
               "operation": "deploy_netlify",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39135,10 +39224,14 @@
             "selector": "operation",
             "value": "deploy_vercel",
             "arguments": {
-              "operation": "deploy_vercel"
+              "operation": "deploy_vercel",
+              "project_dir": "demo-site",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39147,11 +39240,13 @@
             "value": "dev",
             "arguments": {
               "operation": "dev",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39160,11 +39255,13 @@
             "value": "publish_local",
             "arguments": {
               "operation": "publish_local",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39183,10 +39280,12 @@
             "selector": "operation",
             "value": "tunnel",
             "arguments": {
-              "operation": "tunnel"
+              "operation": "tunnel",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39194,10 +39293,12 @@
             "selector": "operation",
             "value": "webserver_start",
             "arguments": {
-              "operation": "webserver_start"
+              "operation": "webserver_start",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39216,10 +39317,12 @@
             "selector": "operation",
             "value": "webserver_stop",
             "arguments": {
-              "operation": "webserver_stop"
+              "operation": "webserver_stop",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": []
           }
@@ -39275,6 +39378,13 @@
               "null"
             ]
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "marker": {
             "description": "Anchor text for insert operations.",
             "type": [
@@ -39319,6 +39429,13 @@
           },
           "project_dir": {
             "description": "Required workspace-relative project subdirectory for optimize_images.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
             "type": [
               "string",
               "null"
@@ -39360,12 +39477,14 @@
           "file_path",
           "json_path",
           "learning_reason",
+          "managed_site_id",
           "marker",
           "new",
           "old",
           "operation",
           "path",
           "project_dir",
+          "reason",
           "set_value",
           "start_line",
           "sub_operation",
@@ -39399,6 +39518,10 @@
           "learning_reason": {
             "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
+          },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
           },
           "marker": {
             "description": "Anchor text for insert operations.",
@@ -39434,6 +39557,10 @@
             "description": "Required workspace-relative project subdirectory for optimize_images.",
             "type": "string"
           },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
+            "type": "string"
+          },
           "set_value": {
             "description": "Value to set for structured edits."
           },
@@ -39462,12 +39589,14 @@
         "file_path",
         "json_path",
         "learning_reason",
+        "managed_site_id",
         "marker",
         "new",
         "old",
         "operation",
         "path",
         "project_dir",
+        "reason",
         "set_value",
         "start_line",
         "sub_operation",
@@ -39516,6 +39645,13 @@
             "null"
           ]
         },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
         "marker": {
           "description": "Anchor text for insert operations.",
           "type": [
@@ -39560,6 +39696,13 @@
         },
         "project_dir": {
           "description": "Required workspace-relative project subdirectory for optimize_images.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -39640,10 +39783,20 @@
             "selector": "operation",
             "value": "edit_file",
             "arguments": {
-              "operation": "edit_file"
+              "new": "Updated demo",
+              "old": "Demo",
+              "operation": "edit_file",
+              "path": "demo-site/index.html",
+              "reason": "Apply the requested website change",
+              "sub_operation": "str_replace"
             },
             "required_fields": [
-              "operation"
+              "new",
+              "old",
+              "operation",
+              "path",
+              "reason",
+              "sub_operation"
             ],
             "excluded_fields": []
           },
@@ -39651,10 +39804,14 @@
             "selector": "operation",
             "value": "json_edit",
             "arguments": {
-              "operation": "json_edit"
+              "operation": "json_edit",
+              "path": "demo-site/config.json",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "path",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39674,11 +39831,13 @@
             "value": "optimize_images",
             "arguments": {
               "operation": "optimize_images",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39697,10 +39856,16 @@
             "selector": "operation",
             "value": "write_file",
             "arguments": {
-              "operation": "write_file"
+              "content": "\u003c!doctype html\u003e\u003ctitle\u003eDemo\u003c/title\u003e",
+              "operation": "write_file",
+              "path": "demo-site/index.html",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "content",
+              "operation",
+              "path",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39708,10 +39873,14 @@
             "selector": "operation",
             "value": "xml_edit",
             "arguments": {
-              "operation": "xml_edit"
+              "operation": "xml_edit",
+              "path": "demo-site/config.xml",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "path",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -39719,10 +39888,14 @@
             "selector": "operation",
             "value": "yaml_edit",
             "arguments": {
-              "operation": "yaml_edit"
+              "operation": "yaml_edit",
+              "path": "demo-site/config.yaml",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "path",
+              "reason"
             ],
             "excluded_fields": []
           }
@@ -39764,6 +39937,13 @@
               "null"
             ]
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "message": {
             "description": "Revision message.",
             "type": [
@@ -39804,7 +39984,7 @@
             ]
           },
           "reason": {
-            "description": "Revision reason.",
+            "description": "Required for mutations: short purpose of the change.",
             "type": [
               "string",
               "null"
@@ -39823,6 +40003,7 @@
           "count",
           "file_path",
           "git_message",
+          "managed_site_id",
           "message",
           "operation",
           "path",
@@ -39851,6 +40032,10 @@
             "description": "Commit message.",
             "type": "string"
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
+          },
           "message": {
             "description": "Revision message.",
             "type": "string"
@@ -39882,7 +40067,7 @@
             "type": "string"
           },
           "reason": {
-            "description": "Revision reason.",
+            "description": "Required for mutations: short purpose of the change.",
             "type": "string"
           },
           "revision_id": {
@@ -39900,6 +40085,7 @@
         "count",
         "file_path",
         "git_message",
+        "managed_site_id",
         "message",
         "operation",
         "path",
@@ -39933,6 +40119,13 @@
           "description": "Commit message.",
           "type": [
             "string",
+            "null"
+          ]
+        },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
             "null"
           ]
         },
@@ -39976,7 +40169,7 @@
           ]
         },
         "reason": {
-          "description": "Revision reason.",
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -40045,7 +40238,8 @@
       "manual_id": "homepage_git",
       "contract": {
         "default_arguments": {
-          "operation": "git_init"
+          "operation": "git_init",
+          "reason": "Apply the requested website change"
         },
         "operations": [
           {
@@ -40078,10 +40272,14 @@
             "selector": "operation",
             "value": "git_commit",
             "arguments": {
-              "operation": "git_commit"
+              "operation": "git_commit",
+              "project_dir": "demo-site",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -40100,10 +40298,14 @@
             "selector": "operation",
             "value": "git_init",
             "arguments": {
-              "operation": "git_init"
+              "operation": "git_init",
+              "project_dir": "demo-site",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -40122,10 +40324,14 @@
             "selector": "operation",
             "value": "git_rollback",
             "arguments": {
-              "operation": "git_rollback"
+              "operation": "git_rollback",
+              "project_dir": "demo-site",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -40156,10 +40362,14 @@
             "value": "restore_revision",
             "arguments": {
               "operation": "restore_revision",
+              "project_dir": "demo-site",
+              "reason": "Apply the requested website change",
               "revision_id": 1
             },
             "required_fields": [
               "operation",
+              "project_dir",
+              "reason",
               "revision_id"
             ],
             "excluded_fields": []
@@ -40182,10 +40392,14 @@
             "value": "save_revision",
             "arguments": {
               "operation": "save_revision",
+              "project_dir": "demo-site",
+              "reason": "Apply the requested website change",
               "revision_id": 1
             },
             "required_fields": [
               "operation",
+              "project_dir",
+              "reason",
               "revision_id"
             ],
             "excluded_fields": []
@@ -40239,6 +40453,13 @@
             "description": "Framework for init_project: next, vite, astro, svelte, vue, html.",
             "type": [
               "string",
+              "null"
+            ]
+          },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
               "null"
             ]
           },
@@ -40296,6 +40517,13 @@
               "null"
             ]
           },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "template": {
             "description": "Optional starter template.",
             "type": [
@@ -40311,11 +40539,13 @@
           "command",
           "force",
           "framework",
+          "managed_site_id",
           "name",
           "operation",
           "packages",
           "port",
           "project_dir",
+          "reason",
           "template"
         ],
         "type": "object"
@@ -40346,6 +40576,10 @@
           "framework": {
             "description": "Framework for init_project: next, vite, astro, svelte, vue, html.",
             "type": "string"
+          },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
           },
           "name": {
             "description": "Project name for init_project.",
@@ -40389,6 +40623,10 @@
             "description": "Required workspace-relative project subdirectory for build, install_deps, dev, publish_local, and other project-scoped mutations.",
             "type": "string"
           },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
+            "type": "string"
+          },
           "template": {
             "description": "Optional starter template.",
             "type": "string"
@@ -40406,11 +40644,13 @@
         "command",
         "force",
         "framework",
+        "managed_site_id",
         "name",
         "operation",
         "packages",
         "port",
         "project_dir",
+        "reason",
         "template"
       ],
       "properties": {
@@ -40453,6 +40693,13 @@
           "description": "Framework for init_project: next, vite, astro, svelte, vue, html.",
           "type": [
             "string",
+            "null"
+          ]
+        },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
             "null"
           ]
         },
@@ -40505,6 +40752,13 @@
         },
         "project_dir": {
           "description": "Required workspace-relative project subdirectory for build, install_deps, dev, publish_local, and other project-scoped mutations.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -40593,7 +40847,8 @@
       "manual_id": "homepage_project",
       "contract": {
         "default_arguments": {
-          "operation": "init"
+          "operation": "init",
+          "reason": "Apply the requested website change"
         },
         "operations": [
           {
@@ -40601,11 +40856,13 @@
             "value": "build",
             "arguments": {
               "operation": "build",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40616,11 +40873,13 @@
             "value": "destroy",
             "arguments": {
               "force": false,
-              "operation": "destroy"
+              "operation": "destroy",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "force",
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -40629,11 +40888,13 @@
             "value": "dev",
             "arguments": {
               "operation": "dev",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40643,10 +40904,16 @@
             "selector": "operation",
             "value": "exec",
             "arguments": {
-              "operation": "exec"
+              "command": "pwd",
+              "operation": "exec",
+              "project_dir": "demo-site",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "command",
+              "operation",
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40656,10 +40923,12 @@
             "selector": "operation",
             "value": "init",
             "arguments": {
-              "operation": "init"
+              "operation": "init",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40669,10 +40938,12 @@
             "selector": "operation",
             "value": "init_project",
             "arguments": {
-              "operation": "init_project"
+              "operation": "init_project",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40683,11 +40954,13 @@
             "value": "install_deps",
             "arguments": {
               "operation": "install_deps",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40698,11 +40971,13 @@
             "value": "publish_local",
             "arguments": {
               "operation": "publish_local",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40712,10 +40987,12 @@
             "selector": "operation",
             "value": "rebuild",
             "arguments": {
-              "operation": "rebuild"
+              "operation": "rebuild",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40725,10 +41002,12 @@
             "selector": "operation",
             "value": "start",
             "arguments": {
-              "operation": "start"
+              "operation": "start",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40751,10 +41030,12 @@
             "selector": "operation",
             "value": "stop",
             "arguments": {
-              "operation": "stop"
+              "operation": "stop",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40777,10 +41058,12 @@
             "selector": "operation",
             "value": "tunnel",
             "arguments": {
-              "operation": "tunnel"
+              "operation": "tunnel",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40790,10 +41073,12 @@
             "selector": "operation",
             "value": "webserver_start",
             "arguments": {
-              "operation": "webserver_start"
+              "operation": "webserver_start",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40816,10 +41101,12 @@
             "selector": "operation",
             "value": "webserver_stop",
             "arguments": {
-              "operation": "webserver_stop"
+              "operation": "webserver_stop",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": [
               "force"
@@ -40842,6 +41129,13 @@
               "null"
             ]
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "operation": {
             "description": "Quality operation.",
             "enum": [
@@ -40855,6 +41149,13 @@
           },
           "project_dir": {
             "description": "Required workspace-relative project subdirectory for lint or optimize_images.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
             "type": [
               "string",
               "null"
@@ -40877,8 +41178,10 @@
         },
         "required": [
           "_todo",
+          "managed_site_id",
           "operation",
           "project_dir",
+          "reason",
           "url",
           "viewport"
         ],
@@ -40890,6 +41193,10 @@
           "_todo": {
             "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
             "type": "string"
+          },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
           },
           "operation": {
             "description": "Quality operation.",
@@ -40904,6 +41211,10 @@
           },
           "project_dir": {
             "description": "Required workspace-relative project subdirectory for lint or optimize_images.",
+            "type": "string"
+          },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
             "type": "string"
           },
           "url": {
@@ -40922,8 +41233,10 @@
       },
       "required": [
         "_todo",
+        "managed_site_id",
         "operation",
         "project_dir",
+        "reason",
         "url",
         "viewport"
       ],
@@ -40932,6 +41245,13 @@
           "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
           "type": [
             "string",
+            "null"
+          ]
+        },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
             "null"
           ]
         },
@@ -40948,6 +41268,13 @@
         },
         "project_dir": {
           "description": "Required workspace-relative project subdirectory for lint or optimize_images.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -41038,11 +41365,13 @@
             "value": "optimize_images",
             "arguments": {
               "operation": "optimize_images",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -41063,7 +41392,7 @@
     },
     {
       "name": "homepage_registry",
-      "description": "Track homepage/web projects, deploy history, project history, problems, metadata. register requires project_dir. Read list_history before changes; add_history after.",
+      "description": "Track homepage/web projects, locations, deploy history and project history. Read overview/get_site/list_events; mutations need reason. add_history/list_history add notes.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -41139,6 +41468,13 @@
               "null"
             ]
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "name": {
             "description": "Project name (unique identifier)",
             "type": [
@@ -41178,7 +41514,14 @@
               "get_history",
               "search_history",
               "update_history",
-              "delete_history"
+              "delete_history",
+              "overview",
+              "get_site",
+              "list_events",
+              "discover_workspace",
+              "adopt",
+              "relocate",
+              "audit_revisions"
             ],
             "type": "string"
           },
@@ -41204,7 +41547,7 @@
             ]
           },
           "reason": {
-            "description": "Edit reason (for log_edit)",
+            "description": "Required for mutations: short purpose of the change.",
             "type": [
               "string",
               "null"
@@ -41252,6 +41595,7 @@
           "history_query",
           "id",
           "limit",
+          "managed_site_id",
           "name",
           "notes",
           "offset",
@@ -41314,6 +41658,10 @@
             "description": "Max results (default: 20)",
             "type": "integer"
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
+          },
           "name": {
             "description": "Project name (unique identifier)",
             "type": "string"
@@ -41344,7 +41692,14 @@
               "get_history",
               "search_history",
               "update_history",
-              "delete_history"
+              "delete_history",
+              "overview",
+              "get_site",
+              "list_events",
+              "discover_workspace",
+              "adopt",
+              "relocate",
+              "audit_revisions"
             ],
             "type": "string"
           },
@@ -41361,7 +41716,7 @@
             "type": "string"
           },
           "reason": {
-            "description": "Edit reason (for log_edit)",
+            "description": "Required for mutations: short purpose of the change.",
             "type": "string"
           },
           "source": {
@@ -41399,6 +41754,7 @@
         "history_query",
         "id",
         "limit",
+        "managed_site_id",
         "name",
         "notes",
         "offset",
@@ -41485,6 +41841,13 @@
             "null"
           ]
         },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
         "name": {
           "description": "Project name (unique identifier)",
           "type": [
@@ -41524,7 +41887,14 @@
             "get_history",
             "search_history",
             "update_history",
-            "delete_history"
+            "delete_history",
+            "overview",
+            "get_site",
+            "list_events",
+            "discover_workspace",
+            "adopt",
+            "relocate",
+            "audit_revisions"
           ],
           "type": "string"
         },
@@ -41550,7 +41920,7 @@
           ]
         },
         "reason": {
-          "description": "Edit reason (for log_edit)",
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -41596,11 +41966,23 @@
         },
         {
           "selector": "operation",
+          "value": "adopt"
+        },
+        {
+          "selector": "operation",
+          "value": "audit_revisions"
+        },
+        {
+          "selector": "operation",
           "value": "delete"
         },
         {
           "selector": "operation",
           "value": "delete_history"
+        },
+        {
+          "selector": "operation",
+          "value": "discover_workspace"
         },
         {
           "selector": "operation",
@@ -41612,7 +41994,15 @@
         },
         {
           "selector": "operation",
+          "value": "get_site"
+        },
+        {
+          "selector": "operation",
           "value": "list"
+        },
+        {
+          "selector": "operation",
+          "value": "list_events"
         },
         {
           "selector": "operation",
@@ -41632,7 +42022,15 @@
         },
         {
           "selector": "operation",
+          "value": "overview"
+        },
+        {
+          "selector": "operation",
           "value": "register"
+        },
+        {
+          "selector": "operation",
+          "value": "relocate"
         },
         {
           "selector": "operation",
@@ -41659,7 +42057,7 @@
       "manual_id": "homepage_registry",
       "contract": {
         "default_arguments": {
-          "operation": "register"
+          "operation": "overview"
         },
         "operations": [
           {
@@ -41675,12 +42073,40 @@
           },
           {
             "selector": "operation",
-            "value": "delete",
+            "value": "adopt",
             "arguments": {
-              "operation": "delete"
+              "operation": "adopt",
+              "project_dir": "demo-site",
+              "reason": "Manage the existing website"
+            },
+            "required_fields": [
+              "operation",
+              "project_dir",
+              "reason"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "audit_revisions",
+            "arguments": {
+              "operation": "audit_revisions"
             },
             "required_fields": [
               "operation"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "delete",
+            "arguments": {
+              "operation": "delete",
+              "reason": "Apply the requested website change"
+            },
+            "required_fields": [
+              "operation",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -41693,6 +42119,17 @@
             },
             "required_fields": [
               "history_id",
+              "operation"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "discover_workspace",
+            "arguments": {
+              "operation": "discover_workspace"
+            },
+            "required_fields": [
               "operation"
             ],
             "excluded_fields": []
@@ -41723,11 +42160,39 @@
           },
           {
             "selector": "operation",
+            "value": "get_site",
+            "arguments": {
+              "id": 1,
+              "operation": "get_site"
+            },
+            "required_fields": [
+              "id",
+              "operation"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
             "value": "list",
             "arguments": {
               "operation": "list"
             },
             "required_fields": [
+              "operation"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "list_events",
+            "arguments": {
+              "id": 1,
+              "limit": 20,
+              "operation": "list_events"
+            },
+            "required_fields": [
+              "id",
+              "limit",
               "operation"
             ],
             "excluded_fields": []
@@ -41747,10 +42212,12 @@
             "selector": "operation",
             "value": "log_deploy",
             "arguments": {
-              "operation": "log_deploy"
+              "operation": "log_deploy",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -41758,10 +42225,12 @@
             "selector": "operation",
             "value": "log_edit",
             "arguments": {
-              "operation": "log_edit"
+              "operation": "log_edit",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -41769,7 +42238,20 @@
             "selector": "operation",
             "value": "log_problem",
             "arguments": {
-              "operation": "log_problem"
+              "operation": "log_problem",
+              "reason": "Apply the requested website change"
+            },
+            "required_fields": [
+              "operation",
+              "reason"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "overview",
+            "arguments": {
+              "operation": "overview"
             },
             "required_fields": [
               "operation"
@@ -41780,12 +42262,33 @@
             "selector": "operation",
             "value": "register",
             "arguments": {
+              "name": "Demo",
               "operation": "register",
-              "project_dir": "example"
+              "project_dir": "example",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
+              "name",
               "operation",
-              "project_dir"
+              "project_dir",
+              "reason"
+            ],
+            "excluded_fields": []
+          },
+          {
+            "selector": "operation",
+            "value": "relocate",
+            "arguments": {
+              "id": 1,
+              "operation": "relocate",
+              "project_dir": "moved-site",
+              "reason": "Record the website's new folder"
+            },
+            "required_fields": [
+              "id",
+              "operation",
+              "project_dir",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -41793,10 +42296,12 @@
             "selector": "operation",
             "value": "resolve_problem",
             "arguments": {
-              "operation": "resolve_problem"
+              "operation": "resolve_problem",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -41826,10 +42331,12 @@
             "selector": "operation",
             "value": "update",
             "arguments": {
-              "operation": "update"
+              "operation": "update",
+              "reason": "Apply the requested website change"
             },
             "required_fields": [
-              "operation"
+              "operation",
+              "reason"
             ],
             "excluded_fields": []
           },
@@ -87445,8 +87952,8 @@
     {
       "id": "homepage",
       "path": "prompts/tools_manuals/homepage.md",
-      "sha256": "6d9dc594036a75f8fa8588c5dad80800624a90514793a1218b2e197182f5537c",
-      "body": "# Homepage Legacy Compatibility (`homepage`)\n\nDesign, develop, build, test and deploy professional websites using AuraGo's web workspace with Docker-based full mode and limited local fallback support.\n\nPrefer the focused native tools `homepage_project`, `homepage_file`, `homepage_quality`, `homepage_deploy`, and `homepage_git` when they are visible. The legacy `homepage` action remains accepted for dispatch compatibility with older clients and prompts.\n\n## Required Task Rule\n\nThe `homepage` tool has a required active task rule: `homepage`.\n\nBefore planning, deleting, creating, editing, building, previewing, publishing, or deploying a homepage/website/page project, read and follow the current `# TASK RULES` section for `Homepage Workflow` and the `# HOMEPAGE DESIGN SYSTEM` section when it is present. The design system is not optional styling advice; it is the default visual contract for homepage work unless the user or project supplies a more specific `DESIGN.md`.\n\nIf those sections are not visible yet, do not improvise with generic filesystem, shell, or ad-hoc design choices. Use the focused homepage tool path; the runtime will pause the first matching tool call, inject the required rule/design context, and ask you to retry only after reading it. Intent matching is only a convenience fallback, not the authority.\n\n## Prerequisites\n\n- **Required**: Homepage integration enabled (`homepage.enabled: true`)\n- **Recommended**: Docker integration enabled for the full dev environment\n- For deployment: SFTP/SCP credentials must be stored in the vault\n\n## Operations\n\n| Operation | Description |\n|-----------|-------------|\n| `init` | Initialize the dev environment (run first) |\n| `start` | Start the dev container |\n| `stop` | Stop the dev container |\n| `status` | Get environment status |\n| `rebuild` | Rebuild the dev container from scratch |\n| `destroy` | Remove everything; requires explicit `force: true` |\n| `init_project` | Create a new web project |\n| `exec` | Run a diagnostic shell command in the container |\n| `write_file` | Write/create a file |\n| `read_file` | Read a file |\n| `list_files` | List project files |\n| `install_deps` | Install npm packages |\n| `build` | Build for production |\n| `dev` | Start the dev server |\n| `lint` | Run TypeScript \u0026 ESLint checks |\n| `check_js` | Check for JavaScript runtime errors |\n| `optimize_images` | Optimize SVGs with SVGO |\n| `lighthouse` | Run Lighthouse performance audit |\n| `screenshot` | Take a full-page screenshot |\n| `deploy` | Build and upload to remote server via SFTP |\n| `test_connection` | Test SFTP/SCP connection |\n| `webserver_start` | Start local Caddy web server |\n| `webserver_stop` | Stop the web server |\n| `webserver_status` | Check web server status |\n| `publish_local` | Build and serve locally |\n| `deploy_netlify` | Build and deploy directly to Netlify |\n| `deploy_vercel` | Build and deploy directly to Vercel |\n| `git_init` | Initialize a git repository |\n| `git_commit` | Commit all changes |\n| `git_status` | View changed files |\n| `git_diff` | View current changes |\n| `git_log` | View commit history |\n| `git_rollback` | Revert recent commits |\n| `tunnel` | Create a public URL for sharing |\n\n## Existing Project Fast Path\n\nWhen updating or publishing an existing homepage project, use this direct path:\n\n1. `homepage` → `list_files` with `path: \".\"` to identify the project directory.\n2. `homepage` → `read_file` / `write_file` with a project-prefixed `path`, for example `my-site/index.html`.\n3. `homepage` → `build` with `project_dir: \"my-site\"`; missing dependencies are installed automatically.\n4. `homepage` → `publish_local` with `project_dir: \"my-site\"` for browser checks, then `deploy_netlify` or `deploy_vercel` with `project_dir: \"my-site\"`.\n5. Verify the returned deployment URL or the live page before reporting success.\n\nDo not use the generic `filesystem` tool to inspect, copy, or edit homepage project files. It writes to `agent_workspace/workdir/`, not the homepage workspace. Do not use generic `execute_shell` for `/workspace/...` commands either; `/workspace` is the homepage container path, so use focused homepage operations instead.\n\n## Runtime Modes\n\n### Docker Mode\n\nFull dev environment with Node.js, Playwright, Lighthouse and Caddy web server with automatic HTTPS.\nSupports all frameworks: Next.js, Vite, Astro, SvelteKit, Vue, static HTML.\n\n## Container Lifecycle\n\n### init — Initialize the dev environment\nCreates the Docker image and container. **Run this first** before any other operation.\n```json\n{\"action\": \"homepage\", \"operation\": \"init\"}\n```\n\n**Note:** Docker should be running for the full toolset. If Docker is unavailable, start it with `sudo systemctl start docker`.\n\n**Build refused:** if `init` answers `code: homepage_image_build_forbidden`, the Docker endpoint refuses image builds (socket proxy with `BUILD=0`). Give the user the returned `build_command` (or `BUILD=1` for the docker-proxy service) and stop. Do not call `rebuild`: it deletes the image first.\n\n### Local Fallback Mode\nIf Docker is unavailable and `homepage.allow_local_server` is enabled, AuraGo can still handle limited local workflows:\n- local/plain HTML project creation\n- homepage workspace file reads and writes\n- local publishing via the Python fallback server\n- status checks for the fallback server\n\n### start — Start the dev container\n```json\n{\"action\": \"homepage\", \"operation\": \"start\"}\n```\n\n### stop — Stop the dev container\n```json\n{\"action\": \"homepage\", \"operation\": \"stop\"}\n```\n\n### status — Get environment status\nReturns status of Docker containers or Python fallback server.\n```json\n{\"action\": \"homepage\", \"operation\": \"status\"}\n```\n\n**Response fields:**\n- `docker_available`: true/false - whether Docker is accessible\n- `mode`: \"docker\" or \"python_fallback\"\n- `python_server`: Status of Python HTTP server (in fallback mode)\n\n### rebuild — Rebuild the dev container from scratch\nRemoves container and image, then rebuilds. Use when you need a fresh environment.\n```json\n{\"action\": \"homepage\", \"operation\": \"rebuild\"}\n```\n\n### destroy — Remove everything\nRemoves both containers and the dev image.\nOnly use this when the user explicitly asks to destroy/reset the homepage environment. For routine recovery prefer `status`, `start`, `init`, or `rebuild`.\n```json\n{\"action\": \"homepage\", \"operation\": \"destroy\", \"force\": true}\n```\n\n## Project Scaffolding\n\n### init_project — Create a new web project\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `framework` | string | yes | `next`, `vite`, `astro`, `svelte`, `vue`, or `html` |\n| `name` | string | no | Project name (default: \"my-site\") |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"init_project\", \"framework\": \"next\", \"name\": \"my-portfolio\"}\n```\n```json\n{\"action\": \"homepage\", \"operation\": \"init_project\", \"framework\": \"astro\", \"name\": \"blog\"}\n```\n```json\n{\"action\": \"homepage\", \"operation\": \"init_project\", \"framework\": \"html\", \"name\": \"landing-page\"}\n```\n\n## Development\n\n`write_file`, `read_file`, `edit_file`, `list_files`, and other project-file operations work against the **homepage dev workspace**, not the published web root.\nKeep `project_dir`/`path` values relative to the homepage workspace.\n\nIf an existing project directory is owned by root or otherwise not writable by the homepage container user, `write_file`, `init_project`, and write-oriented `exec` commands will attempt an automatic project-scoped permission repair before failing. Do not retry with manual `chmod` from the unprivileged container user; inspect the returned repair error instead.\n\n### exec — Run a shell command in the container\n```json\n{\"action\": \"homepage\", \"operation\": \"exec\", \"command\": \"cd /workspace/my-site \u0026\u0026 npm run dev\"}\n```\n\nUse `exec` for diagnostics such as reading package metadata, checking logs, or running one-off inspection commands. Do not use it as the normal build/deploy path, and do not use shell redirects, `cp`, `mv`, `rm`, or similar commands to write directly into generated output directories like `/workspace/my-site/dist`, `/workspace/my-site/build`, or `/workspace/my-site/out`. Edit source files with `write_file`/`edit_file`, run `build`, then deploy through `deploy_netlify` or `deploy_vercel`.\n\n### write_file — Write/create a file\nContent is safely base64-encoded internally. Parent directories are created automatically.\n```json\n{\"action\": \"homepage\", \"operation\": \"write_file\", \"path\": \"my-site/src/components/Hero.tsx\", \"content\": \"export default function Hero() { return \u003csection\u003e...\u003c/section\u003e }\"}\n```\n\n### read_file — Read a file\n```json\n{\"action\": \"homepage\", \"operation\": \"read_file\", \"path\": \"my-site/src/app/page.tsx\"}\n```\n\n### list_files — List project files\nReturns up to 200 files, excluding node_modules, .next, and .git.\n```json\n{\"action\": \"homepage\", \"operation\": \"list_files\", \"path\": \"my-site/src\"}\n```\n\n### install_deps — Install npm packages\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `packages` | string[] | no | Specific packages (omit for `npm install`) |\n| `project_dir` | string | yes | Workspace-relative project subdirectory |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"install_deps\", \"project_dir\": \"my-site\", \"packages\": [\"tailwindcss\", \"@headlessui/react\", \"framer-motion\"]}\n```\n\n### build — Build for production\nFor framework projects, `build` runs inside the managed `aurago-homepage` container, not the host shell. After a successful build, referenced AuraGo assets such as `/files/generated_images/*`, generated image `/assets/img_*` paths, videos, audio, and documents are copied into the detected build output so the local Caddy server and deploy candidates can serve them.\n\n```json\n{\"action\": \"homepage\", \"operation\": \"build\", \"project_dir\": \"my-site\"}\n```\n\n### dev — Start the dev server\nStarts the dev server (e.g. `npm run dev`) in the background. When the Caddy web container is running and a `project_dir` is specified, a reverse_proxy route is automatically registered so the app is accessible through the Caddy web server at `/\u003cproject_dir\u003e/`.\n\nThe dev container and Caddy web container are connected via a shared Docker network (`aurago-homepage-net`), allowing Caddy to forward requests to the dev server. Proxy routes are persisted in the workspace (`.aurago-proxy-routes.json`) and survive container restarts.\n\n```json\n{\"action\": \"homepage\", \"operation\": \"dev\", \"project_dir\": \"my-site\"}\n```\n\n### lint — Run TypeScript \u0026 ESLint checks\nRuns `tsc --noEmit` (if `tsconfig.json` exists) followed by ESLint. Returns combined output.\n```json\n{\"action\": \"homepage\", \"operation\": \"lint\", \"project_dir\": \"my-site\"}\n```\n\n### check_js — Check for JavaScript runtime errors\nUses Playwright to load a page in headless Chromium and captures JavaScript errors and console errors. Useful for detecting runtime issues that linting alone cannot catch.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `url` | string | yes | URL to check (e.g. `http://localhost:3000`) |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"check_js\", \"url\": \"http://localhost:3000\"}\n```\n\n**Response fields:**\n- `errorCount`: Number of JS errors detected\n- `errors`: Array of error messages (page errors and console errors)\n\n### optimize_images — Optimize SVGs with SVGO\nOptimizes **SVG files only** (not PNG/JPEG). Uses SVGO with multipass optimization.\n```json\n{\"action\": \"homepage\", \"operation\": \"optimize_images\", \"project_dir\": \"my-site\"}\n```\n\n## Testing \u0026 Quality\n\n### lighthouse — Run Lighthouse performance audit\nReturns compact scores for performance, accessibility, best practices and SEO.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `url` | string | yes | URL to audit (e.g. `http://localhost:3000`) |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"lighthouse\", \"url\": \"http://localhost:3000\"}\n```\n\n### screenshot — Take a full-page screenshot\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `url` | string | yes | URL to screenshot |\n| `viewport` | string | no | Viewport size (default: \"1280x720\") |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"screenshot\", \"url\": \"http://localhost:3000\", \"viewport\": \"1920x1080\"}\n```\n\n## Deployment\n\n### deploy — Build and upload to remote server via SFTP\nBuilds the project, then uploads the build output to the configured remote server.\nAlways pass the workspace-relative `project_dir` for the project being deployed.\n```json\n{\"action\": \"homepage\", \"operation\": \"deploy\", \"project_dir\": \"my-site\"}\n```\n\n### test_connection — Test SFTP/SCP connection\nTests connectivity to the configured deployment target.\n```json\n{\"action\": \"homepage\", \"operation\": \"test_connection\"}\n```\n\n## Local Web Server (Caddy)\n\nAuraGo uses two different concepts here:\n- **Dev workspace**: where homepage project files are edited inside the homepage tool workflow\n- **Published local site**: served by the separate Caddy container `aurago-homepage-web`\n\nFor local publishing, the Caddy container serves files from:\n- container name: `aurago-homepage-web`\n- document root: `/srv`\n- config path: `/etc/caddy/Caddyfile`\n\n### Shared Docker Network\n\nBoth the dev container (`aurago-homepage`) and the Caddy web container (`aurago-homepage-web`) are connected to a shared Docker network (`aurago-homepage-net`). This enables:\n\n1. **Static file serving** — Caddy serves build output from `/srv` (default)\n2. **Reverse proxy to dev servers** — When a dev server is started via the `dev` operation, Caddy automatically proxies `/\u003cproject_dir\u003e/*` to the dev container. This makes Next.js, Vite, and other framework dev servers accessible through the same Caddy URL without needing a separate port.\n\nProxy routes are persisted in the workspace as `.aurago-proxy-routes.json` and are automatically included when Caddy starts or reloads.\n\n### Caddy Config with Proxy Routes\n\nThe generated Caddyfile uses `handle` blocks for proxy routes (matched first) and a default `handle` for static file serving:\n\n```\n:80 {\n    root * /srv\n    encode gzip\n\n    handle /phaser-demo* {\n        reverse_proxy aurago-homepage:3000\n    }\n\n    handle {\n        file_server\n        try_files {path} /index.html\n    }\n}\n```\n\nDo **not** assume `/var/www/html`. Use `publish_local` or `webserver_start` instead of manual `docker cp` to guessed paths.\n\n### webserver_start — Start local Caddy web server\nServes the build output via Caddy (Docker required). Always pass `project_dir` for the project that should be public at `/`.\nOmit `project_dir` only for recovery/status restoration of an already published site, or when intentionally using the single-project/plain-HTML auto-detect path. When the project is known, pass `project_dir`; do not omit it for ordinary build, publish, or deploy work.\n```json\n{\"action\": \"homepage\", \"operation\": \"webserver_start\", \"project_dir\": \"my-site\"}\n```\n\n**Response:**\n- `url`: The URL where the site is accessible\n- `served_url`: Canonical served URL\n- `mode`: \"docker\"\n- `container_name`: `aurago-homepage-web`\n- `document_root`: `/srv`\n- `source_path`: Host-side build or project directory mounted into Caddy\n- `project_dir` / `build_dir`: The resolved workspace source mounted as `/srv`; for plain HTML projects, `build_dir` is `.`\n\n### webserver_stop — Stop the web server\n```json\n{\"action\": \"homepage\", \"operation\": \"webserver_stop\"}\n```\n\n### webserver_status — Check web server status\n```json\n{\"action\": \"homepage\", \"operation\": \"webserver_status\"}\n```\n\n### publish_local — Build and serve locally\nCombines `build` + `webserver_start` in one step.\nFor plain HTML projects (no `package.json`), the build step is automatically skipped and the project directory is served directly.\nReferenced AuraGo assets (`/files/generated_images/*`, generated image `/assets/img_*` paths, `/files/audio/*`, `/files/documents/*`) are automatically copied into the build directory so the Caddy container can serve them.\nAlways pass the workspace-relative `project_dir` for the project being published.\n```json\n{\"action\": \"homepage\", \"operation\": \"publish_local\", \"project_dir\": \"my-site\"}\n```\n\n## Recommended Workflow\n\n1. **Initialize:** `init` → creates the Docker dev environment\n2. **Scaffold:** `init_project` → creates a new project with chosen framework (optionally with a template)\n3. **Version Control:** `git_init` → initialize git repository for the project\n4. **Develop:** Use `write_file` to create/edit files, `install_deps` for packages\n5. **Commit:** `git_commit` → save progress with a meaningful message\n6. **Preview:** `dev` to start the dev server, `tunnel` to share externally, `screenshot` to capture preview\n7. **Test:** `lighthouse` for performance audit, `lint` for code quality, `check_js` for runtime JS errors\n8. **Optimize:** `optimize_images` for SVG optimization\n9. **Build:** `build` with `project_dir` (and `auto_fix: true` for automatic error recovery)\n10. **Deploy:** Choose based on target and pass `project_dir`:\n    - `publish_local` — serve locally with Caddy (DEFAULT for most cases, no config flags needed)\n    - `deploy` — upload to remote server (requires `homepage.allow_deploy=true`)\n    - `deploy_netlify` — deploy to Netlify (requires `netlify.allow_deploy=true`)\n    - `deploy_vercel` — deploy to Vercel (requires `vercel.allow_deploy=true`)\n\n## Version Control (Git)\n\nGit operations run inside the Docker container. Initialize a repository to track changes, rollback mistakes, and maintain project history.\n\n### git_init — Initialize a git repository\nCreates a repository with an initial commit.\n```json\n{\"action\": \"homepage\", \"operation\": \"git_init\", \"project_dir\": \"my-site\"}\n```\n\n### git_commit — Commit all changes\nStages all modifications and commits.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `git_message` | string | no | Commit message (default: \"Update\") |\n| `project_dir` | string | yes | Workspace-relative project subdirectory |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"git_commit\", \"project_dir\": \"my-site\", \"git_message\": \"Add hero section and navigation\"}\n```\n\n### git_status — View changed files\n```json\n{\"action\": \"homepage\", \"operation\": \"git_status\", \"project_dir\": \"my-site\"}\n```\n\n### git_diff — View current changes\n```json\n{\"action\": \"homepage\", \"operation\": \"git_diff\", \"project_dir\": \"my-site\"}\n```\n\n### git_log — View commit history\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `count` | integer | no | Number of commits to show (default: 10, max: 100) |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"git_log\", \"project_dir\": \"my-site\", \"count\": 5}\n```\n\n### git_rollback — Revert recent commits\nCreates new revert commits (safe — never rewrites history).\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `count` | integer | no | Number of commits to revert (default: 1, max: 10) |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"git_rollback\", \"project_dir\": \"my-site\", \"count\": 1}\n```\n\n## Build with Auto-Fix\n\nThe `build` operation supports automatic error recovery when `auto_fix` is set to `true`.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `auto_fix` | boolean | no | If true, attempt to fix common build errors and retry once |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"build\", \"project_dir\": \"my-site\", \"auto_fix\": true}\n```\n\n**Auto-fixable errors:**\n- Missing npm modules → auto-installs the package\n- Webpack module resolution failures → auto-installs the module\n- ESLint fixable errors → runs `eslint --fix`\n- Missing dependencies / node_modules → runs `npm install`\n\nThe response includes `auto_fix_applied: true` and `auto_fix_pattern` when a fix was applied.\n\n## Project Templates\n\nWhen using `init_project`, you can specify a `template` to get pre-built CSS layouts and a README:\n\n| Template | Description |\n|----------|-------------|\n| `portfolio` | Dark-theme portfolio with hero, project cards, skills grid |\n| `blog` | Clean serif blog with article list, tags, metadata |\n| `landing` | Marketing landing page with hero, features, testimonials, CTA |\n| `dashboard` | Admin dashboard with sidebar, stats cards, data table |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"init_project\", \"framework\": \"next\", \"name\": \"my-portfolio\", \"template\": \"portfolio\"}\n```\n\nTemplates write CSS files into `src/styles/` and a `TEMPLATE_README.md`. Import the CSS in your layout and use the documented class names.\n\n## Sharing \u0026 Tunnels\n\n### tunnel — Create a public URL for sharing\nStarts a Cloudflare quick tunnel to expose a local port to the internet via a temporary `*.trycloudflare.com` URL.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `port` | integer | no | Local port to expose (default: 3000) |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"tunnel\", \"port\": 3000}\n```\n\n**Notes:**\n- Requires `cloudflared` in the Docker container (included since container rebuild)\n- The URL is temporary and changes each time\n- Also returns a `lan_url` for accessing from other devices on the same network\n- The `webserver_start` response now automatically includes a `lan_url` when binding to all interfaces\n\n## Important Notes\n\n- All file paths are relative to `/workspace` inside the container\n- `project_dir` must always be relative to the homepage workspace. Use `ki-news`; never `/workspace/ki-news`.\n- Mutating and deployment operations must carry the workspace-relative `project_dir`.\n  Do not deploy, publish, build, or clean up a homepage project from a guessed folder name.\n- `homepage.workspace_path` in the config UI is only the host mount path. Tool arguments still stay relative, e.g. `project_dir: \"my-site\"` and `path: \"my-site/src/app/page.tsx\"`.\n- The container persists between sessions (uses `unless-stopped` restart policy)\n- Build output directory is auto-detected: checks `out`, `dist`, `build`, `.next`, `public`. If none exist (plain HTML), serves the project root directly.\n- Plain HTML projects (no `package.json`) skip the build step entirely — no Docker dev container needed for deployment.\n- For deployment, store credentials in the vault: `homepage_deploy_password` or `homepage_deploy_key`\n- The Caddy web server can serve with automatic HTTPS if a domain is configured (Docker mode only)\n- Use compound operations (`init_project`, `build`, `publish_local`, `deploy_netlify`, `deploy_vercel`) to save tokens and keep the pipeline recoverable — avoid running many individual `exec` calls\n- Use the homepage workspace operations from the Required Task Rule for project files; do not fall back to generic workspace tools.\n- **NEVER use generic `execute_shell` for `/workspace/...` commands.** `/workspace` exists inside the homepage container; use `homepage_project` `exec`, `homepage_file`, or `homepage_deploy` `build`.\n- **Do not directly edit generated output** (`dist`, `build`, `out`) with shell redirection or copy commands. These directories are deployment artifacts; change source files and rebuild.\n\n### Using Generated Images in Netlify Deployments\n\n**IMPORTANT:** Images generated with `generate_image` or found through `media_registry` are AuraGo-local assets first. For homepage source code, prefer copying the image into the project's deployable static directory and referencing that project asset.\n\nFor Vite, React, and plain HTML projects, put local images under `public/assets/...` or the framework-equivalent static directory, then reference them with a project-relative web URL:\n```html\n\u003cimg src=\"/assets/banner.jpeg\" alt=\"Banner\"\u003e\n```\n\nIf an existing page already references generated AuraGo assets such as `/files/generated_images/\u003cfilename\u003e`, generated image `/assets/img_\u003cid\u003e.jpeg` paths, or legacy `/img_\u003cid\u003e.jpeg` paths, `deploy_netlify` tries to bundle those files into the ZIP. Do not rely on that as the primary workflow for new edits: make the image a deployable project asset in `public/assets` and update the markup to `/assets/\u003cfilename\u003e`.\n\nNever use `file://`, host filesystem paths, `/workspace/...`, `data/homepage/...`, or `agent_workspace/...` in page markup. Those paths are not fetchable from a deployed browser.\n\nThe `deploy_netlify` operation installs missing dependencies, builds, validates that the selected output contains `index.html`, scans HTML/CSS/JS for generated asset references, uploads a ZIP, waits for Netlify to report the deploy as ready, and verifies the public URL.\n\nIf a framework build fails but a finished static sibling directory exists, such as `my-site-static/index.html`, `deploy_netlify` may fall back to that static project and returns `fallback_project_dir` in the result. For an explicitly static export, you can also call `deploy_netlify` with `project_dir: \"my-site-static\"` and `build_dir: \".\"`.\n\n### Using Vercel Deployments\n\nUse `deploy_vercel` when the homepage project should be published to Vercel from AuraGo's managed workspace.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `project_dir` | string | yes | Homepage workspace directory to deploy |\n| `project_id` | string | no | Vercel project name or ID to link before deploying; falls back to `vercel.default_project_id` |\n| `build_dir` | string | no | Explicit directory to upload; otherwise auto-detected after build |\n| `target` | string | no | `preview` or `production` (default: `preview`, production requires explicit selection) |\n| `alias` | string | no | Alias or domain to assign after a successful deployment |\n| `domain` | string | no | Custom domain to add/verify before alias assignment |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"deploy_vercel\", \"project_dir\": \"my-site\", \"project_id\": \"my-site\", \"target\": \"preview\"}\n```\n\n```json\n{\"action\": \"homepage\", \"operation\": \"deploy_vercel\", \"project_dir\": \"my-site\", \"project_id\": \"my-site\", \"target\": \"production\", \"domain\": \"www.example.com\"}\n```\n\nNotes:\n- `deploy_vercel` is designed for homepage workspace projects including HTML, Vite/React, Astro, and Next.js.\n- Projects with `package.json` deploy Vercel-native from the project root after a local build check, even when `build_dir` is provided. Explicit static `build_dir` values are only for plain static projects without package metadata and must contain a valid `index.html`.\n- Do not patch Next.js into static export for Vercel. Let Vercel build and route the framework project from source.\n- AuraGo validates the build first, links the Vercel project when a project reference is available, then deploys from the homepage workspace via the Vercel CLI.\n- If the Vercel project does not exist yet, AuraGo can create it automatically only when `vercel.allow_project_management=true`.\n- Alias or custom domain assignment requires `vercel.allow_domain_management=true`.\n\n## Troubleshooting\n\n### \"Docker not available\" Error\n\n**Problem:** Docker daemon is not running or not accessible.\n\n**Solutions:**\n1. **Start Docker:** `sudo systemctl start docker` (recommended)\n2. **Enable Docker:** `sudo systemctl enable docker`\n\n### Web Server Not Accessible\n\n**Problem:** `publish_local` or `webserver_start` reports success but site not reachable.\n\n**Check:**\n1. Verify port is not in use: `netstat -tlnp | grep 8080`\n2. Check firewall rules: `sudo ufw allow 8080`\n3. Try different port in config: `homepage.webserver_port: 8081`\n\n### Dev Server Returns 404 via Caddy\n\n**Problem:** The dev server runs inside the container but Caddy returns 404 for `/\u003cproject_dir\u003e/` paths.\n\n**Cause:** The Caddy and dev containers must be on the same Docker network (`aurago-homepage-net`) for Caddy to reach the dev server by container name.\n\n**Solutions:**\n1. Restart the dev container (`homepage stop` + `homepage start`) — it auto-connects to the shared network\n2. Restart the Caddy web server (`webserver_stop` + `webserver_start`) — it also auto-connects\n3. Verify both containers are on the network: `docker network inspect aurago-homepage-net`\n\n### Status Shows \"running\": false\n\n**Problem:** Container appears stopped.\n\n**Solutions:**\n1. Check Docker status: `docker ps -a`\n2. Start manually: `homepage start`\n3. If the user explicitly approves a destructive reset: `homepage destroy` with `force: true`, then `homepage init`\n\n### init_project fails or install_deps can't find directory\n\n**Problem:** `init_project` appears to succeed but `install_deps` or `build` reports directory not found. This typically means the Node.js version in the container is too old for the requested framework (npm `EBADENGINE` warnings).\n\n**Solutions:**\n1. Use `framework: \"html\"` for plain HTML projects (no Node.js required)\n2. Rebuild the homepage container to get a newer Node.js: `homepage rebuild`\n3. Create files manually with `homepage write_file`\n\n### deploy_netlify: \"Deploy path does not exist\"\n\n**Problem:** Files were created outside the homepage workspace, commonly through a generic file tool, placing them in `agent_workspace/workdir/` instead of the homepage workspace.\n\n**Solution:** Use `homepage write_file` to create all project files. The `deploy_netlify` operation only finds files in the homepage workspace (`data/homepage/`).\n\n### deploy_netlify: \"Missing script: build\"\n\n**Problem:** `package.json` exists, but it does not define a `build` script.\n\n**Solution:** Do not keep retrying the same deploy call. Either:\n1. Treat the project as static HTML and deploy the project root directly, or\n2. Add a valid `build` script to `package.json`, then retry.\n\nIf the project is plain HTML, you usually do not need a build step at all.\n\n### deploy_vercel: \"project was not found\"\n\n**Problem:** The requested Vercel project does not exist and automatic project creation is blocked.\n\n**Solution:** Either:\n1. Set `vercel.default_project_id` or pass `project_id` explicitly, or\n2. Enable `vercel.allow_project_management` so AuraGo may create the Vercel project automatically.\n\n### deploy_vercel: alias or domain assignment failed\n\n**Problem:** The deployment succeeded, but the requested alias or custom domain could not be attached.\n\n**Solution:** Check:\n1. `vercel.allow_domain_management=true`\n2. The domain is already configured for the same Vercel team/account\n3. DNS verification is complete if you are using a custom domain\n\n## Configuration\n\n```yaml\nhomepage:\n  enabled: true\n  allow_local_server: false  # Enable Python fallback when Docker unavailable\n  workspace_path: \"data/homepage\"  # Path for homepage projects\n  # For deployment:\n  # SFTP/SCP credentials stored in vault:\n  # - homepage_deploy_host: deployment server hostname\n  # - homepage_deploy_user: deployment username\n  # - homepage_deploy_password OR homepage_deploy_key: authentication\n```\n\n## Notes\n\n- **File paths**: All file paths are relative to `/workspace` inside the container\n- **project_dir**: Must always be relative to the homepage workspace (e.g., `my-site`; never `/workspace/my-site`)\n- Use homepage workspace operations for homepage project files; generic workspace tools use a different location\n- **Container persistence**: The container persists between sessions (uses `unless-stopped` restart policy)\n- **Build output**: Auto-detected: `out`, `dist`, `build`, `.next`, `public`\n- **Plain HTML projects**: Skip the build step entirely — no Docker dev container needed for deployment\n- **Auto-fix**: The `build` operation can automatically fix common errors when `auto_fix: true`\n",
+      "sha256": "6f007b422c32eccb1713d021038c59fafe4e9ff525fbb8e82fa1636ca68abb5c",
+      "body": "# Homepage Legacy Compatibility (`homepage`)\n\nDesign, develop, build, test and deploy professional websites using AuraGo's web workspace with Docker-based full mode and limited local fallback support.\n\nPrefer the focused native tools `homepage_project`, `homepage_file`, `homepage_quality`, `homepage_deploy`, and `homepage_git` when they are visible. The legacy `homepage` action remains accepted for dispatch compatibility with older clients and prompts.\n\n## Required Task Rule\n\nThe `homepage` tool has a required active task rule: `homepage`.\n\nBefore planning, deleting, creating, editing, building, previewing, publishing, or deploying a homepage/website/page project, read and follow the current `# TASK RULES` section for `Homepage Workflow` and the `# HOMEPAGE DESIGN SYSTEM` section when it is present. The design system is not optional styling advice; it is the default visual contract for homepage work unless the user or project supplies a more specific `DESIGN.md`.\n\nIf those sections are not visible yet, do not improvise with generic filesystem, shell, or ad-hoc design choices. Use the focused homepage tool path; the runtime will pause the first matching tool call, inject the required rule/design context, and ask you to retry only after reading it. Intent matching is only a convenience fallback, not the authority.\n\n## Prerequisites\n\n- **Required**: Homepage integration enabled (`homepage.enabled: true`)\n- **Recommended**: Docker integration enabled for the full dev environment\n- For deployment: SFTP/SCP credentials must be stored in the vault\n\n## Operations\n\n| Operation | Description |\n|-----------|-------------|\n| `init` | Initialize the dev environment (run first) |\n| `start` | Start the dev container |\n| `stop` | Stop the dev container |\n| `status` | Get environment status |\n| `rebuild` | Rebuild the dev container from scratch |\n| `destroy` | Remove everything; requires explicit `force: true` |\n| `init_project` | Create a new web project |\n| `exec` | Run a diagnostic shell command in the container |\n| `write_file` | Write/create a file |\n| `read_file` | Read a file |\n| `list_files` | List project files |\n| `install_deps` | Install npm packages |\n| `build` | Build for production |\n| `dev` | Start the dev server |\n| `lint` | Run TypeScript \u0026 ESLint checks |\n| `check_js` | Check for JavaScript runtime errors |\n| `optimize_images` | Optimize SVGs with SVGO |\n| `lighthouse` | Run Lighthouse performance audit |\n| `screenshot` | Take a full-page screenshot |\n| `deploy` | Build and upload to remote server via SFTP |\n| `test_connection` | Test SFTP/SCP connection |\n| `webserver_start` | Start local Caddy web server |\n| `webserver_stop` | Stop the web server |\n| `webserver_status` | Check web server status |\n| `publish_local` | Build and serve locally |\n| `deploy_netlify` | Build and deploy directly to Netlify |\n| `deploy_vercel` | Build and deploy directly to Vercel |\n| `git_init` | Initialize a git repository |\n| `git_commit` | Commit all changes |\n| `git_status` | View changed files |\n| `git_diff` | View current changes |\n| `git_log` | View commit history |\n| `git_rollback` | Revert recent commits |\n| `tunnel` | Create a public URL for sharing |\n\n## Existing Project Fast Path\n\nWhen updating or publishing an existing homepage project, use this direct path:\n\n1. `homepage` → `list_files` with `path: \".\"` to identify the project directory.\n2. `homepage` → `read_file` / `write_file` with a project-prefixed `path`, for example `my-site/index.html`.\n3. `homepage` → `build` with `project_dir: \"my-site\"`; missing dependencies are installed automatically.\n4. `homepage` → `publish_local` with `project_dir: \"my-site\"` for browser checks, then `deploy_netlify` or `deploy_vercel` with `project_dir: \"my-site\"`.\n5. Verify the returned deployment URL or the live page before reporting success.\n\nDo not use the generic `filesystem` tool to inspect, copy, or edit homepage project files. It writes to `agent_workspace/workdir/`, not the homepage workspace. Do not use generic `execute_shell` for `/workspace/...` commands either; `/workspace` is the homepage container path, so use focused homepage operations instead.\n\n## Runtime Modes\n\n### Docker Mode\n\nFull dev environment with Node.js, Playwright, Lighthouse and Caddy web server with automatic HTTPS.\nSupports all frameworks: Next.js, Vite, Astro, SvelteKit, Vue, static HTML.\n\n## Container Lifecycle\n\n### init — Initialize the dev environment\nCreates the Docker image and container. **Run this first** before any other operation.\n```json\n{\"action\": \"homepage\", \"operation\": \"init\"}\n```\n\n**Note:** Docker should be running for the full toolset. If Docker is unavailable, start it with `sudo systemctl start docker`.\n\n**Build refused:** if `init` answers `code: homepage_image_build_forbidden`, the Docker endpoint refuses image builds (socket proxy with `BUILD=0`). Give the user the returned `build_command` (or `BUILD=1` for the docker-proxy service) and stop. Do not call `rebuild`: it deletes the image first.\n\n### Local Fallback Mode\nIf Docker is unavailable and `homepage.allow_local_server` is enabled, AuraGo can still handle limited local workflows:\n- local/plain HTML project creation\n- homepage workspace file reads and writes\n- local publishing via the Python fallback server\n- status checks for the fallback server\n\n### start — Start the dev container\n```json\n{\"action\": \"homepage\", \"operation\": \"start\"}\n```\n\n### stop — Stop the dev container\n```json\n{\"action\": \"homepage\", \"operation\": \"stop\"}\n```\n\n### status — Get environment status\nReturns status of Docker containers or Python fallback server.\n```json\n{\"action\": \"homepage\", \"operation\": \"status\"}\n```\n\n**Response fields:**\n- `docker_available`: true/false - whether Docker is accessible\n- `mode`: \"docker\" or \"python_fallback\"\n- `python_server`: Status of Python HTTP server (in fallback mode)\n\n### rebuild — Rebuild the dev container from scratch\nRemoves container and image, then rebuilds. Use when you need a fresh environment.\n```json\n{\"action\": \"homepage\", \"operation\": \"rebuild\"}\n```\n\n### destroy — Remove everything\nRemoves both containers and the dev image.\nOnly use this when the user explicitly asks to destroy/reset the homepage environment. For routine recovery prefer `status`, `start`, `init`, or `rebuild`.\n```json\n{\"action\": \"homepage\", \"operation\": \"destroy\", \"force\": true}\n```\n\n## Project Scaffolding\n\n### init_project — Create a new web project\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `framework` | string | yes | `next`, `vite`, `astro`, `svelte`, `vue`, or `html` |\n| `name` | string | no | Project name (default: \"my-site\") |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"init_project\", \"framework\": \"next\", \"name\": \"my-portfolio\"}\n```\n```json\n{\"action\": \"homepage\", \"operation\": \"init_project\", \"framework\": \"astro\", \"name\": \"blog\"}\n```\n```json\n{\"action\": \"homepage\", \"operation\": \"init_project\", \"framework\": \"html\", \"name\": \"landing-page\"}\n```\n\n## Development\n\n`write_file`, `read_file`, `edit_file`, `list_files`, and other project-file operations work against the **homepage dev workspace**, not the published web root.\nKeep `project_dir`/`path` values relative to the homepage workspace.\n\nIf an existing project directory is owned by root or otherwise not writable by the homepage container user, `write_file`, `init_project`, and write-oriented `exec` commands will attempt an automatic project-scoped permission repair before failing. Do not retry with manual `chmod` from the unprivileged container user; inspect the returned repair error instead.\n\n### exec — Run a shell command in the container\n```json\n{\"action\": \"homepage\", \"operation\": \"exec\", \"command\": \"cd /workspace/my-site \u0026\u0026 npm run dev\"}\n```\n\nUse `exec` for diagnostics such as reading package metadata, checking logs, or running one-off inspection commands. Do not use it as the normal build/deploy path, and do not use shell redirects, `cp`, `mv`, `rm`, or similar commands to write directly into generated output directories like `/workspace/my-site/dist`, `/workspace/my-site/build`, or `/workspace/my-site/out`. Edit source files with `write_file`/`edit_file`, run `build`, then deploy through `deploy_netlify` or `deploy_vercel`.\n\n### write_file — Write/create a file\nContent is safely base64-encoded internally. Parent directories are created automatically.\n```json\n{\"action\": \"homepage\", \"operation\": \"write_file\", \"path\": \"my-site/src/components/Hero.tsx\", \"content\": \"export default function Hero() { return \u003csection\u003e...\u003c/section\u003e }\"}\n```\n\n### read_file — Read a file\n```json\n{\"action\": \"homepage\", \"operation\": \"read_file\", \"path\": \"my-site/src/app/page.tsx\"}\n```\n\n### list_files — List project files\nReturns up to 200 files, excluding node_modules, .next, and .git.\n```json\n{\"action\": \"homepage\", \"operation\": \"list_files\", \"path\": \"my-site/src\"}\n```\n\n### install_deps — Install npm packages\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `packages` | string[] | no | Specific packages (omit for `npm install`) |\n| `project_dir` | string | yes | Workspace-relative project subdirectory |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"install_deps\", \"project_dir\": \"my-site\", \"packages\": [\"tailwindcss\", \"@headlessui/react\", \"framer-motion\"]}\n```\n\n### build — Build for production\nFor framework projects, `build` runs inside the managed `aurago-homepage` container, not the host shell. After a successful build, referenced AuraGo assets such as `/files/generated_images/*`, generated image `/assets/img_*` paths, videos, audio, and documents are copied into the detected build output so the local Caddy server and deploy candidates can serve them.\n\n```json\n{\"action\": \"homepage\", \"operation\": \"build\", \"project_dir\": \"my-site\"}\n```\n\n### dev — Start the dev server\nStarts the dev server (e.g. `npm run dev`) in the background. When the Caddy web container is running and a `project_dir` is specified, a reverse_proxy route is automatically registered so the app is accessible through the Caddy web server at `/\u003cproject_dir\u003e/`.\n\nThe dev container and Caddy web container are connected via a shared Docker network (`aurago-homepage-net`), allowing Caddy to forward requests to the dev server. Proxy routes are persisted in the workspace (`.aurago-proxy-routes.json`) and survive container restarts.\n\n```json\n{\"action\": \"homepage\", \"operation\": \"dev\", \"project_dir\": \"my-site\"}\n```\n\n### lint — Run TypeScript \u0026 ESLint checks\nRuns `tsc --noEmit` (if `tsconfig.json` exists) followed by ESLint. Returns combined output.\n```json\n{\"action\": \"homepage\", \"operation\": \"lint\", \"project_dir\": \"my-site\"}\n```\n\n### check_js — Check for JavaScript runtime errors\nUses Playwright to load a page in headless Chromium and captures JavaScript errors and console errors. Useful for detecting runtime issues that linting alone cannot catch.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `url` | string | yes | URL to check (e.g. `http://localhost:3000`) |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"check_js\", \"url\": \"http://localhost:3000\"}\n```\n\n**Response fields:**\n- `errorCount`: Number of JS errors detected\n- `errors`: Array of error messages (page errors and console errors)\n\n### optimize_images — Optimize SVGs with SVGO\nOptimizes **SVG files only** (not PNG/JPEG). Uses SVGO with multipass optimization.\n```json\n{\"action\": \"homepage\", \"operation\": \"optimize_images\", \"project_dir\": \"my-site\"}\n```\n\n## Testing \u0026 Quality\n\n### lighthouse — Run Lighthouse performance audit\nReturns compact scores for performance, accessibility, best practices and SEO.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `url` | string | yes | URL to audit (e.g. `http://localhost:3000`) |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"lighthouse\", \"url\": \"http://localhost:3000\"}\n```\n\n### screenshot — Take a full-page screenshot\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `url` | string | yes | URL to screenshot |\n| `viewport` | string | no | Viewport size (default: \"1280x720\") |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"screenshot\", \"url\": \"http://localhost:3000\", \"viewport\": \"1920x1080\"}\n```\n\n## Deployment\n\n### deploy — Build and upload to remote server via SFTP\nBuilds the project, then uploads the build output to the configured remote server.\nAlways pass the workspace-relative `project_dir` for the project being deployed.\n```json\n{\"action\": \"homepage\", \"operation\": \"deploy\", \"project_dir\": \"my-site\"}\n```\n\n### test_connection — Test SFTP/SCP connection\nTests connectivity to the configured deployment target.\n```json\n{\"action\": \"homepage\", \"operation\": \"test_connection\"}\n```\n\n## Local Web Server (Caddy)\n\nAuraGo uses two different concepts here:\n- **Dev workspace**: where homepage project files are edited inside the homepage tool workflow\n- **Published local site**: served by the separate Caddy container `aurago-homepage-web`\n\nFor local publishing, the Caddy container serves files from:\n- container name: `aurago-homepage-web`\n- document root: `/srv`\n- config path: `/etc/caddy/Caddyfile`\n\n### Shared Docker Network\n\nBoth the dev container (`aurago-homepage`) and the Caddy web container (`aurago-homepage-web`) are connected to a shared Docker network (`aurago-homepage-net`). This enables:\n\n1. **Static file serving** — Caddy serves build output from `/srv` (default)\n2. **Reverse proxy to dev servers** — When a dev server is started via the `dev` operation, Caddy automatically proxies `/\u003cproject_dir\u003e/*` to the dev container. This makes Next.js, Vite, and other framework dev servers accessible through the same Caddy URL without needing a separate port.\n\nProxy routes are persisted in the workspace as `.aurago-proxy-routes.json` and are automatically included when Caddy starts or reloads.\n\n### Caddy Config with Proxy Routes\n\nThe generated Caddyfile uses `handle` blocks for proxy routes (matched first) and a default `handle` for static file serving:\n\n```\n:80 {\n    root * /srv\n    encode gzip\n\n    handle /phaser-demo* {\n        reverse_proxy aurago-homepage:3000\n    }\n\n    handle {\n        file_server\n        try_files {path} /index.html\n    }\n}\n```\n\nDo **not** assume `/var/www/html`. Use `publish_local` or `webserver_start` instead of manual `docker cp` to guessed paths.\n\n### webserver_start — Start local Caddy web server\nServes the build output via Caddy (Docker required). Always pass `project_dir` for the project that should be public at `/`.\nOmit `project_dir` only for recovery/status restoration of an already published site, or when intentionally using the single-project/plain-HTML auto-detect path. When the project is known, pass `project_dir`; do not omit it for ordinary build, publish, or deploy work.\n```json\n{\"action\": \"homepage\", \"operation\": \"webserver_start\", \"project_dir\": \"my-site\"}\n```\n\n**Response:**\n- `url`: The URL where the site is accessible\n- `served_url`: Canonical served URL\n- `mode`: \"docker\"\n- `container_name`: `aurago-homepage-web`\n- `document_root`: `/srv`\n- `source_path`: Host-side build or project directory mounted into Caddy\n- `project_dir` / `build_dir`: The resolved workspace source mounted as `/srv`; for plain HTML projects, `build_dir` is `.`\n\n### webserver_stop — Stop the web server\n```json\n{\"action\": \"homepage\", \"operation\": \"webserver_stop\"}\n```\n\n### webserver_status — Check web server status\n```json\n{\"action\": \"homepage\", \"operation\": \"webserver_status\"}\n```\n\n### publish_local — Build and serve locally\nCombines `build` + `webserver_start` in one step.\nFor plain HTML projects (no `package.json`), the build step is automatically skipped and the project directory is served directly.\nReferenced AuraGo assets (`/files/generated_images/*`, generated image `/assets/img_*` paths, `/files/audio/*`, `/files/documents/*`) are automatically copied into the build directory so the Caddy container can serve them.\nAlways pass the workspace-relative `project_dir` for the project being published.\n```json\n{\"action\": \"homepage\", \"operation\": \"publish_local\", \"project_dir\": \"my-site\"}\n```\n\n## Recommended Workflow\n\n1. **Initialize:** `init` → creates the Docker dev environment\n2. **Scaffold:** `init_project` → creates a new project with chosen framework (optionally with a template)\n3. **Version Control:** `git_init` → initialize git repository for the project\n4. **Develop:** Use `write_file` to create/edit files, `install_deps` for packages\n5. **Commit:** `git_commit` → save progress with a meaningful message\n6. **Preview:** `dev` to start the dev server, `tunnel` to share externally, `screenshot` to capture preview\n7. **Test:** `lighthouse` for performance audit, `lint` for code quality, `check_js` for runtime JS errors\n8. **Optimize:** `optimize_images` for SVG optimization\n9. **Build:** `build` with `project_dir` (and `auto_fix: true` for automatic error recovery)\n10. **Deploy:** Choose based on target and pass `project_dir`:\n    - `publish_local` — serve locally with Caddy (DEFAULT for most cases, no config flags needed)\n    - `deploy` — upload to remote server (requires `homepage.allow_deploy=true`)\n    - `deploy_netlify` — deploy to Netlify (requires `netlify.allow_deploy=true`)\n    - `deploy_vercel` — deploy to Vercel (requires `vercel.allow_deploy=true`)\n\n## Version Control (Git)\n\nGit operations run inside the Docker container. Initialize a repository to track changes, rollback mistakes, and maintain project history.\n\n### git_init — Initialize a git repository\nCreates a repository with an initial commit.\n```json\n{\"action\": \"homepage\", \"operation\": \"git_init\", \"project_dir\": \"my-site\"}\n```\n\n### git_commit — Commit all changes\nStages all modifications and commits.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `git_message` | string | no | Commit message (default: \"Update\") |\n| `project_dir` | string | yes | Workspace-relative project subdirectory |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"git_commit\", \"project_dir\": \"my-site\", \"git_message\": \"Add hero section and navigation\"}\n```\n\n### git_status — View changed files\n```json\n{\"action\": \"homepage\", \"operation\": \"git_status\", \"project_dir\": \"my-site\"}\n```\n\n### git_diff — View current changes\n```json\n{\"action\": \"homepage\", \"operation\": \"git_diff\", \"project_dir\": \"my-site\"}\n```\n\n### git_log — View commit history\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `count` | integer | no | Number of commits to show (default: 10, max: 100) |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"git_log\", \"project_dir\": \"my-site\", \"count\": 5}\n```\n\n### git_rollback — Revert recent commits\nCreates new revert commits (safe — never rewrites history).\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `count` | integer | no | Number of commits to revert (default: 1, max: 10) |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"git_rollback\", \"project_dir\": \"my-site\", \"count\": 1}\n```\n\n## Build with Auto-Fix\n\nThe `build` operation supports automatic error recovery when `auto_fix` is set to `true`.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `auto_fix` | boolean | no | If true, attempt to fix common build errors and retry once |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"build\", \"project_dir\": \"my-site\", \"auto_fix\": true}\n```\n\n**Auto-fixable errors:**\n- Missing npm modules → auto-installs the package\n- Webpack module resolution failures → auto-installs the module\n- ESLint fixable errors → runs `eslint --fix`\n- Missing dependencies / node_modules → runs `npm install`\n\nThe response includes `auto_fix_applied: true` and `auto_fix_pattern` when a fix was applied.\n\n## Project Templates\n\nWhen using `init_project`, you can specify a `template` to get pre-built CSS layouts and a README:\n\n| Template | Description |\n|----------|-------------|\n| `portfolio` | Dark-theme portfolio with hero, project cards, skills grid |\n| `blog` | Clean serif blog with article list, tags, metadata |\n| `landing` | Marketing landing page with hero, features, testimonials, CTA |\n| `dashboard` | Admin dashboard with sidebar, stats cards, data table |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"init_project\", \"framework\": \"next\", \"name\": \"my-portfolio\", \"template\": \"portfolio\"}\n```\n\nTemplates write CSS files into `src/styles/` and a `TEMPLATE_README.md`. Import the CSS in your layout and use the documented class names.\n\n## Sharing \u0026 Tunnels\n\n### tunnel — Create a public URL for sharing\nStarts a Cloudflare quick tunnel to expose a local port to the internet via a temporary `*.trycloudflare.com` URL.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `port` | integer | no | Local port to expose (default: 3000) |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"tunnel\", \"port\": 3000}\n```\n\n**Notes:**\n- Requires `cloudflared` in the Docker container (included since container rebuild)\n- The URL is temporary and changes each time\n- Also returns a `lan_url` for accessing from other devices on the same network\n- The `webserver_start` response now automatically includes a `lan_url` when binding to all interfaces\n\n## Important Notes\n\n- All file paths are relative to `/workspace` inside the container\n- `project_dir` must always be relative to the homepage workspace. Use `ki-news`; never `/workspace/ki-news`.\n- Mutating and deployment operations must carry the workspace-relative `project_dir`.\n  Do not deploy, publish, build, or clean up a homepage project from a guessed folder name.\n- `homepage.workspace_path` in the config UI is only the host mount path. Tool arguments still stay relative, e.g. `project_dir: \"my-site\"` and `path: \"my-site/src/app/page.tsx\"`.\n- The container persists between sessions (uses `unless-stopped` restart policy)\n- Build output directory is auto-detected: checks `out`, `dist`, `build`, `.next`, `public`. If none exist (plain HTML), serves the project root directly.\n- Plain HTML projects (no `package.json`) skip the build step entirely — no Docker dev container needed for deployment.\n- For deployment, store credentials in the vault: `homepage_deploy_password` or `homepage_deploy_key`\n- The Caddy web server can serve with automatic HTTPS if a domain is configured (Docker mode only)\n- Use compound operations (`init_project`, `build`, `publish_local`, `deploy_netlify`, `deploy_vercel`) to save tokens and keep the pipeline recoverable — avoid running many individual `exec` calls\n- Use the homepage workspace operations from the Required Task Rule for project files; do not fall back to generic workspace tools.\n- **NEVER use generic `execute_shell` for `/workspace/...` commands.** `/workspace` exists inside the homepage container; use `homepage_project` `exec`, `homepage_file`, or `homepage_deploy` `build`.\n- **Do not directly edit generated output** (`dist`, `build`, `out`) with shell redirection or copy commands. These directories are deployment artifacts; change source files and rebuild.\n\n### Using Generated Images in Netlify Deployments\n\n**IMPORTANT:** Images generated with `generate_image` or found through `media_registry` are AuraGo-local assets first. For homepage source code, prefer copying the image into the project's deployable static directory and referencing that project asset.\n\nFor Vite, React, and plain HTML projects, put local images under `public/assets/...` or the framework-equivalent static directory, then reference them with a project-relative web URL:\n```html\n\u003cimg src=\"/assets/banner.jpeg\" alt=\"Banner\"\u003e\n```\n\nIf an existing page already references generated AuraGo assets such as `/files/generated_images/\u003cfilename\u003e`, generated image `/assets/img_\u003cid\u003e.jpeg` paths, or legacy `/img_\u003cid\u003e.jpeg` paths, `deploy_netlify` tries to bundle those files into the ZIP. Do not rely on that as the primary workflow for new edits: make the image a deployable project asset in `public/assets` and update the markup to `/assets/\u003cfilename\u003e`.\n\nNever use `file://`, host filesystem paths, `/workspace/...`, `data/homepage/...`, or `agent_workspace/...` in page markup. Those paths are not fetchable from a deployed browser.\n\nThe `deploy_netlify` operation installs missing dependencies, builds, validates that the selected output contains `index.html`, scans HTML/CSS/JS for generated asset references, uploads a ZIP, waits for Netlify to report the deploy as ready, and verifies the public URL.\n\nIf a framework build fails but a finished static sibling directory exists, such as `my-site-static/index.html`, `deploy_netlify` may fall back to that static project and returns `fallback_project_dir` in the result. For an explicitly static export, you can also call `deploy_netlify` with `project_dir: \"my-site-static\"` and `build_dir: \".\"`.\n\n### Using Vercel Deployments\n\nUse `deploy_vercel` when the homepage project should be published to Vercel from AuraGo's managed workspace.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `project_dir` | string | yes | Homepage workspace directory to deploy |\n| `project_id` | string | no | Vercel project name or ID to link before deploying; falls back to `vercel.default_project_id` |\n| `build_dir` | string | no | Explicit directory to upload; otherwise auto-detected after build |\n| `target` | string | no | `preview` or `production` (default: `preview`, production requires explicit selection) |\n| `alias` | string | no | Alias or domain to assign after a successful deployment |\n| `domain` | string | no | Custom domain to add/verify before alias assignment |\n\n```json\n{\"action\": \"homepage\", \"operation\": \"deploy_vercel\", \"project_dir\": \"my-site\", \"project_id\": \"my-site\", \"target\": \"preview\"}\n```\n\n```json\n{\"action\": \"homepage\", \"operation\": \"deploy_vercel\", \"project_dir\": \"my-site\", \"project_id\": \"my-site\", \"target\": \"production\", \"domain\": \"www.example.com\"}\n```\n\nNotes:\n- `deploy_vercel` is designed for homepage workspace projects including HTML, Vite/React, Astro, and Next.js.\n- Projects with `package.json` deploy Vercel-native from the project root after a local build check, even when `build_dir` is provided. Explicit static `build_dir` values are only for plain static projects without package metadata and must contain a valid `index.html`.\n- Do not patch Next.js into static export for Vercel. Let Vercel build and route the framework project from source.\n- AuraGo validates the build first, links the Vercel project when a project reference is available, then deploys from the homepage workspace via the Vercel CLI.\n- If the Vercel project does not exist yet, AuraGo can create it automatically only when `vercel.allow_project_management=true`.\n- Alias or custom domain assignment requires `vercel.allow_domain_management=true`.\n\n## Troubleshooting\n\n### \"Docker not available\" Error\n\n**Problem:** Docker daemon is not running or not accessible.\n\n**Solutions:**\n1. **Start Docker:** `sudo systemctl start docker` (recommended)\n2. **Enable Docker:** `sudo systemctl enable docker`\n\n### Web Server Not Accessible\n\n**Problem:** `publish_local` or `webserver_start` reports success but site not reachable.\n\n**Check:**\n1. Verify port is not in use: `netstat -tlnp | grep 8080`\n2. Check firewall rules: `sudo ufw allow 8080`\n3. Try different port in config: `homepage.webserver_port: 8081`\n\n### Dev Server Returns 404 via Caddy\n\n**Problem:** The dev server runs inside the container but Caddy returns 404 for `/\u003cproject_dir\u003e/` paths.\n\n**Cause:** The Caddy and dev containers must be on the same Docker network (`aurago-homepage-net`) for Caddy to reach the dev server by container name.\n\n**Solutions:**\n1. Restart the dev container (`homepage stop` + `homepage start`) — it auto-connects to the shared network\n2. Restart the Caddy web server (`webserver_stop` + `webserver_start`) — it also auto-connects\n3. Verify both containers are on the network: `docker network inspect aurago-homepage-net`\n\n### Status Shows \"running\": false\n\n**Problem:** Container appears stopped.\n\n**Solutions:**\n1. Check Docker status: `docker ps -a`\n2. Start manually: `homepage start`\n3. If the user explicitly approves a destructive reset: `homepage destroy` with `force: true`, then `homepage init`\n\n### init_project fails or install_deps can't find directory\n\n**Problem:** `init_project` appears to succeed but `install_deps` or `build` reports directory not found. This typically means the Node.js version in the container is too old for the requested framework (npm `EBADENGINE` warnings).\n\n**Solutions:**\n1. Use `framework: \"html\"` for plain HTML projects (no Node.js required)\n2. Rebuild the homepage container to get a newer Node.js: `homepage rebuild`\n3. Create files manually with `homepage write_file`\n\n### deploy_netlify: \"Deploy path does not exist\"\n\n**Problem:** Files were created outside the homepage workspace, commonly through a generic file tool, placing them in `agent_workspace/workdir/` instead of the homepage workspace.\n\n**Solution:** Use `homepage write_file` to create all project files. The `deploy_netlify` operation only finds files in the homepage workspace (`data/homepage/`).\n\n### deploy_netlify: \"Missing script: build\"\n\n**Problem:** `package.json` exists, but it does not define a `build` script.\n\n**Solution:** Do not keep retrying the same deploy call. Either:\n1. Treat the project as static HTML and deploy the project root directly, or\n2. Add a valid `build` script to `package.json`, then retry.\n\nIf the project is plain HTML, you usually do not need a build step at all.\n\n### deploy_vercel: \"project was not found\"\n\n**Problem:** The requested Vercel project does not exist and automatic project creation is blocked.\n\n**Solution:** Either:\n1. Set `vercel.default_project_id` or pass `project_id` explicitly, or\n2. Enable `vercel.allow_project_management` so AuraGo may create the Vercel project automatically.\n\n### deploy_vercel: alias or domain assignment failed\n\n**Problem:** The deployment succeeded, but the requested alias or custom domain could not be attached.\n\n**Solution:** Check:\n1. `vercel.allow_domain_management=true`\n2. The domain is already configured for the same Vercel team/account\n3. DNS verification is complete if you are using a custom domain\n\n## Configuration\n\n```yaml\nhomepage:\n  enabled: true\n  allow_local_server: false  # Enable Python fallback when Docker unavailable\n  workspace_path: \"data/homepage\"  # Path for homepage projects\n  # For deployment:\n  # SFTP/SCP credentials stored in vault:\n  # - homepage_deploy_host: deployment server hostname\n  # - homepage_deploy_user: deployment username\n  # - homepage_deploy_password OR homepage_deploy_key: authentication\n```\n\n## Notes\n\n- **File paths**: All file paths are relative to `/workspace` inside the container\n- **project_dir**: Must always be relative to the homepage workspace (e.g., `my-site`; never `/workspace/my-site`)\n- Use homepage workspace operations for homepage project files; generic workspace tools use a different location\n- **Container persistence**: The container persists between sessions (uses `unless-stopped` restart policy)\n- **Build output**: Auto-detected: `out`, `dist`, `build`, `.next`, `public`\n- **Plain HTML projects**: Skip the build step entirely — no Docker dev container needed for deployment\n- **Auto-fix**: The `build` operation can automatically fix common errors when `auto_fix: true`\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregistered projects. Historical unknown reasons remain unknown.\n",
       "tools": [
         "here_now_site",
         "here_now_sites"
@@ -87456,8 +87963,8 @@
     {
       "id": "homepage_deploy",
       "path": "prompts/tools_manuals/homepage_deploy.md",
-      "sha256": "afdc83eb05b705095ef8f8059e31d4753c5181e9de2d6bcff29b6281207c03da",
-      "body": "# homepage_deploy\n\nDeploy homepage projects through configured deploy targets.\n\nSupported operations are `deploy`, `deploy_netlify`, `deploy_here_now`, and `deploy_vercel`. Build and package from the homepage workspace; remote deployment still follows the deployment toggles in configuration.\n\nProject-scoped build, dev, publish, and deploy flows require a workspace-relative `project_dir`, for example `my-site`. Use the actual project directory from the homepage workspace or registry; do not pass absolute paths, host paths, `/workspace/...`, or guessed folder names.\n\nFor `deploy_here_now`, leave `slug` empty to create a permanent authenticated site or pass the exact slug to update it. Optional `account` selects a personal account or workspace exposed by the configured here.now account list. AuraGo validates the static artifact, finalizes the version, verifies the live URL, and only then writes the deployment ledger. Anonymous publishing and claim tokens are not supported.\n\n**After a successful deployment, call `homepage_registry` → `add_history` with `entry_type: milestone` and record the deployed URL.**\n",
+      "sha256": "df47051e1b57dedfd9be6bd88d7b018d014628e9ecaf82b8a71ddbff3d6f0638",
+      "body": "# homepage_deploy\n\nDeploy homepage projects through configured deploy targets.\n\nSupported operations are `deploy`, `deploy_netlify`, `deploy_here_now`, and `deploy_vercel`. Build and package from the homepage workspace; remote deployment still follows the deployment toggles in configuration.\n\nProject-scoped build, dev, publish, and deploy flows require a workspace-relative `project_dir`, for example `my-site`. Use the actual project directory from the homepage workspace or registry; do not pass absolute paths, host paths, `/workspace/...`, or guessed folder names.\n\nFor `deploy_here_now`, leave `slug` empty to create a permanent authenticated site or pass the exact slug to update it. Optional `account` selects a personal account or workspace exposed by the configured here.now account list. AuraGo validates the static artifact, finalizes the version, verifies the live URL, and only then writes the deployment ledger. Anonymous publishing and claim tokens are not supported.\n\n**After a successful deployment, call `homepage_registry` → `add_history` with `entry_type: milestone` and record the deployed URL.**\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregistered projects. Historical unknown reasons remain unknown.\n",
       "tools": [
         "homepage_deploy"
       ],
@@ -87466,8 +87973,8 @@
     {
       "id": "homepage_file",
       "path": "prompts/tools_manuals/homepage_file.md",
-      "sha256": "8325fdddcecd230c911a34c776ec118d451a4e2736ff86a63472240698c8e8bf",
-      "body": "# homepage_file\n\nRead, write, edit, and optimize files inside the homepage workspace.\n\nPaths must include the project directory prefix, for example `my-site/src/App.jsx`. Use `sub_operation` for text, JSON, YAML, and XML edits.\n\n**After every write or edit, call `homepage_registry` → `add_history` to record what changed and why.**\n",
+      "sha256": "c74f80d50bed041525ab2912f08a1c2c3cc648f370c90bce3e76f9dda5064049",
+      "body": "# homepage_file\n\nRead, write, edit, and optimize files inside the homepage workspace.\n\nPaths must include the project directory prefix, for example `my-site/src/App.jsx`. Use `sub_operation` for text, JSON, YAML, and XML edits.\n\n**After every write or edit, call `homepage_registry` → `add_history` to record what changed and why.**\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregistered projects. Historical unknown reasons remain unknown.\n",
       "tools": [
         "homepage_file"
       ],
@@ -87476,8 +87983,8 @@
     {
       "id": "homepage_git",
       "path": "prompts/tools_manuals/homepage_git.md",
-      "sha256": "be36cf75e9ded347af5f5c581f58f27b4282c76bea1a91ffe32bf9da98ae3d9d",
-      "body": "# homepage_git\n\nManage homepage git and revision history.\n\nUse for git init, commit, status, diff, log, rollback, and stored homepage revisions.\n",
+      "sha256": "f0be742db71726aa5105b2fe7871a971b3ee84e03f670dd18e0e25974abbaad8",
+      "body": "# homepage_git\n\nManage homepage git and revision history.\n\nUse for git init, commit, status, diff, log, rollback, and stored homepage revisions.\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregistered projects. Historical unknown reasons remain unknown.\n",
       "tools": [
         "homepage_git"
       ],
@@ -87486,8 +87993,8 @@
     {
       "id": "homepage_project",
       "path": "prompts/tools_manuals/homepage_project.md",
-      "sha256": "a1c03916752627da241bfd81b605830ae528b4ad172c63205521c72a7dd9d7d6",
-      "body": "# homepage_project\n\nManage homepage project lifecycle: initialize, start/stop, build, install dependencies, run dev servers, publish locally, tunnel, and destroy with explicit `force=true`.\n\nUse homepage workspace paths and project directories. Do not use generic filesystem tools for homepage project files.\n\nProject-scoped operations must use workspace-relative `project_dir` or `name` values, for example `my-site`. Use the actual project directory from the homepage workspace or registry; do not use guessed folder names, absolute host folders, or `/workspace/...` paths.\n\n**Before planning changes, read `homepage_registry` → `list_history`. After init, build, or publish, call `homepage_registry` → `add_history`.**\n",
+      "sha256": "8993cbc5abfefb603adc1ef4cb879bccb185425c38e668ba6ed31e29d923ec2d",
+      "body": "# homepage_project\n\nManage homepage project lifecycle: initialize, start/stop, build, install dependencies, run dev servers, publish locally, tunnel, and destroy with explicit `force=true`.\n\nUse homepage workspace paths and project directories. Do not use generic filesystem tools for homepage project files.\n\nProject-scoped operations must use workspace-relative `project_dir` or `name` values, for example `my-site`. Use the actual project directory from the homepage workspace or registry; do not use guessed folder names, absolute host folders, or `/workspace/...` paths.\n\n**Before planning changes, read `homepage_registry` → `list_history`. After init, build, or publish, call `homepage_registry` → `add_history`.**\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregistered projects. Historical unknown reasons remain unknown.\n",
       "tools": [
         "homepage_project"
       ],
@@ -87496,8 +88003,8 @@
     {
       "id": "homepage_quality",
       "path": "prompts/tools_manuals/homepage_quality.md",
-      "sha256": "1ab81f8fe19ab5222c7365dc9522d184a0d3ed29b0dc48d9788f4418a860516a",
-      "body": "# homepage_quality\n\nRun homepage quality checks: Lighthouse, screenshots, JavaScript console checks, and lint.\n\nUse this after file or project changes before deployment.\n",
+      "sha256": "3f4c7d90d7ed2a55e87c448bc409a84e8aa5c77502513cdd7112ef1a732f8cc5",
+      "body": "# homepage_quality\n\nRun homepage quality checks: Lighthouse, screenshots, JavaScript console checks, and lint.\n\nUse this after file or project changes before deployment.\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregistered projects. Historical unknown reasons remain unknown.\n",
       "tools": [
         "homepage_quality"
       ],
@@ -87506,12 +88013,12 @@
     {
       "id": "homepage_registry",
       "path": "prompts/tools_manuals/homepage_registry.md",
-      "sha256": "1d0663b81b29fde752a1a95373fc384179f92a1c0c279879d5e296d851f9709d",
-      "body": "# Homepage Registry Tool\n\nTrack homepage projects with their framework, URLs, deployment history, edits, known problems, and chronological project history (decisions, notes, feedback, observations).\nProjects are automatically registered and updated when you use focused homepage operations (`homepage_project` init_project, `homepage_deploy` build/deploy, `homepage_quality` lighthouse).\n\nYou MUST actively maintain the project history. Read `list_history` before making changes and add an `add_history` entry after every meaningful change.\n\n## Prerequisites\n- `homepage.enabled: true` in config.yaml\n- DB is auto-created at `sqlite.homepage_registry_path`\n\n## Identity Contract\n\n`project_dir` is required when registering a project. It must be relative to the homepage workspace, for example `portfolio` or `sites/portfolio`, never `/workspace/portfolio`. AuraGo rejects new entries without `project_dir` so later cleanup and deployment tasks can always map a registry row back to the correct local folder.\n\n## Operations\n\n### register — Register a new project\nRequired fields for `register`: `name`, `project_dir`.\n\n```json\n{\n  \"action\": \"homepage_registry\",\n  \"operation\": \"register\",\n  \"name\": \"My Portfolio\",\n  \"description\": \"Personal portfolio site with project showcase\",\n  \"framework\": \"astro\",\n  \"url\": \"https://mysite.example.com\",\n  \"project_dir\": \"portfolio\",\n  \"tags\": [\"portfolio\", \"personal\"]\n}\n```\n\n### search — Search projects by name, description, URL, or framework\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"search\", \"query\": \"portfolio\", \"limit\": 10}\n```\n\n### get — Get a single project by ID\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"get\", \"id\": 1}\n```\n\n### list — List all projects with optional filters\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"list\", \"limit\": 20}\n{\"action\": \"homepage_registry\", \"operation\": \"list\", \"status\": \"active\"}\n```\n\n### update — Update project metadata\n```json\n{\n  \"action\": \"homepage_registry\",\n  \"operation\": \"update\",\n  \"id\": 1,\n  \"project_dir\": \"portfolio\",\n  \"description\": \"Updated portfolio with new project section\",\n  \"url\": \"https://newsite.example.com\",\n  \"tags\": [\"portfolio\", \"redesigned\"]\n}\n```\n\n### delete — Soft-delete a project\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"delete\", \"id\": 1, \"project_dir\": \"portfolio\"}\n```\n\n### log_edit — Record an edit to a project\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"log_edit\", \"id\": 1, \"project_dir\": \"portfolio\", \"reason\": \"Added contact form and updated styling\"}\n```\n\n### log_deploy — Record a deployment\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"log_deploy\", \"id\": 1, \"project_dir\": \"portfolio\", \"url\": \"https://mysite.example.com\"}\n```\n\n### log_problem — Record a known problem\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"log_problem\", \"id\": 1, \"project_dir\": \"portfolio\", \"problem\": \"Mobile navigation menu doesn't close on tap\"}\n```\n\n### resolve_problem — Mark a problem as resolved\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"resolve_problem\", \"id\": 1, \"project_dir\": \"portfolio\", \"problem\": \"Mobile navigation menu doesn't close on tap\"}\n```\n\n## Project History (MUST USE)\n\nEvery project has a chronological history. This is not optional. Use it to remember decisions, user feedback, open questions, and milestones across sessions.\n\n### Before making changes\n1. Call `homepage_registry` → `list_history` for the project (`id` = project ID).\n2. Read recent entries to understand prior decisions and user intent.\n3. If something is unclear, ask the user or call `get_history` for details.\n\n### After making changes\n1. After any `homepage_file` write/edit, `homepage` build/deploy, or `homepage_project` init, call `homepage_registry` → `add_history`.\n2. Pick the right `entry_type`:\n   - `decision` — design or architecture choices\n   - `note` — general observation\n   - `feedback` — captured user feedback\n   - `question` — open question or assumption\n   - `milestone` — completed goal (e.g. \"Hero section done\")\n   - `observation` — finding from quality checks\n3. Write a concise `content`: what changed, why, and next steps.\n4. Set `source` to the originating tool (e.g. `homepage_file`, `homepage_deploy`).\n5. Include the same workspace-relative `project_dir` used for the project.\n\n### add_history — Add a history entry\n```json\n{\n  \"action\": \"homepage_registry\",\n  \"operation\": \"add_history\",\n  \"id\": 1,\n  \"project_dir\": \"portfolio\",\n  \"entry_type\": \"decision\",\n  \"content\": \"User wants a dark hero section with single CTA. Carousel rejected in favor of static gallery.\",\n  \"source\": \"homepage_file\",\n  \"tags\": [\"design\", \"hero\"]\n}\n```\n\n### list_history — List history entries for a project\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"list_history\", \"id\": 1, \"limit\": 20}\n```\n\n### get_history — Get a single history entry\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"get_history\", \"history_id\": 42}\n```\n\n### search_history — Search history content\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"search_history\", \"id\": 1, \"history_query\": \"hero\", \"limit\": 10}\n```\n\n### update_history — Update an existing entry\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"update_history\", \"history_id\": 42, \"project_dir\": \"portfolio\", \"content\": \"Updated decision text\"}\n```\n\n### delete_history — Delete an entry\n```json\n{\"action\": \"homepage_registry\", \"operation\": \"delete_history\", \"history_id\": 42, \"project_dir\": \"portfolio\"}\n```\n\n## Notes\n- Projects are auto-registered when you use `homepage_project` `init_project`\n- Builds auto-log edits, deploys auto-log deployments\n- Lighthouse scores are auto-stored when you run `homepage` → `lighthouse`\n- Use `log_problem` to track issues, `resolve_problem` to clear them\n- Status values: `active`, `archived`, `maintenance`\n",
+      "sha256": "c9314e208548ab9cda5dcef42415e3c3df976a0b77ea965881abe2e8ebda41c1",
+      "body": "# Homepage registry\n\nPersistent managed website identity, provenance, local/remote locations, changes,\nreasons, revisions and observations. Query before editing; never invent a folder\nor deployment URL.\n\n## Read operations\n\n- overview: query, limit (default 20, maximum 100), offset. Returns sites, total,\n  optional next_offset and ledger_version.\n- get_site: internal id or exact project_dir; includes targets and recent events.\n- list_events: project id, limit, offset; what changed, why and the outcome.\n- discover_workspace: unregistered directory candidates; read-only.\n- audit_revisions: legacy credential filenames without secret contents.\n- Legacy list, search and get retain their metadata response envelopes.\n\n## Identity and changes\n\n- adopt: existing project_dir and reason.\n- relocate: existing id, new existing project_dir and reason. Preserves history;\n  it does not move files.\n- register: name, exact project_dir, reason and optional metadata.\n- update: id or name, reason and changed metadata.\n- delete: id or name and reason; archives the record and retains history.\n\nOrigin is agent_created, adopted or unknown. managed_site_id on focused tools\nis internal; provider site_id/project_id remain separate. Workspace changes do\nnot silently rebind existing projects.\n\nEvery agent Homepage mutation requires reason: a short purpose rather than an\noperation name. Actual file changes and final outcomes are recorded\nautomatically. Do not repeat normal changes with log_edit and add_history.\nUse get_site/list_events to answer what changed, why, where and whether it was\nverified. Unknown reasons stay unknown; uncertain actions must not be replayed.\n\n## Additional notes and compatibility\n\nUse add_history for decisions, questions, feedback and explanatory notes.\nHistory operations remain list_history, get_history, search_history,\nupdate_history and delete_history. id identifies the project, history_id a note.\nEntry types remain note, decision, question, feedback, milestone and observation;\noptional source, tags, limit and offset retain their meaning.\nLegacy log_edit, log_deploy, log_problem and resolve_problem accept reason.\nManual deploy notes do not prove that a provider is live.\n",
       "tools": [
         "homepage_registry"
       ],
-      "description": "Track homepage/web projects, deploy history, project history, problems, metadata. register requires project_dir. Read list_history before changes; add_history after."
+      "description": "Track homepage/web projects, locations, deploy history and project history. Read overview/get_site/list_events; mutations need reason. add_history/list_history add notes."
     },
     {
       "id": "huggingface",
@@ -87861,8 +88368,8 @@
     {
       "id": "netlify",
       "path": "prompts/tools_manuals/netlify.md",
-      "sha256": "1485410d994e67a8d1c5f0eae3a8d63a500f5ef45d6e13ddcafa091f87df9e74",
-      "body": "# Netlify (`netlify`)\n\nManagement of Netlify sites, deployments, environment variables, forms, notification hooks, and SSL certificates through the Netlify REST API. Mutating site-level operations are available only when the matching permission toggle is enabled and readonly mode is off.\n\n## Operations\n\n| Operation | Description |\n|-----------|-------------|\n| `check_connection` | Test Netlify API connectivity |\n| `list_sites` | List all sites in the account |\n| `get_site` | Get detailed site information |\n| `create_site` | Create a new Netlify site |\n| `update_site` | Update site settings |\n| `delete_site` | Permanently delete a site |\n| `list_deploys` | List recent deploys for a site |\n| `get_deploy` | Get details about a specific deploy |\n| `rollback` | Restore a previous deploy |\n| `cancel_deploy` | Cancel a pending/in-progress deploy |\n| `list_env` | List environment variables for a site |\n| `get_env` | Get variable metadata only (key, scopes, timestamp, value count); secret values are never returned |\n| `set_env` | Create or update an environment variable |\n| `delete_env` | Delete an environment variable |\n| `list_files` | List files in the production deploy |\n| `list_forms` | List forms configured on the site |\n| `get_submissions` | Get form submissions |\n| `list_hooks` | List notification hooks |\n| `create_hook` | Create a notification hook; requires site management |\n| `delete_hook` | Delete a notification hook; requires site management |\n| `provision_ssl` | Provision Let's Encrypt SSL certificate; requires site management |\n\n## Parameters\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `operation` | string | yes | One of the operations above |\n| `site_id` | string | for most operations | Netlify site ID |\n| `deploy_id` | string | for get_deploy, rollback, cancel_deploy | Deploy ID |\n| `site_name` | string | for create_site, update_site | Site name |\n| `custom_domain` | string | for create_site, update_site | Custom domain |\n| `env_key` | string | for get_env, set_env, delete_env | Environment variable key |\n| `env_value` | string | for set_env | Environment variable value |\n| `env_context` | string | for set_env | Context: `all`, `production`, `deploy-preview`, `branch-deploy`, `dev` |\n| `hook_type` | string | for create_hook | Type: `url`, `email`, `slack` |\n| `hook_event` | string | for create_hook | Event: `deploy_created`, `deploy_building`, `deploy_failed` |\n| `hook_id` | string | for delete_hook | Hook ID |\n| `form_id` | string | for get_submissions | Form ID |\n\n## Examples\n\n**Check API connection:**\n```json\n{\"action\": \"netlify\", \"operation\": \"check_connection\"}\n```\n\n**List sites:**\n```json\n{\"action\": \"netlify\", \"operation\": \"list_sites\"}\n```\n\n**Create a new site:**\n```json\n{\"action\": \"netlify\", \"operation\": \"create_site\", \"site_name\": \"my-awesome-site\", \"custom_domain\": \"example.com\"}\n```\n\n**Set an environment variable:**\n```json\n{\"action\": \"netlify\", \"operation\": \"set_env\", \"site_id\": \"abc123\", \"env_key\": \"API_URL\", \"env_value\": \"https://api.example.com\", \"env_context\": \"production\"}\n```\n\n**Provision SSL:**\n```json\n{\"action\": \"netlify\", \"operation\": \"provision_ssl\", \"site_id\": \"abc123\"}\n```\n\n## Configuration\n\n```yaml\nnetlify:\n  enabled: true\n  # Personal Access Token stored in vault: netlify_token\n  # Generate at: https://app.netlify.com/user/applications#personal-access-tokens\n  readonly: false           # Set true to block mutations\n  allow_deploy: false       # Explicitly allow rollback/cancel_deploy\n  allow_site_management: false  # Explicitly allow create/update/delete site, hooks, and SSL\n  allow_env_management: false  # Explicitly allow set_env/delete_env\n```\n\n## Notes\n\n- **Authentication**: A Personal Access Token (PAT) is required. Store it in the vault with key `netlify_token`.\n- **Homepage/project deploys**: Do not use this tool or `homepage exec` with the Netlify CLI to upload website files. Direct CLI commands do not receive the vault token. For AuraGo homepage workspace projects, use `homepage_deploy` `deploy_netlify` with `project_dir`; it installs dependencies, builds, validates static output, uploads a hardened ZIP, polls Netlify until ready, and verifies the public URL.\n- **ZIP deploys**: Binary ZIP data cannot be reliably transported through LLM tool arguments. Use `homepage_deploy` `deploy_netlify` instead for builds.\n- **Destructive cleanup**: `delete_site` permanently deletes a site. Keep `netlify.allow_site_management=false` or `netlify.readonly=true` if agents should not be able to delete sites.\n- **Rate limits**: General API: 500 requests/minute. Deploys: 3/minute, 100/day.\n- **Permission model**: `readonly` blocks all mutations. `allow_deploy` controls rollback/cancel. `allow_site_management` controls create/update/delete site plus hook mutations and SSL provisioning. `allow_env_management` controls env var writes/deletes.\n- **Form submissions**: Contain user-generated content and are wrapped in `\u003cexternal_data\u003e` for safety.\n",
+      "sha256": "db59d5177c65493a6890f89cd2475e27d58b4a2319f14d5c0a39e344feab7a2a",
+      "body": "# Netlify (`netlify`)\n\nManagement of Netlify sites, deployments, environment variables, forms, notification hooks, and SSL certificates through the Netlify REST API. Mutating site-level operations are available only when the matching permission toggle is enabled and readonly mode is off.\n\n## Operations\n\n| Operation | Description |\n|-----------|-------------|\n| `check_connection` | Test Netlify API connectivity |\n| `list_sites` | List all sites in the account |\n| `get_site` | Get detailed site information |\n| `create_site` | Create a new Netlify site |\n| `update_site` | Update site settings |\n| `delete_site` | Permanently delete a site |\n| `list_deploys` | List recent deploys for a site |\n| `get_deploy` | Get details about a specific deploy |\n| `rollback` | Restore a previous deploy |\n| `cancel_deploy` | Cancel a pending/in-progress deploy |\n| `list_env` | List environment variables for a site |\n| `get_env` | Get variable metadata only (key, scopes, timestamp, value count); secret values are never returned |\n| `set_env` | Create or update an environment variable |\n| `delete_env` | Delete an environment variable |\n| `list_files` | List files in the production deploy |\n| `list_forms` | List forms configured on the site |\n| `get_submissions` | Get form submissions |\n| `list_hooks` | List notification hooks |\n| `create_hook` | Create a notification hook; requires site management |\n| `delete_hook` | Delete a notification hook; requires site management |\n| `provision_ssl` | Provision Let's Encrypt SSL certificate; requires site management |\n\n`deploy_zip` and `deploy_draft` are not available in the agent flow: a ZIP cannot\nbe transported through tool arguments. Use the `homepage` tool with\n`operation: deploy_netlify` instead.\n\nEnvironment variable operations require the Netlify account (team). Without\n`netlify.team_slug` a single visible account is used automatically; several\naccounts produce an error naming the setting.\n\n## Parameters\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `operation` | string | yes | One of the operations above |\n| `site_id` | string | for most operations | Netlify site ID |\n| `deploy_id` | string | for get_deploy, rollback, cancel_deploy | Deploy ID |\n| `site_name` | string | for create_site, update_site | Site name |\n| `custom_domain` | string | for create_site, update_site | Custom domain |\n| `env_key` | string | for get_env, set_env, delete_env | Environment variable key |\n| `env_value` | string | for set_env | Environment variable value |\n| `env_context` | string | for set_env | Context: `all`, `production`, `deploy-preview`, `branch-deploy`, `dev` |\n| `hook_type` | string | for create_hook | Type: `url`, `email`, `slack` |\n| `hook_event` | string | for create_hook | Event: `deploy_created`, `deploy_building`, `deploy_failed` |\n| `hook_id` | string | for delete_hook | Hook ID |\n| `form_id` | string | for get_submissions | Form ID |\n\n## Examples\n\n**Check API connection:**\n```json\n{\"action\": \"netlify\", \"operation\": \"check_connection\"}\n```\n\n**List sites:**\n```json\n{\"action\": \"netlify\", \"operation\": \"list_sites\"}\n```\n\n**Create a new site:**\n```json\n{\"action\": \"netlify\", \"operation\": \"create_site\", \"site_name\": \"my-awesome-site\", \"custom_domain\": \"example.com\"}\n```\n\n**Set an environment variable:**\n```json\n{\"action\": \"netlify\", \"operation\": \"set_env\", \"site_id\": \"abc123\", \"env_key\": \"API_URL\", \"env_value\": \"https://api.example.com\", \"env_context\": \"production\"}\n```\n\n**Provision SSL:**\n```json\n{\"action\": \"netlify\", \"operation\": \"provision_ssl\", \"site_id\": \"abc123\"}\n```\n\n## Configuration\n\n```yaml\nnetlify:\n  enabled: true\n  # Personal Access Token stored in vault: netlify_token\n  # Generate at: https://app.netlify.com/user/applications#personal-access-tokens\n  readonly: false           # Set true to block mutations\n  allow_deploy: false       # Explicitly allow rollback/cancel_deploy\n  allow_site_management: false  # Explicitly allow create/update/delete site, hooks, and SSL\n  allow_env_management: false  # Explicitly allow set_env/delete_env\n  team_slug: \"\"             # Optional: required when the token sees several accounts\n  default_site_id: \"\"       # Optional: site UUID, name or custom domain\n```\n\n## Notes\n\n- **Authentication**: A Personal Access Token (PAT) is required. Store it in the vault with key `netlify_token`.\n- **Homepage/project deploys**: Do not use this tool or `homepage exec` with the Netlify CLI to upload website files. Direct CLI commands do not receive the vault token. For AuraGo homepage workspace projects, use `homepage_deploy` `deploy_netlify` with `project_dir`; it installs dependencies, builds, validates static output, uploads a hardened ZIP, polls Netlify until ready, and verifies the public URL.\n- **Deploy URLs**: `deploy_url` in a deploy result is the immutable deploy permalink; `site_url` is the published site. Verification always uses the permalink.\n- **Draft deploys**: `draft: true` publishes nothing. The result reports `published: false`; the Homepage ledger is not updated. A permalink that requires a Netlify login is reported as `verified: false` with a `verification_note`, not as an error.\n- **ZIP contents**: only regular files are packed, and credential material (`.env*`, keys, certificates, `.netrc`, databases, logs) is filtered by name. A catch-all `_redirects` rewrite is added only for a single-page output; multi-page sites keep Netlify's 404. A project with several HTML files that still needs the rewrite ships its own `_redirects`, which AuraGo never overwrites.\n- **ZIP deploys**: Binary ZIP data cannot be reliably transported through LLM tool arguments. Use `homepage_deploy` `deploy_netlify` instead for builds.\n- **Destructive cleanup**: `delete_site` permanently deletes a site. Keep `netlify.allow_site_management=false` or `netlify.readonly=true` if agents should not be able to delete sites.\n- **Rate limits**: General API: 500 requests/minute. Deploys: 3/minute, 100/day. Read requests retry a rate limit or a transient gateway error at most twice, honouring `Retry-After` for up to 30 seconds; mutations are sent exactly once, so a failed write is never silently repeated.\n- **Site references**: `site_id` accepts the site UUID, its name or its custom domain. AuraGo resolves names across all result pages.\n- **Permission model**: `readonly` blocks all mutations. `allow_deploy` controls rollback/cancel. `allow_site_management` controls create/update/delete site plus hook mutations and SSL provisioning. `allow_env_management` controls env var writes/deletes.\n- **Form submissions**: Contain user-generated content and are wrapped in `\u003cexternal_data\u003e` for safety.\n",
       "tools": [
         "netlify"
       ],
@@ -87921,8 +88428,8 @@
     {
       "id": "ollama",
       "path": "prompts/tools_manuals/ollama.md",
-      "sha256": "eea5ffbbdc4983c6c483343b1e2ceb93de741dfb837aff041fde03f2833ee1f9",
-      "body": "# Ollama Tool (`ollama`)\n\nManage local Ollama LLM instance: models, GPU memory, and inference.\n\n## Operations\n\n### Model Management\n\n| Operation | Description | Parameters |\n|-----------|-------------|------------|\n| `list`, `list_models` | List all installed models | — |\n| `running`, `ps` | List models currently loaded in GPU | — |\n| `show`, `info` | Show detailed model info (size, capabilities) | `model` |\n| `pull`, `download` | Download/pull a model from Ollama library | `model` |\n| `delete`, `remove` | Delete a locally stored model | `model` |\n| `copy` | Copy/rename a model | `source`, `destination` |\n| `load` | Load model into GPU memory for fast inference | `model` |\n| `unload` | Unload model from GPU memory | `model` |\n\n## Parameters\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `model` | string | for show/pull/delete/load/unload | Model name (e.g. `llama3:latest`, `codellama:13b`, `mistral:7b`) |\n| `source` | string | for copy | Source model name |\n| `destination` | string | for copy | Destination model name |\n\n## Examples\n\n```json\n{\"action\": \"ollama\", \"operation\": \"list\"}\n```\n\n```json\n{\"action\": \"ollama\", \"operation\": \"running\"}\n```\n\n```json\n{\"action\": \"ollama\", \"operation\": \"pull\", \"model\": \"llama3:latest\"}\n```\n\n```json\n{\"action\": \"ollama\", \"operation\": \"show\", \"model\": \"codellama:13b\"}\n```\n\n```json\n{\"action\": \"ollama\", \"operation\": \"load\", \"model\": \"llama3:latest\"}\n```\n\n```json\n{\"action\": \"ollama\", \"operation\": \"unload\", \"model\": \"llama3:latest\"}\n```\n\n## Configuration\n\n```yaml\nollama:\n  enabled: true\n  url: \"http://localhost:11434\"  # Default local Ollama\n  readonly: false  # Set true to block model changes\n  managed_instance:\n    enabled: false\n    container_port: 11434\n    use_host_gpu: false\n    gpu_backend: \"auto\"\n    default_models: []\n    memory_limit: \"\"\n    volume_path: \"\"\n```\n\n## Notes\n\n- **Model naming**: Format is `modelname:tag` (e.g. `llama3:latest`, `mistral:7b`). Without tag, `:latest` is assumed.\n- **GPU memory**: `load` keeps model in GPU for fast responses; `unload` frees GPU memory when not needed.\n- **Read-only mode**: When `ollama.readonly: true`, pull/delete/copy/load/unload operations are blocked.\n- **Common models**: llama3, mistral, codellama, phi3, Gemma, neural-chat\n",
+      "sha256": "181598fd737fbd0be8529240e5f1dae785281483f83ae4e40cbfa04c204addf0",
+      "body": "# Ollama Tool (`ollama`)\n\nManage local Ollama LLM instance: models, GPU memory, and inference.\n\n## Operations\n\n### Model Management\n\n| Operation | Description | Parameters |\n|-----------|-------------|------------|\n| `list` | List all installed models | — |\n| `running` | List loaded models and background operation receipts, including pull failures | — |\n| `show` | Show detailed model info (size, capabilities) | `model` |\n| `pull` | Start a background model download and return its operation receipt | `model` |\n| `delete` | Delete a locally stored model | `model` |\n| `copy` | Copy/rename a model | `source`, `destination` |\n| `load` | Load model into GPU memory for fast inference | `model` |\n| `unload` | Unload model from GPU memory | `model` |\n\n## Parameters\n\nUse the canonical operation names above for native tool calls. Older text-call\naliases remain compatible but are not part of the native schema. A successful\n`pull` response means accepted, not installed: check `running.operations` for the\nreturned ID. Only `state=ready` confirms completion. `failed`, `cancelled`, and\n`unknown` must not be reported as success. An absent receipt after restart is\nunknown. A refused connection or failed DNS lookup is `failed` and can be retried\nafter connectivity is restored. For `unknown`, inspect `list` and ask the\nadministrator to resolve the uncertain outcome; repeating `pull` alone does not\nreplay that write. Downloads stop on server shutdown, target changes, or revoked permissions. Container\nlifecycle belongs to administrator settings, not the generic Docker tool.\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `model` | string | for show/pull/delete/load/unload | Model name (e.g. `llama3:latest`, `codellama:13b`, `mistral:7b`) |\n| `source` | string | for copy | Source model name |\n| `destination` | string | for copy | Destination model name |\n\n## Examples\n\n```json\n{\"action\": \"ollama\", \"operation\": \"list\"}\n```\n\n```json\n{\"action\": \"ollama\", \"operation\": \"running\"}\n```\n\n```json\n{\"action\": \"ollama\", \"operation\": \"pull\", \"model\": \"llama3:latest\"}\n```\n\n```json\n{\"action\": \"ollama\", \"operation\": \"show\", \"model\": \"codellama:13b\"}\n```\n\n```json\n{\"action\": \"ollama\", \"operation\": \"load\", \"model\": \"llama3:latest\"}\n```\n\n```json\n{\"action\": \"ollama\", \"operation\": \"unload\", \"model\": \"llama3:latest\"}\n```\n\n## Configuration\n\n```yaml\nollama:\n  enabled: true\n  url: \"http://localhost:11434\"  # Default local Ollama\n  readonly: false  # Set true to block model changes\n  managed_instance:\n    enabled: false\n    container_port: 11434\n    use_host_gpu: false\n    gpu_backend: \"auto\"\n    default_models: []\n    memory_limit: \"\"\n    volume_path: \"\"\n```\n\n## Notes\n\n- **Model naming**: Format is `modelname:tag` (e.g. `llama3:latest`, `mistral:7b`). Without tag, `:latest` is assumed.\n- **GPU memory**: `load` keeps model in GPU for fast responses; `unload` frees GPU memory when not needed.\n- **Read-only mode**: When `ollama.readonly: true`, pull/delete/copy/load/unload operations are blocked.\n- **Common models**: llama3, mistral, codellama, phi3, Gemma, neural-chat\n",
       "tools": [
         "ollama"
       ],

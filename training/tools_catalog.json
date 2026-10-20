@@ -2,7 +2,7 @@
   "schema_version": "2.0",
   "source": "aurago internal/agent.BuildNativeToolSchemaSnapshot.StrictSchemas (all feature flags enabled)",
   "tool_count": 232,
-  "operation_count": 1306,
+  "operation_count": 1313,
   "call_format": "OpenAI-compatible native function calling with assistant tool_calls and role=tool results linked by tool_call_id.",
   "tools": [
     {
@@ -30563,6 +30563,13 @@
               "null"
             ]
           },
+          "reason": {
+            "description": "Required purpose for publishing or updating a managed website.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "slug": {
             "description": "Exact here.now Site slug; required except for publish.",
             "type": [
@@ -30619,6 +30626,7 @@
           "og_image_path",
           "operation",
           "project_dir",
+          "reason",
           "slug",
           "spa_mode",
           "version_id",
@@ -30701,6 +30709,10 @@
             "description": "Homepage workspace-relative project directory for publish/update.",
             "type": "string"
           },
+          "reason": {
+            "description": "Required purpose for publishing or updating a managed website.",
+            "type": "string"
+          },
           "slug": {
             "description": "Exact here.now Site slug; required except for publish.",
             "type": "string"
@@ -30744,6 +30756,7 @@
         "og_image_path",
         "operation",
         "project_dir",
+        "reason",
         "slug",
         "spa_mode",
         "version_id",
@@ -30851,6 +30864,13 @@
         },
         "project_dir": {
           "description": "Homepage workspace-relative project directory for publish/update.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "description": "Required purpose for publishing or updating a managed website.",
           "type": [
             "string",
             "null"
@@ -31403,6 +31423,13 @@
               "null"
             ]
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "operation": {
             "description": "Deployment operation.",
             "enum": [
@@ -31437,6 +31464,13 @@
           },
           "project_id": {
             "description": "Vercel project ID or name.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
             "type": [
               "string",
               "null"
@@ -31493,10 +31527,12 @@
           "build_dir",
           "domain",
           "draft",
+          "managed_site_id",
           "operation",
           "port",
           "project_dir",
           "project_id",
+          "reason",
           "site_id",
           "slug",
           "spa_mode",
@@ -31537,6 +31573,10 @@
             "description": "Create Netlify draft deployment when true.",
             "type": "boolean"
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
+          },
           "operation": {
             "description": "Deployment operation.",
             "enum": [
@@ -31565,6 +31605,10 @@
           },
           "project_id": {
             "description": "Vercel project ID or name.",
+            "type": "string"
+          },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
             "type": "string"
           },
           "site_id": {
@@ -31605,10 +31649,12 @@
         "build_dir",
         "domain",
         "draft",
+        "managed_site_id",
         "operation",
         "port",
         "project_dir",
         "project_id",
+        "reason",
         "site_id",
         "slug",
         "spa_mode",
@@ -31666,6 +31712,13 @@
             "null"
           ]
         },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
         "operation": {
           "description": "Deployment operation.",
           "enum": [
@@ -31700,6 +31753,13 @@
         },
         "project_id": {
           "description": "Vercel project ID or name.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -31850,6 +31910,13 @@
               "null"
             ]
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "marker": {
             "description": "Anchor text for insert operations.",
             "type": [
@@ -31894,6 +31961,13 @@
           },
           "project_dir": {
             "description": "Required workspace-relative project subdirectory for optimize_images.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
             "type": [
               "string",
               "null"
@@ -31935,12 +32009,14 @@
           "file_path",
           "json_path",
           "learning_reason",
+          "managed_site_id",
           "marker",
           "new",
           "old",
           "operation",
           "path",
           "project_dir",
+          "reason",
           "set_value",
           "start_line",
           "sub_operation",
@@ -31974,6 +32050,10 @@
           "learning_reason": {
             "description": "Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions.",
             "type": "string"
+          },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
           },
           "marker": {
             "description": "Anchor text for insert operations.",
@@ -32009,6 +32089,10 @@
             "description": "Required workspace-relative project subdirectory for optimize_images.",
             "type": "string"
           },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
+            "type": "string"
+          },
           "set_value": {
             "description": "Value to set for structured edits."
           },
@@ -32037,12 +32121,14 @@
         "file_path",
         "json_path",
         "learning_reason",
+        "managed_site_id",
         "marker",
         "new",
         "old",
         "operation",
         "path",
         "project_dir",
+        "reason",
         "set_value",
         "start_line",
         "sub_operation",
@@ -32091,6 +32177,13 @@
             "null"
           ]
         },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
         "marker": {
           "description": "Anchor text for insert operations.",
           "type": [
@@ -32135,6 +32228,13 @@
         },
         "project_dir": {
           "description": "Required workspace-relative project subdirectory for optimize_images.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -32205,7 +32305,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/homepage_file.md",
-      "manual_snippet": "# homepage_file\n\nRead, write, edit, and optimize files inside the homepage workspace.\n\nPaths must include the project directory prefix, for example `my-site/src/App.jsx`. Use `sub_operation` for text, JSON, YAML, and XML edits.\n\n**After every write or edit, call `homepage_registry` → `add_history` to record what changed and why.**\n"
+      "manual_snippet": "# homepage_file\n\nRead, write, edit, and optimize files inside the homepage workspace.\n\nPaths must include the project directory prefix, for example `my-site/src/App.jsx`. Use `sub_operation` for text, JSON, YAML, and XML edits.\n\n**After every write or edit, call `homepage_registry` → `add_history` to record what changed and why.**\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregist…"
     },
     {
       "name": "homepage_git",
@@ -32241,6 +32341,13 @@
               "null"
             ]
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "message": {
             "description": "Revision message.",
             "type": [
@@ -32281,7 +32388,7 @@
             ]
           },
           "reason": {
-            "description": "Revision reason.",
+            "description": "Required for mutations: short purpose of the change.",
             "type": [
               "string",
               "null"
@@ -32300,6 +32407,7 @@
           "count",
           "file_path",
           "git_message",
+          "managed_site_id",
           "message",
           "operation",
           "path",
@@ -32328,6 +32436,10 @@
             "description": "Commit message.",
             "type": "string"
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
+          },
           "message": {
             "description": "Revision message.",
             "type": "string"
@@ -32359,7 +32471,7 @@
             "type": "string"
           },
           "reason": {
-            "description": "Revision reason.",
+            "description": "Required for mutations: short purpose of the change.",
             "type": "string"
           },
           "revision_id": {
@@ -32377,6 +32489,7 @@
         "count",
         "file_path",
         "git_message",
+        "managed_site_id",
         "message",
         "operation",
         "path",
@@ -32410,6 +32523,13 @@
           "description": "Commit message.",
           "type": [
             "string",
+            "null"
+          ]
+        },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
             "null"
           ]
         },
@@ -32453,7 +32573,7 @@
           ]
         },
         "reason": {
-          "description": "Revision reason.",
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -32519,7 +32639,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/homepage_git.md",
-      "manual_snippet": "# homepage_git\n\nManage homepage git and revision history.\n\nUse for git init, commit, status, diff, log, rollback, and stored homepage revisions.\n"
+      "manual_snippet": "# homepage_git\n\nManage homepage git and revision history.\n\nUse for git init, commit, status, diff, log, rollback, and stored homepage revisions.\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregistered projects. Historical unknown reasons remain unknown.\n"
     },
     {
       "name": "homepage_project",
@@ -32566,6 +32686,13 @@
             "description": "Framework for init_project: next, vite, astro, svelte, vue, html.",
             "type": [
               "string",
+              "null"
+            ]
+          },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
               "null"
             ]
           },
@@ -32623,6 +32750,13 @@
               "null"
             ]
           },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "template": {
             "description": "Optional starter template.",
             "type": [
@@ -32638,11 +32772,13 @@
           "command",
           "force",
           "framework",
+          "managed_site_id",
           "name",
           "operation",
           "packages",
           "port",
           "project_dir",
+          "reason",
           "template"
         ],
         "type": "object"
@@ -32673,6 +32809,10 @@
           "framework": {
             "description": "Framework for init_project: next, vite, astro, svelte, vue, html.",
             "type": "string"
+          },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
           },
           "name": {
             "description": "Project name for init_project.",
@@ -32716,6 +32856,10 @@
             "description": "Required workspace-relative project subdirectory for build, install_deps, dev, publish_local, and other project-scoped mutations.",
             "type": "string"
           },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
+            "type": "string"
+          },
           "template": {
             "description": "Optional starter template.",
             "type": "string"
@@ -32733,11 +32877,13 @@
         "command",
         "force",
         "framework",
+        "managed_site_id",
         "name",
         "operation",
         "packages",
         "port",
         "project_dir",
+        "reason",
         "template"
       ],
       "properties": {
@@ -32780,6 +32926,13 @@
           "description": "Framework for init_project: next, vite, astro, svelte, vue, html.",
           "type": [
             "string",
+            "null"
+          ]
+        },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
             "null"
           ]
         },
@@ -32832,6 +32985,13 @@
         },
         "project_dir": {
           "description": "Required workspace-relative project subdirectory for build, install_deps, dev, publish_local, and other project-scoped mutations.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -32917,7 +33077,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/homepage_project.md",
-      "manual_snippet": "# homepage_project\n\nManage homepage project lifecycle: initialize, start/stop, build, install dependencies, run dev servers, publish locally, tunnel, and destroy with explicit `force=true`.\n\nUse homepage workspace paths and project directories. Do not use generic filesystem tools for homepage project files.\n\nProject-scoped operations must use workspace-relative `project_dir` or `name` values, for example `my-site`. Use the actual project directory from the homepage workspace or registry; do not use guessed folder names, absolute host folders, or `/workspace/...` paths.\n\n**Before planning changes, read `homepage_registry` → `list_history`. After init, build, or publish, call `homepage_registry` → `add_history`.**\n"
+      "manual_snippet": "# homepage_project\n\nManage homepage project lifecycle: initialize, start/stop, build, install dependencies, run dev servers, publish locally, tunnel, and destroy with explicit `force=true`.\n\nUse homepage workspace paths and project directories. Do not use generic filesystem tools for homepage project files.\n\nProject-scoped operations must use workspace-relative `project_dir` or `name` values, for example `my-site`. Use the actual project directory from the homepage workspace or registry; do not use guessed folder names, absolute host folders, or `/workspace/...` paths.\n\n**Before planning changes, read `homepage_registry` → `list_history`. After init, build, or publish, call `homepage_registry` → `add_history`.**\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry …"
     },
     {
       "name": "homepage_quality",
@@ -32929,6 +33089,13 @@
             "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
             "type": [
               "string",
+              "null"
+            ]
+          },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
               "null"
             ]
           },
@@ -32945,6 +33112,13 @@
           },
           "project_dir": {
             "description": "Required workspace-relative project subdirectory for lint or optimize_images.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
             "type": [
               "string",
               "null"
@@ -32967,8 +33141,10 @@
         },
         "required": [
           "_todo",
+          "managed_site_id",
           "operation",
           "project_dir",
+          "reason",
           "url",
           "viewport"
         ],
@@ -32980,6 +33156,10 @@
           "_todo": {
             "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
             "type": "string"
+          },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
           },
           "operation": {
             "description": "Quality operation.",
@@ -32994,6 +33174,10 @@
           },
           "project_dir": {
             "description": "Required workspace-relative project subdirectory for lint or optimize_images.",
+            "type": "string"
+          },
+          "reason": {
+            "description": "Required for mutations: short purpose of the change.",
             "type": "string"
           },
           "url": {
@@ -33012,8 +33196,10 @@
       },
       "required": [
         "_todo",
+        "managed_site_id",
         "operation",
         "project_dir",
+        "reason",
         "url",
         "viewport"
       ],
@@ -33022,6 +33208,13 @@
           "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
           "type": [
             "string",
+            "null"
+          ]
+        },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
             "null"
           ]
         },
@@ -33038,6 +33231,13 @@
         },
         "project_dir": {
           "description": "Required workspace-relative project subdirectory for lint or optimize_images.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -33082,11 +33282,11 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/homepage_quality.md",
-      "manual_snippet": "# homepage_quality\n\nRun homepage quality checks: Lighthouse, screenshots, JavaScript console checks, and lint.\n\nUse this after file or project changes before deployment.\n"
+      "manual_snippet": "# homepage_quality\n\nRun homepage quality checks: Lighthouse, screenshots, JavaScript console checks, and lint.\n\nUse this after file or project changes before deployment.\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregistered projects. Historical unknown reasons remain unknown.\n"
     },
     {
       "name": "homepage_registry",
-      "description": "Track homepage/web projects, deploy history, project history, problems, metadata. register requires project_dir. Read list_history before changes; add_history after.",
+      "description": "Track homepage/web projects, locations, deploy history and project history. Read overview/get_site/list_events; mutations need reason. add_history/list_history add notes.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -33162,6 +33362,13 @@
               "null"
             ]
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "name": {
             "description": "Project name (unique identifier)",
             "type": [
@@ -33201,7 +33408,14 @@
               "get_history",
               "search_history",
               "update_history",
-              "delete_history"
+              "delete_history",
+              "overview",
+              "get_site",
+              "list_events",
+              "discover_workspace",
+              "adopt",
+              "relocate",
+              "audit_revisions"
             ],
             "type": "string"
           },
@@ -33227,7 +33441,7 @@
             ]
           },
           "reason": {
-            "description": "Edit reason (for log_edit)",
+            "description": "Required for mutations: short purpose of the change.",
             "type": [
               "string",
               "null"
@@ -33275,6 +33489,7 @@
           "history_query",
           "id",
           "limit",
+          "managed_site_id",
           "name",
           "notes",
           "offset",
@@ -33337,6 +33552,10 @@
             "description": "Max results (default: 20)",
             "type": "integer"
           },
+          "managed_site_id": {
+            "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+            "type": "integer"
+          },
           "name": {
             "description": "Project name (unique identifier)",
             "type": "string"
@@ -33367,7 +33586,14 @@
               "get_history",
               "search_history",
               "update_history",
-              "delete_history"
+              "delete_history",
+              "overview",
+              "get_site",
+              "list_events",
+              "discover_workspace",
+              "adopt",
+              "relocate",
+              "audit_revisions"
             ],
             "type": "string"
           },
@@ -33384,7 +33610,7 @@
             "type": "string"
           },
           "reason": {
-            "description": "Edit reason (for log_edit)",
+            "description": "Required for mutations: short purpose of the change.",
             "type": "string"
           },
           "source": {
@@ -33422,6 +33648,7 @@
         "history_query",
         "id",
         "limit",
+        "managed_site_id",
         "name",
         "notes",
         "offset",
@@ -33508,6 +33735,13 @@
             "null"
           ]
         },
+        "managed_site_id": {
+          "description": "Internal managed website ID; distinct from provider site_id/project_id.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
         "name": {
           "description": "Project name (unique identifier)",
           "type": [
@@ -33547,7 +33781,14 @@
             "get_history",
             "search_history",
             "update_history",
-            "delete_history"
+            "delete_history",
+            "overview",
+            "get_site",
+            "list_events",
+            "discover_workspace",
+            "adopt",
+            "relocate",
+            "audit_revisions"
           ],
           "type": "string"
         },
@@ -33573,7 +33814,7 @@
           ]
         },
         "reason": {
-          "description": "Edit reason (for log_edit)",
+          "description": "Required for mutations: short purpose of the change.",
           "type": [
             "string",
             "null"
@@ -33619,11 +33860,23 @@
         },
         {
           "selector": "operation",
+          "value": "adopt"
+        },
+        {
+          "selector": "operation",
+          "value": "audit_revisions"
+        },
+        {
+          "selector": "operation",
           "value": "delete"
         },
         {
           "selector": "operation",
           "value": "delete_history"
+        },
+        {
+          "selector": "operation",
+          "value": "discover_workspace"
         },
         {
           "selector": "operation",
@@ -33635,7 +33888,15 @@
         },
         {
           "selector": "operation",
+          "value": "get_site"
+        },
+        {
+          "selector": "operation",
           "value": "list"
+        },
+        {
+          "selector": "operation",
+          "value": "list_events"
         },
         {
           "selector": "operation",
@@ -33655,7 +33916,15 @@
         },
         {
           "selector": "operation",
+          "value": "overview"
+        },
+        {
+          "selector": "operation",
           "value": "register"
+        },
+        {
+          "selector": "operation",
+          "value": "relocate"
         },
         {
           "selector": "operation",
@@ -33679,7 +33948,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/homepage_registry.md",
-      "manual_snippet": "# Homepage Registry Tool\n\nTrack homepage projects with their framework, URLs, deployment history, edits, known problems, and chronological project history (decisions, notes, feedback, observations).\nProjects are automatically registered and updated when you use focused homepage operations (`homepage_project` init_project, `homepage_deploy` build/deploy, `homepage_quality` lighthouse).\n\nYou MUST actively maintain the project history. Read `list_history` before making changes and add an `add_history` entry after every meaningful change.\n\n## Prerequisites\n- `homepage.enabled: true` in config.yaml\n- DB is auto-created at `sqlite.homepage_registry_path`\n\n## Identity Contract\n\n`project_dir` is required when registering a project. It must be relative to the homepage workspace, for example `portfo…"
+      "manual_snippet": "# Homepage registry\n\nPersistent managed website identity, provenance, local/remote locations, changes,\nreasons, revisions and observations. Query before editing; never invent a folder\nor deployment URL.\n\n## Read operations\n\n- overview: query, limit (default 20, maximum 100), offset. Returns sites, total,\n  optional next_offset and ledger_version.\n- get_site: internal id or exact project_dir; includes targets and recent events.\n- list_events: project id, limit, offset; what changed, why and the outcome.\n- discover_workspace: unregistered directory candidates; read-only.\n- audit_revisions: legacy credential filenames without secret contents.\n- Legacy list, search and get retain their metadata response envelopes.\n\n## Identity and changes\n\n- adopt: existing project_dir and reason.\n- relocate: …"
     },
     {
       "name": "huggingface",
@@ -46804,7 +47073,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/ollama.md",
-      "manual_snippet": "# Ollama Tool (`ollama`)\n\nManage local Ollama LLM instance: models, GPU memory, and inference.\n\n## Operations\n\n### Model Management\n\n| Operation | Description | Parameters |\n|-----------|-------------|------------|\n| `list`, `list_models` | List all installed models | — |\n| `running`, `ps` | List models currently loaded in GPU | — |\n| `show`, `info` | Show detailed model info (size, capabilities) | `model` |\n| `pull`, `download` | Download/pull a model from Ollama library | `model` |\n| `delete`, `remove` | Delete a locally stored model | `model` |\n| `copy` | Copy/rename a model | `source`, `destination` |\n| `load` | Load model into GPU memory for fast inference | `model` |\n| `unload` | Unload model from GPU memory | `model` |\n\n## Parameters\n\n| Parameter | Type | Required | Description …"
+      "manual_snippet": "# Ollama Tool (`ollama`)\n\nManage local Ollama LLM instance: models, GPU memory, and inference.\n\n## Operations\n\n### Model Management\n\n| Operation | Description | Parameters |\n|-----------|-------------|------------|\n| `list` | List all installed models | — |\n| `running` | List loaded models and background operation receipts, including pull failures | — |\n| `show` | Show detailed model info (size, capabilities) | `model` |\n| `pull` | Start a background model download and return its operation receipt | `model` |\n| `delete` | Delete a locally stored model | `model` |\n| `copy` | Copy/rename a model | `source`, `destination` |\n| `load` | Load model into GPU memory for fast inference | `model` |\n| `unload` | Unload model from GPU memory | `model` |\n\n## Parameters\n\nUse the canonical operation …"
     },
     {
       "name": "onedrive",
