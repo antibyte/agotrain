@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "3de978d08583b9a2d08c194bb9cf6cfb1e2b45834f507738a26049ecdc174619",
+  "schema_sha256": "ce81c04592ee6b101bb45288e85d11ea6cfcd047dddb13ba251f8c69710d409b",
   "tools": {
     "treg_call": {
       "default_arguments": {

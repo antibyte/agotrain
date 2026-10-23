@@ -1734,22 +1734,22 @@ Read, write, and edit files inside the homepage workspace. Use paths with the pr
 | Parameter | Type | Description |
 |---|---|---|
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
-| `content` | `string` | File content or inserted text. |
+| `content` | `string` | Full file for write_file; inserted text for edit_file insert_after/insert_before/append/prepend. |
 | `end_line` | `integer` | Last line for delete_lines. |
 | `file_path` | `string` | Alias for path. |
 | `json_path` | `string` | Dot path for JSON/YAML edits. |
 | `learning_reason` | `string` | Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions. |
 | `managed_site_id` | `integer` | Internal managed website ID; distinct from provider site_id/project_id. |
-| `marker` | `string` | Anchor text for insert operations. |
-| `new` | `string` | Replacement text. |
-| `old` | `string` | Text to find. |
+| `marker` | `string` | Text matching exactly one line for insert_after/insert_before; insertion adds lines. |
+| `new` | `string` | Replacement text for str_replace/str_replace_all. |
+| `old` | `string` | Existing text for str_replace (unique match) or str_replace_all. |
 | `operation` | `string` | File operation. |
 | `path` | `string` | Homepage workspace path including project directory. |
 | `project_dir` | `string` | Required workspace-relative project subdirectory for optimize_images. |
 | `reason` | `string` | Required for mutations: short purpose of the change. |
 | `set_value` | `string` | Value to set for structured edits. |
 | `start_line` | `integer` | First line for delete_lines. |
-| `sub_operation` | `string` | Edit sub-operation for edit_file/json_edit/yaml_edit/xml_edit. |
+| `sub_operation` | `string` | For edit_file: str_replace, str_replace_all, insert_after, insert_before, append, prepend, delete_lines. For json_edit/yaml_edit: get, set, delete, keys, validate, format (JSON only). For xml_edit: get, set_text, set_attribute, add_element, delete, validate, format. |
 | `xpath` | `string` | XPath for XML edits. |
 
 ## `homepage_git`
@@ -3952,7 +3952,7 @@ Manage TrueNAS storage system: check health, list/scrub storage pools, manage ZF
 
 ## `tts`
 
-Convert text to speech (TTS). The generated audio will AUTOMATICALLY be sent to the user and played in the chat UI! Supports Google, ElevenLabs, MiniMax, Mistral, Piper, and Supertonic TTS providers. When VOICE MODE is active, YOU MUST USE THIS TOOL to reply to the user instead of typing a long text response. Put your conversational output in the 'text' argument.
+Convert text to speech (TTS). The generated audio will AUTOMATICALLY be sent to the user and played in the chat UI! Supports sanoTTS, Google, ElevenLabs, MiniMax, Mistral, xAI, OpenAI, StepFun, Resemble, Piper, and Supertonic TTS providers. When VOICE MODE is active, YOU MUST USE THIS TOOL to reply to the user instead of typing a long text response. Put your conversational output in the 'text' argument.
 
 - Tier: `extended`
 - Required: `_todo`, `language`, `text`

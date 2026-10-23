@@ -31876,7 +31876,7 @@
             ]
           },
           "content": {
-            "description": "File content or inserted text.",
+            "description": "Full file for write_file; inserted text for edit_file insert_after/insert_before/append/prepend.",
             "type": [
               "string",
               "null"
@@ -31918,21 +31918,21 @@
             ]
           },
           "marker": {
-            "description": "Anchor text for insert operations.",
+            "description": "Text matching exactly one line for insert_after/insert_before; insertion adds lines.",
             "type": [
               "string",
               "null"
             ]
           },
           "new": {
-            "description": "Replacement text.",
+            "description": "Replacement text for str_replace/str_replace_all.",
             "type": [
               "string",
               "null"
             ]
           },
           "old": {
-            "description": "Text to find.",
+            "description": "Existing text for str_replace (unique match) or str_replace_all.",
             "type": [
               "string",
               "null"
@@ -31988,7 +31988,7 @@
             ]
           },
           "sub_operation": {
-            "description": "Edit sub-operation for edit_file/json_edit/yaml_edit/xml_edit.",
+            "description": "For edit_file: str_replace, str_replace_all, insert_after, insert_before, append, prepend, delete_lines. For json_edit/yaml_edit: get, set, delete, keys, validate, format (JSON only). For xml_edit: get, set_text, set_attribute, add_element, delete, validate, format.",
             "type": [
               "string",
               "null"
@@ -32032,7 +32032,7 @@
             "type": "string"
           },
           "content": {
-            "description": "File content or inserted text.",
+            "description": "Full file for write_file; inserted text for edit_file insert_after/insert_before/append/prepend.",
             "type": "string"
           },
           "end_line": {
@@ -32056,15 +32056,15 @@
             "type": "integer"
           },
           "marker": {
-            "description": "Anchor text for insert operations.",
+            "description": "Text matching exactly one line for insert_after/insert_before; insertion adds lines.",
             "type": "string"
           },
           "new": {
-            "description": "Replacement text.",
+            "description": "Replacement text for str_replace/str_replace_all.",
             "type": "string"
           },
           "old": {
-            "description": "Text to find.",
+            "description": "Existing text for str_replace (unique match) or str_replace_all.",
             "type": "string"
           },
           "operation": {
@@ -32101,7 +32101,7 @@
             "type": "integer"
           },
           "sub_operation": {
-            "description": "Edit sub-operation for edit_file/json_edit/yaml_edit/xml_edit.",
+            "description": "For edit_file: str_replace, str_replace_all, insert_after, insert_before, append, prepend, delete_lines. For json_edit/yaml_edit: get, set, delete, keys, validate, format (JSON only). For xml_edit: get, set_text, set_attribute, add_element, delete, validate, format.",
             "type": "string"
           },
           "xpath": {
@@ -32143,7 +32143,7 @@
           ]
         },
         "content": {
-          "description": "File content or inserted text.",
+          "description": "Full file for write_file; inserted text for edit_file insert_after/insert_before/append/prepend.",
           "type": [
             "string",
             "null"
@@ -32185,21 +32185,21 @@
           ]
         },
         "marker": {
-          "description": "Anchor text for insert operations.",
+          "description": "Text matching exactly one line for insert_after/insert_before; insertion adds lines.",
           "type": [
             "string",
             "null"
           ]
         },
         "new": {
-          "description": "Replacement text.",
+          "description": "Replacement text for str_replace/str_replace_all.",
           "type": [
             "string",
             "null"
           ]
         },
         "old": {
-          "description": "Text to find.",
+          "description": "Existing text for str_replace (unique match) or str_replace_all.",
           "type": [
             "string",
             "null"
@@ -32255,7 +32255,7 @@
           ]
         },
         "sub_operation": {
-          "description": "Edit sub-operation for edit_file/json_edit/yaml_edit/xml_edit.",
+          "description": "For edit_file: str_replace, str_replace_all, insert_after, insert_before, append, prepend, delete_lines. For json_edit/yaml_edit: get, set, delete, keys, validate, format (JSON only). For xml_edit: get, set_text, set_attribute, add_element, delete, validate, format.",
           "type": [
             "string",
             "null"
@@ -32305,7 +32305,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/homepage_file.md",
-      "manual_snippet": "# homepage_file\n\nRead, write, edit, and optimize files inside the homepage workspace.\n\nPaths must include the project directory prefix, for example `my-site/src/App.jsx`. Use `sub_operation` for text, JSON, YAML, and XML edits.\n\n**After every write or edit, call `homepage_registry` → `add_history` to record what changed and why.**\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregist…"
+      "manual_snippet": "# homepage_file\n\nRead, write, edit, and optimize files inside the homepage workspace.\n\nPaths must include the project directory prefix, for example `my-site/src/App.jsx`. Supply `reason` for every mutation. Use `sub_operation` for text, JSON, YAML, and XML edits.\n\nFor `operation: \"edit_file\"`, choose one of these exact `sub_operation` values:\n\n| sub_operation | Required arguments | Effect |\n| --- | --- | --- |\n| `str_replace` | `old`, `new` | Replace one unique text match. `new: \"\"` deletes it. |\n| `str_replace_all` | `old`, `new` | Replace every exact text match. |\n| `insert_after`, `insert_before` | `marker`, `content` | Add lines after/before the one line containing `marker`. |\n| `append`, `prepend` | `content` | Add text at the end/start. |\n| `delete_lines` | `start_line`, `end_line` |…"
     },
     {
       "name": "homepage_git",
@@ -55560,7 +55560,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/sip_phone.md",
-      "manual_snippet": "# Native SIP phone\n\nInspect and operate AuraGo's native single-account SIP endpoint. The tool is\navailable only when SIP is enabled. Its operation enum is reduced at runtime\nto the actions permitted by the saved configuration.\n\n## Operations\n\n- `status`: Show registration and active-call state without credentials.\n- `list_calls`: Return privacy-safe call history. Set `limit` from 1 to 200.\n- `dial`: Asynchronously accept one outgoing call request to a canonical `sip:user@domain` target. Verify the result with `status` or `list_calls` and inspect `end_reason`.\n- `answer` / `reject`: Decide a pending manually routed incoming call.\n- `hangup`: End the active call.\n- `send_dtmf`: Send exactly one RTP-DTMF digit from `0-9`, `*`, `#`, or `A-D`; SIP INFO is not used.\n\nMutating operations disappea…"
+      "manual_snippet": "# Native SIP phone\n\nInspect and operate AuraGo's native single-account SIP endpoint. The tool is\navailable only when SIP is enabled. Its operation enum is reduced at runtime\nto the actions permitted by the saved configuration.\n\n## Operations\n\n- `status`: Show registration and active-call state without credentials.\n- `list_calls`: Return privacy-safe call history. Set `limit` from 1 to 200.\n- `dial`: Asynchronously accept one outgoing call request to a canonical `sip:user@domain` target. Verify the result with `status` or `list_calls` and inspect `end_reason`.\n- `answer` / `reject`: Decide a pending manually routed incoming call.\n- `hangup`: End the active call.\n- `send_dtmf`: Send exactly one RTP-DTMF digit from `0-9`, `*`, `#`, or uppercase `A-D`; SIP INFO is not used.\n\nMutating operation…"
     },
     {
       "name": "site_crawler",
@@ -58902,7 +58902,7 @@
     },
     {
       "name": "tts",
-      "description": "Convert text to speech (TTS). The generated audio will AUTOMATICALLY be sent to the user and played in the chat UI! Supports Google, ElevenLabs, MiniMax, Mistral, Piper, and Supertonic TTS providers. When VOICE MODE is active, YOU MUST USE THIS TOOL to reply to the user instead of typing a long text response. Put your conversational output in the 'text' argument.",
+      "description": "Convert text to speech (TTS). The generated audio will AUTOMATICALLY be sent to the user and played in the chat UI! Supports sanoTTS, Google, ElevenLabs, MiniMax, Mistral, xAI, OpenAI, StepFun, Resemble, Piper, and Supertonic TTS providers. When VOICE MODE is active, YOU MUST USE THIS TOOL to reply to the user instead of typing a long text response. Put your conversational output in the 'text' argument.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -58980,7 +58980,7 @@
       },
       "tier": "extended",
       "manual_path": "prompts/tools_manuals/tts.md",
-      "manual_snippet": "# TTS (Text-to-Speech)\n\nGenerate speech audio from text. Max 500 characters per call.\n\n## Usage\n```json\n{\"action\": \"tts\", \"text\": \"Hello, how are you?\", \"language\": \"en\"}\n```\n\n## Parameters\n| Field | Required | Description |\n|-------|----------|-------------|\n| `text` | ✅ | Text to synthesize (max 500 chars) |\n| `language` | ❌ | BCP-47 code (e.g. \"de\", \"en\"). Default: from config |\n\n## Notes\n- Provider is configured in `config.yaml` → `tts.provider` (\"sanotts\", \"google\", \"elevenlabs\", \"minimax\", \"mistral\", \"piper\", or \"supertonic\")\n- New installations use local CPU sanoTTS and `language: auto`. It follows the user language; explicit speech language settings take priority. Available languages: ar, cs, de, en, es, fr, id, it, pt, ro, ru, tr, vi. Other languages use an English voice; pr…"
+      "manual_snippet": "# TTS (Text-to-Speech)\n\nGenerate speech audio from text. Max 500 characters per call.\n\n## Usage\n```json\n{\"action\": \"tts\", \"text\": \"Hello, how are you?\", \"language\": \"en\"}\n```\n\n## Parameters\n| Field | Required | Description |\n|-------|----------|-------------|\n| `text` | ✅ | Text to synthesize (max 500 chars) |\n| `language` | ❌ | BCP-47 code (e.g. \"de\", \"en\"). Default: from config |\n\n## Notes\n- Provider is configured in Speech Output settings → `tts.provider` (\"phonon\", \"sanotts\", \"google\", \"elevenlabs\", \"minimax\", \"mistral\", \"xai\", \"openai\", \"stepfun\", \"resemble\", \"piper\", or \"supertonic\"). API keys are stored only in the Vault.\n- New installations use bundled CPU Phonon and `language: auto` for de, en, fr, es and pt. It follows the user language; explicit speech language settings ta…"
     },
     {
       "name": "upnp_scan",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "catalog_sha256": "509a7092577a6812d32f420d9fcc047749f8140ee1a603daee7230c3885668f0",
+  "catalog_sha256": "b6f619b2e9b9f5284fbc9628d5b274599c2a14a822b1f4ac1d99cc9794056838",
   "sources": {
     "prompts/tools_manuals/activate_agent_skill.md": "1cd868f578936cbaaa313ffad3aeb33bcb40e6fa39d5410f578d2246e1da4620",
     "prompts/tools_manuals/address_book.md": "00da1c21a0abb796871de0a2ff806e8e707deb9c869e8fdb55c5e6789dfe45c8",
@@ -77,7 +77,7 @@
     "prompts/tools_manuals/home_assistant.md": "d78381052abe3a5e8604e41607e45a1abfd2e3b582aa2d61807fd5994df27a37",
     "prompts/tools_manuals/homepage.md": "6f007b422c32eccb1713d021038c59fafe4e9ff525fbb8e82fa1636ca68abb5c",
     "prompts/tools_manuals/homepage_deploy.md": "df47051e1b57dedfd9be6bd88d7b018d014628e9ecaf82b8a71ddbff3d6f0638",
-    "prompts/tools_manuals/homepage_file.md": "c74f80d50bed041525ab2912f08a1c2c3cc648f370c90bce3e76f9dda5064049",
+    "prompts/tools_manuals/homepage_file.md": "f30810fd1c10b9d19ec03f9cc3faa241b75197d68a5285d56dd04e79be5d8280",
     "prompts/tools_manuals/homepage_git.md": "f0be742db71726aa5105b2fe7871a971b3ee84e03f670dd18e0e25974abbaad8",
     "prompts/tools_manuals/homepage_project.md": "8993cbc5abfefb603adc1ef4cb879bccb185425c38e668ba6ed31e29d923ec2d",
     "prompts/tools_manuals/homepage_quality.md": "3f4c7d90d7ed2a55e87c448bc409a84e8aa5c77502513cdd7112ef1a732f8cc5",
@@ -159,7 +159,7 @@
     "prompts/tools_manuals/send_notification.md": "6333de5f882458a3f33cba573d7eb35dcc7b6f09209101925e5c8981abff18a0",
     "prompts/tools_manuals/send_video.md": "b0eafdfe18b80f3742e3393a20d2505815fd56a5e87c62f5e294b0993ae3c197",
     "prompts/tools_manuals/send_youtube_video.md": "8dbbc529d110a524f737d3ef204a34113b2e13b79bc36d62bab066add5ed25c6",
-    "prompts/tools_manuals/sip_phone.md": "eabf725adf29580112978e9642a5524234c1b1836b549d5e862e3e4eeecc58ed",
+    "prompts/tools_manuals/sip_phone.md": "46c5fae648c148ea05fd2af6391d768bc87c06b273fec0a40ade32d60ec3baad",
     "prompts/tools_manuals/site_crawler.md": "2597f5dfe9c0364e0f87b0551c54d9adc73646224ce892e480f2c3af5f2f3720",
     "prompts/tools_manuals/site_monitor.md": "931ff8d67de912d8b8f10b5632a7aa21118cf5c21816933d992690a043a881a4",
     "prompts/tools_manuals/skill_templates.md": "3d81b0d134466e0be068c6dd4bedf74b32cd64ed26392e0912603a0cc962e323",
@@ -176,7 +176,7 @@
     "prompts/tools_manuals/transcribe_audio.md": "b6e0a72b402fdd064d563474e55c1367aba0f0d2f3d3f9722dd0d4877a0fc02f",
     "prompts/tools_manuals/treg.md": "195e536e5ebfeab41a6853543348525db7b14111c6c03e069e00dc18d2379635",
     "prompts/tools_manuals/truenas.md": "646eaca944774c459be29a3f396a5c311964359ff5f69600aac4fe2e6a5af8e8",
-    "prompts/tools_manuals/tts.md": "98c2ddc8b4835b1b4b2c963730545613994c0533b23c87ddce27af6b1b9793ec",
+    "prompts/tools_manuals/tts.md": "b0cbed84809beea101a392033fce5c55dcdadac601cfe2a43a60950549b86f49",
     "prompts/tools_manuals/upnp_scan.md": "b377b983acd71aede7206fbf3afa59b3a7aac1d9a96c32c9ceb8d300e827c38b",
     "prompts/tools_manuals/uptime_kuma.md": "aa47a405bd2594b2f8c190e13882499538ac9ae3bc849679c54561287cf1d184",
     "prompts/tools_manuals/vercel.md": "b3148cb861229a6bc761d950c7dfb7ce24eb669424e4c4012cce41dc90383768",
@@ -201,7 +201,7 @@
     "prompts/tools_manuals/xml_editor.md": "70a334eb6e3cb4c798d71ab00e233e75a14bbd41c50398c7a7be4589c6b3077e",
     "prompts/tools_manuals/yaml_editor.md": "3019e5bcda6867a4a5ff6732e690daa77fabc3ab8b1444ef3c8776fce787779b",
     "prompts/tools_manuals/yepapi.md": "9f6238fcae84221b734805a5a3f4dbc7b18ffdf191d6d8bbe1f2258ddc2b0aa0",
-    "training/operation_contracts.json": "2c6d190e9e070a91475e42d443834e2f09e0a7983841cfdd41a3cd096b5f170b",
+    "training/operation_contracts.json": "63c0a6e90dac95a554d23a64a622583fe4bd97eec9966f552f35ebb37f0dfa69",
     "training/tool_tiers.json": "e3bde43a727cfe8f6863aff702d1fcbfe6c57e648dcb9da16ee6695a97976eb9"
   },
   "tools": [
@@ -39344,7 +39344,7 @@
             ]
           },
           "content": {
-            "description": "File content or inserted text.",
+            "description": "Full file for write_file; inserted text for edit_file insert_after/insert_before/append/prepend.",
             "type": [
               "string",
               "null"
@@ -39386,21 +39386,21 @@
             ]
           },
           "marker": {
-            "description": "Anchor text for insert operations.",
+            "description": "Text matching exactly one line for insert_after/insert_before; insertion adds lines.",
             "type": [
               "string",
               "null"
             ]
           },
           "new": {
-            "description": "Replacement text.",
+            "description": "Replacement text for str_replace/str_replace_all.",
             "type": [
               "string",
               "null"
             ]
           },
           "old": {
-            "description": "Text to find.",
+            "description": "Existing text for str_replace (unique match) or str_replace_all.",
             "type": [
               "string",
               "null"
@@ -39456,7 +39456,7 @@
             ]
           },
           "sub_operation": {
-            "description": "Edit sub-operation for edit_file/json_edit/yaml_edit/xml_edit.",
+            "description": "For edit_file: str_replace, str_replace_all, insert_after, insert_before, append, prepend, delete_lines. For json_edit/yaml_edit: get, set, delete, keys, validate, format (JSON only). For xml_edit: get, set_text, set_attribute, add_element, delete, validate, format.",
             "type": [
               "string",
               "null"
@@ -39500,7 +39500,7 @@
             "type": "string"
           },
           "content": {
-            "description": "File content or inserted text.",
+            "description": "Full file for write_file; inserted text for edit_file insert_after/insert_before/append/prepend.",
             "type": "string"
           },
           "end_line": {
@@ -39524,15 +39524,15 @@
             "type": "integer"
           },
           "marker": {
-            "description": "Anchor text for insert operations.",
+            "description": "Text matching exactly one line for insert_after/insert_before; insertion adds lines.",
             "type": "string"
           },
           "new": {
-            "description": "Replacement text.",
+            "description": "Replacement text for str_replace/str_replace_all.",
             "type": "string"
           },
           "old": {
-            "description": "Text to find.",
+            "description": "Existing text for str_replace (unique match) or str_replace_all.",
             "type": "string"
           },
           "operation": {
@@ -39569,7 +39569,7 @@
             "type": "integer"
           },
           "sub_operation": {
-            "description": "Edit sub-operation for edit_file/json_edit/yaml_edit/xml_edit.",
+            "description": "For edit_file: str_replace, str_replace_all, insert_after, insert_before, append, prepend, delete_lines. For json_edit/yaml_edit: get, set, delete, keys, validate, format (JSON only). For xml_edit: get, set_text, set_attribute, add_element, delete, validate, format.",
             "type": "string"
           },
           "xpath": {
@@ -39611,7 +39611,7 @@
           ]
         },
         "content": {
-          "description": "File content or inserted text.",
+          "description": "Full file for write_file; inserted text for edit_file insert_after/insert_before/append/prepend.",
           "type": [
             "string",
             "null"
@@ -39653,21 +39653,21 @@
           ]
         },
         "marker": {
-          "description": "Anchor text for insert operations.",
+          "description": "Text matching exactly one line for insert_after/insert_before; insertion adds lines.",
           "type": [
             "string",
             "null"
           ]
         },
         "new": {
-          "description": "Replacement text.",
+          "description": "Replacement text for str_replace/str_replace_all.",
           "type": [
             "string",
             "null"
           ]
         },
         "old": {
-          "description": "Text to find.",
+          "description": "Existing text for str_replace (unique match) or str_replace_all.",
           "type": [
             "string",
             "null"
@@ -39723,7 +39723,7 @@
           ]
         },
         "sub_operation": {
-          "description": "Edit sub-operation for edit_file/json_edit/yaml_edit/xml_edit.",
+          "description": "For edit_file: str_replace, str_replace_all, insert_after, insert_before, append, prepend, delete_lines. For json_edit/yaml_edit: get, set, delete, keys, validate, format (JSON only). For xml_edit: get, set_text, set_attribute, add_element, delete, validate, format.",
           "type": [
             "string",
             "null"
@@ -75468,7 +75468,7 @@
     },
     {
       "name": "tts",
-      "description": "Convert text to speech (TTS). The generated audio will AUTOMATICALLY be sent to the user and played in the chat UI! Supports Google, ElevenLabs, MiniMax, Mistral, Piper, and Supertonic TTS providers. When VOICE MODE is active, YOU MUST USE THIS TOOL to reply to the user instead of typing a long text response. Put your conversational output in the 'text' argument.",
+      "description": "Convert text to speech (TTS). The generated audio will AUTOMATICALLY be sent to the user and played in the chat UI! Supports sanoTTS, Google, ElevenLabs, MiniMax, Mistral, xAI, OpenAI, StepFun, Resemble, Piper, and Supertonic TTS providers. When VOICE MODE is active, YOU MUST USE THIS TOOL to reply to the user instead of typing a long text response. Put your conversational output in the 'text' argument.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -87973,8 +87973,8 @@
     {
       "id": "homepage_file",
       "path": "prompts/tools_manuals/homepage_file.md",
-      "sha256": "c74f80d50bed041525ab2912f08a1c2c3cc648f370c90bce3e76f9dda5064049",
-      "body": "# homepage_file\n\nRead, write, edit, and optimize files inside the homepage workspace.\n\nPaths must include the project directory prefix, for example `my-site/src/App.jsx`. Use `sub_operation` for text, JSON, YAML, and XML edits.\n\n**After every write or edit, call `homepage_registry` → `add_history` to record what changed and why.**\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregistered projects. Historical unknown reasons remain unknown.\n",
+      "sha256": "f30810fd1c10b9d19ec03f9cc3faa241b75197d68a5285d56dd04e79be5d8280",
+      "body": "# homepage_file\n\nRead, write, edit, and optimize files inside the homepage workspace.\n\nPaths must include the project directory prefix, for example `my-site/src/App.jsx`. Supply `reason` for every mutation. Use `sub_operation` for text, JSON, YAML, and XML edits.\n\nFor `operation: \"edit_file\"`, choose one of these exact `sub_operation` values:\n\n| sub_operation | Required arguments | Effect |\n| --- | --- | --- |\n| `str_replace` | `old`, `new` | Replace one unique text match. `new: \"\"` deletes it. |\n| `str_replace_all` | `old`, `new` | Replace every exact text match. |\n| `insert_after`, `insert_before` | `marker`, `content` | Add lines after/before the one line containing `marker`. |\n| `append`, `prepend` | `content` | Add text at the end/start. |\n| `delete_lines` | `start_line`, `end_line` | Delete the inclusive, 1-based line range. |\n\n`replace` and `insert` are not supported values. Duplicate marker lines are an error: inspect the file and choose a unique anchor. Do not guess which occurrence to change.\n\nExample: `homepage_file(operation=\"edit_file\", path=\"my-site/index.html\", sub_operation=\"insert_before\", marker=\"\u003c!-- NEWS-START --\u003e\", content=\"\u003carticle\u003eNew item\u003c/article\u003e\", reason=\"Add the latest news item\")`.\n\nPrefer targeted edits for existing large files. `write_file` requires the complete file content and refuses empty writes. Docker reads/writes/edits transfer complete files up to 2 MiB; an oversized or unreadable file fails before an edit is written.\n\n## Managed website identity and change reasons\n\nQuery homepage_registry overview/get_site before changing an existing page. Every mutation requires reason, a short statement of purpose. managed_site_id is the internal identity, distinct from provider IDs. Exec requires project_dir and starts there. Changes and outcomes are recorded automatically; avoid duplicate routine notes. Use list_events for what changed and why, and discover_workspace/adopt for unregistered projects. Historical unknown reasons remain unknown.\n\n`ledger_updated: true` means the attempt was recorded, including failed attempts. Check `status` for execution success and verify the changed file; the ledger flag never overrides an error. Do not deploy after a failed edit.\n",
       "tools": [
         "homepage_file"
       ],
@@ -88802,8 +88802,8 @@
     {
       "id": "sip_phone",
       "path": "prompts/tools_manuals/sip_phone.md",
-      "sha256": "eabf725adf29580112978e9642a5524234c1b1836b549d5e862e3e4eeecc58ed",
-      "body": "---\nid: \"tool_sip_phone\"\ntags: [\"tool\", \"sip\", \"phone\", \"voice\", \"calls\"]\npriority: 50\n---\n# Native SIP phone\n\nInspect and operate AuraGo's native single-account SIP endpoint. The tool is\navailable only when SIP is enabled. Its operation enum is reduced at runtime\nto the actions permitted by the saved configuration.\n\n## Operations\n\n- `status`: Show registration and active-call state without credentials.\n- `list_calls`: Return privacy-safe call history. Set `limit` from 1 to 200.\n- `dial`: Asynchronously accept one outgoing call request to a canonical `sip:user@domain` target. Verify the result with `status` or `list_calls` and inspect `end_reason`.\n- `answer` / `reject`: Decide a pending manually routed incoming call.\n- `hangup`: End the active call.\n- `send_dtmf`: Send exactly one RTP-DTMF digit from `0-9`, `*`, `#`, or `A-D`; SIP INFO is not used.\n\nMutating operations disappear in read-only mode and remain subject to their\nindividual permission flags. Incoming callers must match both a trusted proxy\nsource and the caller allowlist. Outgoing targets must match an exact domain\nand either an exact user or an allowed E.164 prefix. Empty allowlists deny all.\n\n```json\n{\"action\":\"sip_phone\",\"operation\":\"dial\",\"target\":\"sip:+49123456789@pbx.example\"}\n```\n\n```json\n{\"action\":\"sip_phone\",\"operation\":\"send_dtmf\",\"call_id\":\"CALL_ID\",\"digits\":\"1\"}\n```\n\nAuraGo exposes no SIP password, full headers, RTP packets, audio, or raw\ntranscripts through this tool. Only one call may be active at a time.\n",
+      "sha256": "46c5fae648c148ea05fd2af6391d768bc87c06b273fec0a40ade32d60ec3baad",
+      "body": "---\nid: \"tool_sip_phone\"\ntags: [\"tool\", \"sip\", \"phone\", \"voice\", \"calls\"]\npriority: 50\n---\n# Native SIP phone\n\nInspect and operate AuraGo's native single-account SIP endpoint. The tool is\navailable only when SIP is enabled. Its operation enum is reduced at runtime\nto the actions permitted by the saved configuration.\n\n## Operations\n\n- `status`: Show registration and active-call state without credentials.\n- `list_calls`: Return privacy-safe call history. Set `limit` from 1 to 200.\n- `dial`: Asynchronously accept one outgoing call request to a canonical `sip:user@domain` target. Verify the result with `status` or `list_calls` and inspect `end_reason`.\n- `answer` / `reject`: Decide a pending manually routed incoming call.\n- `hangup`: End the active call.\n- `send_dtmf`: Send exactly one RTP-DTMF digit from `0-9`, `*`, `#`, or uppercase `A-D`; SIP INFO is not used.\n\nMutating operations disappear in read-only mode and remain subject to their\nindividual permission flags. Incoming callers must match both a trusted proxy\nsource and the caller allowlist. Outgoing targets must match an exact domain\nand either an exact user or an allowed E.164 prefix. Empty allowlists deny all.\n\nAn accepted `dial` result is asynchronous, not confirmation that the peer\nanswered. Check `status` or `list_calls` before deciding whether another attempt\nis needed. Admitted agent-led outgoing attempts count toward the daily limit,\nincluding later failures or cancellations. Invalid targets, policy denials, and\nfailed provider preflights before admission do not count. Incoming calls and\nmanual browser calls do not consume that limit.\n\nErrors have `status: \"error\"`, a public `message`, and a `code` such as\n`disabled`, `read_only`, `busy`, `permission_denied`, `invalid_target`,\n`docker_advertised_host_required`, `call_not_found`, or `operation_failed`.\n`agent_daily_call_limit_reached` also includes `used`, `limit`,\n`retry_after_seconds`, and `resets_at`. Wait until the local daily reset rather\nthan retrying immediately.\n\n```json\n{\"action\":\"sip_phone\",\"operation\":\"dial\",\"target\":\"sip:+49123456789@pbx.example\"}\n```\n\n```json\n{\"action\":\"sip_phone\",\"operation\":\"send_dtmf\",\"call_id\":\"CALL_ID\",\"digits\":\"1\"}\n```\n\nAuraGo exposes no SIP password, full headers, RTP packets, audio, or raw\ntranscripts through this tool. Only one call may be active at a time.\n",
       "tools": [
         "sip_phone"
       ],
@@ -88980,12 +88980,12 @@
     {
       "id": "tts",
       "path": "prompts/tools_manuals/tts.md",
-      "sha256": "98c2ddc8b4835b1b4b2c963730545613994c0533b23c87ddce27af6b1b9793ec",
-      "body": "---\nid: \"tool_tts\"\ntags: [\"tool\"]\npriority: 50\n---\n# TTS (Text-to-Speech)\n\nGenerate speech audio from text. Max 500 characters per call.\n\n## Usage\n```json\n{\"action\": \"tts\", \"text\": \"Hello, how are you?\", \"language\": \"en\"}\n```\n\n## Parameters\n| Field | Required | Description |\n|-------|----------|-------------|\n| `text` | ✅ | Text to synthesize (max 500 chars) |\n| `language` | ❌ | BCP-47 code (e.g. \"de\", \"en\"). Default: from config |\n\n## Notes\n- Provider is configured in `config.yaml` → `tts.provider` (\"sanotts\", \"google\", \"elevenlabs\", \"minimax\", \"mistral\", \"piper\", or \"supertonic\")\n- New installations use local CPU sanoTTS and `language: auto`. It follows the user language; explicit speech language settings take priority. Available languages: ar, cs, de, en, es, fr, id, it, pt, ro, ru, tr, vi. Other languages use an English voice; provide English speech text for those languages. Text is synthesized as supplied, never automatically translated by TTS.\n- sanoTTS installs its Python runtime dependencies and downloads the selected tiny voice on first use, then runs locally without a key, Docker, or GPU. Output is `.wav`.\n- If `tts.piper.enabled` is true and no provider is set, Piper is used automatically\n- Piper TTS runs as a Docker container (auto-managed) and produces `.wav` files\n- Supertonic TTS runs through a managed Docker sidecar when `tts.provider: supertonic` and `tts.supertonic.auto_start: true`; it supports `.wav`, `.flac`, and `.ogg`\n- Google/ElevenLabs/MiniMax/Mistral produce `.mp3` files\n- Returns `{\"status\": \"success\", \"file\": \"hash.ext\", \"url\": \"http://...\", \"local_path\": \"/abs/path/to/file\"}`\n- Audio files are cached by content hash — the cache may be evicted over time\n- Audio is automatically sent as native attachment in Telegram/Discord\n- Combine with `chromecast` action `speak` to play on speakers\n- **⚠️ TTS audio is automatically posted to the WebUI chat when generated.** Do NOT call `send_audio` after `tts` — that would send it twice. Only use `send_audio` for audio files that are NOT from the `tts` tool.\n",
+      "sha256": "b0cbed84809beea101a392033fce5c55dcdadac601cfe2a43a60950549b86f49",
+      "body": "---\nid: \"tool_tts\"\ntags: [\"tool\"]\npriority: 50\n---\n# TTS (Text-to-Speech)\n\nGenerate speech audio from text. Max 500 characters per call.\n\n## Usage\n```json\n{\"action\": \"tts\", \"text\": \"Hello, how are you?\", \"language\": \"en\"}\n```\n\n## Parameters\n| Field | Required | Description |\n|-------|----------|-------------|\n| `text` | ✅ | Text to synthesize (max 500 chars) |\n| `language` | ❌ | BCP-47 code (e.g. \"de\", \"en\"). Default: from config |\n\n## Notes\n- Provider is configured in Speech Output settings → `tts.provider` (\"phonon\", \"sanotts\", \"google\", \"elevenlabs\", \"minimax\", \"mistral\", \"xai\", \"openai\", \"stepfun\", \"resemble\", \"piper\", or \"supertonic\"). API keys are stored only in the Vault.\n- New installations use bundled CPU Phonon and `language: auto` for de, en, fr, es and pt. It follows the user language; explicit speech language settings take priority. Missing resources, unsupported languages or unavailable native runtimes use sanoTTS. Text is synthesized as supplied, never automatically translated by TTS.\n- Phonon includes male/female defaults by language/persona; a manual `tts.phonon.voice_id` overrides them. Additional voices are downloaded explicitly in Config, then work offline. Output is `.wav`; no key, Python, Docker sidecar or GPU is needed. The model's CC BY-NC 4.0 license permits noncommercial use only; see `documentation/phonon.md`.\n- sanoTTS supports ar, cs, de, en, es, fr, id, it, pt, ro, ru, tr and vi. Its other languages use an English voice; provide English speech text for those fallback languages.\n- sanoTTS installs its Python runtime dependencies and downloads the selected tiny voice on first use, then runs locally without a key, Docker, or GPU. Output is `.wav`.\n- If `tts.piper.enabled` is true and no provider is set, Piper is used automatically\n- Piper TTS runs as a Docker container (auto-managed) and produces `.wav` files\n- Supertonic TTS runs through a managed Docker sidecar when `tts.provider: supertonic` and `tts.supertonic.auto_start: true`; it supports `.wav`, `.flac`, and `.ogg`\n- Google/ElevenLabs/MiniMax/Mistral/xAI/OpenAI/StepFun/Resemble produce `.mp3` files. xAI defaults to `eve`; OpenAI to `gpt-4o-mini-tts`/`coral`; StepFun to `step-tts-mini`/`jingdiannvsheng`. Resemble requires an account voice UUID.\n- OpenAI Speech API models retire on 2027-01-06; use OpenAI Realtime for new long-term integrations. Resemble's former hosted voice platform is archived; its adapter requires access that still works. See `documentation/tts-providers.md`.\n- Returns `{\"status\": \"success\", \"file\": \"hash.ext\", \"url\": \"http://...\", \"local_path\": \"/abs/path/to/file\"}`\n- Audio files are cached by content hash — the cache may be evicted over time\n- Audio is automatically sent as native attachment in Telegram/Discord\n- Combine with `chromecast` action `speak` to play on speakers\n- **⚠️ TTS audio is automatically posted to the WebUI chat when generated.** Do NOT call `send_audio` after `tts` — that would send it twice. Only use `send_audio` for audio files that are NOT from the `tts` tool.\n",
       "tools": [
         "tts"
       ],
-      "description": "Convert text to speech (TTS). The generated audio will AUTOMATICALLY be sent to the user and played in the chat UI! Supports Google, ElevenLabs, MiniMax, Mistral, Piper, and Supertonic TTS providers. When VOICE MODE is active, YOU MUST USE THIS TOOL to reply to the user instead of typing a long text response. Put your conversational output in the 'text' argument."
+      "description": "Convert text to speech (TTS). The generated audio will AUTOMATICALLY be sent to the user and played in the chat UI! Supports sanoTTS, Google, ElevenLabs, MiniMax, Mistral, xAI, OpenAI, StepFun, Resemble, Piper, and Supertonic TTS providers. When VOICE MODE is active, YOU MUST USE THIS TOOL to reply to the user instead of typing a long text response. Put your conversational output in the 'text' argument."
     },
     {
       "id": "upnp_scan",
