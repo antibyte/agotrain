@@ -134,6 +134,7 @@
     "process_analyzer",
     "process_management",
     "proxmox",
+    "qr_code",
     "question_user",
     "read_tool_output",
     "recall_memory",

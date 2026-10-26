@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "ce81c04592ee6b101bb45288e85d11ea6cfcd047dddb13ba251f8c69710d409b",
+  "schema_sha256": "adac2044f63645fb100c1dfa08be8a73aa14c03ce2bc3f2cf72f47cb9cb4b47a",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -9894,6 +9894,31 @@
         },
         {
           "selector": "operation",
+          "value": "insert_image",
+          "arguments": {
+            "operation": "insert_image",
+            "path": "Documents/report.docx",
+            "image_ref": {
+              "root": "desktop",
+              "path": "Pictures/wifi-qr.png"
+            },
+            "expected_version": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+            "anchor": "end",
+            "width": 192,
+            "height": 192,
+            "alt": "WiFi QR code"
+          },
+          "required_fields": [
+            "operation",
+            "path",
+            "image_ref",
+            "expected_version",
+            "anchor"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
           "value": "patch",
           "arguments": {
             "operation": "patch",
@@ -9962,6 +9987,33 @@
           "required_fields": [
             "operation",
             "path"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "insert_image",
+          "arguments": {
+            "operation": "insert_image",
+            "path": "Documents/budget.xlsx",
+            "image_ref": {
+              "root": "desktop",
+              "path": "Pictures/wifi-qr.png"
+            },
+            "expected_version": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+            "anchor": "B3",
+            "width": 192,
+            "height": 192,
+            "alt": "WiFi QR code",
+            "sheet": "Budget"
+          },
+          "required_fields": [
+            "operation",
+            "path",
+            "image_ref",
+            "expected_version",
+            "anchor",
+            "sheet"
           ],
           "excluded_fields": []
         },
@@ -19314,6 +19366,132 @@
           "quote": "Keep the Go backend portable. It must run without a Python interpreter."
         }
       }
+    },
+    "qr_code": {
+      "default_arguments": {
+        "operation": "presets"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "batch_generate",
+          "arguments": {
+            "operation": "batch_generate",
+            "spec": {
+              "schema_version": 1,
+              "content": {
+                "type": "text",
+                "text": "Example"
+              }
+            },
+            "csv_ref": {
+              "root": "workspace",
+              "path": "qr/batch.csv"
+            },
+            "output_root": "workspace",
+            "output_path": "qr/batch.zip"
+          },
+          "required_fields": [
+            "operation",
+            "spec",
+            "csv_ref",
+            "output_path"
+          ],
+          "excluded_fields": [
+            "input_ref",
+            "export_config"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "generate",
+          "arguments": {
+            "operation": "generate",
+            "spec": {
+              "schema_version": 1,
+              "content": {
+                "type": "wifi",
+                "wifi": {
+                  "ssid": "Example WiFi",
+                  "password": "example-password",
+                  "security": "WPA"
+                }
+              }
+            },
+            "output_root": "desktop",
+            "output_path": "Pictures/wifi-qr.png"
+          },
+          "required_fields": [
+            "operation",
+            "spec",
+            "output_path"
+          ],
+          "excluded_fields": [
+            "input_ref",
+            "csv",
+            "csv_ref",
+            "batch_content_type"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "presets",
+          "arguments": {
+            "operation": "presets"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": [
+            "spec",
+            "preset",
+            "config_ref",
+            "logo_ref",
+            "frame_image_ref",
+            "logo_url",
+            "frame_image_url",
+            "input_ref",
+            "csv",
+            "csv_ref",
+            "batch_content_type",
+            "output_root",
+            "output_path",
+            "expected_version",
+            "export_config"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "scan",
+          "arguments": {
+            "operation": "scan",
+            "input_ref": {
+              "root": "workspace",
+              "path": "qr/upload.png"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "input_ref"
+          ],
+          "excluded_fields": [
+            "spec",
+            "preset",
+            "config_ref",
+            "logo_ref",
+            "frame_image_ref",
+            "logo_url",
+            "frame_image_url",
+            "csv",
+            "csv_ref",
+            "batch_content_type",
+            "output_root",
+            "output_path",
+            "expected_version",
+            "export_config"
+          ]
+        }
+      ]
     }
   }
 }
