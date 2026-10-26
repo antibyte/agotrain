@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "catalog_sha256": "167c133070707c34b9208b426c7a483da3573712534f48ebb6b2f14a6af783e0",
+  "catalog_sha256": "519bc4641d584d03b4ee412f288c4b83f12ef564be043df003be6cd631f7324f",
   "sources": {
     "prompts/tools_manuals/activate_agent_skill.md": "0bf0d39978efb41a69579cfb2d4786cb4f8b2176a02d4ff0dbdd09383ee09811",
     "prompts/tools_manuals/address_book.md": "00da1c21a0abb796871de0a2ff806e8e707deb9c869e8fdb55c5e6789dfe45c8",
@@ -150,7 +150,7 @@
     "prompts/tools_manuals/run_agent_skill_script.md": "52ca9c0454acaa9c4964a5a05bac792431fa6798707eb017dc25c625dd50eccc",
     "prompts/tools_manuals/run_tool.md": "4e1c9fd6967c186462c545f53af16d681967d13305b3b102230e79359b55a917",
     "prompts/tools_manuals/ruview.md": "0920281c0c9ee20962f0a2fc6bbed9f3a2a5f882540ef5bf69e6a0705345979f",
-    "prompts/tools_manuals/s3_storage.md": "65c0947c47d3acb194e5829cbe4635e3b22427fcc7ba78d8e3b6f11c8559fe60",
+    "prompts/tools_manuals/s3_storage.md": "de8bf73f4ad35239b238a4342b13c00094f35c3569b39feb7c6bdca4d90be689",
     "prompts/tools_manuals/sandbox.md": "458e441987f15d7d39cca4303e350dfbabaebf50e892149c02ddfb644a6cf60f",
     "prompts/tools_manuals/secrets_vault.md": "0ed1c010ffde294650d97f0c389ed13c8ef480f45b62c59694404188c934de1c",
     "prompts/tools_manuals/send_agodesk_chat.md": "2cf67bddffa026c49d63dcd1ff921d6e107db9a5d0d1593ee24aea7d657e6d6d",
@@ -202,7 +202,7 @@
     "prompts/tools_manuals/xml_editor.md": "70a334eb6e3cb4c798d71ab00e233e75a14bbd41c50398c7a7be4589c6b3077e",
     "prompts/tools_manuals/yaml_editor.md": "3019e5bcda6867a4a5ff6732e690daa77fabc3ab8b1444ef3c8776fce787779b",
     "prompts/tools_manuals/yepapi.md": "1706d0835ddecab453b7adcfae11ded4338f9b30ac2fd30623cc1fdf3e817c3d",
-    "training/operation_contracts.json": "497e35ca6736da9cc54c059581d1ce724b96462507e4cbbff649053fcc411899",
+    "training/operation_contracts.json": "10b852f3e383897148d80b8a35901553b707b638afd55d4307773656d04df0d3",
     "training/tool_tiers.json": "fb05a01512bda91ffb52e9b6ca7fbcd2d7a9721ebad62f28da30d1246f4d3d26"
   },
   "tools": [
@@ -72198,7 +72198,7 @@
     },
     {
       "name": "s3_storage",
-      "description": "Manage objects in S3-compatible storage (AWS S3, MinIO, Wasabi, Backblaze B2). Operations: list_buckets, list_objects (with optional prefix filter), upload (local file → S3), download (S3 → local workspace file), delete, copy (within or across buckets), move.",
+      "description": "Manage objects in S3-compatible storage (AWS S3, MinIO, Wasabi, Backblaze B2, managed RustFS). Operations: list_buckets, list_objects (with optional prefix filter), upload (local file → S3), download (S3 → local workspace file), delete, copy (within or across buckets), move.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -72238,7 +72238,7 @@
             ]
           },
           "local_path": {
-            "description": "Local file path. Upload sources must be inside the workspace or data directory; download destinations must be inside the workspace.",
+            "description": "Local file path. External S3 uploads accept workspace/data files. Managed RustFS uploads accept protected workspace/document files. Downloads stay inside the workspace.",
             "type": [
               "string",
               "null"
@@ -72258,7 +72258,7 @@
             "type": "string"
           },
           "prefix": {
-            "description": "Key prefix filter for list_objects (e.g. 'backups/2025/')",
+            "description": "Literal key prefix for list_objects. Managed RustFS permits only configured prefixes; specify one when several are allowed.",
             "type": [
               "string",
               "null"
@@ -72301,7 +72301,7 @@
             "type": "string"
           },
           "local_path": {
-            "description": "Local file path. Upload sources must be inside the workspace or data directory; download destinations must be inside the workspace.",
+            "description": "Local file path. External S3 uploads accept workspace/data files. Managed RustFS uploads accept protected workspace/document files. Downloads stay inside the workspace.",
             "type": "string"
           },
           "operation": {
@@ -72318,7 +72318,7 @@
             "type": "string"
           },
           "prefix": {
-            "description": "Key prefix filter for list_objects (e.g. 'backups/2025/')",
+            "description": "Literal key prefix for list_objects. Managed RustFS permits only configured prefixes; specify one when several are allowed.",
             "type": "string"
           }
         },
@@ -72374,7 +72374,7 @@
           ]
         },
         "local_path": {
-          "description": "Local file path. Upload sources must be inside the workspace or data directory; download destinations must be inside the workspace.",
+          "description": "Local file path. External S3 uploads accept workspace/data files. Managed RustFS uploads accept protected workspace/document files. Downloads stay inside the workspace.",
           "type": [
             "string",
             "null"
@@ -72394,7 +72394,7 @@
           "type": "string"
         },
         "prefix": {
-          "description": "Key prefix filter for list_objects (e.g. 'backups/2025/')",
+          "description": "Literal key prefix for list_objects. Managed RustFS permits only configured prefixes; specify one when several are allowed.",
           "type": [
             "string",
             "null"
@@ -92192,12 +92192,12 @@
     {
       "id": "s3_storage",
       "path": "prompts/tools_manuals/s3_storage.md",
-      "sha256": "65c0947c47d3acb194e5829cbe4635e3b22427fcc7ba78d8e3b6f11c8559fe60",
-      "body": "# Tool: `s3_storage`\n\n## Purpose\nManage objects in S3-compatible storage services (AWS S3, MinIO, Wasabi, Backblaze B2). List, upload, download, delete, copy, and move objects across buckets.\n\n## Prerequisites\n- `s3.enabled: true` in config\n- Store `s3_access_key` and `s3_secret_key` in the secrets vault\n- For S3-compatible services (MinIO, Wasabi): set `s3.endpoint` and `s3.use_path_style: true`\n- HTTP endpoints require `s3.insecure: true`; HTTPS is used by default.\n\n## Parameters\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `operation` | string | ✅ | `list_buckets`, `list_objects`, `upload`, `download`, `delete`, `copy`, `move` |\n| `bucket` | string | ❌ | Bucket name (uses config default if omitted) |\n| `key` | string | ❌ | Object key (path within bucket) — required for upload/download/delete/copy/move |\n| `local_path` | string | ❌ | Local file path — upload sources must be inside the workspace or data directory; download destinations must be inside the workspace |\n| `prefix` | string | ❌ | Key prefix filter for list_objects (e.g. `backups/2025/`) |\n| `destination_bucket` | string | ❌ | Target bucket for copy/move (defaults to source bucket) |\n| `destination_key` | string | ❌ | Target key for copy/move |\n\n## Operations\n\n### `list_buckets`\nList all accessible buckets. No additional parameters needed.\n\n### `list_objects`\nList objects in a bucket. Use `prefix` to filter by path.\n\n### `upload`\nUpload a local file to S3. Requires `key` and `local_path`; the source file must be inside AuraGo's workspace or data directory.\n\n### `download`\nDownload an S3 object to a local workspace file. Requires `key`; `local_path` defaults to the key's filename inside the workspace. Requires `agent.allow_filesystem_write`.\n\n### `delete`\nDelete an object from S3. Requires `key`.\n\n### `copy`\nCopy an object within or across buckets. Requires `key` and `destination_key`; `destination_bucket` defaults to the source bucket.\n\n### `move`\nMove (copy + delete source) within or across buckets. Same params as copy.\n\n## Configuration\n```yaml\ns3:\n  enabled: true\n  readonly: false\n  endpoint: \"https://s3.amazonaws.com\"  # or http://minio.local:9000\n  region: \"us-east-1\"\n  bucket: \"my-default-bucket\"\n  use_path_style: false  # true for MinIO / S3-compatible\n  insecure: false         # true to allow HTTP endpoints\n```\n\n## Example Calls\n```json\n{ \"operation\": \"list_buckets\" }\n{ \"operation\": \"list_objects\", \"bucket\": \"backups\", \"prefix\": \"2025/01/\" }\n{ \"operation\": \"upload\", \"bucket\": \"data\", \"key\": \"reports/analysis.pdf\", \"local_path\": \"agent_workspace/workdir/analysis.pdf\" }\n{ \"operation\": \"download\", \"bucket\": \"data\", \"key\": \"config/settings.json\", \"local_path\": \"agent_workspace/workdir/settings.json\" }\n{ \"operation\": \"delete\", \"bucket\": \"temp\", \"key\": \"old-file.txt\" }\n{ \"operation\": \"copy\", \"key\": \"file.txt\", \"destination_bucket\": \"archive\", \"destination_key\": \"2025/file.txt\" }\n{ \"operation\": \"move\", \"bucket\": \"inbox\", \"key\": \"new.csv\", \"destination_bucket\": \"processed\", \"destination_key\": \"data/new.csv\" }\n```\n",
+      "sha256": "de8bf73f4ad35239b238a4342b13c00094f35c3569b39feb7c6bdca4d90be689",
+      "body": "# Tool: `s3_storage`\n\n## Purpose\nManage objects in S3-compatible storage services (AWS S3, MinIO, Wasabi, Backblaze B2, or managed RustFS). List, upload, download, delete, copy, and move objects across buckets.\n\n## Prerequisites\n- `s3.enabled: true` in config\n- External provider: store `s3_access_key` and `s3_secret_key` in the secrets vault.\n- Managed RustFS provider: complete administrator setup, select `s3.provider: rustfs`, and enable RustFS agent access. Credentials and the endpoint are managed privately; never ask for root credentials.\n- For S3-compatible services (MinIO, Wasabi): set `s3.endpoint` and `s3.use_path_style: true`\n- HTTP endpoints require `s3.insecure: true`; HTTPS is used by default.\n\n## Parameters\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `operation` | string | ✅ | `list_buckets`, `list_objects`, `upload`, `download`, `delete`, `copy`, `move` |\n| `bucket` | string | ❌ | Bucket name (uses config default if omitted) |\n| `key` | string | ❌ | Object key (path within bucket) — required for upload/download/delete/copy/move |\n| `local_path` | string | ❌ | Local file path — external uploads allow workspace/data files; managed uploads allow protected workspace/document files; downloads stay inside the workspace |\n| `prefix` | string | ❌ | Key prefix filter for list_objects (e.g. `backups/2025/`) |\n| `destination_bucket` | string | ❌ | Target bucket for copy/move (defaults to source bucket) |\n| `destination_key` | string | ❌ | Target key for copy/move |\n\n## Operations\n\n### `list_buckets`\nExternal S3 lists accessible buckets. Managed RustFS returns only configured permitted buckets and does not request the account-wide bucket list.\n\n### `list_objects`\nList objects in a bucket. Use `prefix` to filter by its literal object-key prefix. Managed RustFS permits only configured bucket/prefix pairs. An omitted prefix selects the single permitted prefix, or requires an explicit choice when several are configured. Managed results stop at 1,000 objects or the tool-output byte budget, mark `truncated`, and require a narrower prefix for more detail.\n\n### `upload`\nUpload a local file to S3. Requires `key` and `local_path`; external source files must be inside AuraGo's workspace or data directory. Managed RustFS sources must be admitted workspace/document files; configuration, credentials, databases and the data directory are refused. Write permission includes overwriting an existing key.\n\n### `download`\nDownload an S3 object to a local workspace file. Requires `key`; `local_path` defaults to the key's filename inside the workspace. Requires `agent.allow_filesystem_write`. Publication is rooted and atomic; errors, oversized/truncated bodies and revoked access preserve an existing destination. The download byte limit follows `virtual_desktop.max_file_size_mb` (50 MiB when unset).\n\n### `delete`\nDelete an object from S3. Requires `key`.\n\n### `copy`\nCopy an object within or across buckets. Requires `key` and `destination_key`; `destination_bucket` defaults to the source bucket.\n\n### `move`\nMove (copy + delete source) within or across buckets. Same params as copy. Managed RustFS requires source Read and Delete plus destination Write. A successful copy followed by a failed delete reports partial failure and retains the source; do not treat that result as a completed move.\n\n## Configuration\n```yaml\ns3:\n  enabled: true\n  provider: external  # omitted preserves existing external S3\n  readonly: false\n  endpoint: \"https://s3.amazonaws.com\"  # or http://minio.local:9000\n  region: \"us-east-1\"\n  bucket: \"my-default-bucket\"\n  use_path_style: false  # true for MinIO / S3-compatible\n  insecure: false         # true to allow HTTP endpoints\n```\n\n## Example Calls\n```json\n{ \"operation\": \"list_buckets\" }\n{ \"operation\": \"list_objects\", \"bucket\": \"backups\", \"prefix\": \"2025/01/\" }\n{ \"operation\": \"upload\", \"bucket\": \"data\", \"key\": \"reports/analysis.pdf\", \"local_path\": \"agent_workspace/workdir/analysis.pdf\" }\n{ \"operation\": \"download\", \"bucket\": \"data\", \"key\": \"config/settings.json\", \"local_path\": \"agent_workspace/workdir/settings.json\" }\n{ \"operation\": \"delete\", \"bucket\": \"temp\", \"key\": \"old-file.txt\" }\n{ \"operation\": \"copy\", \"key\": \"file.txt\", \"destination_bucket\": \"archive\", \"destination_key\": \"2025/file.txt\" }\n{ \"operation\": \"move\", \"bucket\": \"inbox\", \"key\": \"new.csv\", \"destination_bucket\": \"processed\", \"destination_key\": \"data/new.csv\" }\n```\n\n## Managed permissions\n\nManaged Read, Write and Delete are separate grants. Copy requires source Read and destination Write. `s3.readonly` overrides every mutation grant. Empty allowed locations or prefix lists grant nothing; an explicitly configured empty prefix grants the whole named bucket. Prefixes and keys are case-sensitive literal strings, so `agent/` does not grant `agent2/`; `..` and encoded characters are ordinary key bytes rather than filesystem traversal. No bucket deletion, IAM administration or presigned-link operation is exposed.\n\nProvider, target, policy and credential changes revoke active managed requests. Start a new request after an authorization change; never switch to external S3 or administrator credentials as a fallback. Switching provider preserves inactive settings and moves no objects.\n",
       "tools": [
         "s3_storage"
       ],
-      "description": "Manage objects in S3-compatible storage (AWS S3, MinIO, Wasabi, Backblaze B2). Operations: list_buckets, list_objects (with optional prefix filter), upload (local file → S3), download (S3 → local workspace file), delete, copy (within or across buckets), move."
+      "description": "Manage objects in S3-compatible storage (AWS S3, MinIO, Wasabi, Backblaze B2, managed RustFS). Operations: list_buckets, list_objects (with optional prefix filter), upload (local file → S3), download (S3 → local workspace file), delete, copy (within or across buckets), move."
     },
     {
       "id": "sandbox",

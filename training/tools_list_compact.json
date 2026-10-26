@@ -6770,7 +6770,7 @@
   },
   {
     "name": "s3_storage",
-    "description": "Manage objects in S3-compatible storage (AWS S3, MinIO, Wasabi, Backblaze B2). Operations: list_buckets, list_objects (with optional prefix filter), upload (local file → S3), download (S3 → local workspace file), delete, copy (within or across buckets), move.",
+    "description": "Manage objects in S3-compatible storage (AWS S3, MinIO, Wasabi, Backblaze B2, managed RustFS). Operations: list_buckets, list_objects (with optional prefix filter), upload (local file → S3), download (S3 → local workspace file), delete, copy (within or across buckets), move.",
     "required": [
       "_todo",
       "bucket",

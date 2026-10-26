@@ -3440,7 +3440,7 @@ Read RuView status, nodes, sensing, model information, recordings, and presence.
 
 ## `s3_storage`
 
-Manage objects in S3-compatible storage (AWS S3, MinIO, Wasabi, Backblaze B2). Operations: list_buckets, list_objects (with optional prefix filter), upload (local file → S3), download (S3 → local workspace file), delete, copy (within or across buckets), move.
+Manage objects in S3-compatible storage (AWS S3, MinIO, Wasabi, Backblaze B2, managed RustFS). Operations: list_buckets, list_objects (with optional prefix filter), upload (local file → S3), download (S3 → local workspace file), delete, copy (within or across buckets), move.
 
 - Tier: `extended`
 - Required: `_todo`, `bucket`, `destination_bucket`, `destination_key`, `key`, `local_path`, `operation`, `prefix`
@@ -3454,9 +3454,9 @@ Manage objects in S3-compatible storage (AWS S3, MinIO, Wasabi, Backblaze B2). O
 | `destination_bucket` | `string` | Target bucket for copy/move (defaults to source bucket) |
 | `destination_key` | `string` | Target key for copy/move |
 | `key` | `string` | S3 object key (path within the bucket) |
-| `local_path` | `string` | Local file path. Upload sources must be inside the workspace or data directory; download destinations must be inside the workspace. |
+| `local_path` | `string` | Local file path. External S3 uploads accept workspace/data files. Managed RustFS uploads accept protected workspace/document files. Downloads stay inside the workspace. |
 | `operation` | `string` | S3 operation to perform |
-| `prefix` | `string` | Key prefix filter for list_objects (e.g. 'backups/2025/') |
+| `prefix` | `string` | Literal key prefix for list_objects. Managed RustFS permits only configured prefixes; specify one when several are allowed. |
 
 ## `save_tool`
 
