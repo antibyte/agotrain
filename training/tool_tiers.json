@@ -134,6 +134,7 @@
     "process_analyzer",
     "process_management",
     "proxmox",
+    "qr_code",
     "question_user",
     "read_tool_output",
     "recall_memory",
@@ -238,5 +239,5 @@
     "set_skill_documentation",
     "transfer_remote_file"
   ],
-  "schema_sha256": "b1325eb4886887411a16ecc528c2c58ab407a7724afde98e578f057d6a528c6d"
+  "schema_sha256": "d861cc808fcb1ecdcb7cee0c19f3c2a127945241bca1ad2aa8d54499ae362815"
 }

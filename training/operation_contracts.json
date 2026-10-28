@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "034623c5201fb549aac0d9c55cf11d50a04ca42e03ee1d4253853ac7d8217733",
+  "schema_sha256": "d861cc808fcb1ecdcb7cee0c19f3c2a127945241bca1ad2aa8d54499ae362815",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -1166,12 +1166,38 @@
           "selector": "operation",
           "value": "discover",
           "arguments": {
-            "device_name": "example-name",
             "operation": "discover"
           },
           "required_fields": [
-            "device_name",
             "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "mute",
+          "arguments": {
+            "operation": "mute",
+            "device_name": "Living Room",
+            "muted": true
+          },
+          "required_fields": [
+            "operation",
+            "device_name",
+            "muted"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "pause",
+          "arguments": {
+            "operation": "pause",
+            "device_name": "Living Room"
+          },
+          "required_fields": [
+            "operation",
+            "device_name"
           ],
           "excluded_fields": []
         },
@@ -1179,14 +1205,42 @@
           "selector": "operation",
           "value": "play",
           "arguments": {
-            "local_path": "workspace/example.txt",
             "operation": "play",
-            "url": "https://example.com/resource"
+            "url": "https://example.com/song.mp3",
+            "device_name": "Living Room"
           },
           "required_fields": [
-            "local_path",
             "operation",
+            "device_name",
             "url"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "resume",
+          "arguments": {
+            "operation": "resume",
+            "device_name": "Living Room"
+          },
+          "required_fields": [
+            "operation",
+            "device_name"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "seek",
+          "arguments": {
+            "operation": "seek",
+            "device_name": "Living Room",
+            "position": 30
+          },
+          "required_fields": [
+            "operation",
+            "device_name",
+            "position"
           ],
           "excluded_fields": []
         },
@@ -1195,9 +1249,11 @@
           "value": "speak",
           "arguments": {
             "operation": "speak",
-            "text": "Example content"
+            "text": "Example content",
+            "device_name": "Living Room"
           },
           "required_fields": [
+            "device_name",
             "operation",
             "text"
           ],
@@ -1207,9 +1263,11 @@
           "selector": "operation",
           "value": "status",
           "arguments": {
-            "operation": "status"
+            "operation": "status",
+            "device_name": "Living Room"
           },
           "required_fields": [
+            "device_name",
             "operation"
           ],
           "excluded_fields": []
@@ -1218,9 +1276,11 @@
           "selector": "operation",
           "value": "stop",
           "arguments": {
-            "operation": "stop"
+            "operation": "stop",
+            "device_name": "Living Room"
           },
           "required_fields": [
+            "device_name",
             "operation"
           ],
           "excluded_fields": []
@@ -1230,9 +1290,11 @@
           "value": "volume",
           "arguments": {
             "operation": "volume",
-            "volume": 1
+            "volume": 1,
+            "device_name": "Living Room"
           },
           "required_fields": [
+            "device_name",
             "operation",
             "volume"
           ],
@@ -4266,6 +4328,19 @@
           },
           "required_fields": [
             "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "diagnose_stream",
+          "arguments": {
+            "operation": "diagnose_stream",
+            "stream_id": "example-camera"
+          },
+          "required_fields": [
+            "operation",
+            "stream_id"
           ],
           "excluded_fields": []
         },
@@ -9894,6 +9969,31 @@
         },
         {
           "selector": "operation",
+          "value": "insert_image",
+          "arguments": {
+            "operation": "insert_image",
+            "path": "Documents/report.docx",
+            "image_ref": {
+              "root": "desktop",
+              "path": "Pictures/wifi-qr.png"
+            },
+            "expected_version": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+            "anchor": "end",
+            "width": 192,
+            "height": 192,
+            "alt": "WiFi QR code"
+          },
+          "required_fields": [
+            "operation",
+            "path",
+            "image_ref",
+            "expected_version",
+            "anchor"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
           "value": "patch",
           "arguments": {
             "operation": "patch",
@@ -9962,6 +10062,33 @@
           "required_fields": [
             "operation",
             "path"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "insert_image",
+          "arguments": {
+            "operation": "insert_image",
+            "path": "Documents/budget.xlsx",
+            "image_ref": {
+              "root": "desktop",
+              "path": "Pictures/wifi-qr.png"
+            },
+            "expected_version": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+            "anchor": "B3",
+            "width": 192,
+            "height": 192,
+            "alt": "WiFi QR code",
+            "sheet": "Budget"
+          },
+          "required_fields": [
+            "operation",
+            "path",
+            "image_ref",
+            "expected_version",
+            "anchor",
+            "sheet"
           ],
           "excluded_fields": []
         },
@@ -19314,6 +19441,132 @@
           "quote": "Keep the Go backend portable. It must run without a Python interpreter."
         }
       }
+    },
+    "qr_code": {
+      "default_arguments": {
+        "operation": "presets"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "batch_generate",
+          "arguments": {
+            "operation": "batch_generate",
+            "spec": {
+              "schema_version": 1,
+              "content": {
+                "type": "text",
+                "text": "Example"
+              }
+            },
+            "csv_ref": {
+              "root": "workspace",
+              "path": "qr/batch.csv"
+            },
+            "output_root": "workspace",
+            "output_path": "qr/batch.zip"
+          },
+          "required_fields": [
+            "operation",
+            "spec",
+            "csv_ref",
+            "output_path"
+          ],
+          "excluded_fields": [
+            "input_ref",
+            "export_config"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "generate",
+          "arguments": {
+            "operation": "generate",
+            "spec": {
+              "schema_version": 1,
+              "content": {
+                "type": "wifi",
+                "wifi": {
+                  "ssid": "Example WiFi",
+                  "password": "example-password",
+                  "security": "WPA"
+                }
+              }
+            },
+            "output_root": "desktop",
+            "output_path": "Pictures/wifi-qr.png"
+          },
+          "required_fields": [
+            "operation",
+            "spec",
+            "output_path"
+          ],
+          "excluded_fields": [
+            "input_ref",
+            "csv",
+            "csv_ref",
+            "batch_content_type"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "presets",
+          "arguments": {
+            "operation": "presets"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": [
+            "spec",
+            "preset",
+            "config_ref",
+            "logo_ref",
+            "frame_image_ref",
+            "logo_url",
+            "frame_image_url",
+            "input_ref",
+            "csv",
+            "csv_ref",
+            "batch_content_type",
+            "output_root",
+            "output_path",
+            "expected_version",
+            "export_config"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "scan",
+          "arguments": {
+            "operation": "scan",
+            "input_ref": {
+              "root": "workspace",
+              "path": "qr/upload.png"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "input_ref"
+          ],
+          "excluded_fields": [
+            "spec",
+            "preset",
+            "config_ref",
+            "logo_ref",
+            "frame_image_ref",
+            "logo_url",
+            "frame_image_url",
+            "csv",
+            "csv_ref",
+            "batch_content_type",
+            "output_root",
+            "output_path",
+            "expected_version",
+            "export_config"
+          ]
+        }
+      ]
     }
   }
 }
