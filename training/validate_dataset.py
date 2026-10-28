@@ -20,8 +20,8 @@ except ImportError as exc:  # pragma: no cover - exercised by CLI environments
 
 
 SCHEMA_VERSION = "2.0"
-EXPECTED_TOOLS = 218
-EXPECTED_SCENARIOS = 5000
+EXPECTED_TOOLS = 233
+EXPECTED_SCENARIOS = 5070
 EXPECTED_CHALLENGE = EXPECTED_TOOLS * 2
 MAX_TOOLS = 20
 MAX_SCHEMA_TOKENS = 12000  # Keep aligned with the exporter; train with at least 16K sequences.
@@ -450,15 +450,15 @@ def validate_coverage(
 ) -> None:
     if stats.rows != EXPECTED_SCENARIOS:
         raise ValidationFailure(f"native dataset has {stats.rows} rows, expected {EXPECTED_SCENARIOS}")
-    if stats.languages != Counter({"de": 3000, "en": 2000}):
-        raise ValidationFailure(f"language distribution is {dict(stats.languages)}, expected de=3000/en=2000")
+    if stats.languages != Counter({"de": 3042, "en": 2028}):
+        raise ValidationFailure(f"language distribution is {dict(stats.languages)}, expected de=3042/en=2028")
     direct_count = max(2250, sum(max(1, len(c.get("operations") or [])) for c in contracts.values()) * 2)
     expected_kinds = Counter(
         {
             # The exporter guarantees DE/EN coverage for operations and default tools
             # before filling the remaining multi-call budget.
             "direct_success": direct_count,
-            "multi_call": 3250 - direct_count,
+            "multi_call": EXPECTED_SCENARIOS - 1750 - direct_count,
             "discover_invoke": 500,
             "tool_error": 375,
             "tool_recovery": 375,

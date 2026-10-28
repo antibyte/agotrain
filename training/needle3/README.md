@@ -95,7 +95,7 @@ reliability. The original 70,000-row and RunPod gates below remain separate.
 | --- | --- |
 | `catalog.json` | Full canonical manuals, strict schemas, operations, aliases and source hashes |
 | `config.json`, `schedule_manifest.json` | Exact language/split/category requests and budgets |
-| `seed_manifest.json` | Provenance of 5,000 existing repository-owned synthetic seeds |
+| `seed_manifest.json` | Provenance of 5,050 existing repository-owned synthetic seeds |
 | `uv.lock`, `assets.py` | Dependency, source, tokenizer, model and native-runtime pins |
 | `reports/needle3/` (repository root, ignored) | API ledger, pilot drafts/reviews, source audits, outcomes |
 | `generated/`, `models/`, `.cache/` (ignored) | Repeated schemas/tokens, weights and local indexes |
