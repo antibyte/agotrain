@@ -2,8 +2,8 @@
 
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
-- Tools: **233**
-- Enumerated operations: **1319**
+- Tools: **240**
+- Enumerated operations: **1423**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
 
@@ -349,26 +349,29 @@ Manage cheat sheets (reusable workflow instructions with metadata). List results
 
 ## `chromecast`
 
-Control Chromecast and Google Cast devices on the local network. Discover devices, play media URLs, speak text via TTS, stop playback, adjust volume, and query status. Specify a device by name (resolved via inventory) or directly by IP address and port.
+Control Chromecast devices that are in the inventory or the latest discovery. discover and status stay available in read-only mode. play, speak, stop, volume, pause, resume, seek, and mute change the device. Groups are labeled and not controllable. YouTube pages are unsupported. stream_type live is only a hint.
 
 - Tier: `extended`
-- Required: `_todo`, `content_type`, `device_addr`, `device_name`, `device_port`, `language`, `local_path`, `operation`, `text`, `url`, `volume`
-- Operations: 6
+- Required: `_todo`, `content_type`, `device_addr`, `device_name`, `device_port`, `language`, `local_path`, `muted`, `operation`, `position`, `stream_type`, `text`, `url`, `volume`
+- Operations: 10
 - Manual: `prompts/tools_manuals/chromecast.md`
 
 | Parameter | Type | Description |
 |---|---|---|
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
 | `content_type` | `string` | MIME type of the media (for 'play', e.g. 'audio/mpeg', 'video/mp4', 'video/webm'). Direct video URLs should specify this. Default: 'audio/mpeg'. |
-| `device_addr` | `string` | IP address of the Chromecast device (e.g. '192.168.1.42'). |
-| `device_name` | `string` | Friendly device name (resolved via device registry, e.g. 'Living Room'). Use when device_addr is unknown. |
-| `device_port` | `integer` | Port of the Chromecast device (default: 8009). |
+| `device_addr` | `string` | Private IP of an inventory device or a device from the latest discovery. An arbitrary address is rejected. |
+| `device_name` | `string` | Friendly device name from inventory or the latest discovery, e.g. 'Living Room'. |
+| `device_port` | `integer` | Port of the Chromecast device (default: 8009). Only 8009 or the stored inventory port is accepted. |
 | `language` | `string` | Language code for TTS speech (for 'speak', e.g. 'de', 'en'). Defaults to system language. |
 | `local_path` | `string` | Local workspace audio/video/image file to cast (for 'play'). AuraGo publishes it on /cast-media/ automatically, e.g. 'workdir/song.mp3' or 'workdir/clip.mp4'. |
+| `muted` | `boolean` | Mute flag for mute. Required for that operation. |
 | `operation` | `string` | Chromecast operation to perform |
-| `text` | `string` | Text to speak aloud via TTS (for 'speak' operation). |
-| `url` | `string` | Direct HTTP(S) media URL to cast (for 'play'). Public URLs are SSRF-protected; private LAN media requires chromecast.media_host_allowlist unless it is AuraGo-generated /tts/ or /cast-media/. |
-| `volume` | `number` | Volume level 0.0–1.0 (for 'volume' operation). |
+| `position` | `number` | Seek target in seconds for seek. Required for that operation. |
+| `stream_type` | `string` | Optional hint for play. 'live' is echoed back and does not change the receiver load. |
+| `text` | `string` | Text to speak aloud via TTS (for 'speak'). Longer than 500 runes is truncated. |
+| `url` | `string` | Direct HTTP(S) media file URL for play. YouTube pages are unsupported. Private LAN media requires chromecast.media_host_allowlist unless it is AuraGo-generated /tts/ or /cast-media/. |
+| `volume` | `number` | Volume level 0.0–1.0 for volume. Required for that operation. 0 is a real level, not an omitted value. |
 
 ## `cloudflare_tunnel`
 
@@ -1297,7 +1300,7 @@ Observe configured go2rtc camera streams, create or analyze safe snapshots, show
 
 - Tier: `extended`
 - Required: `_todo`, `cache_seconds`, `event_id`, `height`, `limit`, `mode`, `operation`, `prompt`, `rotate`, `since`, `stream_id`, `until`, `width`
-- Operations: 11
+- Operations: 12
 - Manual: `prompts/tools_manuals/go2rtc.md`
 
 | Parameter | Type | Description |
@@ -2043,6 +2046,141 @@ Read, modify, and validate JSON files using dot-path notation. Get/set/delete va
 | `learning_reason` | `string` | Only after a learning conflict: explain why this exact action should proceed despite the cited decision. Does not bypass permissions. |
 | `operation` | `string` | JSON operation to perform |
 | `set_value` | `string` | Value to set (any JSON type: string, number, boolean, object, array, null). Required for 'set'. |
+
+## `kaggle_benchmarks`
+
+Kaggle benchmarks through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:<job-id> references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.
+
+- Tier: `extended`
+- Required: `_todo`, `file`, `id`, `operation`, `parameters`, `project_id`
+- Operations: 15
+- Manual: `prompts/tools_manuals/kaggle_benchmarks.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `file` | `string` | Selected project filename for uploads, or new destination filename for downloads. |
+| `id` | `string` | Optional 32-hex idempotency ID; reuse only for exactly the same request. |
+| `operation` | `string` | Fixed Kaggle operation |
+| `parameters` | `object` |  |
+| `project_id` | `string` | Managed project ID for transfers. |
+
+## `kaggle_competitions`
+
+Kaggle competitions through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:<job-id> references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.
+
+- Tier: `extended`
+- Required: `_todo`, `file`, `id`, `operation`, `parameters`, `project_id`
+- Operations: 19
+- Manual: `prompts/tools_manuals/kaggle_competitions.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `file` | `string` | Selected project filename for uploads, or new destination filename for downloads. |
+| `id` | `string` | Optional 32-hex idempotency ID; reuse only for exactly the same request. |
+| `operation` | `string` | Fixed Kaggle operation |
+| `parameters` | `object` |  |
+| `project_id` | `string` | Managed project ID for transfers. |
+
+## `kaggle_datasets`
+
+Kaggle datasets through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:<job-id> references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.
+
+- Tier: `extended`
+- Required: `_todo`, `file`, `id`, `operation`, `parameters`, `project_id`
+- Operations: 12
+- Manual: `prompts/tools_manuals/kaggle_datasets.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `file` | `string` | Selected project filename for uploads, or new destination filename for downloads. |
+| `id` | `string` | Optional 32-hex idempotency ID; reuse only for exactly the same request. |
+| `operation` | `string` | Fixed Kaggle operation |
+| `parameters` | `object` |  |
+| `project_id` | `string` | Managed project ID for transfers. |
+
+## `kaggle_forums`
+
+Kaggle forums through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:<job-id> references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.
+
+- Tier: `extended`
+- Required: `_todo`, `file`, `id`, `operation`, `parameters`, `project_id`
+- Operations: 8
+- Manual: `prompts/tools_manuals/kaggle_forums.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `file` | `string` | Selected project filename for uploads, or new destination filename for downloads. |
+| `id` | `string` | Optional 32-hex idempotency ID; reuse only for exactly the same request. |
+| `operation` | `string` | Fixed Kaggle operation |
+| `parameters` | `object` |  |
+| `project_id` | `string` | Managed project ID for transfers. |
+
+## `kaggle_models`
+
+Kaggle models through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:<job-id> references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.
+
+- Tier: `extended`
+- Required: `_todo`, `file`, `id`, `operation`, `parameters`, `project_id`
+- Operations: 16
+- Manual: `prompts/tools_manuals/kaggle_models.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `file` | `string` | Selected project filename for uploads, or new destination filename for downloads. |
+| `id` | `string` | Optional 32-hex idempotency ID; reuse only for exactly the same request. |
+| `operation` | `string` | Fixed Kaggle operation |
+| `parameters` | `object` |  |
+| `project_id` | `string` | Managed project ID for transfers. |
+
+## `kaggle_notebooks`
+
+Kaggle notebooks through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:<job-id> references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.
+
+- Tier: `extended`
+- Required: `_todo`, `file`, `id`, `operation`, `parameters`, `project_id`
+- Operations: 12
+- Manual: `prompts/tools_manuals/kaggle_notebooks.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `file` | `string` | Selected project filename for uploads, or new destination filename for downloads. |
+| `id` | `string` | Optional 32-hex idempotency ID; reuse only for exactly the same request. |
+| `operation` | `string` | Fixed Kaggle operation |
+| `parameters` | `object` |  |
+| `project_id` | `string` | Managed project ID for transfers. |
+
+## `kaggle_runtime`
+
+Manage local Kaggle projects, revisioned nbformat-4 notebooks, durable remote jobs, and explicitly local Jupyter kernels. Save a notebook before executing its revision/cell. No code is automatically rerun. Selected files are copied into an isolated CPU container; credentials never enter the kernel.
+
+- Tier: `extended`
+- Required: `_todo`, `after`, `cell_id`, `code`, `cursor`, `file`, `files`, `internet`, `job_id`, `notebook_json`, `operation`, `project_id`, `revision`, `session_id`, `title`
+- Operations: 17
+- Manual: `prompts/tools_manuals/kaggle_runtime.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `after` | `integer` | Last observed event cursor; 0 starts the bounded replay. Poll events for local execution output and retain next_cursor. |
+| `cell_id` | `string` | Stable cell ID; cell-N for an imported notebook without IDs. |
+| `code` | `string` | Code prefix for completion only. |
+| `cursor` | `integer` | Completion cursor offset. |
+| `file` | `string` | Notebook .ipynb filename. |
+| `files` | `array` |  |
+| `internet` | `boolean` | Request separately granted local internet access. |
+| `job_id` | `string` | Durable Kaggle job ID. |
+| `notebook_json` | `string` | Complete nbformat-4 JSON for save_notebook. Preserve metadata, attachments and outputs from load_notebook. |
+| `operation` | `string` | Workspace or local kernel operation |
+| `project_id` | `string` | Managed project ID. |
+| `revision` | `string` | Observed notebook revision; * only creates a new notebook. |
+| `session_id` | `string` | Local kernel session ID. |
+| `title` | `string` | New project title. |
 
 ## `knowledge_graph`
 
