@@ -94,6 +94,13 @@
     "invasion_tasks",
     "jellyfin",
     "json_editor",
+    "kaggle_benchmarks",
+    "kaggle_competitions",
+    "kaggle_datasets",
+    "kaggle_forums",
+    "kaggle_models",
+    "kaggle_notebooks",
+    "kaggle_runtime",
     "knowledge_graph",
     "koofr",
     "layerling",
@@ -239,5 +246,5 @@
     "set_skill_documentation",
     "transfer_remote_file"
   ],
-  "schema_sha256": "d861cc808fcb1ecdcb7cee0c19f3c2a127945241bca1ad2aa8d54499ae362815"
+  "schema_sha256": "0a2c47526407ff62f7920a6deb0584a09de20d4f3ea7c6f203d148a38c8cd563"
 }

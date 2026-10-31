@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "d861cc808fcb1ecdcb7cee0c19f3c2a127945241bca1ad2aa8d54499ae362815",
+  "schema_sha256": "0a2c47526407ff62f7920a6deb0584a09de20d4f3ea7c6f203d148a38c8cd563",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -19565,6 +19565,1771 @@
             "expected_version",
             "export_config"
           ]
+        }
+      ]
+    },
+    "kaggle_datasets": {
+      "default_arguments": {
+        "operation": "create_dataset",
+        "parameters": {
+          "ownerSlug": "example-owner",
+          "slug": "example-data",
+          "title": "Example data",
+          "licenseName": "CC0-1.0",
+          "isPrivate": true,
+          "files": [
+            {
+              "token": "upload:1234567890abcdef1234567890abcdef"
+            }
+          ]
+        }
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "create_dataset",
+          "arguments": {
+            "operation": "create_dataset",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "slug": "example-data",
+              "title": "Example data",
+              "licenseName": "CC0-1.0",
+              "isPrivate": true,
+              "files": [
+                {
+                  "token": "upload:1234567890abcdef1234567890abcdef"
+                }
+              ]
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "create_dataset_version",
+          "arguments": {
+            "operation": "create_dataset_version",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "datasetSlug": "example-data",
+              "body": {
+                "versionNotes": "Refresh example rows",
+                "files": [
+                  {
+                    "token": "upload:1234567890abcdef1234567890abcdef"
+                  }
+                ]
+              }
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "delete_dataset",
+          "arguments": {
+            "operation": "delete_dataset",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "datasetSlug": "example-data"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "download_dataset",
+          "arguments": {
+            "operation": "download_dataset",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "datasetSlug": "example-data",
+              "datasetVersionNumber": 1
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.bin"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_dataset",
+          "arguments": {
+            "operation": "get_dataset",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "datasetSlug": "example-data"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_dataset_files_summary",
+          "arguments": {
+            "operation": "get_dataset_files_summary",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "datasetSlug": "example-data",
+              "datasetVersionNumber": 1
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_dataset_metadata",
+          "arguments": {
+            "operation": "get_dataset_metadata",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "datasetSlug": "example-data"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_dataset_status",
+          "arguments": {
+            "operation": "get_dataset_status",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "datasetSlug": "example-data"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_dataset_files",
+          "arguments": {
+            "operation": "list_dataset_files",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "datasetSlug": "example-data",
+              "datasetVersionNumber": 1,
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_datasets",
+          "arguments": {
+            "operation": "list_datasets",
+            "parameters": {
+              "search": "weather",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "update_dataset_metadata",
+          "arguments": {
+            "operation": "update_dataset_metadata",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "datasetSlug": "example-data",
+              "settings": {
+                "description": "Example dataset documentation"
+              }
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "upload_dataset_file",
+          "arguments": {
+            "operation": "upload_dataset_file",
+            "parameters": {
+              "fileName": "example.csv",
+              "contentLength": 16,
+              "lastModifiedEpochSeconds": 1735689600
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "example.csv"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        }
+      ]
+    },
+    "kaggle_models": {
+      "default_arguments": {
+        "operation": "create_model",
+        "parameters": {
+          "ownerSlug": "example-owner",
+          "slug": "example-model",
+          "title": "Example model",
+          "isPrivate": true,
+          "description": "Private test model"
+        }
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "create_model",
+          "arguments": {
+            "operation": "create_model",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "slug": "example-model",
+              "title": "Example model",
+              "isPrivate": true,
+              "description": "Private test model"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "create_model_instance",
+          "arguments": {
+            "operation": "create_model_instance",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "body": "{\"framework\":\"MODEL_FRAMEWORK_PY_TORCH\",\"instanceSlug\":\"default\",\"licenseName\":\"Apache 2.0\",\"files\":[{\"token\":\"upload:1234567890abcdef1234567890abcdef\"}]}"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "create_model_instance_version",
+          "arguments": {
+            "operation": "create_model_instance_version",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "framework": "MODEL_FRAMEWORK_PY_TORCH",
+              "instanceSlug": "default",
+              "body": "{\"versionNotes\":\"Updated test weights\",\"files\":[{\"token\":\"upload:1234567890abcdef1234567890abcdef\"}]}"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "delete_model",
+          "arguments": {
+            "operation": "delete_model",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "delete_model_instance",
+          "arguments": {
+            "operation": "delete_model_instance",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "instanceSlug": "default",
+              "framework": "MODEL_FRAMEWORK_PY_TORCH"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "delete_model_instance_version",
+          "arguments": {
+            "operation": "delete_model_instance_version",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "instanceSlug": "default",
+              "framework": "MODEL_FRAMEWORK_PY_TORCH",
+              "versionNumber": 1
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "download_model_instance_version",
+          "arguments": {
+            "operation": "download_model_instance_version",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "instanceSlug": "default",
+              "framework": "MODEL_FRAMEWORK_PY_TORCH",
+              "versionNumber": 1
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.bin"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_model",
+          "arguments": {
+            "operation": "get_model",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_model_instance",
+          "arguments": {
+            "operation": "get_model_instance",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "instanceSlug": "default",
+              "framework": "MODEL_FRAMEWORK_PY_TORCH"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_model_instance_version_files",
+          "arguments": {
+            "operation": "list_model_instance_version_files",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "instanceSlug": "default",
+              "framework": "MODEL_FRAMEWORK_PY_TORCH",
+              "versionNumber": 1,
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_model_instance_versions",
+          "arguments": {
+            "operation": "list_model_instance_versions",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "instanceSlug": "default",
+              "framework": "MODEL_FRAMEWORK_PY_TORCH",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_model_instances",
+          "arguments": {
+            "operation": "list_model_instances",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_models",
+          "arguments": {
+            "operation": "list_models",
+            "parameters": {
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "update_model",
+          "arguments": {
+            "operation": "update_model",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "description": "Updated test model",
+              "updateMask": "description"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "update_model_instance",
+          "arguments": {
+            "operation": "update_model_instance",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "framework": "MODEL_FRAMEWORK_PY_TORCH",
+              "instanceSlug": "default",
+              "overview": "Updated variant documentation",
+              "updateMask": "overview"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "upload_model_file",
+          "arguments": {
+            "operation": "upload_model_file",
+            "parameters": {
+              "fileName": "example.csv",
+              "contentLength": 16,
+              "lastModifiedEpochSeconds": 1735689600
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "example.csv"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        }
+      ]
+    },
+    "kaggle_notebooks": {
+      "default_arguments": {
+        "operation": "cancel_kernel_session",
+        "parameters": {
+          "kernelSessionId": 123
+        }
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "cancel_kernel_session",
+          "arguments": {
+            "operation": "cancel_kernel_session",
+            "parameters": {
+              "kernelSessionId": 123
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "delete_kernel",
+          "arguments": {
+            "operation": "delete_kernel",
+            "parameters": {
+              "kernelSlug": "example-notebook",
+              "userName": "example-owner"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "download_kernel_output",
+          "arguments": {
+            "operation": "download_kernel_output",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "kernelSlug": "example-notebook",
+              "versionNumber": 1,
+              "filePath": "result.csv"
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.bin"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "download_kernel_output_zip",
+          "arguments": {
+            "operation": "download_kernel_output_zip",
+            "parameters": {
+              "kernelSessionId": 123
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.bin"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_accelerator_quota_statistics",
+          "arguments": {
+            "operation": "get_accelerator_quota_statistics",
+            "parameters": {}
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_kernel",
+          "arguments": {
+            "operation": "get_kernel",
+            "parameters": {
+              "kernelSlug": "example-notebook",
+              "userName": "example-owner",
+              "versionLabel": "1"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_kernel_session_logs_stream",
+          "arguments": {
+            "operation": "get_kernel_session_logs_stream",
+            "parameters": {
+              "kernelSlug": "example-notebook",
+              "userName": "example-owner",
+              "versionLabel": "1",
+              "kernelSessionId": 123
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.bin"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_kernel_session_status",
+          "arguments": {
+            "operation": "get_kernel_session_status",
+            "parameters": {
+              "kernelSlug": "example-notebook",
+              "userName": "example-owner",
+              "versionLabel": "1"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_kernel_files",
+          "arguments": {
+            "operation": "list_kernel_files",
+            "parameters": {
+              "kernelSlug": "example-notebook",
+              "userName": "example-owner",
+              "versionLabel": "1",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_kernel_session_output",
+          "arguments": {
+            "operation": "list_kernel_session_output",
+            "parameters": {
+              "kernelSlug": "example-notebook",
+              "userName": "example-owner",
+              "versionLabel": "1",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_kernels",
+          "arguments": {
+            "operation": "list_kernels",
+            "parameters": {
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "save_kernel",
+          "arguments": {
+            "operation": "save_kernel",
+            "parameters": {
+              "slug": "example-owner/example-notebook",
+              "newTitle": "Private analysis",
+              "text": "{\"nbformat\":4,\"nbformat_minor\":5,\"metadata\":{},\"cells\":[{\"id\":\"first\",\"cell_type\":\"code\",\"metadata\":{},\"source\":\"answer = 40\",\"outputs\":[],\"execution_count\":null}]}",
+              "kernelType": "notebook",
+              "language": "python",
+              "isPrivate": true,
+              "kernelExecutionType": "QUICK_SAVE"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        }
+      ]
+    },
+    "kaggle_competitions": {
+      "default_arguments": {
+        "operation": "create_code_submission",
+        "parameters": {
+          "competitionName": "example-competition",
+          "kernelOwner": "example-owner",
+          "kernelSlug": "example-notebook",
+          "kernelVersion": 1,
+          "fileName": "submission.csv",
+          "submissionDescription": "Pinned test version"
+        }
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "create_code_submission",
+          "arguments": {
+            "operation": "create_code_submission",
+            "parameters": {
+              "competitionName": "example-competition",
+              "kernelOwner": "example-owner",
+              "kernelSlug": "example-notebook",
+              "kernelVersion": 1,
+              "fileName": "submission.csv",
+              "submissionDescription": "Pinned test version"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "create_submission",
+          "arguments": {
+            "operation": "create_submission",
+            "parameters": {
+              "competitionName": "example-competition",
+              "blobFileTokens": "upload:1234567890abcdef1234567890abcdef",
+              "submissionDescription": "Dedicated test submission"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "download_data_file",
+          "arguments": {
+            "operation": "download_data_file",
+            "parameters": {
+              "competitionName": "example-competition",
+              "fileName": "train.csv"
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.bin"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "download_data_files",
+          "arguments": {
+            "operation": "download_data_files",
+            "parameters": {
+              "competitionName": "example-competition"
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.bin"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "download_leaderboard",
+          "arguments": {
+            "operation": "download_leaderboard",
+            "parameters": {
+              "competitionName": "example-competition"
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.bin"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "download_submission",
+          "arguments": {
+            "operation": "download_submission",
+            "parameters": {
+              "submissionId": 123
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.bin"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_competition",
+          "arguments": {
+            "operation": "get_competition",
+            "parameters": {
+              "competitionName": "example-competition"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_competition_data_files_summary",
+          "arguments": {
+            "operation": "get_competition_data_files_summary",
+            "parameters": {
+              "competitionName": "example-competition"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_leaderboard",
+          "arguments": {
+            "operation": "get_leaderboard",
+            "parameters": {
+              "competitionName": "example-competition",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_submission",
+          "arguments": {
+            "operation": "get_submission",
+            "parameters": {
+              "ref": 123
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_submission_limits",
+          "arguments": {
+            "operation": "get_submission_limits",
+            "parameters": {
+              "competitionName": "example-competition"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_competition_pages",
+          "arguments": {
+            "operation": "list_competition_pages",
+            "parameters": {
+              "competitionName": "example-competition",
+              "pageName": "rules"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_competition_topics",
+          "arguments": {
+            "operation": "list_competition_topics",
+            "parameters": {
+              "competitionName": "example-competition"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_competitions",
+          "arguments": {
+            "operation": "list_competitions",
+            "parameters": {
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_data_files",
+          "arguments": {
+            "operation": "list_data_files",
+            "parameters": {
+              "competitionName": "example-competition",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_submissions",
+          "arguments": {
+            "operation": "list_submissions",
+            "parameters": {
+              "competitionName": "example-competition",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_team_public_submissions",
+          "arguments": {
+            "operation": "list_team_public_submissions",
+            "parameters": {
+              "teamId": 123
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_topic_messages",
+          "arguments": {
+            "operation": "list_topic_messages",
+            "parameters": {
+              "competitionName": "example-competition",
+              "topicId": 123,
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "start_submission_upload",
+          "arguments": {
+            "operation": "start_submission_upload",
+            "parameters": {
+              "competitionName": "example-competition",
+              "fileName": "example.csv",
+              "contentLength": 16,
+              "lastModifiedEpochSeconds": 1735689600
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "example.csv"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        }
+      ]
+    },
+    "kaggle_benchmarks": {
+      "default_arguments": {
+        "operation": "api_cancel_benchmark_task_runs",
+        "parameters": {
+          "runIds": {
+            "ids": [
+              123
+            ]
+          },
+          "includeActive": true
+        }
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "api_cancel_benchmark_task_runs",
+          "arguments": {
+            "operation": "api_cancel_benchmark_task_runs",
+            "parameters": {
+              "runIds": {
+                "ids": [
+                  123
+                ]
+              },
+              "includeActive": true
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "api_get_benchmark_scheduler_status",
+          "arguments": {
+            "operation": "api_get_benchmark_scheduler_status",
+            "parameters": {}
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "batch_schedule_benchmark_task_runs",
+          "arguments": {
+            "operation": "batch_schedule_benchmark_task_runs",
+            "parameters": {
+              "taskSlugs": "[{\"ownerSlug\":\"example-owner\",\"taskSlug\":\"example-task\"}]",
+              "modelVersionSlugs": [
+                "example-owner/example-model/pyTorch/default/1"
+              ]
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "create_benchmark_task",
+          "arguments": {
+            "operation": "create_benchmark_task",
+            "parameters": {
+              "slug": "example-owner/example-task",
+              "text": "def evaluate():\n    return 1.0"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "download_benchmark_task_run_output",
+          "arguments": {
+            "operation": "download_benchmark_task_run_output",
+            "parameters": {
+              "runId": 123
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.bin"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_benchmark_leaderboard",
+          "arguments": {
+            "operation": "get_benchmark_leaderboard",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "versionNumber": 1,
+              "benchmarkSlug": "example-benchmark"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_benchmark_task",
+          "arguments": {
+            "operation": "get_benchmark_task",
+            "parameters": {
+              "slug": "{\"ownerSlug\":\"example-owner\",\"taskSlug\":\"example-task\"}",
+              "includeDefinition": true
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_benchmark_task_quota",
+          "arguments": {
+            "operation": "get_benchmark_task_quota",
+            "parameters": {}
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "get_benchmark_task_run_logs",
+          "arguments": {
+            "operation": "get_benchmark_task_run_logs",
+            "parameters": {
+              "runId": 123
+            },
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.bin"
+          },
+          "required_fields": [
+            "operation",
+            "parameters",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_benchmark_models",
+          "arguments": {
+            "operation": "list_benchmark_models",
+            "parameters": {
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_benchmark_task_runs",
+          "arguments": {
+            "operation": "list_benchmark_task_runs",
+            "parameters": {
+              "taskSlug": {
+                "ownerSlug": "example-owner",
+                "taskSlug": "example-task"
+              },
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_benchmark_tasks",
+          "arguments": {
+            "operation": "list_benchmark_tasks",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "versionNumber": 1,
+              "benchmarkSlug": "example-benchmark",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "publish_benchmark_task",
+          "arguments": {
+            "operation": "publish_benchmark_task",
+            "parameters": {
+              "slug": "{\"ownerSlug\":\"example-owner\",\"taskSlug\":\"example-task\"}",
+              "publishBackingNotebook": false,
+              "publishRunArtifacts": false
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "update_benchmark_task",
+          "arguments": {
+            "operation": "update_benchmark_task",
+            "parameters": {
+              "slug": "{\"ownerSlug\":\"example-owner\",\"taskSlug\":\"example-task\"}",
+              "description": "Reviewed task documentation",
+              "updateMask": "description"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "update_benchmark_task_version",
+          "arguments": {
+            "operation": "update_benchmark_task_version",
+            "parameters": {
+              "slug": "{\"ownerSlug\":\"example-owner\",\"taskSlug\":\"example-task\",\"versionNumber\":1}",
+              "description": "Reviewed version documentation",
+              "updateMask": "description"
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        }
+      ]
+    },
+    "kaggle_forums": {
+      "default_arguments": {
+        "operation": "get_topic",
+        "parameters": {
+          "id": 123
+        }
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "get_topic",
+          "arguments": {
+            "operation": "get_topic",
+            "parameters": {
+              "id": 123
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_benchmark_topics",
+          "arguments": {
+            "operation": "list_benchmark_topics",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "benchmarkSlug": "example-benchmark",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_comments",
+          "arguments": {
+            "operation": "list_comments",
+            "parameters": {
+              "topicId": 123,
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_dataset_topics",
+          "arguments": {
+            "operation": "list_dataset_topics",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "datasetSlug": "example-data",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_forums",
+          "arguments": {
+            "operation": "list_forums",
+            "parameters": {}
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_kernel_topics",
+          "arguments": {
+            "operation": "list_kernel_topics",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "kernelSlug": "example-notebook",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_model_topics",
+          "arguments": {
+            "operation": "list_model_topics",
+            "parameters": {
+              "ownerSlug": "example-owner",
+              "modelSlug": "example-model",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "list_topics",
+          "arguments": {
+            "operation": "list_topics",
+            "parameters": {
+              "forumSlug": "general",
+              "pageSize": 10
+            }
+          },
+          "required_fields": [
+            "operation",
+            "parameters"
+          ],
+          "excluded_fields": []
+        }
+      ]
+    },
+    "kaggle_runtime": {
+      "default_arguments": {
+        "operation": "status"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "cancel_job",
+          "arguments": {
+            "operation": "cancel_job",
+            "job_id": "1234567890abcdef1234567890abcdef"
+          },
+          "required_fields": [
+            "operation",
+            "job_id"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "complete",
+          "arguments": {
+            "operation": "complete",
+            "session_id": "1234567890abcdef1234567890abcdef",
+            "code": "ans",
+            "cursor": 3
+          },
+          "required_fields": [
+            "operation",
+            "session_id",
+            "code",
+            "cursor"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "create_project",
+          "arguments": {
+            "operation": "create_project",
+            "title": "Example analysis"
+          },
+          "required_fields": [
+            "operation",
+            "title"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "events",
+          "arguments": {
+            "operation": "events",
+            "after": 0
+          },
+          "required_fields": [
+            "operation",
+            "after"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "execute",
+          "arguments": {
+            "operation": "execute",
+            "session_id": "1234567890abcdef1234567890abcdef",
+            "revision": "example-revision",
+            "cell_id": "first"
+          },
+          "required_fields": [
+            "operation",
+            "session_id",
+            "revision",
+            "cell_id"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "files",
+          "arguments": {
+            "operation": "files",
+            "project_id": "1234567890abcdef1234567890abcdef"
+          },
+          "required_fields": [
+            "operation",
+            "project_id"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "interrupt",
+          "arguments": {
+            "operation": "interrupt",
+            "session_id": "1234567890abcdef1234567890abcdef"
+          },
+          "required_fields": [
+            "operation",
+            "session_id"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "jobs",
+          "arguments": {
+            "operation": "jobs"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "load_notebook",
+          "arguments": {
+            "operation": "load_notebook",
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "analysis.ipynb"
+          },
+          "required_fields": [
+            "operation",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "projects",
+          "arguments": {
+            "operation": "projects"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "read_file",
+          "arguments": {
+            "operation": "read_file",
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "result.log"
+          },
+          "required_fields": [
+            "operation",
+            "project_id",
+            "file"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "restart",
+          "arguments": {
+            "operation": "restart",
+            "session_id": "1234567890abcdef1234567890abcdef"
+          },
+          "required_fields": [
+            "operation",
+            "session_id"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "save_notebook",
+          "arguments": {
+            "operation": "save_notebook",
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "analysis.ipynb",
+            "revision": "*",
+            "notebook_json": "{\"nbformat\":4,\"nbformat_minor\":5,\"metadata\":{},\"cells\":[{\"id\":\"first\",\"cell_type\":\"code\",\"metadata\":{},\"source\":\"answer = 40\",\"outputs\":[],\"execution_count\":null}]}"
+          },
+          "required_fields": [
+            "operation",
+            "project_id",
+            "file",
+            "revision",
+            "notebook_json"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "sessions",
+          "arguments": {
+            "operation": "sessions"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "start",
+          "arguments": {
+            "operation": "start",
+            "project_id": "1234567890abcdef1234567890abcdef",
+            "file": "analysis.ipynb",
+            "files": [
+              "example.csv"
+            ],
+            "internet": false
+          },
+          "required_fields": [
+            "operation",
+            "project_id",
+            "file",
+            "files",
+            "internet"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "status",
+          "arguments": {
+            "operation": "status"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "stop",
+          "arguments": {
+            "operation": "stop",
+            "session_id": "1234567890abcdef1234567890abcdef"
+          },
+          "required_fields": [
+            "operation",
+            "session_id"
+          ],
+          "excluded_fields": []
         }
       ]
     }

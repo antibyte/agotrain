@@ -4027,6 +4027,516 @@
     ]
   },
   {
+    "name": "kaggle_benchmarks",
+    "description": "Kaggle benchmarks through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:\u003cjob-id\u003e references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.",
+    "required": [
+      "_todo",
+      "file",
+      "id",
+      "operation",
+      "parameters",
+      "project_id"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "api_cancel_benchmark_task_runs"
+      },
+      {
+        "selector": "operation",
+        "value": "api_get_benchmark_scheduler_status"
+      },
+      {
+        "selector": "operation",
+        "value": "batch_schedule_benchmark_task_runs"
+      },
+      {
+        "selector": "operation",
+        "value": "create_benchmark_task"
+      },
+      {
+        "selector": "operation",
+        "value": "download_benchmark_task_run_output"
+      },
+      {
+        "selector": "operation",
+        "value": "get_benchmark_leaderboard"
+      },
+      {
+        "selector": "operation",
+        "value": "get_benchmark_task"
+      },
+      {
+        "selector": "operation",
+        "value": "get_benchmark_task_quota"
+      },
+      {
+        "selector": "operation",
+        "value": "get_benchmark_task_run_logs"
+      },
+      {
+        "selector": "operation",
+        "value": "list_benchmark_models"
+      },
+      {
+        "selector": "operation",
+        "value": "list_benchmark_task_runs"
+      },
+      {
+        "selector": "operation",
+        "value": "list_benchmark_tasks"
+      },
+      {
+        "selector": "operation",
+        "value": "publish_benchmark_task"
+      },
+      {
+        "selector": "operation",
+        "value": "update_benchmark_task"
+      },
+      {
+        "selector": "operation",
+        "value": "update_benchmark_task_version"
+      }
+    ]
+  },
+  {
+    "name": "kaggle_competitions",
+    "description": "Kaggle competitions through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:\u003cjob-id\u003e references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.",
+    "required": [
+      "_todo",
+      "file",
+      "id",
+      "operation",
+      "parameters",
+      "project_id"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "create_code_submission"
+      },
+      {
+        "selector": "operation",
+        "value": "create_submission"
+      },
+      {
+        "selector": "operation",
+        "value": "download_data_file"
+      },
+      {
+        "selector": "operation",
+        "value": "download_data_files"
+      },
+      {
+        "selector": "operation",
+        "value": "download_leaderboard"
+      },
+      {
+        "selector": "operation",
+        "value": "download_submission"
+      },
+      {
+        "selector": "operation",
+        "value": "get_competition"
+      },
+      {
+        "selector": "operation",
+        "value": "get_competition_data_files_summary"
+      },
+      {
+        "selector": "operation",
+        "value": "get_leaderboard"
+      },
+      {
+        "selector": "operation",
+        "value": "get_submission"
+      },
+      {
+        "selector": "operation",
+        "value": "get_submission_limits"
+      },
+      {
+        "selector": "operation",
+        "value": "list_competition_pages"
+      },
+      {
+        "selector": "operation",
+        "value": "list_competition_topics"
+      },
+      {
+        "selector": "operation",
+        "value": "list_competitions"
+      },
+      {
+        "selector": "operation",
+        "value": "list_data_files"
+      },
+      {
+        "selector": "operation",
+        "value": "list_submissions"
+      },
+      {
+        "selector": "operation",
+        "value": "list_team_public_submissions"
+      },
+      {
+        "selector": "operation",
+        "value": "list_topic_messages"
+      },
+      {
+        "selector": "operation",
+        "value": "start_submission_upload"
+      }
+    ]
+  },
+  {
+    "name": "kaggle_datasets",
+    "description": "Kaggle datasets through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:\u003cjob-id\u003e references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.",
+    "required": [
+      "_todo",
+      "file",
+      "id",
+      "operation",
+      "parameters",
+      "project_id"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "create_dataset"
+      },
+      {
+        "selector": "operation",
+        "value": "create_dataset_version"
+      },
+      {
+        "selector": "operation",
+        "value": "delete_dataset"
+      },
+      {
+        "selector": "operation",
+        "value": "download_dataset"
+      },
+      {
+        "selector": "operation",
+        "value": "get_dataset"
+      },
+      {
+        "selector": "operation",
+        "value": "get_dataset_files_summary"
+      },
+      {
+        "selector": "operation",
+        "value": "get_dataset_metadata"
+      },
+      {
+        "selector": "operation",
+        "value": "get_dataset_status"
+      },
+      {
+        "selector": "operation",
+        "value": "list_dataset_files"
+      },
+      {
+        "selector": "operation",
+        "value": "list_datasets"
+      },
+      {
+        "selector": "operation",
+        "value": "update_dataset_metadata"
+      },
+      {
+        "selector": "operation",
+        "value": "upload_dataset_file"
+      }
+    ]
+  },
+  {
+    "name": "kaggle_forums",
+    "description": "Kaggle forums through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:\u003cjob-id\u003e references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.",
+    "required": [
+      "_todo",
+      "file",
+      "id",
+      "operation",
+      "parameters",
+      "project_id"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "get_topic"
+      },
+      {
+        "selector": "operation",
+        "value": "list_benchmark_topics"
+      },
+      {
+        "selector": "operation",
+        "value": "list_comments"
+      },
+      {
+        "selector": "operation",
+        "value": "list_dataset_topics"
+      },
+      {
+        "selector": "operation",
+        "value": "list_forums"
+      },
+      {
+        "selector": "operation",
+        "value": "list_kernel_topics"
+      },
+      {
+        "selector": "operation",
+        "value": "list_model_topics"
+      },
+      {
+        "selector": "operation",
+        "value": "list_topics"
+      }
+    ]
+  },
+  {
+    "name": "kaggle_models",
+    "description": "Kaggle models through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:\u003cjob-id\u003e references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.",
+    "required": [
+      "_todo",
+      "file",
+      "id",
+      "operation",
+      "parameters",
+      "project_id"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "create_model"
+      },
+      {
+        "selector": "operation",
+        "value": "create_model_instance"
+      },
+      {
+        "selector": "operation",
+        "value": "create_model_instance_version"
+      },
+      {
+        "selector": "operation",
+        "value": "delete_model"
+      },
+      {
+        "selector": "operation",
+        "value": "delete_model_instance"
+      },
+      {
+        "selector": "operation",
+        "value": "delete_model_instance_version"
+      },
+      {
+        "selector": "operation",
+        "value": "download_model_instance_version"
+      },
+      {
+        "selector": "operation",
+        "value": "get_model"
+      },
+      {
+        "selector": "operation",
+        "value": "get_model_instance"
+      },
+      {
+        "selector": "operation",
+        "value": "list_model_instance_version_files"
+      },
+      {
+        "selector": "operation",
+        "value": "list_model_instance_versions"
+      },
+      {
+        "selector": "operation",
+        "value": "list_model_instances"
+      },
+      {
+        "selector": "operation",
+        "value": "list_models"
+      },
+      {
+        "selector": "operation",
+        "value": "update_model"
+      },
+      {
+        "selector": "operation",
+        "value": "update_model_instance"
+      },
+      {
+        "selector": "operation",
+        "value": "upload_model_file"
+      }
+    ]
+  },
+  {
+    "name": "kaggle_notebooks",
+    "description": "Kaggle notebooks through the shared account and grants. Read the manual for the selected operation's exact fields. Mutations create durable jobs; poll kaggle_runtime jobs. Use upload:\u003cjob-id\u003e references for uploaded files. Never send credentials. Kaggle notebooks run whole versions; interactive cells use kaggle_runtime.",
+    "required": [
+      "_todo",
+      "file",
+      "id",
+      "operation",
+      "parameters",
+      "project_id"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "cancel_kernel_session"
+      },
+      {
+        "selector": "operation",
+        "value": "delete_kernel"
+      },
+      {
+        "selector": "operation",
+        "value": "download_kernel_output"
+      },
+      {
+        "selector": "operation",
+        "value": "download_kernel_output_zip"
+      },
+      {
+        "selector": "operation",
+        "value": "get_accelerator_quota_statistics"
+      },
+      {
+        "selector": "operation",
+        "value": "get_kernel"
+      },
+      {
+        "selector": "operation",
+        "value": "get_kernel_session_logs_stream"
+      },
+      {
+        "selector": "operation",
+        "value": "get_kernel_session_status"
+      },
+      {
+        "selector": "operation",
+        "value": "list_kernel_files"
+      },
+      {
+        "selector": "operation",
+        "value": "list_kernel_session_output"
+      },
+      {
+        "selector": "operation",
+        "value": "list_kernels"
+      },
+      {
+        "selector": "operation",
+        "value": "save_kernel"
+      }
+    ]
+  },
+  {
+    "name": "kaggle_runtime",
+    "description": "Manage local Kaggle projects, revisioned nbformat-4 notebooks, durable remote jobs, and explicitly local Jupyter kernels. Save a notebook before executing its revision/cell. No code is automatically rerun. Selected files are copied into an isolated CPU container; credentials never enter the kernel.",
+    "required": [
+      "_todo",
+      "after",
+      "cell_id",
+      "code",
+      "cursor",
+      "file",
+      "files",
+      "internet",
+      "job_id",
+      "notebook_json",
+      "operation",
+      "project_id",
+      "revision",
+      "session_id",
+      "title"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "cancel_job"
+      },
+      {
+        "selector": "operation",
+        "value": "complete"
+      },
+      {
+        "selector": "operation",
+        "value": "create_project"
+      },
+      {
+        "selector": "operation",
+        "value": "events"
+      },
+      {
+        "selector": "operation",
+        "value": "execute"
+      },
+      {
+        "selector": "operation",
+        "value": "files"
+      },
+      {
+        "selector": "operation",
+        "value": "interrupt"
+      },
+      {
+        "selector": "operation",
+        "value": "jobs"
+      },
+      {
+        "selector": "operation",
+        "value": "load_notebook"
+      },
+      {
+        "selector": "operation",
+        "value": "projects"
+      },
+      {
+        "selector": "operation",
+        "value": "read_file"
+      },
+      {
+        "selector": "operation",
+        "value": "restart"
+      },
+      {
+        "selector": "operation",
+        "value": "save_notebook"
+      },
+      {
+        "selector": "operation",
+        "value": "sessions"
+      },
+      {
+        "selector": "operation",
+        "value": "start"
+      },
+      {
+        "selector": "operation",
+        "value": "status"
+      },
+      {
+        "selector": "operation",
+        "value": "stop"
+      }
+    ]
+  },
+  {
     "name": "knowledge_graph",
     "description": "Manage a structured graph of entities and relationships. Use for tracking people, devices, services, projects, and their connections. Nightly auto-extraction also populates the graph from conversations.",
     "required": [

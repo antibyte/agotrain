@@ -20,8 +20,8 @@ except ImportError as exc:  # pragma: no cover - exercised by CLI environments
 
 
 SCHEMA_VERSION = "2.0"
-EXPECTED_TOOLS = 233
-EXPECTED_SCENARIOS = 5070
+EXPECTED_TOOLS = 240
+EXPECTED_SCENARIOS = 5370
 EXPECTED_CHALLENGE = EXPECTED_TOOLS * 2
 MAX_TOOLS = 20
 MAX_SCHEMA_TOKENS = 12000  # Keep aligned with the exporter; train with at least 16K sequences.
@@ -450,8 +450,9 @@ def validate_coverage(
 ) -> None:
     if stats.rows != EXPECTED_SCENARIOS:
         raise ValidationFailure(f"native dataset has {stats.rows} rows, expected {EXPECTED_SCENARIOS}")
-    if stats.languages != Counter({"de": 3042, "en": 2028}):
-        raise ValidationFailure(f"language distribution is {dict(stats.languages)}, expected de=3042/en=2028")
+    expected_languages = Counter({"de": EXPECTED_SCENARIOS * 3 // 5, "en": EXPECTED_SCENARIOS * 2 // 5})
+    if stats.languages != expected_languages:
+        raise ValidationFailure(f"language distribution is {dict(stats.languages)}, expected {dict(expected_languages)}")
     direct_count = max(2250, sum(max(1, len(c.get("operations") or [])) for c in contracts.values()) * 2)
     expected_kinds = Counter(
         {
