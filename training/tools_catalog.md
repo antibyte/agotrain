@@ -2,7 +2,7 @@
 
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
-- Tools: **241**
+- Tools: **242**
 - Enumerated operations: **1427**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
@@ -3727,7 +3727,7 @@ Send an email via SMTP.
 
 ## `send_image`
 
-Send an image to the user. Shown inline with a click-to-zoom lightbox in the Web UI, as a native photo in Telegram, and as a file attachment in Discord. Provide a local workspace path or an image URL.
+Send an image to the user. Shown inline with a click-to-zoom lightbox in the Web UI, as a native photo in Telegram, as an image message in WhatsApp, and as a file attachment in Discord. Provide a local workspace path or an image URL.
 
 - Tier: `extended`
 - Required: `_todo`, `caption`, `path`
@@ -3741,7 +3741,7 @@ Send an image to the user. Shown inline with a click-to-zoom lightbox in the Web
 
 ## `send_notification`
 
-Send a push notification to ntfy, Pushover, Telegram, Discord, Web Push, SMS, or a Cheap Yellow Display. Use channel cyd for the desk display overlay.
+Send a push notification to ntfy, Pushover, Telegram, WhatsApp, Discord, Web Push, SMS, or a Cheap Yellow Display. Use channel cyd for the desk display overlay.
 
 - Tier: `extended`
 - Required: `_todo`, `channel`, `message`, `priority`, `tag`, `title`
@@ -3785,9 +3785,23 @@ Send a video file to the user. Shown with an inline video player in the Web UI. 
 | `path` | `string` | Local file path within the workspace (e.g. 'clips/demo.mp4') or a full HTTPS URL to a video file (MP4, WebM, MOV, OGV) |
 | `title` | `string` | Optional title shown above the video player |
 
+## `send_whatsapp`
+
+Send a WhatsApp message, and optionally one file, to the owner's WhatsApp chat. It reaches only the configured owner; there is no recipient parameter.
+
+- Tier: `rare`
+- Required: `_todo`, `file_path`, `message`
+- Manual: `prompts/tools_manuals/send_whatsapp.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `file_path` | `string` | Optional file in the workspace or the documents folder, up to 50 MB. A JPEG/PNG goes out as an image, an MP4/M4V as video, an MP3/M4A/AAC/OGG/OPUS as audio, each only when its content matches its type; anything else is sent as a document. The message becomes the caption; a longer text, and the text of an audio file, goes out first |
+| `message` | `string` | Message text; Markdown is converted to WhatsApp formatting |
+
 ## `send_youtube_video`
 
-Send a YouTube video to the user. This is the player path. Prefer yepapi_youtube for metadata when that tool is available; otherwise use video_download search or info. Read captions or subtitles before video_download transcribe, and use download only when a file is wanted. In the Web UI it appears as an embedded YouTube player; in Telegram, Discord, and other text channels it appears as a normal YouTube link. Do not download the video.
+Send a YouTube video to the user. This is the player path. Prefer yepapi_youtube for metadata when that tool is available; otherwise use video_download search or info. Read captions or subtitles before video_download transcribe, and use download only when a file is wanted. In the Web UI it appears as an embedded YouTube player; in Telegram, WhatsApp, Discord, and other text channels it appears as a normal YouTube link. Do not download the video.
 
 - Tier: `extended`
 - Required: `_todo`, `start_seconds`, `title`, `url`

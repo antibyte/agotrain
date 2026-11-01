@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "c6347067803245dd59d85f83cc7aed87451be022b98f3e12e7fcdb256e0d7530",
+  "schema_sha256": "cb57aee049b2a586b304d50377347b0ac19d1cc687653413000be86805da11c3",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -12073,6 +12073,11 @@
     "send_video": {
       "default_arguments": {
         "path": "workspace/example.txt"
+      }
+    },
+    "send_whatsapp": {
+      "default_arguments": {
+        "message": "Example content"
       }
     },
     "send_youtube_video": {

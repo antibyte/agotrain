@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "source": "aurago internal/agent.BuildNativeToolSchemaSnapshot.StrictSchemas (all feature flags enabled)",
-  "tool_count": 241,
+  "tool_count": 242,
   "operation_count": 1427,
   "call_format": "OpenAI-compatible native function calling with assistant tool_calls and role=tool results linked by tool_call_id.",
   "tools": [
@@ -67504,7 +67504,7 @@
     },
     {
       "name": "send_image",
-      "description": "Send an image to the user. Shown inline with a click-to-zoom lightbox in the Web UI, as a native photo in Telegram, and as a file attachment in Discord. Provide a local workspace path or an image URL.",
+      "description": "Send an image to the user. Shown inline with a click-to-zoom lightbox in the Web UI, as a native photo in Telegram, as an image message in WhatsApp, and as a file attachment in Discord. Provide a local workspace path or an image URL.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -67582,11 +67582,11 @@
       },
       "tier": "extended",
       "manual_path": "prompts/tools_manuals/send_image.md",
-      "manual_snippet": "## Tool: Send Image (`send_image`)\n\nSend an image to the user. In the Web UI it appears inline in the chat with a click-to-zoom lightbox. In Telegram it arrives as a native photo. In Discord it is sent as a file attachment.\n\n### Schema\n\n| Parameter | Type | Required | Description |\n|---|---|---|---|\n| `path` | string | yes | Local workspace path (e.g. `images/chart.png`) **or** a full HTTPS URL to an image |\n| `caption` | string | no | Caption or description shown with the image |\n\n### Workflow\n\n1. Generate or download an image (via `execute_python`, `execute_shell`, or skill).\n2. Call `send_image` with the workspace-relative path or a URL.\n3. Include the `markdown` value from the tool result in your final response so the image also appears when chat history is reloaded.\n\n### Examples\n\n```…"
+      "manual_snippet": "## Tool: Send Image (`send_image`)\n\nSend an image to the user. In the Web UI it appears inline in the chat with a click-to-zoom lightbox. In Telegram it arrives as a native photo. In WhatsApp it arrives as an image message. In Discord it is sent as a file attachment.\n\n### Schema\n\n| Parameter | Type | Required | Description |\n|---|---|---|---|\n| `path` | string | yes | Local workspace path (e.g. `images/chart.png`) **or** a full HTTPS URL to an image |\n| `caption` | string | no | Caption or description shown with the image |\n\n### Workflow\n\n1. Generate or download an image (via `execute_python`, `execute_shell`, or skill).\n2. Call `send_image` with the workspace-relative path or a URL.\n3. Include the `markdown` value from the tool result in your final response so the image also appears when …"
     },
     {
       "name": "send_notification",
-      "description": "Send a push notification to ntfy, Pushover, Telegram, Discord, Web Push, SMS, or a Cheap Yellow Display. Use channel cyd for the desk display overlay.",
+      "description": "Send a push notification to ntfy, Pushover, Telegram, WhatsApp, Discord, Web Push, SMS, or a Cheap Yellow Display. Use channel cyd for the desk display overlay.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -67603,6 +67603,7 @@
               "ntfy",
               "pushover",
               "telegram",
+              "whatsapp",
               "discord",
               "push",
               "telnyx",
@@ -67664,6 +67665,7 @@
               "ntfy",
               "pushover",
               "telegram",
+              "whatsapp",
               "discord",
               "push",
               "telnyx",
@@ -67716,6 +67718,7 @@
             "ntfy",
             "pushover",
             "telegram",
+            "whatsapp",
             "discord",
             "push",
             "telnyx",
@@ -67756,7 +67759,7 @@
       },
       "tier": "extended",
       "manual_path": "prompts/tools_manuals/send_notification.md",
-      "manual_snippet": "## Tool: Notification Center (`send_notification`)\n\nSend push notifications to one or more channels. Ideal for alerts, reminders, and autonomous task completion reports.\n\n### Schema\n\n```json\n{\n  \"action\": \"send_notification\",\n  \"channel\": \"ntfy\",\n  \"title\": \"Backup Complete\",\n  \"message\": \"Daily backup finished successfully. 3.2 GB archived.\",\n  \"tag\": \"normal\"\n}\n```\n\n### Parameters\n\n| Parameter | Required | Description |\n|-----------|----------|-------------|\n| `channel` | yes | Target: `\"ntfy\"`, `\"pushover\"`, `\"telegram\"`, `\"discord\"`, `\"push\"`, `\"telnyx\"`, `\"cyd\"`, or `\"all\"` |\n| `title`   | no  | Notification title (default: \"AuraGo\") |\n| `message` | yes | Notification body text |\n| `tag`     | no  | Priority: `\"low\"`, `\"normal\"` (default), `\"high\"`, `\"critical\"` |\n\n### Channels\n\n- **n…"
+      "manual_snippet": "## Tool: Notification Center (`send_notification`)\n\nSend push notifications to one or more channels. Ideal for alerts, reminders, and autonomous task completion reports.\n\n### Schema\n\n```json\n{\n  \"action\": \"send_notification\",\n  \"channel\": \"ntfy\",\n  \"title\": \"Backup Complete\",\n  \"message\": \"Daily backup finished successfully. 3.2 GB archived.\",\n  \"tag\": \"normal\"\n}\n```\n\n### Parameters\n\n| Parameter | Required | Description |\n|-----------|----------|-------------|\n| `channel` | yes | Target: `\"ntfy\"`, `\"pushover\"`, `\"telegram\"`, `\"whatsapp\"`, `\"discord\"`, `\"push\"`, `\"telnyx\"`, `\"cyd\"`, or `\"all\"` |\n| `title`   | no  | Notification title (default: \"AuraGo\") |\n| `message` | yes | Notification body text |\n| `tag`     | no  | Priority: `\"low\"`, `\"normal\"` (default), `\"high\"`, `\"critical\"` |\n\n### C…"
     },
     {
       "name": "send_telegram",
@@ -67961,8 +67964,90 @@
       "manual_snippet": "## Tool: Send Video (`send_video`)\n\nUse `send_video` when the user asks to see an existing video file in the chat, or when you have created/downloaded a video manually and need to present it in the WebUI.\n\n## Behavior\n\n- Shows an inline video player in the WebUI chat.\n- Copies local files into `data/generated_videos/` so they can be served safely.\n- Downloads direct HTTP(S) video URLs into `data/generated_videos/`.\n- Registers the video in the media registry.\n\n## Arguments\n\n- `path` (required): workspace-relative path, absolute local path, or direct HTTP(S) URL.\n- `title` (optional): display title above the player.\n\nSupported browser-friendly formats: MP4, WebM, MOV, M4V, OGV/OGG.\n\n## Examples\n\n```json\n{\"action\": \"send_video\", \"path\": \"clips/demo.mp4\", \"title\": \"Demo clip\"}\n```\n\n```json\n{\"…"
     },
     {
+      "name": "send_whatsapp",
+      "description": "Send a WhatsApp message, and optionally one file, to the owner's WhatsApp chat. It reaches only the configured owner; there is no recipient parameter.",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "file_path": {
+            "description": "Optional file in the workspace or the documents folder, up to 50 MB. A JPEG/PNG goes out as an image, an MP4/M4V as video, an MP3/M4A/AAC/OGG/OPUS as audio, each only when its content matches its type; anything else is sent as a document. The message becomes the caption; a longer text, and the text of an audio file, goes out first",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "message": {
+            "description": "Message text; Markdown is converted to WhatsApp formatting",
+            "type": "string"
+          }
+        },
+        "required": [
+          "_todo",
+          "file_path",
+          "message"
+        ],
+        "type": "object"
+      },
+      "argument_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": "string"
+          },
+          "file_path": {
+            "description": "Optional file in the workspace or the documents folder, up to 50 MB. A JPEG/PNG goes out as an image, an MP4/M4V as video, an MP3/M4A/AAC/OGG/OPUS as audio, each only when its content matches its type; anything else is sent as a document. The message becomes the caption; a longer text, and the text of an audio file, goes out first",
+            "type": "string"
+          },
+          "message": {
+            "description": "Message text; Markdown is converted to WhatsApp formatting",
+            "type": "string"
+          }
+        },
+        "required": [
+          "message"
+        ],
+        "type": "object"
+      },
+      "required": [
+        "_todo",
+        "file_path",
+        "message"
+      ],
+      "properties": {
+        "_todo": {
+          "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "file_path": {
+          "description": "Optional file in the workspace or the documents folder, up to 50 MB. A JPEG/PNG goes out as an image, an MP4/M4V as video, an MP3/M4A/AAC/OGG/OPUS as audio, each only when its content matches its type; anything else is sent as a document. The message becomes the caption; a longer text, and the text of an audio file, goes out first",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "message": {
+          "description": "Message text; Markdown is converted to WhatsApp formatting",
+          "type": "string"
+        }
+      },
+      "tier": "rare",
+      "manual_path": "prompts/tools_manuals/send_whatsapp.md",
+      "manual_snippet": "# WhatsApp (`send_whatsapp`)\n\nSend a message, and optionally one file, to the owner's WhatsApp chat through the linked WhatsApp device. The tool is offered only while WhatsApp is enabled, linked and not read-only.\n\n## Schema\n\n```json\n{\"action\": \"send_whatsapp\", \"message\": \"Backup finished, 3.2 GB archived.\", \"file_path\": \"backup-report.pdf\"}\n```\n\n## Parameters\n\n| Parameter | Required | Description |\n|-----------|----------|-------------|\n| `message` | yes | Message text. Markdown is converted to WhatsApp formatting. With a file, it becomes the caption, so send text with every file |\n| `file_path` | no | One file in the workspace or the documents folder, up to 50 MB |\n\n`content` and `body` are accepted as aliases for `message`.\n\n## Owner only\n\nThere is no recipient parameter. Messages go on…"
+    },
+    {
       "name": "send_youtube_video",
-      "description": "Send a YouTube video to the user. This is the player path. Prefer yepapi_youtube for metadata when that tool is available; otherwise use video_download search or info. Read captions or subtitles before video_download transcribe, and use download only when a file is wanted. In the Web UI it appears as an embedded YouTube player; in Telegram, Discord, and other text channels it appears as a normal YouTube link. Do not download the video.",
+      "description": "Send a YouTube video to the user. This is the player path. Prefer yepapi_youtube for metadata when that tool is available; otherwise use video_download search or info. Read captions or subtitles before video_download transcribe, and use download only when a file is wanted. In the Web UI it appears as an embedded YouTube player; in Telegram, WhatsApp, Discord, and other text channels it appears as a normal YouTube link. Do not download the video.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -68060,7 +68145,7 @@
       },
       "tier": "extended",
       "manual_path": "prompts/tools_manuals/send_youtube_video.md",
-      "manual_snippet": "## Tool: Send YouTube Video (`send_youtube_video`)\n\nUse `send_youtube_video` when the user asks to send or play a YouTube video in chat. Prefer `yepapi_youtube` for metadata when it is enabled, otherwise `video_download` search or info. Read captions or subtitles before `video_download` transcribe. Use `video_download` download only when a file is wanted.\n\n## Behavior\n\n- Requires `tools.send_youtube_video.enabled: true`.\n- Web Chat: emits a YouTube embed event so the UI renders an inline player.\n- Telegram, Discord, and other text channels: delivers the canonical YouTube link.\n- Does not download, mirror, or store the YouTube video file.\n- Uses `youtube-nocookie.com` for the Web Chat embed.\n\n## Arguments\n\n- `url` (required): YouTube URL. Supports `youtube.com/watch?v=...`, `youtu.be/...`, …"
+      "manual_snippet": "## Tool: Send YouTube Video (`send_youtube_video`)\n\nUse `send_youtube_video` when the user asks to send or play a YouTube video in chat. Prefer `yepapi_youtube` for metadata when it is enabled, otherwise `video_download` search or info. Read captions or subtitles before `video_download` transcribe. Use `video_download` download only when a file is wanted.\n\n## Behavior\n\n- Requires `tools.send_youtube_video.enabled: true`.\n- Web Chat: emits a YouTube embed event so the UI renders an inline player.\n- Telegram, WhatsApp, Discord, and other text channels: delivers the canonical YouTube link.\n- Does not download, mirror, or store the YouTube video file.\n- Uses `youtube-nocookie.com` for the Web Chat embed.\n\n## Arguments\n\n- `url` (required): YouTube URL. Supports `youtube.com/watch?v=...`, `youtu…"
     },
     {
       "name": "set_skill_documentation",

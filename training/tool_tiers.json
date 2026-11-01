@@ -244,8 +244,9 @@
     "send_discord",
     "send_email",
     "send_telegram",
+    "send_whatsapp",
     "set_skill_documentation",
     "transfer_remote_file"
   ],
-  "schema_sha256": "0a2c47526407ff62f7920a6deb0584a09de20d4f3ea7c6f203d148a38c8cd563"
+  "schema_sha256": "cb57aee049b2a586b304d50377347b0ac19d1cc687653413000be86805da11c3"
 }

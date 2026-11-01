@@ -7482,7 +7482,7 @@
   },
   {
     "name": "send_image",
-    "description": "Send an image to the user. Shown inline with a click-to-zoom lightbox in the Web UI, as a native photo in Telegram, and as a file attachment in Discord. Provide a local workspace path or an image URL.",
+    "description": "Send an image to the user. Shown inline with a click-to-zoom lightbox in the Web UI, as a native photo in Telegram, as an image message in WhatsApp, and as a file attachment in Discord. Provide a local workspace path or an image URL.",
     "required": [
       "_todo",
       "caption",
@@ -7492,7 +7492,7 @@
   },
   {
     "name": "send_notification",
-    "description": "Send a push notification to ntfy, Pushover, Telegram, Discord, Web Push, SMS, or a Cheap Yellow Display. Use channel cyd for the desk display overlay.",
+    "description": "Send a push notification to ntfy, Pushover, Telegram, WhatsApp, Discord, Web Push, SMS, or a Cheap Yellow Display. Use channel cyd for the desk display overlay.",
     "required": [
       "_todo",
       "channel",
@@ -7526,8 +7526,18 @@
     "tier": "extended"
   },
   {
+    "name": "send_whatsapp",
+    "description": "Send a WhatsApp message, and optionally one file, to the owner's WhatsApp chat. It reaches only the configured owner; there is no recipient parameter.",
+    "required": [
+      "_todo",
+      "file_path",
+      "message"
+    ],
+    "tier": "rare"
+  },
+  {
     "name": "send_youtube_video",
-    "description": "Send a YouTube video to the user. This is the player path. Prefer yepapi_youtube for metadata when that tool is available; otherwise use video_download search or info. Read captions or subtitles before video_download transcribe, and use download only when a file is wanted. In the Web UI it appears as an embedded YouTube player; in Telegram, Discord, and other text channels it appears as a normal YouTube link. Do not download the video.",
+    "description": "Send a YouTube video to the user. This is the player path. Prefer yepapi_youtube for metadata when that tool is available; otherwise use video_download search or info. Read captions or subtitles before video_download transcribe, and use download only when a file is wanted. In the Web UI it appears as an embedded YouTube player; in Telegram, WhatsApp, Discord, and other text channels it appears as a normal YouTube link. Do not download the video.",
     "required": [
       "_todo",
       "start_seconds",
