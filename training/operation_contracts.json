@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "0a2c47526407ff62f7920a6deb0584a09de20d4f3ea7c6f203d148a38c8cd563",
+  "schema_sha256": "c6347067803245dd59d85f83cc7aed87451be022b98f3e12e7fcdb256e0d7530",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -2904,6 +2904,128 @@
             "pattern"
           ],
           "excluded_fields": []
+        }
+      ]
+    },
+    "findit": {
+      "default_arguments": {
+        "operation": "search",
+        "entity": "templates",
+        "query": "resistor",
+        "limit": 20
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "availability",
+          "arguments": {
+            "operation": "availability",
+            "entity": "items",
+            "id": "item-demo-001"
+          },
+          "required_fields": [
+            "operation",
+            "entity",
+            "id"
+          ],
+          "excluded_fields": [
+            "query",
+            "location_id",
+            "template_id",
+            "category",
+            "package",
+            "available_only",
+            "low_stock",
+            "filters",
+            "limit",
+            "offset"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "get",
+          "arguments": {
+            "operation": "get",
+            "entity": "items",
+            "id": "item-demo-001"
+          },
+          "required_fields": [
+            "operation",
+            "entity",
+            "id"
+          ],
+          "excluded_fields": [
+            "query",
+            "location_id",
+            "template_id",
+            "category",
+            "package",
+            "available_only",
+            "low_stock",
+            "filters",
+            "limit",
+            "offset"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "search",
+          "arguments": {
+            "operation": "search",
+            "entity": "items",
+            "query": "10k resistor",
+            "template_id": "resistor",
+            "filters": [
+              {
+                "field": "resistance_ohms",
+                "operator": "eq",
+                "value": 10000
+              }
+            ]
+          },
+          "required_fields": [
+            "operation",
+            "entity",
+            "query",
+            "template_id",
+            "filters"
+          ],
+          "excluded_fields": [
+            "id",
+            "location_id",
+            "category",
+            "package",
+            "available_only",
+            "low_stock",
+            "limit",
+            "offset"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "shortages",
+          "arguments": {
+            "operation": "shortages",
+            "entity": "projects",
+            "id": "project-demo-001"
+          },
+          "required_fields": [
+            "operation",
+            "entity",
+            "id"
+          ],
+          "excluded_fields": [
+            "query",
+            "location_id",
+            "template_id",
+            "category",
+            "package",
+            "available_only",
+            "low_stock",
+            "filters",
+            "limit",
+            "offset"
+          ]
         }
       ]
     },

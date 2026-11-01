@@ -14,6 +14,9 @@
 
 - Preserve curated operation fixtures and tiers when schemas change. Update the
   source pin deliberately, regenerate with AuraGo, then validate both repositories.
+- FindIt training fixtures are synthetic and read-only: cover `search`, `get`,
+  `availability`, and `shortages` in both German and English, using example IDs
+  and values rather than records from a user's physical inventory.
 - The seven Kaggle tools require paired German/English operation coverage, SDK-valid structured arguments and no automatic retry of uncertain mutations. The 5,370-row pack retains the existing negative/discovery quotas and at least 500 connected multistep examples; language allocation stays 60% German and 40% English.
 - `AURAGO_SOURCE` selects the AuraGo checkout for live catalog search; its default
   is the sibling `../AuraGo`. Pass `--source` and `--out` explicitly when exporting.

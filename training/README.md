@@ -11,7 +11,7 @@ small model on AuraGo's native tools. The current pack is generated from
 
 Current generated inventory:
 
-- 240 tools and 1,423 schema-declared operations
+- 241 tools and 1,427 schema-declared operations
 - 5,370 training scenarios: 3,222 German and 2,148 English
 - deterministic family-level train/validation/test splits
 - Permanently held-out challenge scenarios, exactly two per tool
@@ -19,6 +19,8 @@ Current generated inventory:
 
 The pack retains paired German/English coverage for every operation and
 selector-free tool, at least 500 multi-call rows, and all negative cases.
+FindIt operation examples use synthetic item, location, and project values only;
+no physical inventory data belongs in the training pack.
 The generated count follows the live checkout. A schema change intentionally
 changes the operation count and requires reviewed manifest regeneration.
 

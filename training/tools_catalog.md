@@ -2,8 +2,8 @@
 
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
-- Tools: **240**
-- Enumerated operations: **1423**
+- Tools: **241**
+- Enumerated operations: **1427**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
 
@@ -921,6 +921,32 @@ Read, write, move, copy, delete files and directories, or list directory content
 | `offset` | `integer` | Number of entries to skip for list_dir pagination (default: 0) |
 | `operation` | `string` | Operation to perform |
 | `preview` | `boolean` | If true, only return first 100 lines (for read_file) |
+
+## `findit`
+
+Read the physical homelab inventory. Search or get items, locations, projects, and templates; inspect item availability including reserved and free quantities; or list project shortages. Search templates first to discover custom property fields before filtering items. This tool never changes inventory.
+
+- Tier: `extended`
+- Required: `_todo`, `available_only`, `category`, `entity`, `filters`, `id`, `limit`, `location_id`, `low_stock`, `offset`, `operation`, `package`, `query`, `template_id`
+- Operations: 4
+- Manual: `prompts/tools_manuals/findit.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `available_only` | `boolean` | For item search, keep records with free stock. |
+| `category` | `string` | Limit item search to a catalog category. |
+| `entity` | `string` | Record type. availability requires items; shortages requires projects. |
+| `filters` | `array` | Typed filters for template properties. Use a template's key and type returned by search templates. |
+| `id` | `string` | Record id for get and availability; project id for shortages. |
+| `limit` | `integer` | Maximum number of search results (default 50, maximum 200). |
+| `location_id` | `string` | Limit item search to a location. |
+| `low_stock` | `boolean` | For item search, keep records below minimum stock. |
+| `offset` | `integer` | Search pagination offset. |
+| `operation` | `string` | Read operation: search records, get one by id, calculate item availability, or list a project's BOM shortages. |
+| `package` | `string` | Limit item search to a package family, such as SOIC or 0603. |
+| `query` | `string` | Words or exact identifiers to search. |
+| `template_id` | `string` | Limit item search to a template. Search templates to discover fields. |
 
 ## `firewall`
 

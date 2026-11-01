@@ -1627,6 +1627,45 @@
     ]
   },
   {
+    "name": "findit",
+    "description": "Read the physical homelab inventory. Search or get items, locations, projects, and templates; inspect item availability including reserved and free quantities; or list project shortages. Search templates first to discover custom property fields before filtering items. This tool never changes inventory.",
+    "required": [
+      "_todo",
+      "available_only",
+      "category",
+      "entity",
+      "filters",
+      "id",
+      "limit",
+      "location_id",
+      "low_stock",
+      "offset",
+      "operation",
+      "package",
+      "query",
+      "template_id"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "availability"
+      },
+      {
+        "selector": "operation",
+        "value": "get"
+      },
+      {
+        "selector": "operation",
+        "value": "search"
+      },
+      {
+        "selector": "operation",
+        "value": "shortages"
+      }
+    ]
+  },
+  {
     "name": "firewall",
     "description": "Manage and inspect local Linux firewall rules (iptables/ufw). Note: modification commands are blocked in 'readonly' mode.",
     "required": [

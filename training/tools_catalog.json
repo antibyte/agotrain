@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
   "source": "aurago internal/agent.BuildNativeToolSchemaSnapshot.StrictSchemas (all feature flags enabled)",
-  "tool_count": 240,
-  "operation_count": 1423,
+  "tool_count": 241,
+  "operation_count": 1427,
   "call_format": "OpenAI-compatible native function calling with assistant tool_calls and role=tool results linked by tool_call_id.",
   "tools": [
     {
@@ -11054,6 +11054,510 @@
       ],
       "manual_path": "prompts/tools_manuals/filesystem.md",
       "manual_snippet": "## Tool: Filesystem Operations (`filesystem`)\n\nPerform file system tasks. Your working directory is `agent_workspace/workdir`. Paths stay inside `agent_workspace`: use `../skills` or `../tools` for sibling directories. `config.yaml`, `data/`, and other install-root files are not reachable. \n\n### Operations\n\n| Operation | Description | Extra Parameters |\n|---|---|---|\n| `list_dir` | List directory contents | — |\n| `create_dir` | Create a directory | — |\n| `read_file` | Read file contents | `include_hashes` (boolean, optional) |\n| `write_file` | Write content to file | `content` (string) |\n| `delete` | Delete a file or directory | — |\n| `copy` | Copy a single file | `destination` (string) |\n| `move` | Move or rename | `destination` (string) |\n| `copy_batch` | Copy multiple files | `ite…"
+    },
+    {
+      "name": "findit",
+      "description": "Read the physical homelab inventory. Search or get items, locations, projects, and templates; inspect item availability including reserved and free quantities; or list project shortages. Search templates first to discover custom property fields before filtering items. This tool never changes inventory.",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "available_only": {
+            "description": "For item search, keep records with free stock.",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "category": {
+            "description": "Limit item search to a catalog category.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "entity": {
+            "description": "Record type. availability requires items; shortages requires projects.",
+            "enum": [
+              "items",
+              "locations",
+              "projects",
+              "templates"
+            ],
+            "type": "string"
+          },
+          "filters": {
+            "description": "Typed filters for template properties. Use a template's key and type returned by search templates.",
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "field": {
+                  "description": "Property key from the selected FindIt template.",
+                  "pattern": "^[a-z][a-z0-9_]{0,63}$",
+                  "type": "string"
+                },
+                "operator": {
+                  "description": "Comparison supported by the property type.",
+                  "enum": [
+                    "eq",
+                    "ne",
+                    "contains",
+                    "gt",
+                    "gte",
+                    "lt",
+                    "lte"
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ],
+                  "description": "Typed scalar value to compare against the property."
+                }
+              },
+              "required": [
+                "field",
+                "operator",
+                "value"
+              ],
+              "type": "object"
+            },
+            "maxItems": 8,
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "Record id for get and availability; project id for shortages.",
+            "maxLength": 128,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}$",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "limit": {
+            "description": "Maximum number of search results (default 50, maximum 200).",
+            "maximum": 200,
+            "minimum": 1,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "location_id": {
+            "description": "Limit item search to a location.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "low_stock": {
+            "description": "For item search, keep records below minimum stock.",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "offset": {
+            "description": "Search pagination offset.",
+            "maximum": 1000000,
+            "minimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "operation": {
+            "description": "Read operation: search records, get one by id, calculate item availability, or list a project's BOM shortages.",
+            "enum": [
+              "search",
+              "get",
+              "availability",
+              "shortages"
+            ],
+            "type": "string"
+          },
+          "package": {
+            "description": "Limit item search to a package family, such as SOIC or 0603.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "query": {
+            "description": "Words or exact identifiers to search.",
+            "maxLength": 512,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "template_id": {
+            "description": "Limit item search to a template. Search templates to discover fields.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "_todo",
+          "available_only",
+          "category",
+          "entity",
+          "filters",
+          "id",
+          "limit",
+          "location_id",
+          "low_stock",
+          "offset",
+          "operation",
+          "package",
+          "query",
+          "template_id"
+        ],
+        "type": "object"
+      },
+      "argument_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": "string"
+          },
+          "available_only": {
+            "description": "For item search, keep records with free stock.",
+            "type": "boolean"
+          },
+          "category": {
+            "description": "Limit item search to a catalog category.",
+            "type": "string"
+          },
+          "entity": {
+            "description": "Record type. availability requires items; shortages requires projects.",
+            "enum": [
+              "items",
+              "locations",
+              "projects",
+              "templates"
+            ],
+            "type": "string"
+          },
+          "filters": {
+            "description": "Typed filters for template properties. Use a template's key and type returned by search templates.",
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "field": {
+                  "description": "Property key from the selected FindIt template.",
+                  "pattern": "^[a-z][a-z0-9_]{0,63}$",
+                  "type": "string"
+                },
+                "operator": {
+                  "description": "Comparison supported by the property type.",
+                  "enum": [
+                    "eq",
+                    "ne",
+                    "contains",
+                    "gt",
+                    "gte",
+                    "lt",
+                    "lte"
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ],
+                  "description": "Typed scalar value to compare against the property."
+                }
+              },
+              "required": [
+                "field",
+                "operator",
+                "value"
+              ],
+              "type": "object"
+            },
+            "maxItems": 8,
+            "type": "array"
+          },
+          "id": {
+            "description": "Record id for get and availability; project id for shortages.",
+            "maxLength": 128,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}$",
+            "type": "string"
+          },
+          "limit": {
+            "description": "Maximum number of search results (default 50, maximum 200).",
+            "maximum": 200,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "location_id": {
+            "description": "Limit item search to a location.",
+            "type": "string"
+          },
+          "low_stock": {
+            "description": "For item search, keep records below minimum stock.",
+            "type": "boolean"
+          },
+          "offset": {
+            "description": "Search pagination offset.",
+            "maximum": 1000000,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "operation": {
+            "description": "Read operation: search records, get one by id, calculate item availability, or list a project's BOM shortages.",
+            "enum": [
+              "search",
+              "get",
+              "availability",
+              "shortages"
+            ],
+            "type": "string"
+          },
+          "package": {
+            "description": "Limit item search to a package family, such as SOIC or 0603.",
+            "type": "string"
+          },
+          "query": {
+            "description": "Words or exact identifiers to search.",
+            "maxLength": 512,
+            "type": "string"
+          },
+          "template_id": {
+            "description": "Limit item search to a template. Search templates to discover fields.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "operation",
+          "entity"
+        ],
+        "type": "object"
+      },
+      "required": [
+        "_todo",
+        "available_only",
+        "category",
+        "entity",
+        "filters",
+        "id",
+        "limit",
+        "location_id",
+        "low_stock",
+        "offset",
+        "operation",
+        "package",
+        "query",
+        "template_id"
+      ],
+      "properties": {
+        "_todo": {
+          "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "available_only": {
+          "description": "For item search, keep records with free stock.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "category": {
+          "description": "Limit item search to a catalog category.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "entity": {
+          "description": "Record type. availability requires items; shortages requires projects.",
+          "enum": [
+            "items",
+            "locations",
+            "projects",
+            "templates"
+          ],
+          "type": "string"
+        },
+        "filters": {
+          "description": "Typed filters for template properties. Use a template's key and type returned by search templates.",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "description": "Property key from the selected FindIt template.",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$",
+                "type": "string"
+              },
+              "operator": {
+                "description": "Comparison supported by the property type.",
+                "enum": [
+                  "eq",
+                  "ne",
+                  "contains",
+                  "gt",
+                  "gte",
+                  "lt",
+                  "lte"
+                ],
+                "type": "string"
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ],
+                "description": "Typed scalar value to compare against the property."
+              }
+            },
+            "required": [
+              "field",
+              "operator",
+              "value"
+            ],
+            "type": "object"
+          },
+          "maxItems": 8,
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "id": {
+          "description": "Record id for get and availability; project id for shortages.",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}$",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limit": {
+          "description": "Maximum number of search results (default 50, maximum 200).",
+          "maximum": 200,
+          "minimum": 1,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "location_id": {
+          "description": "Limit item search to a location.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "low_stock": {
+          "description": "For item search, keep records below minimum stock.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "offset": {
+          "description": "Search pagination offset.",
+          "maximum": 1000000,
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "operation": {
+          "description": "Read operation: search records, get one by id, calculate item availability, or list a project's BOM shortages.",
+          "enum": [
+            "search",
+            "get",
+            "availability",
+            "shortages"
+          ],
+          "type": "string"
+        },
+        "package": {
+          "description": "Limit item search to a package family, such as SOIC or 0603.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "query": {
+          "description": "Words or exact identifiers to search.",
+          "maxLength": 512,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "template_id": {
+          "description": "Limit item search to a template. Search templates to discover fields.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "tier": "extended",
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "availability"
+        },
+        {
+          "selector": "operation",
+          "value": "get"
+        },
+        {
+          "selector": "operation",
+          "value": "search"
+        },
+        {
+          "selector": "operation",
+          "value": "shortages"
+        }
+      ],
+      "manual_path": "prompts/tools_manuals/findit.md",
+      "manual_snippet": "# FindIt (physical homelab inventory)\n\nUse `findit` to read the physical homelab inventory stored by the FindIt Desktop app. It covers items and their locations, item templates and typed properties, project bills of materials, and stock availability. The tool is read-only.\n\n## Operations\n\n- `search` searches one `entity`: `items`, `locations`, `projects`, or `templates`. Use `query` for names, descriptions, or identifiers. Item searches can also use `location_id`, `template_id`, `category`, `package`, `available_only`, `low_stock`, and typed `filters`. Search templates first when you need to discover custom property keys and types. Results include `items`, `total`, `limit`, and `offset`; use `limit` and `offset` to page through results.\n- `get` reads one record selected by `entity` and `id…"
     },
     {
       "name": "firewall",
