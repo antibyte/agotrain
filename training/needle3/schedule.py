@@ -47,6 +47,24 @@ def build_schedule(cat=None, cfg=None):
     for split, count in cfg["groups"].items():
         if count % len(other):
             raise ValueError("group count must divide evenly across secondary languages")
+        per_language = count // len(other)
+        if split == "train":
+            # Random kind chunks can leave one language below its minimum when
+            # the catalog grows. Swap kinds within training only: retain every
+            # kind/language/split quota and the connected multi-call policy.
+            minimum = cfg["minimum_manual_train"].get("other", 4) * len(manuals)
+            starts = [kind_position + li * per_language for li in range(len(other))]
+            positive_counts = [sum(k != "none" for k in kinds_all[start:start + per_language]) for start in starts]
+            for li, start in enumerate(starts):
+                while positive_counts[li] < minimum:
+                    donor = next((di for di, n in enumerate(positive_counts) if n > minimum), None)
+                    if donor is None:
+                        raise ValueError("training budget cannot cover every manual in every language")
+                    empty = next(i for i in range(start, start + per_language) if kinds_all[i] == "none")
+                    source = next(i for i in range(starts[donor], starts[donor] + per_language) if kinds_all[i] != "none")
+                    kinds_all[empty], kinds_all[source] = kinds_all[source], kinds_all[empty]
+                    positive_counts[li] += 1
+                    positive_counts[donor] -= 1
         for li, language in enumerate(other):
             per_language = count // len(other)
             kinds = kinds_all[kind_position:kind_position + per_language]

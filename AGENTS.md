@@ -12,6 +12,8 @@
 
 ## Work guidance
 
+- ECalc fixtures cover search/describe/calculate/open with valid calculator IDs and typed unit inputs in both corpus languages. Co-agent examples are session-scoped; stop requests are explicit. Preserve the complete existing Kaggle/FindIt/WhatsApp contracts during regeneration.
+
 - Preserve curated operation fixtures and tiers when schemas change. Update the
   source pin deliberately, regenerate with AuraGo, then validate both repositories.
 - FindIt training fixtures are synthetic and read-only: cover `search`, `get`,

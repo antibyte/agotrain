@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "cb57aee049b2a586b304d50377347b0ac19d1cc687653413000be86805da11c3",
+  "schema_sha256": "024339596c87418afcce6e4b4f7874fc274e725ee611f517a235ca1e09dd7285",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -1407,7 +1407,7 @@
           "selector": "operation",
           "value": "get_result",
           "arguments": {
-            "co_agent_id": "example-id",
+            "co_agent_id": "coagent-own-session-1",
             "operation": "get_result"
           },
           "required_fields": [
@@ -1445,7 +1445,7 @@
           "value": "spawn_specialist",
           "arguments": {
             "operation": "spawn_specialist",
-            "specialist": "example",
+            "specialist": "researcher",
             "task": "example"
           },
           "required_fields": [
@@ -1459,7 +1459,7 @@
           "selector": "operation",
           "value": "stop",
           "arguments": {
-            "co_agent_id": "example-id",
+            "co_agent_id": "coagent-own-session-1",
             "operation": "stop"
           },
           "required_fields": [
@@ -21455,6 +21455,74 @@
           "required_fields": [
             "operation",
             "session_id"
+          ],
+          "excluded_fields": []
+        }
+      ]
+    },
+    "ecalc": {
+      "default_arguments": {
+        "operation": "search"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "calculate",
+          "arguments": {
+            "operation": "calculate",
+            "id": "ohms_law",
+            "inputs": [
+              {
+                "name": "u",
+                "value": "12 V"
+              },
+              {
+                "name": "r",
+                "value": "1k"
+              }
+            ]
+          },
+          "required_fields": [
+            "operation",
+            "id",
+            "inputs"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "describe",
+          "arguments": {
+            "operation": "describe",
+            "id": "voltage_divider"
+          },
+          "required_fields": [
+            "operation",
+            "id"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "open",
+          "arguments": {
+            "operation": "open",
+            "id": "voltage_divider"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "search",
+          "arguments": {
+            "operation": "search",
+            "query": "voltage divider"
+          },
+          "required_fields": [
+            "operation"
           ],
           "excluded_fields": []
         }

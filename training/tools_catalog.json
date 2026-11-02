@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
   "source": "aurago internal/agent.BuildNativeToolSchemaSnapshot.StrictSchemas (all feature flags enabled)",
-  "tool_count": 242,
-  "operation_count": 1427,
+  "tool_count": 243,
+  "operation_count": 1431,
   "call_format": "OpenAI-compatible native function calling with assistant tool_calls and role=tool results linked by tool_call_id.",
   "tools": [
     {
@@ -4728,7 +4728,7 @@
     },
     {
       "name": "co_agent",
-      "description": "Spawn and monitor parallel co-agents that work on sub-tasks independently. Co-agents run in background goroutines with their own LLM context and return results when done. Use 'spawn_specialist' to dispatch tasks to specialized experts (researcher, coder, designer, security, writer). Use 'list' for quick status. Use 'get_result' to wait briefly for completion and retrieve the result; a running co-agent is not failed just because no partial tokens are visible. Do not use 'stop' or 'stop_all' unless the user explicitly asked to cancel a co-agent.",
+      "description": "Spawn and monitor parallel co-agents that work on sub-tasks independently. Co-agents run in background goroutines with their own LLM context and return results when done. Use 'spawn_specialist' to dispatch tasks to specialized experts (researcher, coder, designer, security, writer). All management operations are limited to co-agents owned by this session; foreign IDs are unavailable. Use 'list' for quick status. Use 'get_result' to wait briefly for completion and retrieve the result; a running co-agent is not failed just because no partial tokens are visible. Do not use 'stop' or 'stop_all' unless the user explicitly asked to cancel a co-agent.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -4740,7 +4740,7 @@
             ]
           },
           "co_agent_id": {
-            "description": "Co-agent ID (required for 'get_result' and 'stop'; stop requires an explicit user cancellation request)",
+            "description": "Co-agent ID owned by this session (required for 'get_result' and 'stop'; stop requires an explicit user cancellation request)",
             "type": [
               "string",
               "null"
@@ -4817,7 +4817,7 @@
             "type": "string"
           },
           "co_agent_id": {
-            "description": "Co-agent ID (required for 'get_result' and 'stop'; stop requires an explicit user cancellation request)",
+            "description": "Co-agent ID owned by this session (required for 'get_result' and 'stop'; stop requires an explicit user cancellation request)",
             "type": "string"
           },
           "context_hints": {
@@ -4880,7 +4880,7 @@
           ]
         },
         "co_agent_id": {
-          "description": "Co-agent ID (required for 'get_result' and 'stop'; stop requires an explicit user cancellation request)",
+          "description": "Co-agent ID owned by this session (required for 'get_result' and 'stop'; stop requires an explicit user cancellation request)",
           "type": [
             "string",
             "null"
@@ -4965,7 +4965,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/co_agent.md",
-      "manual_snippet": "# Co-Agent (`co_agent`)\n\nSpawn and manage parallel co-agents that work on sub-tasks independently. Each co-agent runs in its own goroutine with a separate LLM context and returns results when done.\n\n\u003e **Note**: Assume that co-agents may be less capable than you — double check their work.\n\n## Prerequisites\n\n- `co_agents.enabled: true` in config.yaml\n- Optional: separate LLM model/API key via `co_agents.llm.*`\n\n## Operations\n\n| Operation | Description |\n|-----------|-------------|\n| `spawn` | Start a new generic co-agent with a task |\n| `spawn_specialist` | Start a specialized expert co-agent |\n| `list` | Show all co-agents and their status |\n| `get_result` | Wait briefly for a running co-agent, then retrieve its result or current terminal status |\n| `stop` | Cancel a running co-agent only…"
+      "manual_snippet": "# Co-Agent (`co_agent`)\n\nSpawn and manage parallel co-agents that work on sub-tasks independently. Each co-agent runs in its own goroutine with a separate LLM context and returns results when done.\n\n\u003e **Note**: Assume that co-agents may be less capable than you — double check their work.\n\n## Prerequisites\n\n- `co_agents.enabled: true` in config.yaml\n- Optional: separate LLM model/API key via `co_agents.llm.*`\n\n## Operations\n\n| Operation | Description |\n|-----------|-------------|\n| `spawn` | Start a new generic co-agent with a task |\n| `spawn_specialist` | Start a specialized expert co-agent |\n| `list` | Show co-agents owned by this session and their status |\n| `get_result` | Wait briefly for a running co-agent, then retrieve its result or current terminal status |\n| `stop` | Cancel a run…"
     },
     {
       "name": "code_graph",
@@ -8708,6 +8708,361 @@
       ],
       "manual_path": "prompts/tools_manuals/document_creator.md",
       "manual_snippet": "# Document Creator (`document_creator`)\n\nCreate PDF documents, convert files to PDF, merge PDFs, and take screenshots. Backend is configured in settings: `maroto` (built-in, create_pdf only) or `gotenberg` (Docker sidecar, all operations).\n\n## Operations\n\n| Operation | Description |\n|-----------|-------------|\n| `create_pdf` | Create structured PDF document from sections |\n| `url_to_pdf` | Capture webpage as PDF |\n| `html_to_pdf` | Render HTML content as PDF |\n| `markdown_to_pdf` | Render Markdown as PDF |\n| `convert_document` | Convert Office files to PDF via LibreOffice |\n| `merge_pdfs` | Combine multiple PDFs into one |\n| `screenshot_url` | Capture webpage as image |\n| `screenshot_html` | Render HTML to image |\n| `health` | Check Gotenberg status |\n\n## Parameters\n\n| Parameter | Type | R…"
+    },
+    {
+      "name": "ecalc",
+      "description": "Electronics calculators from the ECalc catalog (Ohm's law, dividers, filters, op-amps, E-series): search them, describe one, calculate with units, or open one pre-filled in the ECalc app.",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "choices": {
+            "description": "calculate, open: choice selections as {name, option}.",
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "description": "Id from describe.",
+                  "type": "string"
+                },
+                "option": {
+                  "description": "Option id from describe.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "option"
+              ],
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "eseries": {
+            "description": "calculate: E-series for standard-value suggestions (default E24).",
+            "enum": [
+              "E3",
+              "E6",
+              "E12",
+              "E24",
+              "E48",
+              "E96",
+              "E192",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "describe, calculate, open: calculator id from search.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "inputs": {
+            "description": "calculate, open: known values as {name, value}, for example 4k7, 12 V or 25 °C. A bare number is in the variable's default unit.",
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "description": "Id from describe.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Value as typed.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "value"
+              ],
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "limit": {
+            "description": "search: 1-25, default 10.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "operation": {
+            "description": "search finds calculators, describe lists variables and solvable inputs, calculate solves, open shows one in the ECalc desktop app.",
+            "enum": [
+              "search",
+              "describe",
+              "calculate",
+              "open"
+            ],
+            "type": "string"
+          },
+          "query": {
+            "description": "search: topic, part or formula, English or German. Empty lists the categories.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "_todo",
+          "choices",
+          "eseries",
+          "id",
+          "inputs",
+          "limit",
+          "operation",
+          "query"
+        ],
+        "type": "object"
+      },
+      "argument_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": "string"
+          },
+          "choices": {
+            "description": "calculate, open: choice selections as {name, option}.",
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "description": "Id from describe.",
+                  "type": "string"
+                },
+                "option": {
+                  "description": "Option id from describe.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "option"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "eseries": {
+            "description": "calculate: E-series for standard-value suggestions (default E24).",
+            "enum": [
+              "E3",
+              "E6",
+              "E12",
+              "E24",
+              "E48",
+              "E96",
+              "E192"
+            ],
+            "type": "string"
+          },
+          "id": {
+            "description": "describe, calculate, open: calculator id from search.",
+            "type": "string"
+          },
+          "inputs": {
+            "description": "calculate, open: known values as {name, value}, for example 4k7, 12 V or 25 °C. A bare number is in the variable's default unit.",
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "description": "Id from describe.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Value as typed.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "value"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "limit": {
+            "description": "search: 1-25, default 10.",
+            "type": "integer"
+          },
+          "operation": {
+            "description": "search finds calculators, describe lists variables and solvable inputs, calculate solves, open shows one in the ECalc desktop app.",
+            "enum": [
+              "search",
+              "describe",
+              "calculate",
+              "open"
+            ],
+            "type": "string"
+          },
+          "query": {
+            "description": "search: topic, part or formula, English or German. Empty lists the categories.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "operation"
+        ],
+        "type": "object"
+      },
+      "required": [
+        "_todo",
+        "choices",
+        "eseries",
+        "id",
+        "inputs",
+        "limit",
+        "operation",
+        "query"
+      ],
+      "properties": {
+        "_todo": {
+          "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "choices": {
+          "description": "calculate, open: choice selections as {name, option}.",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "description": "Id from describe.",
+                "type": "string"
+              },
+              "option": {
+                "description": "Option id from describe.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "option"
+            ],
+            "type": "object"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "eseries": {
+          "description": "calculate: E-series for standard-value suggestions (default E24).",
+          "enum": [
+            "E3",
+            "E6",
+            "E12",
+            "E24",
+            "E48",
+            "E96",
+            "E192",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "description": "describe, calculate, open: calculator id from search.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "inputs": {
+          "description": "calculate, open: known values as {name, value}, for example 4k7, 12 V or 25 °C. A bare number is in the variable's default unit.",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "description": "Id from describe.",
+                "type": "string"
+              },
+              "value": {
+                "description": "Value as typed.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "type": "object"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "limit": {
+          "description": "search: 1-25, default 10.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "operation": {
+          "description": "search finds calculators, describe lists variables and solvable inputs, calculate solves, open shows one in the ECalc desktop app.",
+          "enum": [
+            "search",
+            "describe",
+            "calculate",
+            "open"
+          ],
+          "type": "string"
+        },
+        "query": {
+          "description": "search: topic, part or formula, English or German. Empty lists the categories.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "tier": "extended",
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "calculate"
+        },
+        {
+          "selector": "operation",
+          "value": "describe"
+        },
+        {
+          "selector": "operation",
+          "value": "open"
+        },
+        {
+          "selector": "operation",
+          "value": "search"
+        }
+      ],
+      "manual_path": "prompts/tools_manuals/ecalc.md",
+      "manual_snippet": "# ECalc (electronics calculators)\n\nUse `ecalc` for electronics formulas: Ohm's law, voltage dividers, filters, timers, op-amp stages, power supplies, RF, standard resistor values and more. It computes with the same catalog and formulas as the ECalc desktop app, exactly and with units; use it instead of calculating by hand. It reads nothing from the network or from files.\n\n## Workflow\n\n1. `search` with a few words (English or German, at most 256 characters): a topic, a part or a formula. An empty `query` lists the categories.\n2. `describe` the calculator you picked: its variables with units and defaults, the choices, how many values are needed (`dof`), which input combinations work (`sets`), the computed outputs (`derived`), the checks and the formula.\n3. `calculate` with the values you kno…"
     },
     {
       "name": "evomap",

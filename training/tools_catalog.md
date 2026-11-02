@@ -2,8 +2,8 @@
 
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
-- Tools: **242**
-- Enumerated operations: **1427**
+- Tools: **243**
+- Enumerated operations: **1431**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
 
@@ -390,7 +390,7 @@ Manage administrative named/token tunnels, or temporarily publish a registered H
 
 ## `co_agent`
 
-Spawn and monitor parallel co-agents that work on sub-tasks independently. Co-agents run in background goroutines with their own LLM context and return results when done. Use 'spawn_specialist' to dispatch tasks to specialized experts (researcher, coder, designer, security, writer). Use 'list' for quick status. Use 'get_result' to wait briefly for completion and retrieve the result; a running co-agent is not failed just because no partial tokens are visible. Do not use 'stop' or 'stop_all' unless the user explicitly asked to cancel a co-agent.
+Spawn and monitor parallel co-agents that work on sub-tasks independently. Co-agents run in background goroutines with their own LLM context and return results when done. Use 'spawn_specialist' to dispatch tasks to specialized experts (researcher, coder, designer, security, writer). All management operations are limited to co-agents owned by this session; foreign IDs are unavailable. Use 'list' for quick status. Use 'get_result' to wait briefly for completion and retrieve the result; a running co-agent is not failed just because no partial tokens are visible. Do not use 'stop' or 'stop_all' unless the user explicitly asked to cancel a co-agent.
 
 - Tier: `extended`
 - Required: `_todo`, `co_agent_id`, `context_hints`, `operation`, `output_schema`, `priority`, `specialist`, `task`
@@ -400,7 +400,7 @@ Spawn and monitor parallel co-agents that work on sub-tasks independently. Co-ag
 | Parameter | Type | Description |
 |---|---|---|
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
-| `co_agent_id` | `string` | Co-agent ID (required for 'get_result' and 'stop'; stop requires an explicit user cancellation request) |
+| `co_agent_id` | `string` | Co-agent ID owned by this session (required for 'get_result' and 'stop'; stop requires an explicit user cancellation request) |
 | `context_hints` | `array` | Optional keywords or topics for RAG context injection (for 'spawn' and 'spawn_specialist'). Keep them short and specific. |
 | `operation` | `string` | Operation to perform |
 | `output_schema` | `string` | Optional JSON Schema object for the final result of 'spawn' and 'spawn_specialist'. Keep it compact; the co-agent must return only one JSON object or array matching this schema.. Provide as a JSON string. |
@@ -696,6 +696,26 @@ Create/convert PDFs, merge PDFs, or capture webpage screenshots/PDFs through the
 | `source_files` | `string` | JSON array of file paths for merge_pdfs or convert_document |
 | `title` | `string` | Document title (for create_pdf) |
 | `url` | `string` | URL to capture (for url_to_pdf, screenshot_url) |
+
+## `ecalc`
+
+Electronics calculators from the ECalc catalog (Ohm's law, dividers, filters, op-amps, E-series): search them, describe one, calculate with units, or open one pre-filled in the ECalc app.
+
+- Tier: `extended`
+- Required: `_todo`, `choices`, `eseries`, `id`, `inputs`, `limit`, `operation`, `query`
+- Operations: 4
+- Manual: `prompts/tools_manuals/ecalc.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `choices` | `array` | calculate, open: choice selections as {name, option}. |
+| `eseries` | `string` | calculate: E-series for standard-value suggestions (default E24). |
+| `id` | `string` | describe, calculate, open: calculator id from search. |
+| `inputs` | `array` | calculate, open: known values as {name, value}, for example 4k7, 12 V or 25 °C. A bare number is in the variable's default unit. |
+| `limit` | `integer` | search: 1-25, default 10. |
+| `operation` | `string` | search finds calculators, describe lists variables and solvable inputs, calculate solves, open shows one in the ECalc desktop app. |
+| `query` | `string` | search: topic, part or formula, English or German. Empty lists the categories. |
 
 ## `evomap`
 

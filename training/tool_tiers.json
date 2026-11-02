@@ -42,6 +42,7 @@
     "dns_lookup",
     "docker",
     "document_creator",
+    "ecalc",
     "evomap",
     "execute_python",
     "execute_sudo",

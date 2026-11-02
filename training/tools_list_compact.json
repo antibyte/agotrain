@@ -690,7 +690,7 @@
   },
   {
     "name": "co_agent",
-    "description": "Spawn and monitor parallel co-agents that work on sub-tasks independently. Co-agents run in background goroutines with their own LLM context and return results when done. Use 'spawn_specialist' to dispatch tasks to specialized experts (researcher, coder, designer, security, writer). Use 'list' for quick status. Use 'get_result' to wait briefly for completion and retrieve the result; a running co-agent is not failed just because no partial tokens are visible. Do not use 'stop' or 'stop_all' unless the user explicitly asked to cancel a co-agent.",
+    "description": "Spawn and monitor parallel co-agents that work on sub-tasks independently. Co-agents run in background goroutines with their own LLM context and return results when done. Use 'spawn_specialist' to dispatch tasks to specialized experts (researcher, coder, designer, security, writer). All management operations are limited to co-agents owned by this session; foreign IDs are unavailable. Use 'list' for quick status. Use 'get_result' to wait briefly for completion and retrieve the result; a running co-agent is not failed just because no partial tokens are visible. Do not use 'stop' or 'stop_all' unless the user explicitly asked to cancel a co-agent.",
     "required": [
       "_todo",
       "co_agent_id",
@@ -1278,6 +1278,39 @@
       {
         "selector": "operation",
         "value": "url_to_pdf"
+      }
+    ]
+  },
+  {
+    "name": "ecalc",
+    "description": "Electronics calculators from the ECalc catalog (Ohm's law, dividers, filters, op-amps, E-series): search them, describe one, calculate with units, or open one pre-filled in the ECalc app.",
+    "required": [
+      "_todo",
+      "choices",
+      "eseries",
+      "id",
+      "inputs",
+      "limit",
+      "operation",
+      "query"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "calculate"
+      },
+      {
+        "selector": "operation",
+        "value": "describe"
+      },
+      {
+        "selector": "operation",
+        "value": "open"
+      },
+      {
+        "selector": "operation",
+        "value": "search"
       }
     ]
   },

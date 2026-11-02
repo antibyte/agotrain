@@ -41,6 +41,7 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(report["split_rows"]["train"]["de"], 28000)
         self.assertEqual(report["split_rows"]["validation"]["hi"], 125)
         self.assertEqual(report["challenge_rows"], 2800)
+        self.assertEqual(report["kind_groups"], allocation(17500, self.cfg["kind_weights"]))
         self.assertEqual(len({g["group_id"] for g in groups}), 17500)
         self.assertEqual(summary(build_schedule(self.cat, self.cfg)), report)
 
