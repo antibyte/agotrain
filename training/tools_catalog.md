@@ -1842,7 +1842,7 @@ Manage homepage project git and revision history.
 Manage homepage project lifecycle in the homepage workspace.
 
 - Tier: `extended`
-- Required: `_todo`, `auto_fix`, `build_dir`, `command`, `force`, `framework`, `managed_site_id`, `name`, `operation`, `packages`, `port`, `project_dir`, `reason`, `template`
+- Required: `_todo`, `auto_fix`, `build_dir`, `command`, `design`, `force`, `framework`, `managed_site_id`, `name`, `operation`, `packages`, `port`, `project_dir`, `reason`, `template`
 - Operations: 17
 - Manual: `prompts/tools_manuals/homepage_project.md`
 
@@ -1852,6 +1852,7 @@ Manage homepage project lifecycle in the homepage workspace.
 | `auto_fix` | `boolean` | Retry common build fixes when true. |
 | `build_dir` | `string` | Build output directory. |
 | `command` | `string` | Shell command for exec inside the homepage container. |
+| `design` | `string` | Optional design template id for init_project (from the homepage design catalog, e.g. genesis). Writes the matching DESIGN.md into the new project so the design system applies. |
 | `force` | `boolean` | Required true only for destructive destroy. |
 | `framework` | `string` | Framework for init_project: next, vite, astro, svelte, vue, html. |
 | `managed_site_id` | `integer` | Internal managed website ID; distinct from provider site_id/project_id. |

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "catalog_sha256": "5c6f8b764e69b5c5b0ea105a9044936dfaa2e91d93ac727e3f1e951eae561157",
+  "catalog_sha256": "4c662c55d28e4d8a56adb337687a5872e4c95155eae2d563fa3b1b9a7877f1e0",
   "sources": {
     "prompts/tools_manuals/activate_agent_skill.md": "0bf0d39978efb41a69579cfb2d4786cb4f8b2176a02d4ff0dbdd09383ee09811",
     "prompts/tools_manuals/address_book.md": "00da1c21a0abb796871de0a2ff806e8e707deb9c869e8fdb55c5e6789dfe45c8",
@@ -213,7 +213,7 @@
     "prompts/tools_manuals/xml_editor.md": "70a334eb6e3cb4c798d71ab00e233e75a14bbd41c50398c7a7be4589c6b3077e",
     "prompts/tools_manuals/yaml_editor.md": "3019e5bcda6867a4a5ff6732e690daa77fabc3ab8b1444ef3c8776fce787779b",
     "prompts/tools_manuals/yepapi.md": "1706d0835ddecab453b7adcfae11ded4338f9b30ac2fd30623cc1fdf3e817c3d",
-    "training/operation_contracts.json": "9e258826e167ea1b519142637b4cec6c56c17b45c2c4939420edad94fdd83fde",
+    "training/operation_contracts.json": "00bac9520500827ff9a07210f8d9641db9d20a819ccf02a4fdcec378f15b7998",
     "training/tool_tiers.json": "eb7d476b9ed1efb7f74e7f44817e5db6af0f987498007ce1411d26d089a4f786"
   },
   "tools": [
@@ -42143,6 +42143,13 @@
               "null"
             ]
           },
+          "design": {
+            "description": "Optional design template id for init_project (from the homepage design catalog, e.g. genesis). Writes the matching DESIGN.md into the new project so the design system applies.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "force": {
             "description": "Required true only for destructive destroy.",
             "type": [
@@ -42238,6 +42245,7 @@
           "auto_fix",
           "build_dir",
           "command",
+          "design",
           "force",
           "framework",
           "managed_site_id",
@@ -42268,6 +42276,10 @@
           },
           "command": {
             "description": "Shell command for exec inside the homepage container.",
+            "type": "string"
+          },
+          "design": {
+            "description": "Optional design template id for init_project (from the homepage design catalog, e.g. genesis). Writes the matching DESIGN.md into the new project so the design system applies.",
             "type": "string"
           },
           "force": {
@@ -42343,6 +42355,7 @@
         "auto_fix",
         "build_dir",
         "command",
+        "design",
         "force",
         "framework",
         "managed_site_id",
@@ -42378,6 +42391,13 @@
         },
         "command": {
           "description": "Shell command for exec inside the homepage container.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "design": {
+          "description": "Optional design template id for init_project (from the homepage design catalog, e.g. genesis). Writes the matching DESIGN.md into the new project so the design system applies.",
           "type": [
             "string",
             "null"

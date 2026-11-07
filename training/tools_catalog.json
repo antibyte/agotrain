@@ -34044,6 +34044,13 @@
               "null"
             ]
           },
+          "design": {
+            "description": "Optional design template id for init_project (from the homepage design catalog, e.g. genesis). Writes the matching DESIGN.md into the new project so the design system applies.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "force": {
             "description": "Required true only for destructive destroy.",
             "type": [
@@ -34139,6 +34146,7 @@
           "auto_fix",
           "build_dir",
           "command",
+          "design",
           "force",
           "framework",
           "managed_site_id",
@@ -34169,6 +34177,10 @@
           },
           "command": {
             "description": "Shell command for exec inside the homepage container.",
+            "type": "string"
+          },
+          "design": {
+            "description": "Optional design template id for init_project (from the homepage design catalog, e.g. genesis). Writes the matching DESIGN.md into the new project so the design system applies.",
             "type": "string"
           },
           "force": {
@@ -34244,6 +34256,7 @@
         "auto_fix",
         "build_dir",
         "command",
+        "design",
         "force",
         "framework",
         "managed_site_id",
@@ -34279,6 +34292,13 @@
         },
         "command": {
           "description": "Shell command for exec inside the homepage container.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "design": {
+          "description": "Optional design template id for init_project (from the homepage design catalog, e.g. genesis). Writes the matching DESIGN.md into the new project so the design system applies.",
           "type": [
             "string",
             "null"

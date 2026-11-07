@@ -3436,6 +3436,7 @@
       "auto_fix",
       "build_dir",
       "command",
+      "design",
       "force",
       "framework",
       "managed_site_id",
