@@ -2,8 +2,8 @@
 
 Generated deterministically from `BuildNativeToolSchemaSnapshot(...).StrictSchemas()` with all feature flags enabled.
 
-- Tools: **243**
-- Enumerated operations: **1431**
+- Tools: **244**
+- Enumerated operations: **1441**
 - Native format: assistant `tool_calls` followed by adjacent `role=tool` messages with matching `tool_call_id`.
 - Hidden format: `discover_tools`, then the returned binding `call_method` such as `invoke_tool`.
 
@@ -699,23 +699,36 @@ Create/convert PDFs, merge PDFs, or capture webpage screenshots/PDFs through the
 
 ## `ecalc`
 
-Electronics calculators from the ECalc catalog (Ohm's law, dividers, filters, op-amps, E-series): search them, describe one, calculate with units, or open one pre-filled in the ECalc app.
+Electronics calculators, tables, component codes and pinouts: search, describe, calculate, read tables or pinouts, decode/encode codes, or open in the ECalc app.
 
 - Tier: `extended`
-- Required: `_todo`, `choices`, `eseries`, `id`, `inputs`, `limit`, `operation`, `query`
-- Operations: 4
+- Required: `_todo`, `bands`, `choices`, `class`, `code`, `eseries`, `filter`, `id`, `inputs`, `kind`, `limit`, `lookup`, `offset`, `operation`, `pin`, `query`, `tempco`, `tolerance`, `value`, `variant`, `voltage`
+- Operations: 8
 - Manual: `prompts/tools_manuals/ecalc.md`
 
 | Parameter | Type | Description |
 |---|---|---|
 | `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `bands` | `integer` | encode: number of bands. |
 | `choices` | `array` | calculate, open: choice selections as {name, option}. |
+| `class` | `string` | encode: ceramic class 1 or 2. |
+| `code` | `string` | decode: code as printed or band colours. |
 | `eseries` | `string` | calculate: E-series for standard-value suggestions (default E24). |
-| `id` | `string` | describe, calculate, open: calculator id from search. |
+| `filter` | `string` | table, pinout: rows containing this text. |
+| `id` | `string` | describe, calculate, table, pinout, open: id from search. |
 | `inputs` | `array` | calculate, open: known values as {name, value}, for example 4k7, 12 V or 25 °C. A bare number is in the variable's default unit. |
-| `limit` | `integer` | search: 1-25, default 10. |
-| `operation` | `string` | search finds calculators, describe lists variables and solvable inputs, calculate solves, open shows one in the ECalc desktop app. |
+| `kind` | `string` | decode, encode: code kind. |
+| `limit` | `integer` | search 1-25 (10), table 1-50 (20), pinout 1-50 (50). |
+| `lookup` | `object` | table: exact finds the row, ge the row with the smallest cell >= value, interp interpolates output. |
+| `offset` | `integer` | table, pinout: first row. |
+| `operation` | `string` | search finds items; describe lists variables, columns, code forms or variants; table reads rows or one lookup; pinout reads pins; decode/encode convert codes; open shows it in the app. |
+| `pin` | `string` | pinout: pin number or name. |
 | `query` | `string` | search: topic, part or formula, English or German. Empty lists the categories. |
+| `tempco` | `string` | encode: ppm/K. |
+| `tolerance` | `string` | encode: e.g. 5% or K. |
+| `value` | `string` | encode: value, e.g. 4k7 or 100n. |
+| `variant` | `string` | pinout: variant id. |
+| `voltage` | `string` | encode: rated V. |
 
 ## `evomap`
 
@@ -3951,6 +3964,29 @@ Execute a SQL query against a registered database connection. Supports SELECT, I
 | `operation` | `string` | Operation to perform |
 | `sql_query` | `string` | SQL statement to execute (for 'query' operation) |
 | `table_name` | `string` | Table name (for 'describe' operation) |
+
+## `storymaker`
+
+Explainer videos in the Storymaker desktop app: create a story from a topic as a background job, read its status, revise it, export an MP4, open the project or list projects.
+
+- Tier: `extended`
+- Required: `_todo`, `audience`, `format`, `instruction`, `language`, `length_seconds`, `operation`, `project_id`, `silent`, `topic`, `voice`
+- Operations: 6
+- Manual: `prompts/tools_manuals/storymaker.md`
+
+| Parameter | Type | Description |
+|---|---|---|
+| `_todo` | `string` | Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused. |
+| `audience` | `string` | create: who it is for, at most 120 characters |
+| `format` | `string` | create: picture format, default 16:9 |
+| `instruction` | `string` | revise: the change to make, 1-2000 characters |
+| `language` | `string` | create: language of the film, such as de; default is the UI language |
+| `length_seconds` | `integer` | create: target length in seconds, default 60; the server clamps it |
+| `operation` | `string` | create starts a job from a topic, status reads the latest job, revise changes a story, render exports, open shows the project, list names recent projects |
+| `project_id` | `string` | status, revise, render, open: project id from create or list |
+| `silent` | `boolean` | render: export without speech when no voice is ready; the app can restore the speech |
+| `topic` | `string` | create: what the film explains, 1-2000 characters |
+| `voice` | `object` | create: optional voice; leave it out to use the configured one |
 
 ## `system_metrics`
 

@@ -13,6 +13,7 @@
 ## Work guidance
 
 - ECalc fixtures cover search/describe/calculate/open with valid calculator IDs and typed unit inputs in both corpus languages. Co-agent examples are session-scoped; stop requests are explicit. Preserve the complete existing Kaggle/FindIt/WhatsApp contracts during regeneration.
+- ECalc also covers table, pinout, decode and encode. Storymaker fixtures cover all six background-job operations with synthetic projects; do not start a real job during validation.
 
 - Preserve curated operation fixtures and tiers when schemas change. Update the
   source pin deliberately, regenerate with AuraGo, then validate both repositories.

@@ -1283,16 +1283,29 @@
   },
   {
     "name": "ecalc",
-    "description": "Electronics calculators from the ECalc catalog (Ohm's law, dividers, filters, op-amps, E-series): search them, describe one, calculate with units, or open one pre-filled in the ECalc app.",
+    "description": "Electronics calculators, tables, component codes and pinouts: search, describe, calculate, read tables or pinouts, decode/encode codes, or open in the ECalc app.",
     "required": [
       "_todo",
+      "bands",
       "choices",
+      "class",
+      "code",
       "eseries",
+      "filter",
       "id",
       "inputs",
+      "kind",
       "limit",
+      "lookup",
+      "offset",
       "operation",
-      "query"
+      "pin",
+      "query",
+      "tempco",
+      "tolerance",
+      "value",
+      "variant",
+      "voltage"
     ],
     "tier": "extended",
     "operations": [
@@ -1302,7 +1315,15 @@
       },
       {
         "selector": "operation",
+        "value": "decode"
+      },
+      {
+        "selector": "operation",
         "value": "describe"
+      },
+      {
+        "selector": "operation",
+        "value": "encode"
       },
       {
         "selector": "operation",
@@ -1310,7 +1331,15 @@
       },
       {
         "selector": "operation",
+        "value": "pinout"
+      },
+      {
+        "selector": "operation",
         "value": "search"
+      },
+      {
+        "selector": "operation",
+        "value": "table"
       }
     ]
   },
@@ -7751,6 +7780,50 @@
       {
         "selector": "operation",
         "value": "query"
+      }
+    ]
+  },
+  {
+    "name": "storymaker",
+    "description": "Explainer videos in the Storymaker desktop app: create a story from a topic as a background job, read its status, revise it, export an MP4, open the project or list projects.",
+    "required": [
+      "_todo",
+      "audience",
+      "format",
+      "instruction",
+      "language",
+      "length_seconds",
+      "operation",
+      "project_id",
+      "silent",
+      "topic",
+      "voice"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "create"
+      },
+      {
+        "selector": "operation",
+        "value": "list"
+      },
+      {
+        "selector": "operation",
+        "value": "open"
+      },
+      {
+        "selector": "operation",
+        "value": "render"
+      },
+      {
+        "selector": "operation",
+        "value": "revise"
+      },
+      {
+        "selector": "operation",
+        "value": "status"
       }
     ]
   },

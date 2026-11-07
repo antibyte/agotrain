@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "024339596c87418afcce6e4b4f7874fc274e725ee611f517a235ca1e09dd7285",
+  "schema_sha256": "a0a0d624b6625d261fce5a507a24c81a2a51e7631f3406eea2faca4a68c4a7f5",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -21491,6 +21491,21 @@
         },
         {
           "selector": "operation",
+          "value": "decode",
+          "arguments": {
+            "operation": "decode",
+            "kind": "resistor_bands",
+            "code": "brown black red gold"
+          },
+          "required_fields": [
+            "operation",
+            "kind",
+            "code"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
           "value": "describe",
           "arguments": {
             "operation": "describe",
@@ -21499,6 +21514,23 @@
           "required_fields": [
             "operation",
             "id"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "encode",
+          "arguments": {
+            "operation": "encode",
+            "kind": "capacitor",
+            "value": "100n",
+            "tolerance": "K",
+            "voltage": "50V"
+          },
+          "required_fields": [
+            "operation",
+            "kind",
+            "value"
           ],
           "excluded_fields": []
         },
@@ -21516,6 +21548,19 @@
         },
         {
           "selector": "operation",
+          "value": "pinout",
+          "arguments": {
+            "operation": "pinout",
+            "id": "usb_a"
+          },
+          "required_fields": [
+            "operation",
+            "id"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
           "value": "search",
           "arguments": {
             "operation": "search",
@@ -21525,6 +21570,153 @@
             "operation"
           ],
           "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "table",
+          "arguments": {
+            "operation": "table",
+            "id": "awg",
+            "limit": 5
+          },
+          "required_fields": [
+            "operation",
+            "id"
+          ],
+          "excluded_fields": []
+        }
+      ]
+    },
+    "storymaker": {
+      "default_arguments": {
+        "operation": "list"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "create",
+          "arguments": {
+            "operation": "create",
+            "topic": "Explain how a home router connects devices"
+          },
+          "required_fields": [
+            "operation",
+            "topic"
+          ],
+          "excluded_fields": [
+            "instruction",
+            "project_id",
+            "silent"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "list",
+          "arguments": {
+            "operation": "list"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": [
+            "audience",
+            "format",
+            "instruction",
+            "language",
+            "length_seconds",
+            "project_id",
+            "silent",
+            "topic",
+            "voice"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "open",
+          "arguments": {
+            "operation": "open",
+            "project_id": "example-story-project"
+          },
+          "required_fields": [
+            "operation",
+            "project_id"
+          ],
+          "excluded_fields": [
+            "audience",
+            "format",
+            "instruction",
+            "language",
+            "length_seconds",
+            "silent",
+            "topic",
+            "voice"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "render",
+          "arguments": {
+            "operation": "render",
+            "project_id": "example-story-project"
+          },
+          "required_fields": [
+            "operation",
+            "project_id"
+          ],
+          "excluded_fields": [
+            "audience",
+            "format",
+            "instruction",
+            "language",
+            "length_seconds",
+            "topic",
+            "voice"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "revise",
+          "arguments": {
+            "operation": "revise",
+            "project_id": "example-story-project",
+            "instruction": "Shorten the introduction and keep the existing examples."
+          },
+          "required_fields": [
+            "instruction",
+            "operation",
+            "project_id"
+          ],
+          "excluded_fields": [
+            "audience",
+            "format",
+            "language",
+            "length_seconds",
+            "silent",
+            "topic",
+            "voice"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "status",
+          "arguments": {
+            "operation": "status",
+            "project_id": "example-story-project"
+          },
+          "required_fields": [
+            "operation",
+            "project_id"
+          ],
+          "excluded_fields": [
+            "audience",
+            "format",
+            "instruction",
+            "language",
+            "length_seconds",
+            "silent",
+            "topic",
+            "voice"
+          ]
         }
       ]
     }

@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
   "source": "aurago internal/agent.BuildNativeToolSchemaSnapshot.StrictSchemas (all feature flags enabled)",
-  "tool_count": 243,
-  "operation_count": 1431,
+  "tool_count": 244,
+  "operation_count": 1441,
   "call_format": "OpenAI-compatible native function calling with assistant tool_calls and role=tool results linked by tool_call_id.",
   "tools": [
     {
@@ -1152,7 +1152,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/agentmail_drafts.md",
-      "manual_snippet": "# agentmail_drafts\n\nCreate, update, send, read, list, and delete AgentMail drafts.\n\nRecipients are arrays of email addresses. Attachments must reference safe workspace paths or explicit attachment payloads.\n"
+      "manual_snippet": "# agentmail_drafts\n\nCreate, update, send, read, list, and delete AgentMail drafts.\n\nRecipients are arrays of email addresses. Attachments must reference safe workspace paths or explicit attachment payloads.\n\nWrites require writable AgentMail. Deleting a provider draft additionally requires\n`agentmail.allow_delete: true` (default: false). Local Mailer drafts remain separate.\n"
     },
     {
       "name": "agentmail_inboxes",
@@ -1384,7 +1384,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/agentmail_inboxes.md",
-      "manual_snippet": "# agentmail_inboxes\n\nManage AgentMail inboxes: test connection, list, read, create, update, and delete inboxes.\n\nMutating operations respect AgentMail read-only configuration.\n"
+      "manual_snippet": "# agentmail_inboxes\n\nManage AgentMail inboxes: test connection, list, read, create, update, and delete inboxes.\n\nMutating operations respect AgentMail read-only configuration.\n\n`delete_inbox` also requires `agentmail.allow_delete: true`; it is disabled by default.\n"
     },
     {
       "name": "agentmail_messages",
@@ -1930,7 +1930,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/agentmail_messages.md",
-      "manual_snippet": "# agentmail_messages\n\nRead, label, send, reply, forward, delete, and inspect AgentMail messages.\n\nUse `inbox_id` when not using the configured default inbox. Recipients are arrays of email addresses.\n"
+      "manual_snippet": "# agentmail_messages\n\nRead, label, send, reply, forward, delete, and inspect AgentMail messages.\n\nUse `inbox_id` when not using the configured default inbox. Recipients are arrays of email addresses.\n\nWrites require writable AgentMail. `delete_message` additionally requires\n`agentmail.allow_delete: true` (default: false); ordinary sending does not grant deletion.\n"
     },
     {
       "name": "agentmail_threads",
@@ -8711,7 +8711,7 @@
     },
     {
       "name": "ecalc",
-      "description": "Electronics calculators from the ECalc catalog (Ohm's law, dividers, filters, op-amps, E-series): search them, describe one, calculate with units, or open one pre-filled in the ECalc app.",
+      "description": "Electronics calculators, tables, component codes and pinouts: search, describe, calculate, read tables or pinouts, decode/encode codes, or open in the ECalc app.",
       "parameters": {
         "additionalProperties": false,
         "properties": {
@@ -8719,6 +8719,13 @@
             "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
             "type": [
               "string",
+              "null"
+            ]
+          },
+          "bands": {
+            "description": "encode: number of bands.",
+            "type": [
+              "integer",
               "null"
             ]
           },
@@ -8744,6 +8751,20 @@
             },
             "type": [
               "array",
+              "null"
+            ]
+          },
+          "class": {
+            "description": "encode: ceramic class 1 or 2.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "code": {
+            "description": "decode: code as printed or band colours.",
+            "type": [
+              "string",
               "null"
             ]
           },
@@ -8764,8 +8785,15 @@
               "null"
             ]
           },
+          "filter": {
+            "description": "table, pinout: rows containing this text.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "id": {
-            "description": "describe, calculate, open: calculator id from search.",
+            "description": "describe, calculate, table, pinout, open: id from search.",
             "type": [
               "string",
               "null"
@@ -8796,25 +8824,139 @@
               "null"
             ]
           },
+          "kind": {
+            "description": "decode, encode: code kind.",
+            "enum": [
+              "capacitor",
+              "ceramic_temp",
+              "inductor_bands",
+              "resistor_bands",
+              "smd_resistor",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "limit": {
-            "description": "search: 1-25, default 10.",
+            "description": "search 1-25 (10), table 1-50 (20), pinout 1-50 (50).",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "lookup": {
+            "additionalProperties": false,
+            "description": "table: exact finds the row, ge the row with the smallest cell \u003e= value, interp interpolates output.",
+            "properties": {
+              "column": {
+                "description": "Column id.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "mode": {
+                "enum": [
+                  "exact",
+                  "ge",
+                  "interp",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "output": {
+                "description": "Column id to return.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "value": {
+                "description": "As typed; a bare number is in the column's unit.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "column",
+              "mode",
+              "output",
+              "value"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "offset": {
+            "description": "table, pinout: first row.",
             "type": [
               "integer",
               "null"
             ]
           },
           "operation": {
-            "description": "search finds calculators, describe lists variables and solvable inputs, calculate solves, open shows one in the ECalc desktop app.",
+            "description": "search finds items; describe lists variables, columns, code forms or variants; table reads rows or one lookup; pinout reads pins; decode/encode convert codes; open shows it in the app.",
             "enum": [
               "search",
               "describe",
               "calculate",
-              "open"
+              "open",
+              "table",
+              "pinout",
+              "decode",
+              "encode"
             ],
             "type": "string"
           },
+          "pin": {
+            "description": "pinout: pin number or name.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "query": {
             "description": "search: topic, part or formula, English or German. Empty lists the categories.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tempco": {
+            "description": "encode: ppm/K.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tolerance": {
+            "description": "encode: e.g. 5% or K.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "description": "encode: value, e.g. 4k7 or 100n.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "variant": {
+            "description": "pinout: variant id.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "voltage": {
+            "description": "encode: rated V.",
             "type": [
               "string",
               "null"
@@ -8823,13 +8965,26 @@
         },
         "required": [
           "_todo",
+          "bands",
           "choices",
+          "class",
+          "code",
           "eseries",
+          "filter",
           "id",
           "inputs",
+          "kind",
           "limit",
+          "lookup",
+          "offset",
           "operation",
-          "query"
+          "pin",
+          "query",
+          "tempco",
+          "tolerance",
+          "value",
+          "variant",
+          "voltage"
         ],
         "type": "object"
       },
@@ -8839,6 +8994,10 @@
           "_todo": {
             "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
             "type": "string"
+          },
+          "bands": {
+            "description": "encode: number of bands.",
+            "type": "integer"
           },
           "choices": {
             "description": "calculate, open: choice selections as {name, option}.",
@@ -8862,6 +9021,14 @@
             },
             "type": "array"
           },
+          "class": {
+            "description": "encode: ceramic class 1 or 2.",
+            "type": "string"
+          },
+          "code": {
+            "description": "decode: code as printed or band colours.",
+            "type": "string"
+          },
           "eseries": {
             "description": "calculate: E-series for standard-value suggestions (default E24).",
             "enum": [
@@ -8875,8 +9042,12 @@
             ],
             "type": "string"
           },
+          "filter": {
+            "description": "table, pinout: rows containing this text.",
+            "type": "string"
+          },
           "id": {
-            "description": "describe, calculate, open: calculator id from search.",
+            "description": "describe, calculate, table, pinout, open: id from search.",
             "type": "string"
           },
           "inputs": {
@@ -8901,22 +9072,95 @@
             },
             "type": "array"
           },
+          "kind": {
+            "description": "decode, encode: code kind.",
+            "enum": [
+              "capacitor",
+              "ceramic_temp",
+              "inductor_bands",
+              "resistor_bands",
+              "smd_resistor"
+            ],
+            "type": "string"
+          },
           "limit": {
-            "description": "search: 1-25, default 10.",
+            "description": "search 1-25 (10), table 1-50 (20), pinout 1-50 (50).",
+            "type": "integer"
+          },
+          "lookup": {
+            "additionalProperties": false,
+            "description": "table: exact finds the row, ge the row with the smallest cell \u003e= value, interp interpolates output.",
+            "properties": {
+              "column": {
+                "description": "Column id.",
+                "type": "string"
+              },
+              "mode": {
+                "enum": [
+                  "exact",
+                  "ge",
+                  "interp"
+                ],
+                "type": "string"
+              },
+              "output": {
+                "description": "Column id to return.",
+                "type": "string"
+              },
+              "value": {
+                "description": "As typed; a bare number is in the column's unit.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "type": "object"
+          },
+          "offset": {
+            "description": "table, pinout: first row.",
             "type": "integer"
           },
           "operation": {
-            "description": "search finds calculators, describe lists variables and solvable inputs, calculate solves, open shows one in the ECalc desktop app.",
+            "description": "search finds items; describe lists variables, columns, code forms or variants; table reads rows or one lookup; pinout reads pins; decode/encode convert codes; open shows it in the app.",
             "enum": [
               "search",
               "describe",
               "calculate",
-              "open"
+              "open",
+              "table",
+              "pinout",
+              "decode",
+              "encode"
             ],
+            "type": "string"
+          },
+          "pin": {
+            "description": "pinout: pin number or name.",
             "type": "string"
           },
           "query": {
             "description": "search: topic, part or formula, English or German. Empty lists the categories.",
+            "type": "string"
+          },
+          "tempco": {
+            "description": "encode: ppm/K.",
+            "type": "string"
+          },
+          "tolerance": {
+            "description": "encode: e.g. 5% or K.",
+            "type": "string"
+          },
+          "value": {
+            "description": "encode: value, e.g. 4k7 or 100n.",
+            "type": "string"
+          },
+          "variant": {
+            "description": "pinout: variant id.",
+            "type": "string"
+          },
+          "voltage": {
+            "description": "encode: rated V.",
             "type": "string"
           }
         },
@@ -8927,19 +9171,39 @@
       },
       "required": [
         "_todo",
+        "bands",
         "choices",
+        "class",
+        "code",
         "eseries",
+        "filter",
         "id",
         "inputs",
+        "kind",
         "limit",
+        "lookup",
+        "offset",
         "operation",
-        "query"
+        "pin",
+        "query",
+        "tempco",
+        "tolerance",
+        "value",
+        "variant",
+        "voltage"
       ],
       "properties": {
         "_todo": {
           "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
           "type": [
             "string",
+            "null"
+          ]
+        },
+        "bands": {
+          "description": "encode: number of bands.",
+          "type": [
+            "integer",
             "null"
           ]
         },
@@ -8968,6 +9232,20 @@
             "null"
           ]
         },
+        "class": {
+          "description": "encode: ceramic class 1 or 2.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "code": {
+          "description": "decode: code as printed or band colours.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "eseries": {
           "description": "calculate: E-series for standard-value suggestions (default E24).",
           "enum": [
@@ -8985,8 +9263,15 @@
             "null"
           ]
         },
+        "filter": {
+          "description": "table, pinout: rows containing this text.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "id": {
-          "description": "describe, calculate, open: calculator id from search.",
+          "description": "describe, calculate, table, pinout, open: id from search.",
           "type": [
             "string",
             "null"
@@ -9017,25 +9302,139 @@
             "null"
           ]
         },
+        "kind": {
+          "description": "decode, encode: code kind.",
+          "enum": [
+            "capacitor",
+            "ceramic_temp",
+            "inductor_bands",
+            "resistor_bands",
+            "smd_resistor",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "limit": {
-          "description": "search: 1-25, default 10.",
+          "description": "search 1-25 (10), table 1-50 (20), pinout 1-50 (50).",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "lookup": {
+          "additionalProperties": false,
+          "description": "table: exact finds the row, ge the row with the smallest cell \u003e= value, interp interpolates output.",
+          "properties": {
+            "column": {
+              "description": "Column id.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "mode": {
+              "enum": [
+                "exact",
+                "ge",
+                "interp",
+                null
+              ],
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "output": {
+              "description": "Column id to return.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "value": {
+              "description": "As typed; a bare number is in the column's unit.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "column",
+            "mode",
+            "output",
+            "value"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "offset": {
+          "description": "table, pinout: first row.",
           "type": [
             "integer",
             "null"
           ]
         },
         "operation": {
-          "description": "search finds calculators, describe lists variables and solvable inputs, calculate solves, open shows one in the ECalc desktop app.",
+          "description": "search finds items; describe lists variables, columns, code forms or variants; table reads rows or one lookup; pinout reads pins; decode/encode convert codes; open shows it in the app.",
           "enum": [
             "search",
             "describe",
             "calculate",
-            "open"
+            "open",
+            "table",
+            "pinout",
+            "decode",
+            "encode"
           ],
           "type": "string"
         },
+        "pin": {
+          "description": "pinout: pin number or name.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "query": {
           "description": "search: topic, part or formula, English or German. Empty lists the categories.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tempco": {
+          "description": "encode: ppm/K.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tolerance": {
+          "description": "encode: e.g. 5% or K.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "value": {
+          "description": "encode: value, e.g. 4k7 or 100n.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "variant": {
+          "description": "pinout: variant id.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "voltage": {
+          "description": "encode: rated V.",
           "type": [
             "string",
             "null"
@@ -9050,7 +9449,15 @@
         },
         {
           "selector": "operation",
+          "value": "decode"
+        },
+        {
+          "selector": "operation",
           "value": "describe"
+        },
+        {
+          "selector": "operation",
+          "value": "encode"
         },
         {
           "selector": "operation",
@@ -9058,11 +9465,19 @@
         },
         {
           "selector": "operation",
+          "value": "pinout"
+        },
+        {
+          "selector": "operation",
           "value": "search"
+        },
+        {
+          "selector": "operation",
+          "value": "table"
         }
       ],
       "manual_path": "prompts/tools_manuals/ecalc.md",
-      "manual_snippet": "# ECalc (electronics calculators)\n\nUse `ecalc` for electronics formulas: Ohm's law, voltage dividers, filters, timers, op-amp stages, power supplies, RF, standard resistor values and more. It computes with the same catalog and formulas as the ECalc desktop app, exactly and with units; use it instead of calculating by hand. It reads nothing from the network or from files.\n\n## Workflow\n\n1. `search` with a few words (English or German, at most 256 characters): a topic, a part or a formula. An empty `query` lists the categories.\n2. `describe` the calculator you picked: its variables with units and defaults, the choices, how many values are needed (`dof`), which input combinations work (`sets`), the computed outputs (`derived`), the checks and the formula.\n3. `calculate` with the values you kno…"
+      "manual_snippet": "# ECalc (electronics calculators, reference tables, component codes and pinouts)\n\nUse `ecalc` for electronics formulas: Ohm's law, voltage dividers, filters, timers, op-amp stages, power supplies, RF, standard resistor values and more. It computes with the same catalog and formulas as the ECalc desktop app, exactly and with units; use it instead of calculating by hand. The catalog also holds reference **tables** (AWG wire sizes, PCB trace width after IPC-2221, E-series values and more) that you read with `table`, **component codes** (resistor and inductor colour bands, SMD markings, capacitor and ceramic codes) that you read with `decode` and write with `encode`, and **pinouts** (connectors, PC power plugs, board headers, debug ports, IC packages) whose pins you read with `pinout`. It read…"
     },
     {
       "name": "evomap",
@@ -52115,7 +52530,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/manage_webhooks.md",
-      "manual_snippet": "# Webhooks (`manage_webhooks`, `manage_outgoing_webhooks`, `call_webhook`)\n\nManage incoming webhook endpoints for AuraGo. Create, list, update, delete webhooks and view their request logs.\n\n## Operations\n\n| Operation | Description |\n|-----------|-------------|\n| `list` | List all configured incoming webhooks |\n| `get` | Get details of a specific webhook by ID |\n| `create` | Create a new incoming webhook endpoint |\n| `update` | Update an existing webhook |\n| `delete` | Delete a webhook by ID |\n| `logs` | View recent request logs for a webhook |\n\n## Parameters\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `action` | string | yes | One of: list, get, create, update, delete, logs |\n| `id` | string | for get/update/delete/logs | Webhook ID |\n| `n…"
+      "manual_snippet": "# Webhooks (`manage_webhooks`, `manage_outgoing_webhooks`, `call_webhook`)\n\nManage incoming webhook endpoints for AuraGo. Create, list, update, delete webhooks and view their request logs.\n\nIncoming hooks can optionally use replay protection, configured by the operator\nin Config or the admin API. It defaults off and requires the sender protocol in\n`documentation/webhook-replay-protection.md`. Omitted format fields retain their\nsaved values; ordinary tool updates must preserve that protection. A duplicate\nreceipt confirms previous admission and must not trigger an automatic retry with\na new nonce.\n\n## Operations\n\n| Operation | Description |\n|-----------|-------------|\n| `list` | List all configured incoming webhooks |\n| `get` | Get details of a specific webhook by ID |\n| `create` | Create a…"
     },
     {
       "name": "manus",
@@ -69596,6 +70011,368 @@
       ],
       "manual_path": "prompts/tools_manuals/sql_query.md",
       "manual_snippet": "# SQL Query Tool Manual\n\n## Tool Name: `sql_query`\n\n## Purpose\nExecute SQL queries against registered external database connections. Supports PostgreSQL, MySQL/MariaDB, and SQLite databases. Each connection has granular permissions (read/write/change/delete) that are enforced per query.\n\n## Operations\n\n### `query`\nExecute a SQL statement against a database connection.\n- **connection_name** (required): Name of the registered database connection.\n- **sql_query** (required): SQL statement to execute.\n- Only single statements allowed (no semicolon-separated chains).\n- Permissions are checked: SELECT requires read, INSERT requires write, UPDATE requires change, DELETE requires delete permission.\n- Results are limited to the configured maximum rows (default: 1000).\n\n### `describe`\nGet the column…"
+    },
+    {
+      "name": "storymaker",
+      "description": "Explainer videos in the Storymaker desktop app: create a story from a topic as a background job, read its status, revise it, export an MP4, open the project or list projects.",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "audience": {
+            "description": "create: who it is for, at most 120 characters",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "format": {
+            "description": "create: picture format, default 16:9",
+            "enum": [
+              "16:9",
+              "9:16",
+              "1:1",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "instruction": {
+            "description": "revise: the change to make, 1-2000 characters",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "language": {
+            "description": "create: language of the film, such as de; default is the UI language",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "length_seconds": {
+            "description": "create: target length in seconds, default 60; the server clamps it",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "operation": {
+            "description": "create starts a job from a topic, status reads the latest job, revise changes a story, render exports, open shows the project, list names recent projects",
+            "enum": [
+              "create",
+              "status",
+              "revise",
+              "render",
+              "open",
+              "list"
+            ],
+            "type": "string"
+          },
+          "project_id": {
+            "description": "status, revise, render, open: project id from create or list",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "silent": {
+            "description": "render: export without speech when no voice is ready; the app can restore the speech",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "topic": {
+            "description": "create: what the film explains, 1-2000 characters",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "voice": {
+            "additionalProperties": false,
+            "description": "create: optional voice; leave it out to use the configured one",
+            "properties": {
+              "provider": {
+                "description": "voice provider id",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "voice": {
+                "description": "voice id",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "provider",
+              "voice"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "_todo",
+          "audience",
+          "format",
+          "instruction",
+          "language",
+          "length_seconds",
+          "operation",
+          "project_id",
+          "silent",
+          "topic",
+          "voice"
+        ],
+        "type": "object"
+      },
+      "argument_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "_todo": {
+            "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+            "type": "string"
+          },
+          "audience": {
+            "description": "create: who it is for, at most 120 characters",
+            "type": "string"
+          },
+          "format": {
+            "description": "create: picture format, default 16:9",
+            "enum": [
+              "16:9",
+              "9:16",
+              "1:1"
+            ],
+            "type": "string"
+          },
+          "instruction": {
+            "description": "revise: the change to make, 1-2000 characters",
+            "type": "string"
+          },
+          "language": {
+            "description": "create: language of the film, such as de; default is the UI language",
+            "type": "string"
+          },
+          "length_seconds": {
+            "description": "create: target length in seconds, default 60; the server clamps it",
+            "type": "integer"
+          },
+          "operation": {
+            "description": "create starts a job from a topic, status reads the latest job, revise changes a story, render exports, open shows the project, list names recent projects",
+            "enum": [
+              "create",
+              "status",
+              "revise",
+              "render",
+              "open",
+              "list"
+            ],
+            "type": "string"
+          },
+          "project_id": {
+            "description": "status, revise, render, open: project id from create or list",
+            "type": "string"
+          },
+          "silent": {
+            "description": "render: export without speech when no voice is ready; the app can restore the speech",
+            "type": "boolean"
+          },
+          "topic": {
+            "description": "create: what the film explains, 1-2000 characters",
+            "type": "string"
+          },
+          "voice": {
+            "additionalProperties": false,
+            "description": "create: optional voice; leave it out to use the configured one",
+            "properties": {
+              "provider": {
+                "description": "voice provider id",
+                "type": "string"
+              },
+              "voice": {
+                "description": "voice id",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "operation"
+        ],
+        "type": "object"
+      },
+      "required": [
+        "_todo",
+        "audience",
+        "format",
+        "instruction",
+        "language",
+        "length_seconds",
+        "operation",
+        "project_id",
+        "silent",
+        "topic",
+        "voice"
+      ],
+      "properties": {
+        "_todo": {
+          "description": "Session task list. '- [x] done' / '- [ ] pending', one per line. Update each call. Empty string if unused.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "audience": {
+          "description": "create: who it is for, at most 120 characters",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "format": {
+          "description": "create: picture format, default 16:9",
+          "enum": [
+            "16:9",
+            "9:16",
+            "1:1",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instruction": {
+          "description": "revise: the change to make, 1-2000 characters",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "description": "create: language of the film, such as de; default is the UI language",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "length_seconds": {
+          "description": "create: target length in seconds, default 60; the server clamps it",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "operation": {
+          "description": "create starts a job from a topic, status reads the latest job, revise changes a story, render exports, open shows the project, list names recent projects",
+          "enum": [
+            "create",
+            "status",
+            "revise",
+            "render",
+            "open",
+            "list"
+          ],
+          "type": "string"
+        },
+        "project_id": {
+          "description": "status, revise, render, open: project id from create or list",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "silent": {
+          "description": "render: export without speech when no voice is ready; the app can restore the speech",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "topic": {
+          "description": "create: what the film explains, 1-2000 characters",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "voice": {
+          "additionalProperties": false,
+          "description": "create: optional voice; leave it out to use the configured one",
+          "properties": {
+            "provider": {
+              "description": "voice provider id",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "voice": {
+              "description": "voice id",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "provider",
+            "voice"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "tier": "extended",
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "create"
+        },
+        {
+          "selector": "operation",
+          "value": "list"
+        },
+        {
+          "selector": "operation",
+          "value": "open"
+        },
+        {
+          "selector": "operation",
+          "value": "render"
+        },
+        {
+          "selector": "operation",
+          "value": "revise"
+        },
+        {
+          "selector": "operation",
+          "value": "status"
+        }
+      ],
+      "manual_path": "prompts/tools_manuals/storymaker.md",
+      "manual_snippet": "# Storymaker (explainer videos)\n\nUse `storymaker` when the user wants an explainer video from a topic. An isolated agent writes the story in the background in the Storymaker desktop app. This tool starts and follows that job; you never write scenes yourself.\n\n## Operations\n\n- `create` with `topic` (1-2000 characters) starts a job and returns `project_id`, `job_id`, `state` and `eta_hint_seconds`. Optional: `audience` (at most 120 characters), `length_seconds` (default 60; the server clamps it), `format` (`16:9`, `9:16` or `1:1`), `language` (default is the UI language) and `voice` (`{provider, voice}`).\n- `status` with `project_id` returns `state`, `phase`, `scenes_done`, `scenes_total`, `open_checks`, `error_code`, `next_action`, `poll_after_seconds` and, after an export, `output_path`. A…"
     },
     {
       "name": "system_metrics",
