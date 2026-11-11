@@ -115,6 +115,9 @@ belongs to a later task; no application prompt or dispatch behavior changes here
 - Run source and CPU checks before paid calls. Start with the 500-row pilot and
   stop bulk generation when its quality/cost gate fails. Never weaken quotas to
   turn an incomplete pack green.
+- Allocate request kinds across language groups before shuffling, preserving the
+  global quotas and per-language manual coverage. Refresh schedule identity after
+  catalog changes; generated requests remain unaccepted seed material.
 - Use reporting/storage operations for connected multistep requests. Reserve
   extra scenarios for large shared families such as YepAPI while preserving the
   minimum coverage of every family in every language.

@@ -690,7 +690,7 @@
   },
   {
     "name": "co_agent",
-    "description": "Spawn and monitor parallel co-agents that work on sub-tasks independently. Co-agents run in background goroutines with their own LLM context and return results when done. Use 'spawn_specialist' to dispatch tasks to specialized experts (researcher, coder, designer, security, writer). Use 'list' for quick status. Use 'get_result' to wait briefly for completion and retrieve the result; a running co-agent is not failed just because no partial tokens are visible. Do not use 'stop' or 'stop_all' unless the user explicitly asked to cancel a co-agent.",
+    "description": "Spawn and monitor parallel co-agents that work on sub-tasks independently. Co-agents run in background goroutines with their own LLM context and return results when done. Use 'spawn_specialist' to dispatch tasks to specialized experts (researcher, coder, designer, security, writer). All management operations are limited to co-agents owned by this session; foreign IDs are unavailable. Use 'list' for quick status. Use 'get_result' to wait briefly for completion and retrieve the result; a running co-agent is not failed just because no partial tokens are visible. Do not use 'stop' or 'stop_all' unless the user explicitly asked to cancel a co-agent.",
     "required": [
       "_todo",
       "co_agent_id",
@@ -1278,6 +1278,68 @@
       {
         "selector": "operation",
         "value": "url_to_pdf"
+      }
+    ]
+  },
+  {
+    "name": "ecalc",
+    "description": "Electronics calculators, tables, component codes and pinouts: search, describe, calculate, read tables or pinouts, decode/encode codes, or open in the ECalc app.",
+    "required": [
+      "_todo",
+      "bands",
+      "choices",
+      "class",
+      "code",
+      "eseries",
+      "filter",
+      "id",
+      "inputs",
+      "kind",
+      "limit",
+      "lookup",
+      "offset",
+      "operation",
+      "pin",
+      "query",
+      "tempco",
+      "tolerance",
+      "value",
+      "variant",
+      "voltage"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "calculate"
+      },
+      {
+        "selector": "operation",
+        "value": "decode"
+      },
+      {
+        "selector": "operation",
+        "value": "describe"
+      },
+      {
+        "selector": "operation",
+        "value": "encode"
+      },
+      {
+        "selector": "operation",
+        "value": "open"
+      },
+      {
+        "selector": "operation",
+        "value": "pinout"
+      },
+      {
+        "selector": "operation",
+        "value": "search"
+      },
+      {
+        "selector": "operation",
+        "value": "table"
       }
     ]
   },
@@ -3374,6 +3436,7 @@
       "auto_fix",
       "build_dir",
       "command",
+      "design",
       "force",
       "framework",
       "managed_site_id",
@@ -7482,7 +7545,7 @@
   },
   {
     "name": "send_image",
-    "description": "Send an image to the user. Shown inline with a click-to-zoom lightbox in the Web UI, as a native photo in Telegram, and as a file attachment in Discord. Provide a local workspace path or an image URL.",
+    "description": "Send an image to the user. Shown inline with a click-to-zoom lightbox in the Web UI, as a native photo in Telegram, as an image message in WhatsApp, and as a file attachment in Discord. Provide a local workspace path or an image URL.",
     "required": [
       "_todo",
       "caption",
@@ -7492,7 +7555,7 @@
   },
   {
     "name": "send_notification",
-    "description": "Send a push notification to ntfy, Pushover, Telegram, Discord, Web Push, SMS, or a Cheap Yellow Display. Use channel cyd for the desk display overlay.",
+    "description": "Send a push notification to ntfy, Pushover, Telegram, WhatsApp, Discord, Web Push, SMS, or a Cheap Yellow Display. Use channel cyd for the desk display overlay.",
     "required": [
       "_todo",
       "channel",
@@ -7526,8 +7589,18 @@
     "tier": "extended"
   },
   {
+    "name": "send_whatsapp",
+    "description": "Send a WhatsApp message, and optionally one file, to the owner's WhatsApp chat. It reaches only the configured owner; there is no recipient parameter.",
+    "required": [
+      "_todo",
+      "file_path",
+      "message"
+    ],
+    "tier": "rare"
+  },
+  {
     "name": "send_youtube_video",
-    "description": "Send a YouTube video to the user. This is the player path. Prefer yepapi_youtube for metadata when that tool is available; otherwise use video_download search or info. Read captions or subtitles before video_download transcribe, and use download only when a file is wanted. In the Web UI it appears as an embedded YouTube player; in Telegram, Discord, and other text channels it appears as a normal YouTube link. Do not download the video.",
+    "description": "Send a YouTube video to the user. This is the player path. Prefer yepapi_youtube for metadata when that tool is available; otherwise use video_download search or info. Read captions or subtitles before video_download transcribe, and use download only when a file is wanted. In the Web UI it appears as an embedded YouTube player; in Telegram, WhatsApp, Discord, and other text channels it appears as a normal YouTube link. Do not download the video.",
     "required": [
       "_todo",
       "start_seconds",
@@ -7708,6 +7781,50 @@
       {
         "selector": "operation",
         "value": "query"
+      }
+    ]
+  },
+  {
+    "name": "storymaker",
+    "description": "Explainer videos in the Storymaker desktop app: create a story from a topic as a background job, read its status, revise it, export an MP4, open the project or list projects.",
+    "required": [
+      "_todo",
+      "audience",
+      "format",
+      "instruction",
+      "language",
+      "length_seconds",
+      "operation",
+      "project_id",
+      "silent",
+      "topic",
+      "voice"
+    ],
+    "tier": "extended",
+    "operations": [
+      {
+        "selector": "operation",
+        "value": "create"
+      },
+      {
+        "selector": "operation",
+        "value": "list"
+      },
+      {
+        "selector": "operation",
+        "value": "open"
+      },
+      {
+        "selector": "operation",
+        "value": "render"
+      },
+      {
+        "selector": "operation",
+        "value": "revise"
+      },
+      {
+        "selector": "operation",
+        "value": "status"
       }
     ]
   },

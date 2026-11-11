@@ -41,16 +41,18 @@ def build_schedule(cat=None, cfg=None):
     cursor = Counter()
     result = []
     other = cfg["languages"][2:]
-    kinds_all = [kind for kind, count in allocation(sum(cfg["groups"].values()), cfg["kind_weights"]).items() for _ in range(count)]
-    rng.shuffle(kinds_all)
-    kind_position = 0
+    remaining_kinds = allocation(sum(cfg["groups"].values()), cfg["kind_weights"])
     for split, count in cfg["groups"].items():
         if count % len(other):
             raise ValueError("group count must divide evenly across secondary languages")
         for li, language in enumerate(other):
             per_language = count // len(other)
-            kinds = kinds_all[kind_position:kind_position + per_language]
-            kind_position += per_language
+            # Balance empty requests across languages so each retains manual coverage.
+            counts = allocation(per_language, remaining_kinds)
+            kinds = [kind for kind, count in counts.items() for _ in range(count)]
+            for kind, kind_count in counts.items():
+                remaining_kinds[kind] -= kind_count
+            rng.shuffle(kinds)
             positive = 0
             for i, kind in enumerate(kinds):
                 primary = manuals[(positive + li * 37) % len(manuals)] if kind != "none" else None

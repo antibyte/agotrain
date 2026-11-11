@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "schema_sha256": "c6347067803245dd59d85f83cc7aed87451be022b98f3e12e7fcdb256e0d7530",
+  "schema_sha256": "77269523015a58759c01e76aaa3e21d5203f37e5c6016e91fb87337d40e54478",
   "tools": {
     "treg_call": {
       "default_arguments": {
@@ -1407,7 +1407,7 @@
           "selector": "operation",
           "value": "get_result",
           "arguments": {
-            "co_agent_id": "example-id",
+            "co_agent_id": "coagent-own-session-1",
             "operation": "get_result"
           },
           "required_fields": [
@@ -1445,7 +1445,7 @@
           "value": "spawn_specialist",
           "arguments": {
             "operation": "spawn_specialist",
-            "specialist": "example",
+            "specialist": "researcher",
             "task": "example"
           },
           "required_fields": [
@@ -1459,7 +1459,7 @@
           "selector": "operation",
           "value": "stop",
           "arguments": {
-            "co_agent_id": "example-id",
+            "co_agent_id": "coagent-own-session-1",
             "operation": "stop"
           },
           "required_fields": [
@@ -21452,6 +21452,271 @@
             "session_id"
           ],
           "excluded_fields": []
+        }
+      ]
+    },
+    "ecalc": {
+      "default_arguments": {
+        "operation": "search"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "calculate",
+          "arguments": {
+            "operation": "calculate",
+            "id": "ohms_law",
+            "inputs": [
+              {
+                "name": "u",
+                "value": "12 V"
+              },
+              {
+                "name": "r",
+                "value": "1k"
+              }
+            ]
+          },
+          "required_fields": [
+            "operation",
+            "id",
+            "inputs"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "decode",
+          "arguments": {
+            "operation": "decode",
+            "kind": "resistor_bands",
+            "code": "brown black red gold"
+          },
+          "required_fields": [
+            "operation",
+            "kind",
+            "code"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "describe",
+          "arguments": {
+            "operation": "describe",
+            "id": "voltage_divider"
+          },
+          "required_fields": [
+            "operation",
+            "id"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "encode",
+          "arguments": {
+            "operation": "encode",
+            "kind": "capacitor",
+            "value": "100n",
+            "tolerance": "K",
+            "voltage": "50V"
+          },
+          "required_fields": [
+            "operation",
+            "kind",
+            "value"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "open",
+          "arguments": {
+            "operation": "open",
+            "id": "voltage_divider"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "pinout",
+          "arguments": {
+            "operation": "pinout",
+            "id": "usb_a"
+          },
+          "required_fields": [
+            "operation",
+            "id"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "search",
+          "arguments": {
+            "operation": "search",
+            "query": "voltage divider"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": []
+        },
+        {
+          "selector": "operation",
+          "value": "table",
+          "arguments": {
+            "operation": "table",
+            "id": "awg",
+            "limit": 5
+          },
+          "required_fields": [
+            "operation",
+            "id"
+          ],
+          "excluded_fields": []
+        }
+      ]
+    },
+    "send_whatsapp": {
+      "default_arguments": {
+        "message": "Example content"
+      }
+    },
+    "storymaker": {
+      "default_arguments": {
+        "operation": "list"
+      },
+      "operations": [
+        {
+          "selector": "operation",
+          "value": "create",
+          "arguments": {
+            "operation": "create",
+            "topic": "Explain how a home router connects devices"
+          },
+          "required_fields": [
+            "operation",
+            "topic"
+          ],
+          "excluded_fields": [
+            "instruction",
+            "project_id",
+            "silent"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "list",
+          "arguments": {
+            "operation": "list"
+          },
+          "required_fields": [
+            "operation"
+          ],
+          "excluded_fields": [
+            "audience",
+            "format",
+            "instruction",
+            "language",
+            "length_seconds",
+            "project_id",
+            "silent",
+            "topic",
+            "voice"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "open",
+          "arguments": {
+            "operation": "open",
+            "project_id": "example-story-project"
+          },
+          "required_fields": [
+            "operation",
+            "project_id"
+          ],
+          "excluded_fields": [
+            "audience",
+            "format",
+            "instruction",
+            "language",
+            "length_seconds",
+            "silent",
+            "topic",
+            "voice"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "render",
+          "arguments": {
+            "operation": "render",
+            "project_id": "example-story-project"
+          },
+          "required_fields": [
+            "operation",
+            "project_id"
+          ],
+          "excluded_fields": [
+            "audience",
+            "format",
+            "instruction",
+            "language",
+            "length_seconds",
+            "topic",
+            "voice"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "revise",
+          "arguments": {
+            "operation": "revise",
+            "project_id": "example-story-project",
+            "instruction": "Shorten the introduction and keep the existing examples."
+          },
+          "required_fields": [
+            "instruction",
+            "operation",
+            "project_id"
+          ],
+          "excluded_fields": [
+            "audience",
+            "format",
+            "language",
+            "length_seconds",
+            "silent",
+            "topic",
+            "voice"
+          ]
+        },
+        {
+          "selector": "operation",
+          "value": "status",
+          "arguments": {
+            "operation": "status",
+            "project_id": "example-story-project"
+          },
+          "required_fields": [
+            "operation",
+            "project_id"
+          ],
+          "excluded_fields": [
+            "audience",
+            "format",
+            "instruction",
+            "language",
+            "length_seconds",
+            "silent",
+            "topic",
+            "voice"
+          ]
         }
       ]
     }

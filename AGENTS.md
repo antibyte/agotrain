@@ -14,6 +14,10 @@
 
 - Preserve curated operation fixtures and tiers when schemas change. Update the
   source pin deliberately, regenerate with AuraGo, then validate both repositories.
+- ECalc retains paired German/English fixtures for all eight operations; Storymaker
+  covers its six project operations. Co-agent management fixtures refer to the
+  initiating session. Reconcile missing entries additively from reviewed contracts,
+  never replace the Kaggle/FindIt history or bootstrap an existing pack.
 - FindIt training fixtures are synthetic and read-only: cover `search`, `get`,
   `availability`, and `shortages` in both German and English, using example IDs
   and values rather than records from a user's physical inventory.
