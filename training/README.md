@@ -11,7 +11,7 @@ small model on AuraGo's native tools. The current pack is generated from
 
 Current generated inventory:
 
-- 241 tools and 1,427 schema-declared operations
+- 244 tools and 1,441 schema-declared operations
 - 5,370 training scenarios: 3,222 German and 2,148 English
 - deterministic family-level train/validation/test splits
 - Permanently held-out challenge scenarios, exactly two per tool
@@ -21,6 +21,8 @@ The pack retains paired German/English coverage for every operation and
 selector-free tool, at least 500 multi-call rows, and all negative cases.
 FindIt operation examples use synthetic item, location, and project values only;
 no physical inventory data belongs in the training pack.
+ECalc covers calculators, tables, component codes and pinouts. Storymaker covers
+all six asynchronous project operations using synthetic project identifiers.
 The generated count follows the live checkout. A schema change intentionally
 changes the operation count and requires reviewed manifest regeneration.
 

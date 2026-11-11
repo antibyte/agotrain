@@ -12075,6 +12075,11 @@
         "path": "workspace/example.txt"
       }
     },
+    "send_whatsapp": {
+      "default_arguments": {
+        "message": "Example content"
+      }
+    },
     "send_youtube_video": {
       "default_arguments": {
         "url": "https://example.com/resource"
@@ -21581,11 +21586,6 @@
           "excluded_fields": []
         }
       ]
-    },
-    "send_whatsapp": {
-      "default_arguments": {
-        "message": "Example content"
-      }
     },
     "storymaker": {
       "default_arguments": {
