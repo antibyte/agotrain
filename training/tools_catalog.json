@@ -34466,7 +34466,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/homepage_project.md",
-      "manual_snippet": "# homepage_project\n\nManage homepage project lifecycle: initialize, start/stop, build, install dependencies, run dev servers, publish locally, tunnel, and destroy with explicit `force=true`.\n\nUse homepage workspace paths and project directories. Do not use generic filesystem tools for homepage project files.\n\nProject-scoped operations must use workspace-relative `project_dir` or `name` values, for example `my-site`. Use the actual project directory from the homepage workspace or registry; do not use guessed folder names, absolute host folders, or `/workspace/...` paths.\n\n**Before planning changes, read `homepage_registry` → `list_history`. After init, build, or publish, call `homepage_registry` → `add_history`.**\n\n\n## Managed website identity and change reasons\n\nQuery homepage_registry …"
+      "manual_snippet": "# homepage_project\n\nManage homepage project lifecycle: initialize, start/stop, build, install dependencies, run dev servers, publish locally, tunnel, and destroy with explicit `force=true`.\n\nUse homepage workspace paths and project directories. Do not use generic filesystem tools for homepage project files.\n\nProject-scoped operations must use workspace-relative `project_dir` or `name` values, for example `my-site`. Use the actual project directory from the homepage workspace or registry; do not use guessed folder names, absolute host folders, or `/workspace/...` paths.\n\nFor `status`, inspect `local_preview.available`, `http_status`, and `project_dir`\nas well as container state. `running: true` does not prove that the website is\navailable; an empty HTTP 404 or invalid document is a failed p…"
     },
     {
       "name": "homepage_quality",
@@ -36847,7 +36847,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/invasion_artifacts.md",
-      "manual_snippet": "# invasion_artifacts\n\nInvasion must be enabled. Read-only retains inspection and blocks mutations.\nReport disabled or upgrade refusals;\ndo not change remote worker settings automatically.\n\nList, read, and delete Invasion Control task artifacts.\n\nUse `task_id`, `artifact_id`, or `file_path` depending on the operation.\n\nRead-only blocks new work and all operator mutations, including stop. Authenticated results and artifacts of admitted work can still be saved; Egg messages cannot wake the agent. Disabled Invasion Control blocks every worker endpoint. A disconnected socket does not prove the Egg stopped: stop requires process/container confirmation. Upgrade Master and Eggs together before enabling the integration.\n"
+      "manual_snippet": "# invasion_artifacts\n\nInvasion must be enabled. Read-only retains inspection and blocks mutations.\nReport disabled or upgrade refusals;\ndo not change remote worker settings automatically.\n\nList, read, and delete Invasion Control task artifacts.\n\nUse `task_id`, `artifact_id`, or `file_path` depending on the operation.\n"
     },
     {
       "name": "invasion_nests",
@@ -37046,7 +37046,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/invasion_nests.md",
-      "manual_snippet": "# invasion_nests\n\nInspect and manage Invasion Control nests and egg assignments.\n\nInvasion must be enabled; read-only blocks assignment, hatch, stop and other\nremote mutations. Master and Eggs require Bridge protocol 3 and security policy\nversion 1. Ask the operator to perform a coordinated upgrade when refused.\nUse the operator's explicit saved permissions; an empty tool list grants no\nshell or Python. Do not automatically repair or reconfigure remote hosts.\n\nEgg names are labels, not AuraGo tool names. Always call the Invasion tool family for nest and egg operations.\n\nRead-only blocks new work and all operator mutations, including stop. Authenticated results and artifacts of admitted work can still be saved; Egg messages cannot wake the agent. Disabled Invasion Control blocks every worke…"
+      "manual_snippet": "# invasion_nests\n\nInspect and manage Invasion Control nests and egg assignments.\n\nInvasion must be enabled; read-only blocks assignment, hatch, stop and other\nremote mutations. Master and Eggs require Bridge protocol 3 and security policy\nversion 1. Ask the operator to perform a coordinated upgrade when refused.\nUse the operator's explicit saved permissions; an empty tool list grants no\nshell or Python. Do not automatically repair or reconfigure remote hosts.\n\nEgg names are labels, not AuraGo tool names. Always call the Invasion tool family for nest and egg operations.\n"
     },
     {
       "name": "invasion_tasks",
@@ -37425,7 +37425,7 @@
         }
       ],
       "manual_path": "prompts/tools_manuals/invasion_tasks.md",
-      "manual_snippet": "# invasion_tasks\n\nInvasion must be enabled. Read-only blocks new tasks and secret delivery. Only\nworkers admitted by Bridge protocol 3 can receive work; report upgrade refusals\nto the operator. Keep secret values out of task text and result messages.\n\nSend, inspect, list, and cancel Invasion Control tasks.\n\nEgg names are not tool names. Use `egg_id` or `egg_name` plus a task instruction for `send_task`.\n\nRead-only blocks new work and all operator mutations, including stop. Authenticated results and artifacts of admitted work can still be saved; Egg messages cannot wake the agent. Disabled Invasion Control blocks every worker endpoint. A disconnected socket does not prove the Egg stopped: stop requires process/container confirmation. Upgrade Master and Eggs together before enabling the inte…"
+      "manual_snippet": "# invasion_tasks\n\nInvasion must be enabled. Read-only blocks new tasks and secret delivery. Only\nworkers admitted by Bridge protocol 3 can receive work; report upgrade refusals\nto the operator. Keep secret values out of task text and result messages.\n\nSend, inspect, list, and cancel Invasion Control tasks.\n\nEgg names are not tool names. Use `egg_id` or `egg_name` plus a task instruction for `send_task`.\n"
     },
     {
       "name": "invoke_tool",
@@ -68549,7 +68549,7 @@
       },
       "tier": "extended",
       "manual_path": "prompts/tools_manuals/send_notification.md",
-      "manual_snippet": "## Tool: Notification Center (`send_notification`)\n\nSend push notifications to one or more channels. Ideal for alerts, reminders, and autonomous task completion reports.\n\n### Schema\n\n```json\n{\n  \"action\": \"send_notification\",\n  \"channel\": \"ntfy\",\n  \"title\": \"Backup Complete\",\n  \"message\": \"Daily backup finished successfully. 3.2 GB archived.\",\n  \"tag\": \"normal\"\n}\n```\n\n### Parameters\n\n| Parameter | Required | Description |\n|-----------|----------|-------------|\n| `channel` | yes | Target: `\"ntfy\"`, `\"pushover\"`, `\"telegram\"`, `\"whatsapp\"`, `\"discord\"`, `\"push\"`, `\"telnyx\"`, `\"cyd\"`, or `\"all\"` |\n| `title`   | no  | Notification title (default: \"AuraGo\") |\n| `message` | yes | Notification body text |\n| `tag`     | no  | Priority: `\"low\"`, `\"normal\"` (default), `\"high\"`, `\"critical\"` |\n\n### C…"
+      "manual_snippet": "## Tool: Notification Center (`send_notification`)\n\nSend push notifications to one or more channels. Ideal for alerts, reminders, and autonomous task completion reports.\n\n### Schema\n\n```json\n{\n  \"action\": \"send_notification\",\n  \"channel\": \"ntfy\",\n  \"title\": \"Backup Complete\",\n  \"message\": \"Daily backup finished successfully. 3.2 GB archived.\",\n  \"tag\": \"normal\"\n}\n```\n\n### Parameters\n\n| Parameter | Required | Description |\n|-----------|----------|-------------|\n| `channel` | yes | Target: `\"ntfy\"`, `\"pushover\"`, `\"telegram\"`, `\"whatsapp\"`, `\"discord\"`, `\"push\"`, `\"telnyx\"`, `\"cyd\"`, or `\"all\"` |\n| `title`   | no  | Notification title (default: \"AuraGo\") |\n| `message` | yes | Notification body text |\n| `tag`     | no  | Priority: `\"low\"`, `\"normal\"` (default), `\"high\"`, `\"critical\"` |\n\n### A…"
     },
     {
       "name": "send_telegram",
