@@ -31,6 +31,8 @@
   not authorization to start a new budget. No RunPod/GPU work is authorized by migration.
 - Keep dependency vulnerabilities visible. Do not force incompatible Unsloth,
   Datasets or fsspec overrides. See `SECURITY.md`.
+- Training CI checks out the exact reviewed PR head (push/dispatch: `github.sha`);
+  `aurago-revision` separately pins the published canonical exporter candidate.
 - Pin workflow actions to full commit SHAs, default to `contents: read`, and keep
   validation CPU-only. No credentials are needed for checkout or offline tests.
 - Preserve unrelated work, stage explicit files, inspect the complete staged diff
