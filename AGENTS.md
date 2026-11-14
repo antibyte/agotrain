@@ -12,8 +12,15 @@
 
 ## Work guidance
 
+- ECalc fixtures cover search/describe/calculate/open with valid calculator IDs and typed unit inputs in both corpus languages. Co-agent examples are session-scoped; stop requests are explicit. Preserve the complete existing Kaggle/FindIt/WhatsApp contracts during regeneration.
+- ECalc also covers table, pinout, decode and encode. Storymaker fixtures cover all six background-job operations with synthetic projects; do not start a real job during validation.
+
 - Preserve curated operation fixtures and tiers when schemas change. Update the
   source pin deliberately, regenerate with AuraGo, then validate both repositories.
+- FindIt training fixtures are synthetic and read-only: cover `search`, `get`,
+  `availability`, and `shortages` in both German and English, using example IDs
+  and values rather than records from a user's physical inventory.
+- The seven Kaggle tools require paired German/English operation coverage, SDK-valid structured arguments and no automatic retry of uncertain mutations. The 5,370-row pack retains the existing negative/discovery quotas and at least 500 connected multistep examples; language allocation stays 60% German and 40% English.
 - `AURAGO_SOURCE` selects the AuraGo checkout for live catalog search; its default
   is the sibling `../AuraGo`. Pass `--source` and `--out` explicitly when exporting.
 - Generated data are synthetic. Never commit user traces, credentials, environments,
@@ -24,6 +31,8 @@
   not authorization to start a new budget. No RunPod/GPU work is authorized by migration.
 - Keep dependency vulnerabilities visible. Do not force incompatible Unsloth,
   Datasets or fsspec overrides. See `SECURITY.md`.
+- Training CI checks out the exact reviewed PR head (push/dispatch: `github.sha`);
+  `aurago-revision` separately pins the published canonical exporter candidate.
 - Pin workflow actions to full commit SHAs, default to `contents: read`, and keep
   validation CPU-only. No credentials are needed for checkout or offline tests.
 - Preserve unrelated work, stage explicit files, inspect the complete staged diff

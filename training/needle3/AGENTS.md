@@ -112,6 +112,8 @@ belongs to a later task; no application prompt or dispatch behavior changes here
 
 ## Work Guidance
 
+- Schedule generation balances positive-kind capacity between training languages before assigning manuals. Preserve total kind/language/split quotas and connected multistep choices; fail if the fixed budget cannot cover every manual. Catalog growth must never silently lower a language's minimum.
+
 - Run source and CPU checks before paid calls. Start with the 500-row pilot and
   stop bulk generation when its quality/cost gate fails. Never weaken quotas to
   turn an incomplete pack green.

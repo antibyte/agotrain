@@ -20,8 +20,8 @@ except ImportError as exc:  # pragma: no cover - exercised by CLI environments
 
 
 SCHEMA_VERSION = "2.0"
-EXPECTED_TOOLS = 233
-EXPECTED_SCENARIOS = 5070
+EXPECTED_TOOLS = 244
+EXPECTED_SCENARIOS = 5370
 EXPECTED_CHALLENGE = EXPECTED_TOOLS * 2
 MAX_TOOLS = 20
 MAX_SCHEMA_TOKENS = 12000  # Keep aligned with the exporter; train with at least 16K sequences.
@@ -450,9 +450,13 @@ def validate_coverage(
 ) -> None:
     if stats.rows != EXPECTED_SCENARIOS:
         raise ValidationFailure(f"native dataset has {stats.rows} rows, expected {EXPECTED_SCENARIOS}")
-    if stats.languages != Counter({"de": 3042, "en": 2028}):
-        raise ValidationFailure(f"language distribution is {dict(stats.languages)}, expected de=3042/en=2028")
+    expected_languages = Counter({"de": EXPECTED_SCENARIOS * 3 // 5, "en": EXPECTED_SCENARIOS * 2 // 5})
+    if stats.languages != expected_languages:
+        raise ValidationFailure(f"language distribution is {dict(stats.languages)}, expected {dict(expected_languages)}")
     direct_count = max(2250, sum(max(1, len(c.get("operations") or [])) for c in contracts.values()) * 2)
+    # The exporter rotates no-call variants across the tool list, so its five
+    # balanced categories can differ by a couple of rows as catalog size changes.
+    no_call_kinds = {"clarification", "disabled", "safety_refusal", "irrelevant", "missing_parameters"}
     expected_kinds = Counter(
         {
             # The exporter guarantees DE/EN coverage for operations and default tools
@@ -462,14 +466,11 @@ def validate_coverage(
             "discover_invoke": 500,
             "tool_error": 375,
             "tool_recovery": 375,
-            "clarification": 100,
-            "disabled": 100,
-            "safety_refusal": 100,
-            "irrelevant": 100,
-            "missing_parameters": 100,
         }
     )
-    if stats.kinds != expected_kinds:
+    observed_fixed_kinds = Counter({kind: count for kind, count in stats.kinds.items() if kind not in no_call_kinds})
+    no_call_counts = [stats.kinds[kind] for kind in sorted(no_call_kinds)]
+    if observed_fixed_kinds != expected_kinds or sum(no_call_counts) != 500 or any(count < 99 or count > 101 for count in no_call_counts):
         raise ValidationFailure(f"scenario distribution differs: {dict(stats.kinds)}")
     for split, minimum in {"train": 3750, "validation": 350, "test": 350}.items():
         if stats.splits[split] < minimum:
