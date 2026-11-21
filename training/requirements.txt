@@ -3,16 +3,16 @@
 #
 # This pip-compatible file pins the direct training dependencies. Transitive
 # versions are fixed by training/uv.lock.
-accelerate==1.15.0
+accelerate==1.16.0
 bitsandbytes==0.50.2
-datasets==4.8.5
-huggingface-hub==1.33.0
+datasets==5.2.0
+huggingface-hub==2.4.0
 jsonschema==4.26.0
-peft==0.21.1
+peft==0.21.3
 protobuf==7.36.2
-sentencepiece==0.2.2
-torch==2.14.1
-trackio==0.39.0
-transformers==5.17.0
-trl==0.24.0
-unsloth==2026.10.3
+sentencepiece==0.2.3
+torch==2.15.0
+trackio==0.45.1
+transformers==5.23.0
+trl==1.18.1
+unsloth==2026.11.6
